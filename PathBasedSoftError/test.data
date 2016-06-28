@@ -1,0 +1,12 @@
+BDD Simulation
+Gate: 22
+ID: 2 Bdd Prob: 0.0625 ITR Prob: 0.0625
+ID: 5 Bdd Prob: 0.4375 ITR Prob: 0.4375
+ID: 8 Bdd Prob: 0.4375 ITR Prob: 0.4375
+ID: 9 Bdd Prob: 0.5625 ITR Prob: 0.5625
+Gate: 23
+ID: 2 Bdd Prob: 0.25 ITR Prob: 0.25
+ID: 5 Bdd Prob: 0.4375 ITR Prob: 0.4375
+ID: 7 Bdd Prob: 0.4375 ITR Prob: 0.4375
+ID: 10 Bdd Prob: 0.4375 ITR Prob: 0.4375
+ID: 11 Bdd Prob: 0.5625 ITR Prob: 0.5625
