@@ -25,10 +25,10 @@ void bdd_sim::sim()
     } 
     else
     {
-        sim_graph(graph);
+        //sim_graph(graph);
         part_circuit(graph);
         
-        gmap::iterator inpit;
+        /*gmap::iterator inpit;
         for(inpit = inp_g.begin(); inpit != inp_g.end(); ++inpit)
         {
             cout<<"Node: "<<inpit->first<<endl;
@@ -36,7 +36,7 @@ void bdd_sim::sim()
             cout<<"Size: "<<inp_g[inpit->first].c_size<<endl;
             cout<<"Partition: "<<inp_g[inpit->first].b_part_num<<endl;
             cout<<endl;
-        }
+        }*/
         cout<<"Final Size Part 1: "<<size_part1<<endl;
         cout<<"Final Size Part 2: "<<size_part2<<endl;
         cout<<"Total Size: "<<total_size<<endl;

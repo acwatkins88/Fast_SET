@@ -13,6 +13,14 @@
 using namespace std;
 
 /*
+ * Partitioning Completed 
+ * Tasks -
+ * Implement adaptive partitioning
+ * Ensure that the partitioning algorithm can take multiple passes
+ * Try to implement the XOR function
+ */
+
+/*
  * graph stores the current circuit
  * circuit stores information on the inputs and outputs
  */

@@ -128,6 +128,7 @@ protected:
     void init_part();
     void init_gain();
     void move_cells();
+    void update_inputs();
     
     // Supporting Functions for partitioning
     bool check_balance(int );

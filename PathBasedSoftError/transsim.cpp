@@ -976,6 +976,7 @@ void gen_sim::part_circuit(gmap graphi)
     init_part();
     init_gain();
     move_cells();
+    update_inputs();
 }
 
 /*
@@ -1092,7 +1093,7 @@ void gen_sim::init_gain()
     list<int>::iterator nit2;
     map<int, list<int> >::iterator cit;
     
-    print_pstruct();
+    //print_pstruct();
     
     for(cit = cell_l.begin(); cit != cell_l.end(); ++cit)
     {
@@ -1215,7 +1216,7 @@ void gen_sim::move_cells()
     
     mgain_val = calc_maxgain();
 
-     while((mgain_val >= 0) && !is_bucket_empty())
+    while((mgain_val >= 0) && !is_bucket_empty())
     {
         for(bit = bucket[mgain_val].begin(); bit != bucket[mgain_val].end(); ++bit)
         {
@@ -1299,6 +1300,37 @@ void gen_sim::move_cells()
         tnum = 0;
         mgain_val = calc_maxgain();
     } 
+}
+
+void gen_sim::update_inputs()
+{
+    int part_num;
+    int part_count = 0;
+    gmap::iterator git;
+    list<int>::iterator lit;
+    
+    for(git = inp_g.begin(); git != inp_g.end(); ++git)
+    {
+        if(inp_g[git->first].type == INPUT)
+        {
+            part_num = inp_g[git->first].b_part_num;
+            
+            for(lit = inp_g[git->first].fanout.begin(); lit != inp_g[git->first].fanout.end(); ++lit)
+            {
+                if(part_num != inp_g[*lit].b_part_num)
+                    part_count++;
+            }
+
+            if(part_count == inp_g[git->first].fanout_num)
+            {
+                if(inp_g[git->first].b_part_num == 1)
+                    inp_g[git->first].b_part_num =2;
+                else
+                    inp_g[git->first].b_part_num = 1;
+            }
+            part_count = 0;
+        }
+    }
 }
 
 void gen_sim::print_pstruct()
