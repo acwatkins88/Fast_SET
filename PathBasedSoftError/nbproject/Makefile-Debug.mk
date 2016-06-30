@@ -58,7 +58,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-L/usr/local/lib -L../lib -L../Research/lib
+LDLIBSOPTIONS=-L/usr/local/lib -L../lib -L/home/acwatkins/Research/lib
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
@@ -71,37 +71,37 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/pathbasedsofterror: ${OBJECTFILES}
 ${OBJECTDIR}/bddprob.o: bddprob.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/local/include -I../include -I../Research/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/bddprob.o bddprob.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -I../include -I/home/acwatkins/Research/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/bddprob.o bddprob.cpp
 
 ${OBJECTDIR}/bddsim.o: bddsim.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/local/include -I../include -I../Research/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/bddsim.o bddsim.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -I../include -I/home/acwatkins/Research/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/bddsim.o bddsim.cpp
 
 ${OBJECTDIR}/itrsim.o: itrsim.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/local/include -I../include -I../Research/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/itrsim.o itrsim.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -I../include -I/home/acwatkins/Research/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/itrsim.o itrsim.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/local/include -I../include -I../Research/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -I../include -I/home/acwatkins/Research/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
 
 ${OBJECTDIR}/node.o: node.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/local/include -I../include -I../Research/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/node.o node.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -I../include -I/home/acwatkins/Research/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/node.o node.cpp
 
 ${OBJECTDIR}/parser.o: parser.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/local/include -I../include -I../Research/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/parser.o parser.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -I../include -I/home/acwatkins/Research/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/parser.o parser.cpp
 
 ${OBJECTDIR}/transsim.o: transsim.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/local/include -I../include -I../Research/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/transsim.o transsim.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -I../include -I/home/acwatkins/Research/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/transsim.o transsim.cpp
 
 # Subprojects
 .build-subprojects:

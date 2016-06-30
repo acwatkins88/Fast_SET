@@ -26,10 +26,7 @@ void bdd_sim::sim()
     else
     {
         sim_graph(graph);
-        load_pstruct(graph);
-        calc_csize();
-        init_part();
-        set_gain();
+        part_circuit(graph);
         
         gmap::iterator inpit;
         for(inpit = inp_g.begin(); inpit != inp_g.end(); ++inpit)

@@ -924,14 +924,6 @@ int gen_sim::label_cone()
 }
 
 /*
- * Main Routine to partition a graph
- */
-void part_circuit()
-{
-    
-}
-
-/*
  * Create subcircuits based on partition number
  */
 gmap gen_sim::extract_circuit(int part_num)
@@ -972,12 +964,25 @@ gmap gen_sim::extract_circuit(int part_num)
 }
 
 /*
- * Routine to convert circuit to net and cell structures
+ * Main Routine to partition a graph
  */
-void gen_sim::load_pstruct(gmap graphi)
+void gen_sim::part_circuit(gmap graphi)
 {
     inp_g.clear();
     inp_g = graphi;
+    
+    load_pstruct();
+    calc_csize();
+    init_part();
+    init_gain();
+    move_cells();
+}
+
+/*
+ * Routine to convert circuit to net and cell structures
+ */
+void gen_sim::load_pstruct()
+{
     gmap::iterator git;
     list<int>::iterator fo_it;
     
@@ -1020,6 +1025,7 @@ void gen_sim::load_pstruct(gmap graphi)
  */
 void gen_sim::calc_csize()
 {
+    int tmp_pins;
     total_size = 0;
     max_pins = 0;
     max_size = 0;
@@ -1033,7 +1039,10 @@ void gen_sim::calc_csize()
             inp_g[git->first].pins = inp_g[git->first].fanin_num + 1;
             if(inp_g[git->first].pins > max_pins)
                 max_pins = inp_g[git->first].pins;
-
+            
+            tmp_pins = inp_g[git->first].pins;
+            bucket[tmp_pins].push_back(git->first);
+            
             // Determine the size of the cell
             inp_g[git->first].c_size = inp_g[git->first].fanin_num + inp_g[git->first].fanout_num;
             total_size = total_size + inp_g[git->first].c_size;
@@ -1111,6 +1120,135 @@ void gen_sim::init_gain()
             t_num = 0;
         }
     }
+}
+
+/*
+ * Determine the maximum gain in the bucket
+ */
+int gen_sim::calc_maxgain()
+{
+    int p_val = -max_pins;
+    
+    map<int, list<int> >::iterator bit;
+    
+    for(bit = bucket.begin(); bit != bucket.end(); ++bit)
+    {
+        if((bit->first > p_val)&&(!bucket[bit->first].empty()))
+            p_val = bit->first;
+    }
+    return p_val;
+}
+
+bool gen_sim::is_cell_free(int cell_n)
+{
+    list<int>::iterator cit;
+    
+    for(cit = locked_cells.begin(); cit != locked_cells.end(); ++cit)
+    {
+        if(cell_n == *cit)
+            return false;
+    }
+    return true;
+    
+}
+
+bool gen_sim::is_bucket_empty()
+{
+    map<int, list<int> >::iterator bit;
+    
+    for(bit = bucket.begin(); bit != bucket.end(); ++bit)
+    {
+        if(!bucket[bit->first].empty())
+            return false;
+    }
+    return true;
+}
+
+/*
+ * Routine to move cells for partitioning
+ * Add routine to ensure that the size ratio is held
+ */
+void gen_sim::move_cells()
+{
+    int mgain_val = 0;
+    int cur_cell;
+    int from , to;
+    int fnum = 0;
+    int tnum = 0;
+    
+    list<int>::iterator cit;
+    list<int>::iterator nit;
+    
+    while((mgain_val >= 0) && !is_bucket_empty())
+    {
+        mgain_val = calc_maxgain();
+        
+        cur_cell = bucket[mgain_val].back();
+        bucket[mgain_val].pop_back();
+
+        from = inp_g[cur_cell].b_part_num;
+        if(from = 1)
+            to = 2;
+        else
+            to = 1;
+
+        locked_cells.push_back(cur_cell);
+
+        inp_g[cur_cell].b_part_num = to;
+        cout<<"Cell: "<<cur_cell<<endl;
+        for(cit = cell_l[cur_cell].begin(); cit != cell_l[cur_cell].end(); ++cit)
+        {
+            cout<<"Net: "<<*cit<<endl;
+            for (nit = net_l[*cit].begin(); nit != net_l[*cit].end(); ++nit)
+            {
+                if (inp_g[*nit].b_part_num == from)
+                    fnum++;
+                else
+                    tnum++;
+            }
+            
+            if(tnum == 0)
+            {
+                for(nit = net_l[*cit].begin(); nit != net_l[*cit].end(); ++nit)
+                {
+                    if(is_cell_free(*nit))
+                         inp_g[*nit].gain++;   
+                }
+            }
+            else if(tnum == 1)
+            {
+                for(nit = net_l[*cit].begin(); nit != net_l[*cit].end(); ++nit)
+                {
+                    if((inp_g[*nit].b_part_num == to) && (is_cell_free(*nit)))
+                        inp_g[*nit].gain--;
+                }
+            }
+            
+            fnum--;
+            tnum++;
+            
+            if(fnum == 0)
+            {
+                for(nit = net_l[*cit].begin(); nit != net_l[*cit].end(); ++nit)
+                {
+                    if(is_cell_free(*nit))
+                         inp_g[*nit].gain--;   
+                }
+            }
+            else if(fnum == 1)
+            {
+                for(nit = net_l[*cit].begin(); nit != net_l[*cit].end(); ++nit)
+                {
+                    if(is_cell_free(*nit))
+                         inp_g[*nit].gain++;   
+                }
+            }
+        }
+        fnum = 0;
+        tnum = 0;
+    }
+    
+    
 }
 
 void gen_sim::print_pstruct()

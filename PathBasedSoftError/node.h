@@ -90,6 +90,7 @@ public:
     int pins;                       // number of pins in the cell
     int gain;                       // gain of cell for partitioning
     int b_part_num;                 // partition number of Fiduccia Method
+    bool free;                      // Flag to determine if cell is free
     
     // Temporary Width
     int r_width;                    // Rising Width

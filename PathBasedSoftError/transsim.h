@@ -47,11 +47,14 @@ protected:
     
     // Data structures for partitioning
     gmap inp_g;
+    // cells connected to a net
     map<int, list<int> > net_l;
+    
+    // nets connected to a cell
     map<int, list<int> > cell_l;
     
-    list<int> free_cells;
     map<int, list<int> > bucket;
+    list<int> locked_cells;
 //protected:
     int sim_type;           // Type of Simulation
     int event_n;            // Overall Event Number
@@ -117,11 +120,18 @@ protected:
     virtual void set_convprop(int , transient& , transient , transient );
     
     // Fuctions for partitioning a circuit
-    void part_circuit();
-    void load_pstruct(gmap );
+    void part_circuit(gmap );
+    void load_pstruct();
     void calc_csize();
     void init_part();
-    void set_gain();
+    void init_gain();
+    void move_cells();
+    
+    // Supporting Functions
+    int calc_maxgain();
+    bool is_cell_free(int );
+    bool is_bucket_empty();
+    
     
     // Test Functions
     void print_pstruct();

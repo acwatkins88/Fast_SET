@@ -76,7 +76,7 @@
           <incDir>
             <pElem>/usr/local/include</pElem>
             <pElem>../include</pElem>
-            <pElem>../Research/include</pElem>
+            <pElem>/home/acwatkins/Research/include</pElem>
           </incDir>
           <commandLine>-m64</commandLine>
         </ccTool>
@@ -85,7 +85,7 @@
           <linkerAddLib>
             <pElem>/usr/local/lib</pElem>
             <pElem>../lib</pElem>
-            <pElem>../Research/lib</pElem>
+            <pElem>/home/acwatkins/Research/lib</pElem>
           </linkerAddLib>
           <commandLine>-m64 -lbdd</commandLine>
         </linkerTool>
