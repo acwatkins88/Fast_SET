@@ -33,9 +33,15 @@ void bdd_sim::sim()
         {
             cout<<"Node: "<<inpit->first<<endl;
             cout<<"Gain: "<<inp_g[inpit->first].gain<<endl;
+            cout<<"Size: "<<inp_g[inpit->first].c_size<<endl;
             cout<<"Partition: "<<inp_g[inpit->first].b_part_num<<endl;
             cout<<endl;
         }
+        cout<<"Final Size Part 1: "<<size_part1<<endl;
+        cout<<"Final Size Part 2: "<<size_part2<<endl;
+        cout<<"Total Size: "<<total_size<<endl;
+        double ratio_v = double(size_part1)/double(total_size);
+        cout<<"Final Ratio: "<<ratio_v<<endl;
             
     }
 }

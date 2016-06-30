@@ -44,6 +44,8 @@ protected:
     int max_pins;
     int total_size;
     int max_size;
+    int size_part1;
+    int size_part2;
     
     // Data structures for partitioning
     gmap inp_g;
@@ -127,7 +129,8 @@ protected:
     void init_gain();
     void move_cells();
     
-    // Supporting Functions
+    // Supporting Functions for partitioning
+    bool check_balance(int );
     int calc_maxgain();
     bool is_cell_free(int );
     bool is_bucket_empty();

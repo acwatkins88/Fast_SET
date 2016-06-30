@@ -1062,6 +1062,7 @@ void gen_sim::calc_csize()
  */
 void gen_sim::init_part()
 {
+    size_part1 = 0;
     int cur_size = 0;
     gmap::iterator git;
     
@@ -1071,10 +1072,12 @@ void gen_sim::init_part()
         {
             inp_g[git->first].b_part_num = 1;
             cur_size = cur_size + inp_g[git->first].c_size;
+            size_part1 = size_part1+inp_g[git->first].c_size;
         }
         else
             inp_g[git->first].b_part_num = 2;
     }
+    size_part2 = total_size - size_part1;
 }
 
 /*
@@ -1123,6 +1126,23 @@ void gen_sim::init_gain()
 }
 
 /*
+ * Determine if move will upset balance
+ */
+bool gen_sim::check_balance(int cell_in)
+{
+    int part = inp_g[cell_in].b_part_num;
+    double top_range = PART_RATIO*total_size + max_size;
+    double bottom_range = PART_RATIO*total_size + max_size;
+    
+    if((part == 1)&&((inp_g[cell_in].c_size + size_part2) < top_range)&&((size_part1 - inp_g[cell_in].c_size) > bottom_range))
+        return true;
+    else if ((part == 2)&&((inp_g[cell_in].c_size + size_part1) < top_range)&&((size_part2 - inp_g[cell_in].c_size) > bottom_range))
+        return true;
+    else
+        return false;
+}
+
+/*
  * Determine the maximum gain in the bucket
  */
 int gen_sim::calc_maxgain()
@@ -1130,15 +1150,25 @@ int gen_sim::calc_maxgain()
     int p_val = -max_pins;
     
     map<int, list<int> >::iterator bit;
+    list<int>::iterator lit;
     
     for(bit = bucket.begin(); bit != bucket.end(); ++bit)
     {
-        if((bit->first > p_val)&&(!bucket[bit->first].empty()))
-            p_val = bit->first;
+        for(lit = bucket[bit->first].begin(); lit != bucket[bit->first].end(); ++lit)
+        {
+            if(check_balance(*lit))
+            {
+                if((bit->first > p_val)&&(!bucket[bit->first].empty()))
+                    p_val = bit->first;
+            }
+        }
     }
     return p_val;
 }
 
+/*
+ * Check if the cell is free
+ */
 bool gen_sim::is_cell_free(int cell_n)
 {
     list<int>::iterator cit;
@@ -1152,6 +1182,9 @@ bool gen_sim::is_cell_free(int cell_n)
     
 }
 
+/*
+ * Check if the bucket is empty
+ */
 bool gen_sim::is_bucket_empty()
 {
     map<int, list<int> >::iterator bit;
@@ -1166,7 +1199,6 @@ bool gen_sim::is_bucket_empty()
 
 /*
  * Routine to move cells for partitioning
- * Add routine to ensure that the size ratio is held
  */
 void gen_sim::move_cells()
 {
@@ -1178,14 +1210,22 @@ void gen_sim::move_cells()
     
     list<int>::iterator cit;
     list<int>::iterator nit;
+    list<int>::iterator bit;
     
-    while((mgain_val >= 0) && !is_bucket_empty())
-    {
-        mgain_val = calc_maxgain();
-        
-        cur_cell = bucket[mgain_val].back();
-        bucket[mgain_val].pop_back();
+    mgain_val = calc_maxgain();
 
+     while((mgain_val >= 0) && !is_bucket_empty())
+    {
+        for(bit = bucket[mgain_val].begin(); bit != bucket[mgain_val].end(); ++bit)
+        {
+            if(check_balance(*bit))
+            {
+                cur_cell = *bit;
+                bucket[mgain_val].erase(bit);
+                break;
+            }
+        }
+        
         from = inp_g[cur_cell].b_part_num;
         if(from = 1)
             to = 2;
@@ -1195,10 +1235,24 @@ void gen_sim::move_cells()
         locked_cells.push_back(cur_cell);
 
         inp_g[cur_cell].b_part_num = to;
-        cout<<"Cell: "<<cur_cell<<endl;
+        
+        if(to == 1)
+        {
+            size_part1 = size_part1 + inp_g[cur_cell].c_size;
+            size_part2 = size_part2 - inp_g[cur_cell].c_size;
+        }
+        else
+        {
+            size_part2 = size_part2 + inp_g[cur_cell].c_size;
+            size_part1 = size_part1 - inp_g[cur_cell].c_size;
+        }
+        
+        cout<<"Part1 Size: "<<size_part1<<endl;
+        cout<<"Part2 Size: "<<size_part2<<endl;
+        cout<<"Total Size: "<<total_size<<endl;
+        
         for(cit = cell_l[cur_cell].begin(); cit != cell_l[cur_cell].end(); ++cit)
         {
-            cout<<"Net: "<<*cit<<endl;
             for (nit = net_l[*cit].begin(); nit != net_l[*cit].end(); ++nit)
             {
                 if (inp_g[*nit].b_part_num == from)
@@ -1246,9 +1300,10 @@ void gen_sim::move_cells()
         }
         fnum = 0;
         tnum = 0;
-    }
-    
-    
+        mgain_val = calc_maxgain();
+        cout<<"mgain_val: "<<mgain_val<<endl;
+        cout<<"Cell: "<<cur_cell<<endl;
+    } 
 }
 
 void gen_sim::print_pstruct()
