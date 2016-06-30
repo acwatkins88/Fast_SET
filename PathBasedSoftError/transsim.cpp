@@ -1131,12 +1131,12 @@ void gen_sim::init_gain()
 bool gen_sim::check_balance(int cell_in)
 {
     int part = inp_g[cell_in].b_part_num;
-    double top_range = PART_RATIO*total_size + max_size;
-    double bottom_range = PART_RATIO*total_size + max_size;
+    int top_range = int(PART_RATIO*total_size) + max_size;
+    int bottom_range = int(PART_RATIO*total_size) - max_size;
     
-    if((part == 1)&&((inp_g[cell_in].c_size + size_part2) < top_range)&&((size_part1 - inp_g[cell_in].c_size) > bottom_range))
+    if((part == 1)&&((inp_g[cell_in].c_size + size_part2) <= top_range)&&((size_part1 - inp_g[cell_in].c_size) >= bottom_range))
         return true;
-    else if ((part == 2)&&((inp_g[cell_in].c_size + size_part1) < top_range)&&((size_part2 - inp_g[cell_in].c_size) > bottom_range))
+    else if ((part == 2)&&((inp_g[cell_in].c_size + size_part1) <= top_range)&&((size_part2 - inp_g[cell_in].c_size) >= bottom_range))
         return true;
     else
         return false;
@@ -1148,6 +1148,7 @@ bool gen_sim::check_balance(int cell_in)
 int gen_sim::calc_maxgain()
 {
     int p_val = -max_pins;
+    bool val;
     
     map<int, list<int> >::iterator bit;
     list<int>::iterator lit;
@@ -1227,7 +1228,7 @@ void gen_sim::move_cells()
         }
         
         from = inp_g[cur_cell].b_part_num;
-        if(from = 1)
+        if(from == 1)
             to = 2;
         else
             to = 1;
@@ -1245,11 +1246,7 @@ void gen_sim::move_cells()
         {
             size_part2 = size_part2 + inp_g[cur_cell].c_size;
             size_part1 = size_part1 - inp_g[cur_cell].c_size;
-        }
-        
-        cout<<"Part1 Size: "<<size_part1<<endl;
-        cout<<"Part2 Size: "<<size_part2<<endl;
-        cout<<"Total Size: "<<total_size<<endl;
+        }       
         
         for(cit = cell_l[cur_cell].begin(); cit != cell_l[cur_cell].end(); ++cit)
         {
@@ -1301,8 +1298,6 @@ void gen_sim::move_cells()
         fnum = 0;
         tnum = 0;
         mgain_val = calc_maxgain();
-        cout<<"mgain_val: "<<mgain_val<<endl;
-        cout<<"Cell: "<<cur_cell<<endl;
     } 
 }
 
