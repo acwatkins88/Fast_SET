@@ -171,8 +171,8 @@ private:
     bool sim_graph(gmap& );
     
     // Functions for adaptive partitoning
-    int count_nodes(gmap );
-    void conv_partition(gmap , int & , int );
+    int count_nodes(gmap , int );
+    void conv_partition(gmap & , int & , int );
     
     void bdd_optimize();
 };

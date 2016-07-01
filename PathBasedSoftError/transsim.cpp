@@ -192,7 +192,7 @@ void gen_sim::conv_check(int n_num)
     
     h_table.push_back(temp_pl.front());
     temp_pl.pop_front();
-    
+
     for(f_inp = temp_pl.begin(); f_inp != temp_pl.end(); ++f_inp)
     {  
         for(h_it = h_table.begin(); h_it != h_table.end(); ++h_it)
@@ -951,13 +951,39 @@ gmap gen_sim::extract_circuit(int part_num)
         for(lit = graph[git->first].fanin.begin(); lit != graph[git->first].fanin.end(); ++lit)
         {
             if(l_find(graph[*lit].part, part_num))
+            {
                 temp_graph[git->first].fanin.push_back(*lit);
+                f_count++;
+            }
         }
+        temp_graph[git->first].fanin_num = f_count;
+        f_count = 0;
         
         for(lit = graph[git->first].fanout.begin(); lit != graph[git->first].fanout.end(); ++lit)
         {
             if(l_find(graph[*lit].part, part_num))
+            {
                 temp_graph[git->first].fanout.push_back(*lit);
+                f_count++;
+            }
+        }
+        temp_graph[git->first].fanout_num = f_count;
+        f_count = 0;
+        
+        // If cell is missing an input, create a new input in its place
+        
+        if((temp_graph[git->first].fanin_num != (graph_m[git->first].fanin_num))&&(temp_graph[git->first].type != INPUT))
+        {   
+            int diff = graph_m[git->first].fanin_num - temp_graph[git->first].fanin_num;
+       
+            for(int n_count = -1; n_count >= -diff; n_count--)
+            {
+                temp_graph[n_count].type = INPUT;
+                temp_graph[n_count].fanout.push_back(git->first);
+                temp_graph[n_count].fanout_num = 1;
+                temp_graph[git->first].fanin.push_back(n_count);
+                temp_graph[git->first].fanin_num++;
+            }
         }
     }
     return temp_graph;
