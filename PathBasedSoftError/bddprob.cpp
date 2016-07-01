@@ -58,8 +58,9 @@ bool bdd_prob::is_inprobmap(int var)
 }
 
 /*
- * Initialize the Probability array by assigning initial probabilites
+ * Initialize the Probability array by assigning initial probabilities
  * Initialize the sum array to zero
+ * Modify so Initial Probabilities are user defined
  */
 void bdd_prob::init_prob(bdd x)
 {

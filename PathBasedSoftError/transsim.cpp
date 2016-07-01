@@ -969,6 +969,10 @@ gmap gen_sim::extract_circuit(int part_num)
 void gen_sim::part_circuit(gmap graphi)
 {
     inp_g.clear();
+    net_l.clear();
+    cell_l.clear();
+    bucket.clear();
+    locked_cells.clear();
     inp_g = graphi;
     
     load_pstruct();

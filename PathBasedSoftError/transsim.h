@@ -168,7 +168,11 @@ private:
     void set_convprop(int , transient& , transient , transient );
     bdd get_convbdd(int, transient, transient);
     
-    void sim_graph(gmap& );
+    bool sim_graph(gmap& );
+    
+    // Functions for adaptive partitoning
+    int count_nodes(gmap );
+    void conv_partition(gmap , int & , int );
     
     void bdd_optimize();
 };

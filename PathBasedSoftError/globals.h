@@ -142,10 +142,13 @@ typedef map <int, int> n_count;
 #define REORDER_TH 1000
 
 // Set to 1 to simulate output cones
-#define CONE_SIM 0
+#define CONE_SIM 1
 
 // Set initial partition ratio
 #define PART_RATIO 0.5
+
+// Maximum BDD node count
+#define MAX_BDD_NODES 10
 
 /*
  * 0 - No pulse

@@ -2,6 +2,7 @@
 
 void bdd_sim::sim()
 {
+    bool is_overflowed;
     int max_partn;
     bdd_prob f_prob;
 
@@ -16,48 +17,66 @@ void bdd_sim::sim()
         {
             graph = extract_circuit(i);
 
-            sim_graph(graph);
-
+            is_overflowed = sim_graph(graph);
+            
+            if(is_overflowed)
+            {
+                part_circuit(graph);
+                conv_partition(graph_m, max_partn, i);
+            }
             graph = graph_m;
             event_n = 0;
             id_n = 0;
         }
+        gmap::iterator git;
+        list<int>::iterator lit;
+        for(git = graph_m.begin(); git != graph_m.end(); ++git)
+        {
+            cout<<"Cell: "<<git->first<<endl;
+            for(lit = graph_m[git->first].part.begin(); lit != graph_m[git->first].part.end(); ++lit)
+            {
+                cout<<"Partition: "<<*lit<<endl;
+            }
+        }
+            
     } 
     else
     {
-        //sim_graph(graph);
-        part_circuit(graph);
+        sim_graph(graph);
         
-        /*gmap::iterator inpit;
+        /*part_circuit(graph);
+        
+        gmap::iterator inpit;
         for(inpit = inp_g.begin(); inpit != inp_g.end(); ++inpit)
         {
             cout<<"Node: "<<inpit->first<<endl;
             cout<<"Gain: "<<inp_g[inpit->first].gain<<endl;
             cout<<"Size: "<<inp_g[inpit->first].c_size<<endl;
+            cout<<"Probability: "<<inp_g[inpit->first].prob<<endl;
             cout<<"Partition: "<<inp_g[inpit->first].b_part_num<<endl;
             cout<<endl;
-        }*/
+        }
         cout<<"Final Size Part 1: "<<size_part1<<endl;
         cout<<"Final Size Part 2: "<<size_part2<<endl;
         cout<<"Total Size: "<<total_size<<endl;
         double ratio_v = double(size_part1)/double(total_size);
-        cout<<"Final Ratio: "<<ratio_v<<endl;
+        cout<<"Final Ratio: "<<ratio_v<<endl;*/
             
     }
 }
 
-void bdd_sim::sim_graph(gmap &graph)
+bool bdd_sim::sim_graph(gmap &graph)
 {
     gmap::iterator git;
     list<transient>::iterator p_it;
-    
+
     for (git = graph.begin(); git != graph.end(); ++git)
     {
         if (graph[git->first].type == INPUT)
         {
             graph[git->first].g_func = new bdd();
             *graph[git->first].g_func = new_var();
-        } 
+        }
         else
         {
             graph[git->first].proc_flag = 1;
@@ -123,7 +142,10 @@ void bdd_sim::sim_graph(gmap &graph)
             }*/
         }
         cout << "Gate Processed: " << git->first << endl;
+        if (count_nodes(graph) > MAX_BDD_NODES)
+            return true;
     }
+    return false;
 }
 
 /*
@@ -309,6 +331,44 @@ bdd bdd_sim::get_convbdd(int n_num, transient p1, transient p2)
             
     }
     return temp;
+}
+/*
+ * Routine to count the number of bdd nodes in a cell
+ * Use for adaptive partitioning
+ */
+int bdd_sim::count_nodes(gmap g_input)
+{
+    int count = 0;
+    gmap::iterator git;
+    list<transient>::iterator lit;
+
+    for (git = g_input.begin(); git != g_input.end(); ++git)
+    {
+        count = count + bdd_nodecount(*g_input[git->first].g_func);
+        for (lit = g_input[git->first].p_list.begin(); lit != g_input[git->first].p_list.end(); ++lit)
+        {
+            count = count +bdd_nodecount(lit->p_func);
+        }
+    }
+    return count;
+}
+
+/*
+ * Routine to convert the partition on the subgraph inp_g to the main graph g_main
+ */
+void bdd_sim::conv_partition(gmap g_main, int &max_part, int cur_partnum)
+{
+    gmap::iterator git;
+    max_part++;
+    
+    for(git = inp_g.begin(); git != inp_g.end(); ++git)
+    {
+        if(inp_g[git->first].b_part_num == 2)
+        {
+            g_main[git->first].part.push_back(max_part);
+            g_main[git->first].part.remove(cur_partnum);
+        }
+    }
 }
 
 void bdd_sim::bdd_optimize()
