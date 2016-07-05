@@ -57,6 +57,7 @@ int main(int argc, char** argv)
     ifstream file_h;
     parser p_file;
     bdd_sim b_sim(BDD_SIM);
+    itr_sim i_sim(ITR_SIM);
     bdd_prob e_bdd;
     
     p_file.build_graph(argv[1]);
@@ -67,6 +68,7 @@ int main(int argc, char** argv)
     //graphn = b_sim.extract_circuit(0);
     unsigned t0=clock();
     b_sim.sim();
+    //i_sim.sim();
     unsigned t1=clock()-t0;
     
     gmap::iterator g_it;
@@ -74,7 +76,7 @@ int main(int argc, char** argv)
     list<int>::iterator p_it;
     map<int, double>::iterator r_it;
     
-    for(g_it = graph_m.begin(); g_it != graph_m.end(); ++g_it)
+    /*for(g_it = graph_m.begin(); g_it != graph_m.end(); ++g_it)
     {
         if(out_find(g_it->first))
         {
@@ -85,6 +87,21 @@ int main(int argc, char** argv)
             {
                 cout<<"Event: "<<r_it->first<<endl;
                 cout<<"Probability: "<<graph_m[g_it->first].r_map[r_it->first]<<endl;
+            }
+        }
+    }*/
+    
+    for(g_it = graph.begin(); g_it != graph.end(); ++g_it)
+    {
+        if(out_find(g_it->first))
+        {
+            cout<<"Node: "<<g_it->first<<endl;
+            cout<<"Type: "<<graph[g_it->first].type<<endl;
+            cout<<"Pulses: "<<endl;;
+            for(r_it = graph[g_it->first].r_map.begin(); r_it != graph[g_it->first].r_map.end(); ++r_it)
+            {
+                cout<<"Event: "<<r_it->first<<endl;
+                cout<<"Probability: "<<graph[g_it->first].r_map[r_it->first]<<endl;
             }
         }
     }
@@ -142,6 +159,8 @@ int main(int argc, char** argv)
     /*
      * Begin Simulation Routines
      */
+    
+    bdd_done();
     
     return 0;
 }

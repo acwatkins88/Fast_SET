@@ -983,14 +983,17 @@ gmap gen_sim::extract_circuit(int part_num)
             //for(int n_count = -1; n_count >= -diff; n_count--)
             for(lit = graph_m[git->first].fanin.begin(); lit != graph_m[git->first].fanin.end(); ++ lit)
             {
-                temp_graph[n_count].type = INPUT;
-                temp_graph[n_count].fanout.push_back(git->first);
-                temp_graph[n_count].fanout_num = 1;
-                temp_graph[n_count].prob = graph_m[*lit].prob;
-                temp_graph[n_count].p_list = graph_m[*lit].p_list;
-                temp_graph[git->first].fanin.push_back(n_count);
-                temp_graph[git->first].fanin_num++;
-                n_count--;
+                if(graph_m[*lit].type != INPUT)
+                {
+                    temp_graph[n_count].type = INPUT;
+                    temp_graph[n_count].fanout.push_back(git->first);
+                    temp_graph[n_count].fanout_num = 1;
+                    temp_graph[n_count].prob = graph_m[*lit].prob;
+                    temp_graph[n_count].p_list = graph_m[*lit].p_list;
+                    temp_graph[git->first].fanin.push_back(n_count);
+                    temp_graph[git->first].fanin_num++;
+                    n_count--;
+                }
             }
         }
     }

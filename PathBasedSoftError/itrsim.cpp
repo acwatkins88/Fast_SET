@@ -27,6 +27,8 @@ void itr_sim::sim()
     // Begin Simulation
     for(i = 0; i != max_itr; i++)
     {
+        cout<<"Iteration: "<<i<<endl;
+        
         this->event_n = 0;
         this->id_n = 0;
         
@@ -154,7 +156,7 @@ void itr_sim::eval_gval(int n_num)
 
 void itr_sim::gen_p(int n_num)
 {   
-    /*if(graph[n_num].val == 0)
+    if(graph[n_num].val == 0)
     {
         graph[n_num].p_list.push_back(gen_pulse(RISING, n_num));
         
@@ -167,7 +169,7 @@ void itr_sim::gen_p(int n_num)
         this->event_n++;
         
         graph[n_num].p_list.push_back(gen_pulse(FALLING, n_num));
-    }*/
+    }
 }
 
 void itr_sim::set_propfunc(int n_num, int inp_node, transient p, transient temp)
