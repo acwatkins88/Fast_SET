@@ -29,7 +29,10 @@ public:
     smap sum_map;
     n_count inp_num;
     n_count num_vis;
-    void solve_prob(bdd x);
+    smap inp_map;    // map to store initial input probabilities
+    
+    void set_inpprob();
+    void solve_prob(bdd );
     
     void del_probmap();
     

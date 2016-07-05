@@ -65,6 +65,7 @@ bool bdd_prob::is_inprobmap(int var)
 void bdd_prob::init_prob(bdd x)
 {
     int var;
+    int inp_var;
     
     bdd const_t = bdd_true();
     bdd const_f = bdd_false();
@@ -78,14 +79,15 @@ void bdd_prob::init_prob(bdd x)
     if(x != const_t && x != const_f)
     {
         var = x.id();
+        inp_var = bdd_var(x);
 
         if(is_inprobmap(var) == false)
         {
             prob_map[var] = new double[2];
         }
 
-        prob_map[var][0] = F_PROB;
-        prob_map[var][1] = T_PROB;
+        prob_map[var][0] = (1 - inp_map[inp_var]);  
+        prob_map[var][1] = inp_map[inp_var];
 
         sum_map[var] = 0;
         

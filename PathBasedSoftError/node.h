@@ -44,7 +44,7 @@ public:
     double delay;              // Temporary Delay
     list<prev_p> prev_pulse;
     
-    double t_prob;
+    double t_prob;             // Variable to Store Probability 
     
     /*
      * Not Used Functions
@@ -89,7 +89,7 @@ public:
     int c_size;                     // size of cell for partitioning
     int pins;                       // number of pins in the cell
     int gain;                       // gain of cell for partitioning
-    int b_part_num;                 // partition number of Fiduccia Method
+    int b_part_num;                 // partition number of Fiduccia method
     bool free;                      // Flag to determine if cell is free
     
     // Temporary Width

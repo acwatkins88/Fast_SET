@@ -970,19 +970,27 @@ gmap gen_sim::extract_circuit(int part_num)
         temp_graph[git->first].fanout_num = f_count;
         f_count = 0;
         
+        /*
         // If cell is missing an input, create a new input in its place
+        */
+        list<int>::iterator lit;
+        int n_count = -1;
         
         if((temp_graph[git->first].fanin_num != (graph_m[git->first].fanin_num))&&(temp_graph[git->first].type != INPUT))
         {   
             int diff = graph_m[git->first].fanin_num - temp_graph[git->first].fanin_num;
        
-            for(int n_count = -1; n_count >= -diff; n_count--)
+            //for(int n_count = -1; n_count >= -diff; n_count--)
+            for(lit = graph_m[git->first].fanin.begin(); lit != graph_m[git->first].fanin.end(); ++ lit)
             {
                 temp_graph[n_count].type = INPUT;
                 temp_graph[n_count].fanout.push_back(git->first);
                 temp_graph[n_count].fanout_num = 1;
+                temp_graph[n_count].prob = graph_m[*lit].prob;
+                temp_graph[n_count].p_list = graph_m[*lit].p_list;
                 temp_graph[git->first].fanin.push_back(n_count);
                 temp_graph[git->first].fanin_num++;
+                n_count--;
             }
         }
     }

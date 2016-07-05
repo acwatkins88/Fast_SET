@@ -74,20 +74,20 @@ int main(int argc, char** argv)
     list<int>::iterator p_it;
     map<int, double>::iterator r_it;
     
-    /*for(g_it = graph.begin(); g_it != graph.end(); ++g_it)
+    for(g_it = graph_m.begin(); g_it != graph_m.end(); ++g_it)
     {
         if(out_find(g_it->first))
         {
             cout<<"Node: "<<g_it->first<<endl;
-            cout<<"Type: "<<graph[g_it->first].type<<endl;
+            cout<<"Type: "<<graph_m[g_it->first].type<<endl;
             cout<<"Pulses: "<<endl;;
-            for(r_it = graph[g_it->first].r_map.begin(); r_it != graph[g_it->first].r_map.end(); ++r_it)
+            for(r_it = graph_m[g_it->first].r_map.begin(); r_it != graph_m[g_it->first].r_map.end(); ++r_it)
             {
                 cout<<"Event: "<<r_it->first<<endl;
-                cout<<"Probability: "<<graph[g_it->first].r_map[r_it->first]<<endl;
+                cout<<"Probability: "<<graph_m[g_it->first].r_map[r_it->first]<<endl;
             }
         }
-    }*/
+    }
     
     /*for(g_it = graph.begin(); g_it != graph.end(); ++g_it)
     {

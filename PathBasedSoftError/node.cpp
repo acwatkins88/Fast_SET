@@ -11,6 +11,7 @@ transient::transient()
     this->f_time = 0;
     this->end_time = 0;
     this->delay = 0;
+    this->t_prob = 1;
 }
 
 transient::~transient()
