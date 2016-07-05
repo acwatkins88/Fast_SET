@@ -25,7 +25,7 @@ void bdd_sim::sim()
         {
             graph = extract_circuit(i);
             
-            /*cout<<endl<<"Current Graph\n";
+            cout<<endl<<"Current Graph\n";
             for(git = graph.begin(); git != graph.end(); ++git)
             {
                 cout<<"Cell: "<<git->first<<endl;
@@ -38,7 +38,7 @@ void bdd_sim::sim()
                     cout<<*lit<<" ";
                 cout<<endl<<"End"<<endl;
             }
-            cout<<endl;*/
+            cout<<endl;
             is_overflowed = sim_graph(graph);
             cout<<"Overflowed: "<<is_overflowed<<endl;
             
@@ -469,6 +469,7 @@ void bdd_sim::conv_partition(gmap &g_main, int &max_part, int cur_partnum)
             }
            g_main[git->first].part.clear();
            g_main[git->first].part = tmp_list;
+           tmp_list.clear();
         }
     }
     
