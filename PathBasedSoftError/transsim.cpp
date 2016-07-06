@@ -828,13 +828,9 @@ bool gen_sim::find_element(map<int, list<int> > in_map, int id)
     for (map<int, list<int> >::iterator m_it = in_map.begin(); m_it != in_map.end(); ++m_it)
     {
         if (m_it->first == id)
-        {
             return true;
-        }
         else
-        {
             return false;
-        }
     }
 }
 

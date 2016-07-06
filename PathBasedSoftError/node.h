@@ -81,6 +81,7 @@ public:
     int fanin_num;                  // Number of fanins
     int val;                        // gate output value
     double prob;                    // gate signal probability
+    bool gen_flag;                  // Flag denoting that pulses were generated
     
     int proc_flag;                  // denotes when node is processed
     int del_flag;                   // denotes when node transients are deleted
@@ -114,6 +115,7 @@ public:
     
     // Data structure for result calculations (only for circuit outputs)
     map<int, double> r_map;
+    map<int, bdd> bdd_map;
 };
 
 /*

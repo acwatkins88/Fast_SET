@@ -157,5 +157,7 @@ typedef map <int, int> n_count;
  */
 #define pulse_type HLH
 
+#define CUR_SIM 0
+
 #endif	/* GLOBALS_H */
 

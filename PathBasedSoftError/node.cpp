@@ -74,6 +74,7 @@ node::node()
     this->proc_flag = 0;
     this->del_flag = 0;
     this->prob = 0;
+    this->gen_flag = false;
 
     //this->r_width = rand() % MAX_WIDTH + 1;
     //this->f_width = rand() % MAX_WIDTH + 1;

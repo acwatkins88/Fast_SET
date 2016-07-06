@@ -167,6 +167,7 @@ private:
     // Functions for Convergence Calculation
     void set_convprop(int , transient& , transient , transient );
     bdd get_convbdd(int, transient, transient);
+    bool m_findbdd(map<int, bdd> , int );
     
     bool sim_graph(gmap& );
     
