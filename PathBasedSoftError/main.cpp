@@ -95,7 +95,7 @@ int main(int argc, char** argv)
             }
         }
     }
-    else if(CUR_SIM == BDD_SIM)
+    else if(CUR_SIM == ITR_SIM)
     {
         for(g_it = graph.begin(); g_it != graph.end(); ++g_it)
         {

@@ -116,6 +116,7 @@ public:
     // Data structure for result calculations (only for circuit outputs)
     map<int, double> r_map;
     map<int, bdd> bdd_map;
+    map<int, double> p_prob_map;
 };
 
 /*
