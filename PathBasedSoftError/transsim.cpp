@@ -159,6 +159,7 @@ void gen_sim::proc_pulse(int n_num)
                 p_temp.p_gate = *i_it;
                 p_temp.p_pulse = t_it->id;
                 temp.prev_pulse.push_back(p_temp);
+                //temp.t_prob = t_it->t_prob;
                 
                 set_propfunc(n_num, *i_it, *t_it, temp);
                 
@@ -920,7 +921,7 @@ int gen_sim::label_cone()
 }
 
 /*
- * Create subcircuits based on partition number
+ * Create subcircuits based on partition number and set inputs
  */
 gmap gen_sim::extract_circuit(int part_num)
 {
@@ -985,6 +986,7 @@ gmap gen_sim::extract_circuit(int part_num)
                     temp_graph[n_count].fanout.push_back(git->first);
                     temp_graph[n_count].fanout_num = 1;
                     temp_graph[n_count].prob = graph_m[*lit].prob;
+                    cout<<"Prev: "<<*lit<<" Node: "<<n_count<<" Prob Cir: "<<graph_m[*lit].prob<<endl;
                     temp_graph[n_count].p_list = graph_m[*lit].p_list;
                     temp_graph[git->first].fanin.push_back(n_count);
                     temp_graph[git->first].fanin_num++;

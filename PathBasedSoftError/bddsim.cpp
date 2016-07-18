@@ -117,6 +117,7 @@ bool bdd_sim::sim_graph(gmap &graph)
         {
             graph[git->first].g_func = new bdd();
             *graph[git->first].g_func = new_var();
+            cout<<"Node: "<<git->first<<" Var Num: "<<bdd_var(*graph[git->first].g_func)<<endl;
             
             //cout<<"Input: "<<git->first<<" Var Number: "<<bdd_var(*graph[git->first].g_func)<<endl;
             //cout<<"Probabiltiy: "<<graph[git->first].prob<<endl;
@@ -126,6 +127,7 @@ bool bdd_sim::sim_graph(gmap &graph)
             for(tit = graph[git->first].p_list.begin(); tit != graph[git->first].p_list.end(); ++tit)
                 cout<<tit->id<<" ";
             cout<<endl;*/
+            cout<<"Input: "<<git->first<<" Prob: "<<graph[git->first].prob<<endl;
             s_prob.inp_map[bdd_var(*graph[git->first].g_func)] = graph[git->first].prob;
         }
         else
@@ -140,11 +142,11 @@ bool bdd_sim::sim_graph(gmap &graph)
                 bdd_reorder(BDD_REORDER_WIN2ITE);
             
             // Generate New Pulses
-            if(graph_m[git->first].gen_flag == false)
-            {
+            //if(graph_m[git->first].gen_flag == false)
+            //{
                 bdd_genp(git->first);
                 graph_m[git->first].gen_flag = true;
-            }
+            //}
 
             // Propagate Existing Pulses
             proc_pulse(git->first);
@@ -171,6 +173,12 @@ bool bdd_sim::sim_graph(gmap &graph)
                 }
                 return true;
             }
+            
+            list<transient>::iterator p_it;
+
+            s_prob.solve_prob(*graph[git->first].g_func);
+            graph[git->first].prob = s_prob.true_prob;
+            graph_m[git->first].prob = graph[git->first].prob;
             
             // Load into Final Result Structure 
             // Rewrite so that the probability from a partition output is propagated
@@ -201,29 +209,61 @@ bool bdd_sim::sim_graph(gmap &graph)
                 graph_m[git->first].r_map = graph[git->first].r_map;
                 graph[git->first].bdd_map.clear();
                 graph[git->first].p_prob_map.clear();*/
-                for(p_it = graph[git->first].p_list.begin(); p_it != graph[git->first].p_list.end(); ++p_it)
+                
+                //graph_m[git->first].p_list = graph[git->first].p_list;
+                list<transient>::iterator pit;
+                for(pit = graph[git->first].p_list.begin(); pit != graph[git->first].p_list.end(); ++pit)
                 {
-                    s_prob.solve_prob(p_it->p_func);
-                    graph_m[git->first].r_map[p_it->id] = s_prob.true_prob;
+                    cout<<pit->e_num<<endl;
+                    graph_m[git->first].p_list.push_back(*pit);
+                }
+                // Load data by id number
+                for(p_it = graph_m[git->first].p_list.begin(); p_it != graph_m[git->first].p_list.end(); ++p_it)
+                {
+                    /*s_prob.solve_prob(p_it->p_func);
+                    graph_m[git->first].r_map[p_it->e_num] = s_prob.true_prob*p_it->t_prob;
+                    cout<<"ID: "<<p_it->id<<" Prob: "<<p_it->t_prob<<" Bdd Prob: "<<s_prob.true_prob<<endl;
+                    
+                    bdd_printtable(p_it->p_func);*/
+                    if(m_find(graph_m[git->first].r_map, p_it->e_num))
+                    {
+                        s_prob.solve_prob(p_it->p_func);
+                        graph_m[git->first].r_map[p_it->e_num] = graph_m[git->first].r_map[p_it->e_num]+(s_prob.true_prob);
+                    }
+                    else
+                    {
+                        s_prob.solve_prob(p_it->p_func);
+                        graph_m[git->first].r_map[p_it->e_num] = s_prob.true_prob;
+                    }
                 }
             }
             else
             {
-                // Change so that the bdd is only solved if the graph is overflowed
-                list<transient>::iterator p_it;
+                /*list<transient>::iterator p_it;
+                list<int>::iterator lit;
 
                 s_prob.solve_prob(*graph[git->first].g_func);
                 graph[git->first].prob = s_prob.true_prob;
                 graph_m[git->first].prob = graph[git->first].prob;
                 
                 graph_m[git->first].p_list = graph[git->first].p_list;
-
-                for (p_it = graph_m[git->first].p_list.begin(); p_it != graph_m[git->first].p_list.end(); ++p_it)
+                
+                for(p_it = graph_m[git->first].p_list.begin(); p_it != graph_m[git->first].p_list.end(); ++p_it)
                 {
-                    s_prob.solve_prob(p_it->p_func);
-                    p_it->t_prob = s_prob.true_prob;
-                    p_it->p_func = bdd_true();
-                }
+                    cout << "ID: " << p_it->id << endl;
+                    bdd_printtable(p_it->p_func);
+                }*/
+                
+                //if(graph[git->first].fanout_num == 0)
+               //{
+                    /*for (p_it = graph_m[git->first].p_list.begin(); p_it != graph_m[git->first].p_list.end(); ++p_it)
+                    {
+                        s_prob.solve_prob(p_it->p_func);
+                        cout<<"prob here: "<<s_prob.true_prob<<endl;
+                        p_it->t_prob = s_prob.true_prob;
+                        //p_it->p_func = bdd_true();
+                    }*/
+                //}   
             }
         }
         cout << "Gate Processed: " << git->first << endl;
