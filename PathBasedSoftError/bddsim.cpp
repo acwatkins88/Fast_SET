@@ -14,13 +14,17 @@ void bdd_sim::sim()
     {
         if(graph[git->first].type == INPUT)
             graph[git->first].prob = T_PROB;
+        else
+        {
+            bdd_genp(git->first);
+        }
     }
 
     if (CONE_SIM == 1)
     {
         max_partn = label_cone();
         graph_m = graph;
-
+        
         for (int i = 0; i <= max_partn; i++)
         {
             graph = extract_circuit(i);
@@ -117,7 +121,7 @@ bool bdd_sim::sim_graph(gmap &graph)
         {
             graph[git->first].g_func = new bdd();
             *graph[git->first].g_func = new_var();
-            cout<<"Node: "<<git->first<<" Var Num: "<<bdd_var(*graph[git->first].g_func)<<endl;
+            //cout<<"Node: "<<git->first<<" Var Num: "<<bdd_var(*graph[git->first].g_func)<<endl;
             
             //cout<<"Input: "<<git->first<<" Var Number: "<<bdd_var(*graph[git->first].g_func)<<endl;
             //cout<<"Probabiltiy: "<<graph[git->first].prob<<endl;
@@ -127,7 +131,7 @@ bool bdd_sim::sim_graph(gmap &graph)
             for(tit = graph[git->first].p_list.begin(); tit != graph[git->first].p_list.end(); ++tit)
                 cout<<tit->id<<" ";
             cout<<endl;*/
-            cout<<"Input: "<<git->first<<" Prob: "<<graph[git->first].prob<<endl;
+            //cout<<"Input: "<<git->first<<" Prob: "<<graph[git->first].prob<<endl;
             s_prob.inp_map[bdd_var(*graph[git->first].g_func)] = graph[git->first].prob;
         }
         else
@@ -138,16 +142,21 @@ bool bdd_sim::sim_graph(gmap &graph)
             // Generate Function for the Gate
             gen_sensf(git->first);
             
+            //cout<<"Function Generated\n";
+            
             if (bdd_nodecount(*graph[git->first].g_func) > 1000)
                 bdd_reorder(BDD_REORDER_WIN2ITE);
             
             // Generate New Pulses
-            //if(graph_m[git->first].gen_flag == false)
-            //{
+            /*if(graph_m[git->first].gen_flag == false)
+            {
                 bdd_genp(git->first);
                 graph_m[git->first].gen_flag = true;
-            //}
-
+            }*/
+            
+            bdd_genfunc(git->first, graph[git->first].p_list);
+            //cout<<"Pulses Created\n";
+            
             // Propagate Existing Pulses
             proc_pulse(git->first);
 
@@ -161,16 +170,15 @@ bool bdd_sim::sim_graph(gmap &graph)
             }
             
             total_count = total_count + count_nodes(graph, git->first);
-            cout<<"Total: "<<total_count<<endl<<endl;
+            //cout<<"Total: "<<total_count<<endl<<endl;
 
             gmap::iterator mit;
-            if (total_count > MAX_BDD_NODES)
+            if ((total_count > MAX_BDD_NODES)&&(graph[git->first].fanout_num != 0)&&(CONE_SIM == 1))
             {
-                for(mit = graph.begin(); mit != graph.end(); ++mit)
+                /*for(mit = graph.begin(); mit != graph.end(); ++mit)
                 {
                     graph_m[mit->first].p_list.clear();
-                    graph_m[mit->first].gen_flag = false;
-                }
+                }*/
                 return true;
             }
             
@@ -182,88 +190,43 @@ bool bdd_sim::sim_graph(gmap &graph)
             
             // Load into Final Result Structure 
             // Rewrite so that the probability from a partition output is propagated
-            if(out_find(git->first))
+            if(graph[git->first].fanout_num == 0)
             {
-                /*map<int, bdd>::iterator bit;
-                for(p_it = graph_m[git->first].p_list.begin(); p_it != graph_m[git->first].p_list.end(); ++p_it)
-                {
-                    if(m_find(graph[git->first].p_prob_map, p_it->e_num))
-                        graph[git->first].p_prob_map[p_it->e_num] = graph[git->first].p_prob_map[p_it->e_num]*p_it->t_prob;
-                    else
-                        graph[git->first].p_prob_map[p_it->e_num] = p_it->t_prob;
-                }
-                for(p_it = graph[git->first].p_list.begin(); p_it != graph[git->first].p_list.end(); ++p_it)
-                {
-                    if(m_findbdd(graph[git->first].bdd_map, p_it->e_num))
-                        graph[git->first].bdd_map[p_it->e_num] = graph[git->first].bdd_map[p_it->e_num] | p_it->p_func;
-                    else
-                        graph[git->first].bdd_map[p_it->e_num] = p_it->p_func;
-                }
-                
-                for(bit = graph[git->first].bdd_map.begin(); bit != graph[git->first].bdd_map.end(); ++bit)
-                {
-                    s_prob.solve_prob(graph[git->first].bdd_map[bit->first]);
-                    cout<<"Event: "<<bit->first<<" Prob Map: "<<graph[git->first].p_prob_map[bit->first]<<endl;
-                    graph[git->first].r_map[bit->first] = s_prob.true_prob * graph[git->first].p_prob_map[bit->first];
-                }
-                graph_m[git->first].r_map = graph[git->first].r_map;
-                graph[git->first].bdd_map.clear();
-                graph[git->first].p_prob_map.clear();*/
-                
                 //graph_m[git->first].p_list = graph[git->first].p_list;
                 list<transient>::iterator pit;
-                for(pit = graph[git->first].p_list.begin(); pit != graph[git->first].p_list.end(); ++pit)
+                for (pit = graph[git->first].p_list.begin(); pit != graph[git->first].p_list.end(); ++pit)
                 {
-                    cout<<pit->e_num<<endl;
+                    if(!out_find(git->first))
+                    {
+                        s_prob.solve_prob(pit->p_func);
+                        pit->t_prob = s_prob.true_prob;
+                        pit->p_func = bdd_true();
+                    }
                     graph_m[git->first].p_list.push_back(*pit);
                 }
-                // Load data by id number
-                for(p_it = graph_m[git->first].p_list.begin(); p_it != graph_m[git->first].p_list.end(); ++p_it)
-                {
-                    /*s_prob.solve_prob(p_it->p_func);
-                    graph_m[git->first].r_map[p_it->e_num] = s_prob.true_prob*p_it->t_prob;
-                    cout<<"ID: "<<p_it->id<<" Prob: "<<p_it->t_prob<<" Bdd Prob: "<<s_prob.true_prob<<endl;
                     
-                    bdd_printtable(p_it->p_func);*/
-                    if(m_find(graph_m[git->first].r_map, p_it->e_num))
+                if(out_find(git->first))
+                {   
+                    // Load data by id number
+                    for(p_it = graph_m[git->first].p_list.begin(); p_it != graph_m[git->first].p_list.end(); ++p_it)
                     {
-                        s_prob.solve_prob(p_it->p_func);
-                        graph_m[git->first].r_map[p_it->e_num] = graph_m[git->first].r_map[p_it->e_num]+(s_prob.true_prob);
-                    }
-                    else
-                    {
-                        s_prob.solve_prob(p_it->p_func);
-                        graph_m[git->first].r_map[p_it->e_num] = s_prob.true_prob;
+                        /*s_prob.solve_prob(p_it->p_func);
+                        graph_m[git->first].r_map[p_it->e_num] = s_prob.true_prob*p_it->t_prob;
+                        cout<<"ID: "<<p_it->id<<" Prob: "<<p_it->t_prob<<" Bdd Prob: "<<s_prob.true_prob<<endl;
+
+                        bdd_printtable(p_it->p_func);*/
+                        if(m_find(graph_m[git->first].r_map, p_it->e_num))
+                        {
+                            s_prob.solve_prob(p_it->p_func);
+                            graph_m[git->first].r_map[p_it->e_num] = graph_m[git->first].r_map[p_it->e_num]+(s_prob.true_prob*p_it->t_prob);
+                        }
+                        else
+                        {
+                            s_prob.solve_prob(p_it->p_func);
+                            graph_m[git->first].r_map[p_it->e_num] = s_prob.true_prob;
+                        }
                     }
                 }
-            }
-            else
-            {
-                /*list<transient>::iterator p_it;
-                list<int>::iterator lit;
-
-                s_prob.solve_prob(*graph[git->first].g_func);
-                graph[git->first].prob = s_prob.true_prob;
-                graph_m[git->first].prob = graph[git->first].prob;
-                
-                graph_m[git->first].p_list = graph[git->first].p_list;
-                
-                for(p_it = graph_m[git->first].p_list.begin(); p_it != graph_m[git->first].p_list.end(); ++p_it)
-                {
-                    cout << "ID: " << p_it->id << endl;
-                    bdd_printtable(p_it->p_func);
-                }*/
-                
-                //if(graph[git->first].fanout_num == 0)
-               //{
-                    /*for (p_it = graph_m[git->first].p_list.begin(); p_it != graph_m[git->first].p_list.end(); ++p_it)
-                    {
-                        s_prob.solve_prob(p_it->p_func);
-                        cout<<"prob here: "<<s_prob.true_prob<<endl;
-                        p_it->t_prob = s_prob.true_prob;
-                        //p_it->p_func = bdd_true();
-                    }*/
-                //}   
             }
         }
         cout << "Gate Processed: " << git->first << endl;
@@ -334,15 +297,37 @@ void bdd_sim::bdd_genp(int n_num)
     temp_r = gen_pulse(RISING, n_num);
     temp_f = gen_pulse(FALLING, n_num);
     
-    temp_r.p_func = gen_bdd(n_num, temp_r);
+    graph[n_num].p_list.push_back(temp_r);
+    graph[n_num].p_list.push_back(temp_f);
+    
+    /*temp_r.p_func = gen_bdd(n_num, temp_r);
     temp_f.p_func = gen_bdd(n_num, temp_f);
     
     if(temp_r.p_func != const_f)
        graph[n_num].p_list.push_back(temp_r);
     
     if(temp_f.p_func != const_f)
-        graph[n_num].p_list.push_back(temp_f);
+        graph[n_num].p_list.push_back(temp_f);*/
      
+}
+
+/*
+ * Function to generate bdd functions for new pulses
+ */
+void bdd_sim::bdd_genfunc(int n_num, list<transient>& inp_list)
+{
+    bdd const_f = bdd_false();
+    list<transient>::iterator lit;
+    
+    for(lit = inp_list.begin(); lit != inp_list.end(); ++lit)
+    {
+        lit->p_func = gen_bdd(n_num, *lit);
+
+        if(lit->p_func == const_f)
+        {
+            lit = inp_list.erase(lit);
+        }
+    }
 }
 
 bdd bdd_sim::gen_bdd(int n_num, transient inp)

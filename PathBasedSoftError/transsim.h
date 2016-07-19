@@ -158,7 +158,8 @@ public:
     
 private:
     void gen_sensf(int);
-    void bdd_genp(int n_num);
+    void bdd_genp(int );
+    void bdd_genfunc(int , list<transient>& );
     bdd gen_bdd(int, transient);
     bdd prop_bdd(int, int , transient);
     void set_propfunc(int , int , transient , transient );

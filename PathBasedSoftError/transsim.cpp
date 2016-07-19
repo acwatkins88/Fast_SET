@@ -986,7 +986,7 @@ gmap gen_sim::extract_circuit(int part_num)
                     temp_graph[n_count].fanout.push_back(git->first);
                     temp_graph[n_count].fanout_num = 1;
                     temp_graph[n_count].prob = graph_m[*lit].prob;
-                    cout<<"Prev: "<<*lit<<" Node: "<<n_count<<" Prob Cir: "<<graph_m[*lit].prob<<endl;
+                    //cout<<"Prev: "<<*lit<<" Node: "<<n_count<<" Prob Cir: "<<graph_m[*lit].prob<<endl;
                     temp_graph[n_count].p_list = graph_m[*lit].p_list;
                     temp_graph[git->first].fanin.push_back(n_count);
                     temp_graph[git->first].fanin_num++;

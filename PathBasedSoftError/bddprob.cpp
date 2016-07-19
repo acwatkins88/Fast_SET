@@ -89,7 +89,7 @@ void bdd_prob::init_prob(bdd x)
         prob_map[var][0] = (1 - inp_map[inp_var]);  
         prob_map[var][1] = inp_map[inp_var];
         
-        cout<<"Var Num: "<<inp_var<<" Node Prob: "<<inp_map[inp_var]<<endl;
+        //cout<<"Var Num: "<<inp_var<<" Node Prob: "<<inp_map[inp_var]<<endl;
 
         sum_map[var] = 0;
         
