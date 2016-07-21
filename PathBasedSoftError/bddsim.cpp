@@ -122,16 +122,16 @@ bool bdd_sim::sim_graph(gmap &graph)
             graph[git->first].g_func = new bdd();
             *graph[git->first].g_func = new_var();
             //cout<<"Node: "<<git->first<<" Var Num: "<<bdd_var(*graph[git->first].g_func)<<endl;
-            
+
             //cout<<"Input: "<<git->first<<" Var Number: "<<bdd_var(*graph[git->first].g_func)<<endl;
             //cout<<"Probabiltiy: "<<graph[git->first].prob<<endl;
-            
+
             /*list<transient>::iterator tit;
             cout<<"Pulse List: ";
             for(tit = graph[git->first].p_list.begin(); tit != graph[git->first].p_list.end(); ++tit)
                 cout<<tit->id<<" ";
             cout<<endl;*/
-            //cout<<"Input: "<<git->first<<" Prob: "<<graph[git->first].prob<<endl;
+            //cout << "Input: " << git->first << " Prob: " << graph[git->first].prob << endl;
             s_prob.inp_map[bdd_var(*graph[git->first].g_func)] = graph[git->first].prob;
         }
         else
@@ -171,7 +171,7 @@ bool bdd_sim::sim_graph(gmap &graph)
             
             total_count = total_count + count_nodes(graph, git->first);
             //cout<<"Total: "<<total_count<<endl<<endl;
-
+            
             gmap::iterator mit;
             if ((total_count > MAX_BDD_NODES)&&(graph[git->first].fanout_num != 0)&&(CONE_SIM == 1))
             {
@@ -183,19 +183,23 @@ bool bdd_sim::sim_graph(gmap &graph)
             }
             
             list<transient>::iterator p_it;
-
-            s_prob.solve_prob(*graph[git->first].g_func);
-            graph[git->first].prob = s_prob.true_prob;
-            graph_m[git->first].prob = graph[git->first].prob;
             
             // Load into Final Result Structure 
             // Rewrite so that the probability from a partition output is propagated
-            if(graph[git->first].fanout_num == 0)
+            if((graph[git->first].fanout_num != graph_m[git->first].fanout_num)||(graph[git->first].fanout_num == 0))
+            {
+                s_prob.solve_prob(*graph[git->first].g_func);
+                graph[git->first].prob = s_prob.true_prob;
+                graph_m[git->first].prob = graph[git->first].prob;
+            }
+                
+            if((graph[git->first].fanout_num == 0))
             {
                 //graph_m[git->first].p_list = graph[git->first].p_list;
                 list<transient>::iterator pit;
                 for (pit = graph[git->first].p_list.begin(); pit != graph[git->first].p_list.end(); ++pit)
                 {
+                    //if(!out_find(git->first)&&(graph[git->first].fanout_num == 0))
                     if(!out_find(git->first))
                     {
                         s_prob.solve_prob(pit->p_func);

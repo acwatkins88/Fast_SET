@@ -941,6 +941,8 @@ gmap gen_sim::extract_circuit(int part_num)
     }
     
     // Update fanin/fanout lists
+    int n_count = -1;
+    
     for(git = temp_graph.begin(); git != temp_graph.end(); ++git)
     {
         temp_graph[git->first].fanin.clear();
@@ -971,23 +973,22 @@ gmap gen_sim::extract_circuit(int part_num)
         // If cell is missing an input, create a new input in its place
         */
         list<int>::iterator lit;
-        int n_count = -1;
         
         if((temp_graph[git->first].fanin_num != (graph_m[git->first].fanin_num))&&(temp_graph[git->first].type != INPUT))
         {   
             int diff = graph_m[git->first].fanin_num - temp_graph[git->first].fanin_num;
        
-            //for(int n_count = -1; n_count >= -diff; n_count--)
             for(lit = graph_m[git->first].fanin.begin(); lit != graph_m[git->first].fanin.end(); ++ lit)
             {
-                if(graph_m[*lit].type != INPUT)
+                if((graph_m[*lit].type != INPUT)&&(!l_find(temp_graph[git->first].fanin, *lit)))
                 {
                     temp_graph[n_count].type = INPUT;
                     temp_graph[n_count].fanout.push_back(git->first);
                     temp_graph[n_count].fanout_num = 1;
                     temp_graph[n_count].prob = graph_m[*lit].prob;
-                    //cout<<"Prev: "<<*lit<<" Node: "<<n_count<<" Prob Cir: "<<graph_m[*lit].prob<<endl;
-                    temp_graph[n_count].p_list = graph_m[*lit].p_list;
+                    //cout<<"Cur Node: "<<git->first<<" Prev: "<<*lit<<" Node: "<<n_count<<" Prob Cir: "<<graph_m[*lit].prob<<endl;
+                    //temp_graph[n_count].p_list = graph_m[*lit].p_list;
+                    temp_graph[git->first].p_list.insert(temp_graph[git->first].p_list.end(), graph_m[*lit].p_list.begin(), graph_m[*lit].p_list.end());
                     temp_graph[git->first].fanin.push_back(n_count);
                     temp_graph[git->first].fanin_num++;
                     n_count--;
