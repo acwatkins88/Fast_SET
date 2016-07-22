@@ -88,6 +88,8 @@ transient gen_sim::gen_pulse(int type, int n_num)
     temp.e_num = this->event_n;
     this->event_n++;
     
+    temp.s_node = n_num;
+    
     return temp;
 }
 
@@ -874,6 +876,21 @@ bool gen_sim::l_find(list<int> inplist, int key)
 }
 
 /*
+ * Check if a pulse with the same event number exists
+ */
+bool gen_sim::i_find(list<transient> plist, int key)
+{
+    list<transient>::iterator lit;
+    
+    for(lit = plist.begin(); lit != plist.end(); ++lit)
+        if(lit->id == key)
+            return true;
+    
+    return false;
+}
+
+
+/*
  * Search a list of all outputs to determine if the node given by "nodeid" is an output
  */
 bool out_find(int nodeid)
@@ -987,8 +1004,7 @@ gmap gen_sim::extract_circuit(int part_num)
                     temp_graph[n_count].fanout_num = 1;
                     temp_graph[n_count].prob = graph_m[*lit].prob;
                     //cout<<"Cur Node: "<<git->first<<" Prev: "<<*lit<<" Node: "<<n_count<<" Prob Cir: "<<graph_m[*lit].prob<<endl;
-                    //temp_graph[n_count].p_list = graph_m[*lit].p_list;
-                    temp_graph[git->first].p_list.insert(temp_graph[git->first].p_list.end(), graph_m[*lit].p_list.begin(), graph_m[*lit].p_list.end());
+                    temp_graph[n_count].p_list = graph_m[*lit].p_list;
                     temp_graph[git->first].fanin.push_back(n_count);
                     temp_graph[git->first].fanin_num++;
                     n_count--;

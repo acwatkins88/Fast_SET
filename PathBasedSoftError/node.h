@@ -34,6 +34,7 @@ public:
     
     int type;
     int id;
+    int s_node;
     double width;                 
     bdd p_func; 
     double st_time;

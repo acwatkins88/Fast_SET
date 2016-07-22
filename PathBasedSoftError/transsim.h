@@ -111,6 +111,9 @@ protected:
     // Check if an element is in list
     bool l_find(list<int> , int );
     
+    // Check if pulse list has pulse of same event number
+    bool i_find(list<transient>, int );
+    
     // Determine if a Node is an Output
     //bool out_find(int );
     

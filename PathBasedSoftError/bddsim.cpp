@@ -133,6 +133,7 @@ bool bdd_sim::sim_graph(gmap &graph)
             cout<<endl;*/
             //cout << "Input: " << git->first << " Prob: " << graph[git->first].prob << endl;
             s_prob.inp_map[bdd_var(*graph[git->first].g_func)] = graph[git->first].prob;
+            cout<<"Total: "<<total_count<<endl;
         }
         else
         {
@@ -161,18 +162,23 @@ bool bdd_sim::sim_graph(gmap &graph)
             proc_pulse(git->first);
 
             // Check for Convergence 
-            if ((graph[git->first].type != NOT) || (graph[git->first].type != BUF))
+            /*if ((graph[git->first].type != NOT) || (graph[git->first].type != BUF))
             {
                 if(!graph[git->first].p_list.empty())
                 {
                     conv_check(git->first);
                 }
-            }
+            }*/
             
             total_count = total_count + count_nodes(graph, git->first);
-            //cout<<"Total: "<<total_count<<endl<<endl;
+            cout<<"Total: "<<total_count<<endl;
             
-            gmap::iterator mit;
+            list<int>::iterator litr;
+            cout<<"Node: "<<git->first<<" Num Pulses: "<<graph[git->first].p_list.size()<<" Fanin: ";
+            for(litr = graph[git->first].fanin.begin(); litr != graph[git->first].fanin.end(); ++litr)
+                cout<<*litr<<" ";
+            cout<<endl;
+            
             if ((total_count > MAX_BDD_NODES)&&(graph[git->first].fanout_num != 0)&&(CONE_SIM == 1))
             {
                 /*for(mit = graph.begin(); mit != graph.end(); ++mit)
@@ -183,6 +189,13 @@ bool bdd_sim::sim_graph(gmap &graph)
             }
             
             list<transient>::iterator p_it;
+            list<transient>::iterator pit;
+            
+            cout<<"Node: "<<git->first<<endl;
+             for (pit = graph[git->first].p_list.begin(); pit != graph[git->first].p_list.end(); ++pit)
+                cout<<"ID: "<<pit->id<<" Event: "<<pit->e_num<<endl;
+
+
             
             // Load into Final Result Structure 
             // Rewrite so that the probability from a partition output is propagated
@@ -197,9 +210,9 @@ bool bdd_sim::sim_graph(gmap &graph)
             {
                 //graph_m[git->first].p_list = graph[git->first].p_list;
                 list<transient>::iterator pit;
+                //graph_m[git->first].p_list.clear();
                 for (pit = graph[git->first].p_list.begin(); pit != graph[git->first].p_list.end(); ++pit)
                 {
-                    //if(!out_find(git->first)&&(graph[git->first].fanout_num == 0))
                     if(!out_find(git->first))
                     {
                         s_prob.solve_prob(pit->p_func);
@@ -212,22 +225,17 @@ bool bdd_sim::sim_graph(gmap &graph)
                 if(out_find(git->first))
                 {   
                     // Load data by id number
-                    for(p_it = graph_m[git->first].p_list.begin(); p_it != graph_m[git->first].p_list.end(); ++p_it)
+                    for(pit = graph_m[git->first].p_list.begin(); pit != graph_m[git->first].p_list.end(); ++pit)
                     {
-                        /*s_prob.solve_prob(p_it->p_func);
-                        graph_m[git->first].r_map[p_it->e_num] = s_prob.true_prob*p_it->t_prob;
-                        cout<<"ID: "<<p_it->id<<" Prob: "<<p_it->t_prob<<" Bdd Prob: "<<s_prob.true_prob<<endl;
-
-                        bdd_printtable(p_it->p_func);*/
-                        if(m_find(graph_m[git->first].r_map, p_it->e_num))
+                        if(m_find(graph_m[git->first].r_map, pit->e_num))
                         {
-                            s_prob.solve_prob(p_it->p_func);
-                            graph_m[git->first].r_map[p_it->e_num] = graph_m[git->first].r_map[p_it->e_num]+(s_prob.true_prob*p_it->t_prob);
+                            s_prob.solve_prob(pit->p_func);
+                            graph_m[git->first].r_map[pit->e_num] = graph_m[git->first].r_map[pit->e_num]+(s_prob.true_prob*pit->t_prob);
                         }
                         else
                         {
-                            s_prob.solve_prob(p_it->p_func);
-                            graph_m[git->first].r_map[p_it->e_num] = s_prob.true_prob;
+                            s_prob.solve_prob(pit->p_func);
+                            graph_m[git->first].r_map[pit->e_num] = s_prob.true_prob;
                         }
                     }
                 }
@@ -325,11 +333,14 @@ void bdd_sim::bdd_genfunc(int n_num, list<transient>& inp_list)
     
     for(lit = inp_list.begin(); lit != inp_list.end(); ++lit)
     {
-        lit->p_func = gen_bdd(n_num, *lit);
-
-        if(lit->p_func == const_f)
+        if(lit->s_node == n_num)
         {
-            lit = inp_list.erase(lit);
+            lit->p_func = gen_bdd(n_num, *lit);
+
+            if(lit->p_func == const_f)
+            {
+                lit = inp_list.erase(lit);
+            }
         }
     }
 }
