@@ -1005,6 +1005,12 @@ gmap gen_sim::extract_circuit(int part_num)
                     temp_graph[n_count].prob = graph_m[*lit].prob;
                     //cout<<"Cur Node: "<<git->first<<" Prev: "<<*lit<<" Node: "<<n_count<<" Prob Cir: "<<graph_m[*lit].prob<<endl;
                     temp_graph[n_count].p_list = graph_m[*lit].p_list;
+                    
+                    cout<<"List of Pulses: "<<git->first<<endl;
+                    list<transient>::iterator mit;
+                    for(mit = graph_m[*lit].p_list.begin(); mit != graph_m[*lit].p_list.end(); ++mit)
+                        cout<<"ID: "<<mit->id<<" Event: "<<mit->e_num<<endl;
+                    
                     temp_graph[git->first].fanin.push_back(n_count);
                     temp_graph[git->first].fanin_num++;
                     n_count--;

@@ -170,6 +170,11 @@ bool bdd_sim::sim_graph(gmap &graph)
                 }
             }*/
             
+            /*
+             * Problem:
+             * The pulses are added to the main graph even when the circuit overflows
+             */
+            
             total_count = total_count + count_nodes(graph, git->first);
             cout<<"Total: "<<total_count<<endl;
             
@@ -181,21 +186,15 @@ bool bdd_sim::sim_graph(gmap &graph)
             
             if ((total_count > MAX_BDD_NODES)&&(graph[git->first].fanout_num != 0)&&(CONE_SIM == 1))
             {
-                /*for(mit = graph.begin(); mit != graph.end(); ++mit)
-                {
-                    graph_m[mit->first].p_list.clear();
-                }*/
+                
                 return true;
             }
             
-            list<transient>::iterator p_it;
             list<transient>::iterator pit;
             
             cout<<"Node: "<<git->first<<endl;
-             for (pit = graph[git->first].p_list.begin(); pit != graph[git->first].p_list.end(); ++pit)
+             for (pit = graph_m[git->first].p_list.begin(); pit != graph_m[git->first].p_list.end(); ++pit)
                 cout<<"ID: "<<pit->id<<" Event: "<<pit->e_num<<endl;
-
-
             
             // Load into Final Result Structure 
             // Rewrite so that the probability from a partition output is propagated
@@ -204,13 +203,14 @@ bool bdd_sim::sim_graph(gmap &graph)
                 s_prob.solve_prob(*graph[git->first].g_func);
                 graph[git->first].prob = s_prob.true_prob;
                 graph_m[git->first].prob = graph[git->first].prob;
-            }
+            /*}
                 
             if((graph[git->first].fanout_num == 0))
-            {
+            {*/
                 //graph_m[git->first].p_list = graph[git->first].p_list;
                 list<transient>::iterator pit;
-                //graph_m[git->first].p_list.clear();
+                graph_m[git->first].p_list.clear();
+                //cout<<"Main Test: "<<endl;
                 for (pit = graph[git->first].p_list.begin(); pit != graph[git->first].p_list.end(); ++pit)
                 {
                     if(!out_find(git->first))
@@ -219,6 +219,7 @@ bool bdd_sim::sim_graph(gmap &graph)
                         pit->t_prob = s_prob.true_prob;
                         pit->p_func = bdd_true();
                     }
+                    //cout<<"ID: "<<pit->id<<" Event: "<<pit->e_num<<endl;
                     graph_m[git->first].p_list.push_back(*pit);
                 }
                     
