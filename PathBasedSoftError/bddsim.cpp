@@ -25,25 +25,28 @@ void bdd_sim::sim()
         max_partn = label_cone();
         graph_m = graph;
         
+        list<transient>::iterator pit;
+        cout<<"Main Graph\n";
+        for(git = graph_m.begin(); git != graph_m.end(); ++git)
+        {
+            cout<<"Node: "<<git->first<<" Pulses: "<<endl;
+            for(pit = graph_m[git->first].p_list.begin(); pit != graph_m[git->first].p_list.end(); ++pit)
+                cout<<"ID: "<<pit->id<<" Event: "<<pit->e_num<<endl;
+        }
+        
         for (int i = 0; i <= max_partn; i++)
         {
             graph = extract_circuit(i);
-            
-            /*cout<<endl<<"Master Graph\n";
-            cout<<"Current Partnum: "<<i<<endl;
-            for(git = graph_m.begin(); git != graph_m.end(); ++git)
+                  
+            cout<<endl<<"Current Partnum: "<<i<<endl;
+            for(git = graph.begin(); git != graph.end(); ++git)
             {
-                cout<<"Cell: "<<git->first<<endl;
-                cout<<"Partitions: ";
-                for(lit = graph_m[git->first].part.begin(); lit != graph_m[git->first].part.end(); ++lit)
-                    cout<<*lit<<" ";
-                cout<<endl;
-                cout<<"Fanouts: ";
-                for(lit = graph_m[git->first].fanout.begin(); lit != graph_m[git->first].fanout.end(); ++lit)
-                    cout<<*lit<<" ";
-                cout<<endl<<"End"<<endl;
+                cout<<"Node: "<<git->first<<" Pulses: "<<endl;
+                for(pit = graph[git->first].p_list.begin(); pit != graph[git->first].p_list.end(); ++pit)
+                    cout<<"ID: "<<pit->id<<" Event: "<<pit->e_num<<endl;
             }
-            cout<<endl;*/
+            cout<<endl;
+            
             is_overflowed = sim_graph(graph);
             cout<<"Overflowed: "<<is_overflowed<<endl;
             
@@ -113,7 +116,6 @@ bool bdd_sim::sim_graph(gmap &graph)
     bdd_prob s_prob;
     gmap::iterator git;
     list<transient>::iterator p_it;
-    int t_id;
 
     for (git = graph.begin(); git != graph.end(); ++git)
     {
@@ -121,25 +123,45 @@ bool bdd_sim::sim_graph(gmap &graph)
         {
             graph[git->first].g_func = new bdd();
             *graph[git->first].g_func = new_var();
+            
+            /*if(git->first < 0)
+            {
+                list<int>::iterator lit;
+                
+                cout<<"Node: "<<git->first<<endl;
+                for (p_it = graph[git->first].p_list.begin(); p_it != graph[git->first].p_list.end(); ++p_it)
+                {
+                    for(lit = graph[git->first].fanout.begin(); lit != graph[git->first].fanout.end(); ++lit)
+                    {
+                        cout<<"Added Node: "<<*lit<<" ID: "<<p_it->id<<" Event: "<<p_it->e_num<<endl;
+                        graph[*lit].p_list.push_back(*p_it);
+                    }
+                }
+            }*/
+            
             //cout<<"Node: "<<git->first<<" Var Num: "<<bdd_var(*graph[git->first].g_func)<<endl;
 
             //cout<<"Input: "<<git->first<<" Var Number: "<<bdd_var(*graph[git->first].g_func)<<endl;
             //cout<<"Probabiltiy: "<<graph[git->first].prob<<endl;
 
             /*list<transient>::iterator tit;
-            cout<<"Pulse List: ";
+            cout<<"Node: "<<git->first<<" Pulse List: ";
             for(tit = graph[git->first].p_list.begin(); tit != graph[git->first].p_list.end(); ++tit)
-                cout<<tit->id<<" ";
+                cout<<"ID: "<<tit->id<<" Event: "<<tit->e_num<<endl;
             cout<<endl;*/
             //cout << "Input: " << git->first << " Prob: " << graph[git->first].prob << endl;
             s_prob.inp_map[bdd_var(*graph[git->first].g_func)] = graph[git->first].prob;
             cout<<"Total: "<<total_count<<endl;
         }
         else
-        {
-
+        { 
             graph[git->first].proc_flag = 1;
-
+            
+            /*cout<<"Node: "<<git->first<<" Num Pulses: "<<graph[git->first].p_list.size()<<" Pulses: "<<endl;
+            list<transient>::iterator mit;
+            for(mit = graph[git->first].p_list.begin(); mit != graph[git->first].p_list.end(); ++mit)
+                cout<<"ID: "<<mit->id<<" Event: "<<mit->e_num<<endl;*/
+            
             // Generate Function for the Gate
             gen_sensf(git->first);
             
@@ -156,11 +178,26 @@ bool bdd_sim::sim_graph(gmap &graph)
             }*/
             
             bdd_genfunc(git->first, graph[git->first].p_list);
+            
+            list<transient>::iterator mit;
+            /*cout<<"Node: "<<git->first<<" Num Pulses: "<<graph[git->first].p_list.size()<<" Pulses: "<<endl;
+            for(mit = graph[git->first].p_list.begin(); mit != graph[git->first].p_list.end(); ++mit)
+            {
+                cout<<"ID: "<<mit->id<<" Event: "<<mit->e_num<<endl;
+                bdd_printtable(mit->p_func);
+            }*/
             //cout<<"Pulses Created\n";
             
             // Propagate Existing Pulses
             proc_pulse(git->first);
-
+            
+            cout<<"Node: "<<git->first<<" Num Pulses: "<<graph[git->first].p_list.size()<<" Pulses: "<<endl;
+            for(mit = graph[git->first].p_list.begin(); mit != graph[git->first].p_list.end(); ++mit)
+            {
+                cout<<"ID: "<<mit->id<<" Event: "<<mit->e_num<<endl;
+                bdd_printtable(mit->p_func);
+            }
+            
             // Check for Convergence 
             /*if ((graph[git->first].type != NOT) || (graph[git->first].type != BUF))
             {
@@ -178,23 +215,27 @@ bool bdd_sim::sim_graph(gmap &graph)
             total_count = total_count + count_nodes(graph, git->first);
             cout<<"Total: "<<total_count<<endl;
             
-            list<int>::iterator litr;
+            /*list<int>::iterator litr;
             cout<<"Node: "<<git->first<<" Num Pulses: "<<graph[git->first].p_list.size()<<" Fanin: ";
             for(litr = graph[git->first].fanin.begin(); litr != graph[git->first].fanin.end(); ++litr)
-                cout<<*litr<<" ";
+                cout<<*litr<<" ";*/
+            
+            /*cout<<"Node: "<<git->first<<" Num Pulses: "<<graph[git->first].p_list.size()<<" Pulses: "<<endl;
+            list<transient>::iterator mit;
+            for(mit = graph[git->first].p_list.begin(); mit != graph[git->first].p_list.end(); ++mit)
+                cout<<"ID: "<<mit->id<<" Event: "<<mit->e_num<<endl;*/
             cout<<endl;
             
             if ((total_count > MAX_BDD_NODES)&&(graph[git->first].fanout_num != 0)&&(CONE_SIM == 1))
-            {
-                
+            {    
                 return true;
             }
             
             list<transient>::iterator pit;
             
-            cout<<"Node: "<<git->first<<endl;
-             for (pit = graph_m[git->first].p_list.begin(); pit != graph_m[git->first].p_list.end(); ++pit)
-                cout<<"ID: "<<pit->id<<" Event: "<<pit->e_num<<endl;
+            /*cout<<"Node: "<<git->first<<endl;
+            for (pit = graph_m[git->first].p_list.begin(); pit != graph_m[git->first].p_list.end(); ++pit)
+                cout<<"ID: "<<pit->id<<" Event: "<<pit->e_num<<endl;*/
             
             // Load into Final Result Structure 
             // Rewrite so that the probability from a partition output is propagated
@@ -208,44 +249,54 @@ bool bdd_sim::sim_graph(gmap &graph)
             if((graph[git->first].fanout_num == 0))
             {*/
                 //graph_m[git->first].p_list = graph[git->first].p_list;
-                list<transient>::iterator pit;
-                graph_m[git->first].p_list.clear();
-                //cout<<"Main Test: "<<endl;
-                for (pit = graph[git->first].p_list.begin(); pit != graph[git->first].p_list.end(); ++pit)
-                {
-                    if(!out_find(git->first))
-                    {
-                        s_prob.solve_prob(pit->p_func);
-                        pit->t_prob = s_prob.true_prob;
-                        pit->p_func = bdd_true();
-                    }
-                    //cout<<"ID: "<<pit->id<<" Event: "<<pit->e_num<<endl;
-                    graph_m[git->first].p_list.push_back(*pit);
-                }
-                    
-                if(out_find(git->first))
-                {   
-                    // Load data by id number
-                    for(pit = graph_m[git->first].p_list.begin(); pit != graph_m[git->first].p_list.end(); ++pit)
-                    {
-                        if(m_find(graph_m[git->first].r_map, pit->e_num))
-                        {
-                            s_prob.solve_prob(pit->p_func);
-                            graph_m[git->first].r_map[pit->e_num] = graph_m[git->first].r_map[pit->e_num]+(s_prob.true_prob*pit->t_prob);
-                        }
-                        else
-                        {
-                            s_prob.solve_prob(pit->p_func);
-                            graph_m[git->first].r_map[pit->e_num] = s_prob.true_prob;
-                        }
-                    }
-                }
+                
             }
         }
         cout << "Gate Processed: " << git->first << endl;
         
-        bdd_optimize();
+        //bdd_optimize();
     }
+    
+    /*for(git = graph.begin(); git != graph.end(); ++git)
+    {
+        if((graph[git->first].type != INPUT)&&((graph[git->first].fanout_num != graph_m[git->first].fanout_num)||(graph[git->first].fanout_num == 0)))
+        {
+            list<transient>::iterator pit;
+            //graph_m[git->first].p_list.clear();
+            //cout<<"Main Test: "<<git->first<<" Num Pulses: "<<graph[git->first].p_list.size()<<endl;
+            for (pit = graph[git->first].p_list.begin(); pit != graph[git->first].p_list.end(); ++pit)
+            {
+                if (!out_find(git->first))
+                {
+                    s_prob.solve_prob(pit->p_func);
+                    pit->t_prob = s_prob.true_prob;
+                    pit->p_func = bdd_true();
+                }
+                //cout<<"ID: "<<pit->id<<" Event: "<<pit->e_num<<endl;
+                if(!i_find(graph_m[git->first].p_list, pit->id))
+                    graph_m[git->first].p_list.push_back(*pit);
+            }
+
+            if (out_find(git->first))
+            {
+                // Load data by id number
+                for (pit = graph_m[git->first].p_list.begin(); pit != graph_m[git->first].p_list.end(); ++pit)
+                {
+                    if (m_find(graph_m[git->first].r_map, pit->e_num))
+                    {
+                        s_prob.solve_prob(pit->p_func);
+                        graph_m[git->first].r_map[pit->e_num] = graph_m[git->first].r_map[pit->e_num]+(s_prob.true_prob * pit->t_prob);
+                    }
+                    else
+                    {
+                        s_prob.solve_prob(pit->p_func);
+                        graph_m[git->first].r_map[pit->e_num] = s_prob.true_prob;
+                    }
+                }
+            }
+        }
+    }*/
+    
     return false;
 }
 
