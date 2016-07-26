@@ -889,6 +889,16 @@ bool gen_sim::i_find(list<transient> plist, int key)
     return false;
 }
 
+bool gen_sim::t_find(map<int, list<transient> > inp_list, int key)
+{
+    map<int, list<transient> >::iterator pit;
+    
+    for(pit = inp_list.begin(); pit != inp_list.end(); ++pit)
+        if(pit->first == key)
+            return true;
+    
+    return false;
+}
 
 /*
  * Search a list of all outputs to determine if the node given by "nodeid" is an output

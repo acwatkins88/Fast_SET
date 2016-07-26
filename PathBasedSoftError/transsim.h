@@ -114,6 +114,9 @@ protected:
     // Check if pulse list has pulse of same event number
     bool i_find(list<transient>, int );
     
+    // Check if temp list has pulse of same node number
+    bool t_find(map<int, list<transient> >, int );
+    
     // Determine if a Node is an Output
     //bool out_find(int );
     
@@ -160,6 +163,9 @@ public:
     ~bdd_sim(){};
     
 private:
+    // Temporary map to store output pulses from subscircuits
+    map<int, list<transient> > tp_map;
+    
     void gen_sensf(int);
     void bdd_genp(int );
     void bdd_genfunc(int , list<transient>& );
@@ -173,7 +179,7 @@ private:
     bdd get_convbdd(int, transient, transient);
     bool m_findbdd(map<int, bdd> , int );
     
-    bool sim_graph(gmap& );
+    bool sim_graph(gmap & );
     
     // Functions for adaptive partitoning
     int count_nodes(gmap , int );
