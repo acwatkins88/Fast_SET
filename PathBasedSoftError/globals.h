@@ -43,8 +43,8 @@ typedef map <int, int> n_count;
 /*
  * Monte Carlo Values
  */
-#define ITR_STEP 300000 
-#define MAX_INPT 18             //Max Iterative Inputs
+#define ITR_STEP 1000000
+#define MAX_INPT 20             //Max Iterative Inputs
 
 
 /*
@@ -142,13 +142,13 @@ typedef map <int, int> n_count;
 #define REORDER_TH 1000
 
 // Set to 1 to simulate output cones
-#define CONE_SIM 0
+#define CONE_SIM 1
 
 // Set initial partition ratio
 #define PART_RATIO 0.5
 
 // Maximum BDD node count
-#define MAX_BDD_NODES 3000000
+#define MAX_BDD_NODES 300000000
 
 /*
  * 0 - No pulse
@@ -162,7 +162,7 @@ typedef map <int, int> n_count;
  * 1 - Not Used
  * 2 - ITR_SIM
  */
-#define CUR_SIM 0
+#define CUR_SIM 2
 
 #endif	/* GLOBALS_H */
 

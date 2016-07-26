@@ -275,14 +275,17 @@ bool bdd_sim::sim_graph(gmap &graph)
         }
         else if ((graph[git->first].type != INPUT)&&((graph[git->first].fanout_num != graph_m[git->first].fanout_num) || (graph[git->first].fanout_num == 0)))
         {
-            for (pit = graph[git->first].p_list.begin(); pit != graph[git->first].p_list.end(); ++pit)
+            if(CONE_SIM == 1)
             {
-                s_prob.solve_prob(pit->p_func);
-                pit->t_prob = s_prob.true_prob;
-                temp = *pit;
-                temp.p_func = bdd_true();
-                for (fit = graph_m[git->first].fanout.begin(); fit != graph_m[git->first].fanout.end(); ++fit)
-                    tp_map[*fit].push_back(temp);
+                for (pit = graph[git->first].p_list.begin(); pit != graph[git->first].p_list.end(); ++pit)
+                {
+                    s_prob.solve_prob(pit->p_func);
+                    pit->t_prob = s_prob.true_prob;
+                    temp = *pit;
+                    temp.p_func = bdd_true();
+                    for (fit = graph_m[git->first].fanout.begin(); fit != graph_m[git->first].fanout.end(); ++fit)
+                        tp_map[*fit].push_back(temp);
+                }
             }
             //bdd_optimize();
         }
