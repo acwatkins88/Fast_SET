@@ -162,7 +162,7 @@ typedef map <int, int> n_count;
  * 1 - Not Used
  * 2 - ITR_SIM
  */
-#define CUR_SIM 2
+#define CUR_SIM 0
 
 #endif	/* GLOBALS_H */
 

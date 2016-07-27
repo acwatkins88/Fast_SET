@@ -19,10 +19,21 @@ void bdd_prob::solve_prob(bdd x)
     inp_num.clear();
     num_vis.clear();
     
+    count1 = 0;
+    count2 = 0;
+    count3 = 0;
+    
+    cout<<"Begin\n";
     init_sum(x); 
+    cout<<"Initialized\n";
     init_prob(x); 
+    cout<<"Probmap Created\n";
     eval_bddprob(x);
+    cout<<"Evalulation Complete\n";
     del_probmap();
+    cout<<"Probmap Deleted\n";
+    
+    cout<<"Ideal Node Number: "<<bdd_nodecount(x)<<" New Count: "<<count3<<" Init Counted: "<<count1<<" Eval Counted: "<<count2<<endl;
 }
 
 void bdd_prob::init_sum(bdd x)
@@ -38,10 +49,20 @@ void bdd_prob::init_sum(bdd x)
     
     if(x != const_t && x != const_f)
     {
+        count3++;
+        
         inp_num[var] = 0;
         
-        init_sum(t_b);
-        init_sum(f_b);
+        init_list.push_back(var);
+        
+        t_b = bdd_high(x);
+        f_b = bdd_low(x);
+        
+        //if(!check_list(init_list, t_b.id()))
+            init_sum(t_b);
+        
+        //if(!check_list(init_list, f_b.id()))
+            init_sum(f_b);
     }
 }
 
@@ -73,13 +94,15 @@ void bdd_prob::init_prob(bdd x)
     bdd f_b;
     
     true_prob = 0;
-    false_prob = 0;
-    
+    false_prob = 0;  
     
     if(x != const_t && x != const_f)
     {
+        count1++;
         var = x.id();
         inp_var = bdd_var(x);
+        
+        //cout<<"Initialize: "<<var<<endl;
 
         if(is_inprobmap(var) == false)
         {
@@ -99,7 +122,7 @@ void bdd_prob::init_prob(bdd x)
         t_b = bdd_high(x);
         f_b = bdd_low(x);
         
-        if(inp_num[var] == 1)
+        if((inp_num[var] == 1))
         {
             init_prob(t_b);
             init_prob(f_b);
@@ -125,6 +148,8 @@ void bdd_prob::eval_bddprob(bdd x)
     
     if(x != const_t && x != const_f)
     {
+        count2++;
+        
         var = x.id();
         
         bdd t = bdd_high(x);
@@ -243,6 +268,20 @@ void bdd_prob::eval_bddprob(bdd x)
             }
         }
     }
+}
+
+/*
+ * Find an element in a list
+ */
+bool bdd_prob::check_list(list<int> inp_l, int key)
+{
+    list<int>::iterator lit;
+    
+    for(lit = inp_l.begin(); lit != inp_l.end(); ++lit)
+        if(*lit == key)
+            return true;
+    
+    return false;
 }
 
 /*

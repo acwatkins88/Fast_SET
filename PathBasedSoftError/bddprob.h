@@ -39,11 +39,18 @@ public:
     bdd_prob();
     ~bdd_prob();
     
-private:
+private:   
+    int count1;
+    int count2;
+    int count3;
+    
+    list<int> init_list;
+    
     void init_sum(bdd );
     void init_prob(bdd );
     void eval_bddprob(bdd ); 
     bool is_inprobmap(int );
+    bool check_list(list<int> , int );
 };
 
 inline bdd new_var(){bdd x; bdd_setvarnum(var_count+1); x = bdd_ithvar(var_count); var_count++; return x;}
