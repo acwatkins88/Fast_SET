@@ -44,7 +44,8 @@ private:
     int count2;
     int count3;
     
-    list<int> init_list;
+    map<int , bool> init_map;
+    list<int> v_nodes;
     
     void init_sum(bdd );
     void init_prob(bdd );

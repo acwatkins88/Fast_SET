@@ -18,22 +18,24 @@ void bdd_prob::solve_prob(bdd x)
     sum_map.clear();
     inp_num.clear();
     num_vis.clear();
+    init_map.clear();
+    v_nodes.clear();
     
     count1 = 0;
     count2 = 0;
     count3 = 0;
     
-    cout<<"Begin\n";
-    init_sum(x); 
-    cout<<"Initialized\n";
+    //cout<<"Begin\n";
+    //init_sum(x); 
+    //cout<<"Initialized\n";
     init_prob(x); 
-    cout<<"Probmap Created\n";
+    //cout<<"Probmap Created\n";
     eval_bddprob(x);
-    cout<<"Evalulation Complete\n";
+    //cout<<"Evalulation Complete\n";
     del_probmap();
-    cout<<"Probmap Deleted\n";
+    //cout<<"Probmap Deleted\n";
     
-    cout<<"Ideal Node Number: "<<bdd_nodecount(x)<<" New Count: "<<count3<<" Init Counted: "<<count1<<" Eval Counted: "<<count2<<endl;
+    //cout<<"Ideal Node Number: "<<bdd_nodecount(x)<<" New Count: "<<count3<<" Init Counted: "<<count1<<" Eval Counted: "<<count2<<endl;
 }
 
 void bdd_prob::init_sum(bdd x)
@@ -50,19 +52,29 @@ void bdd_prob::init_sum(bdd x)
     if(x != const_t && x != const_f)
     {
         count3++;
+        //cout<<"Number: "<<count3<<endl;
         
         inp_num[var] = 0;
         
-        init_list.push_back(var);
+        init_map[var] = false;
+        v_nodes.push_back(var);
         
         t_b = bdd_high(x);
         f_b = bdd_low(x);
         
-        //if(!check_list(init_list, t_b.id()))
+        //if((t_b != const_t)&&(t_b != const_f)&&(!check_list(v_nodes, t_b.id())))
+        if((t_b != const_t)&&(t_b != const_f))
+        {
+            //cout<<"True ID: "<<t_b.id()<<endl;
             init_sum(t_b);
+        }
         
-        //if(!check_list(init_list, f_b.id()))
+        //if((f_b != const_t)&&(f_b != const_f)&&(!check_list(v_nodes, f_b.id())))
+        if((f_b != const_t)&&(f_b != const_f))
+        {
+            //cout<<"False ID: "<<f_b.id()<<endl;
             init_sum(f_b);
+        }
     }
 }
 
@@ -104,9 +116,10 @@ void bdd_prob::init_prob(bdd x)
         
         //cout<<"Initialize: "<<var<<endl;
 
-        if(is_inprobmap(var) == false)
+        if(init_map[var] == false)
         {
             prob_map[var] = new double[2];
+            init_map[var] = true;
         }
 
         prob_map[var][0] = (1 - inp_map[inp_var]);  

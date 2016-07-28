@@ -262,13 +262,13 @@ bool bdd_sim::sim_graph(gmap &graph)
             {
                 if (m_find(graph_m[git->first].r_map, pit->e_num))
                 {
-                    cout<<"ID: "<<pit->id<<" Event: "<<pit->e_num<<" Number of BDD Nodes: "<<bdd_nodecount(pit->p_func)<<endl;
+                    //cout<<"ID: "<<pit->id<<" Event: "<<pit->e_num<<" Number of BDD Nodes: "<<bdd_nodecount(pit->p_func)<<endl;
                     s_prob.solve_prob(pit->p_func);
                     graph_m[git->first].r_map[pit->e_num] = graph_m[git->first].r_map[pit->e_num]+(s_prob.true_prob * pit->t_prob);
                 }
                 else
                 {
-                    cout<<"ID: "<<pit->id<<" Event: "<<pit->e_num<<" Number of BDD Nodes: "<<bdd_nodecount(pit->p_func)<<endl;
+                    //cout<<"ID: "<<pit->id<<" Event: "<<pit->e_num<<" Number of BDD Nodes: "<<bdd_nodecount(pit->p_func)<<endl;
                     s_prob.solve_prob(pit->p_func);
                     graph_m[git->first].r_map[pit->e_num] = (s_prob.true_prob * pit->t_prob);
                 }
