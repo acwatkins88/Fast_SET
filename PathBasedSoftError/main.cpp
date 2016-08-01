@@ -80,9 +80,11 @@ int main(int argc, char** argv)
     
     if(CUR_SIM == BDD_SIM)
     {
+        double avg = 0;
+        int num_events = 0;
         for(g_it = graph_m.begin(); g_it != graph_m.end(); ++g_it)
         {
-            if(out_find(g_it->first))
+            if(out_find(g_it->first)&&(g_it->first == 880))
             {
                 cout<<"Node: "<<g_it->first<<endl;
                 cout<<"Type: "<<graph_m[g_it->first].type<<endl;
@@ -91,7 +93,20 @@ int main(int argc, char** argv)
                 {
                     cout<<"Event: "<<r_it->first<<endl;
                     cout<<"Probability: "<<graph_m[g_it->first].r_map[r_it->first]<<endl;
+                    if(graph_m[g_it->first].r_map[r_it->first] > 1)
+                    {
+                        //avg = avg + 1;
+                        //num_events++;
+                    }
+                    else
+                    {
+                        avg = avg + graph_m[g_it->first].r_map[r_it->first];
+                        num_events++;
+                    }
                 }
+                cout<<"Average: "<<avg/(double) num_events<<endl;
+                avg = 0;
+                num_events = 0;
             }
         }
     }

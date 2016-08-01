@@ -185,7 +185,7 @@ private:
     int count_nodes(gmap , int );
     void conv_partition(gmap & , int & , int );
     
-    void bdd_optimize();
+    int bdd_optimize();
 };
 
 /*
