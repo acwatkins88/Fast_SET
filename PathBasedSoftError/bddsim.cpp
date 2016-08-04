@@ -149,6 +149,10 @@ bool bdd_sim::sim_graph(gmap &graph)
                 }
             }
             
+            /*list<transient>::iterator it;
+            for(it = graph[git->first].p_list.begin(); it != graph[git->first].p_list.end(); ++it)
+                cout<<"Node: "<<git->first<<" Probability: "<<it->t_prob<<endl;*/
+            
             bdd_genfunc(git->first, graph[git->first].p_list);
             
             // Propagate Existing Pulses
@@ -162,13 +166,13 @@ bool bdd_sim::sim_graph(gmap &graph)
             }*/
             
             // Check for Convergence 
-            /*if ((graph[git->first].type != NOT) || (graph[git->first].type != BUF))
+            if ((graph[git->first].type != NOT) || (graph[git->first].type != BUF))
             {
                 if(!graph[git->first].p_list.empty())
                 {
                     conv_check(git->first);
                 }
-            }*/
+            }
             
             total_count = total_count + count_nodes(graph, git->first) - num_removed;
             num_removed = 0;
@@ -194,7 +198,7 @@ bool bdd_sim::sim_graph(gmap &graph)
                 graph_m[git->first].prob = graph[git->first].prob;
             }
         }
-        //cout << "Gate Processed: " << git->first << endl;
+        cout << "Gate Processed: " << git->first << endl;
         
         num_removed = bdd_optimize();
     }
@@ -209,13 +213,12 @@ bool bdd_sim::sim_graph(gmap &graph)
             // Load data by id number
             for (pit = graph[git->first].p_list.begin(); pit != graph[git->first].p_list.end(); ++pit)
             {
-                if(git->first == 880)
-                {
                 if (m_find(graph_m[git->first].r_map, pit->e_num))
                 {
                     //cout<<"ID: "<<pit->id<<" Event: "<<pit->e_num<<" Number of BDD Nodes: "<<bdd_nodecount(pit->p_func)<<endl;
                     s_prob.solve_prob(pit->p_func);
-                    cout<<"ID: "<<pit->id<<" Event: "<<pit->e_num<<" Prob: "<<s_prob.true_prob<<" True: "<<pit->t_prob<<endl;
+                    /*if(git->first == 880)
+                        cout<<"ID: "<<pit->id<<" Event: "<<pit->e_num<<" Prob: "<<s_prob.true_prob<<" True: "<<pit->t_prob<<endl;*/
                     graph_m[git->first].r_map[pit->e_num] = graph_m[git->first].r_map[pit->e_num]+(s_prob.true_prob * pit->t_prob);
                     //graph_m[git->first].r_map[pit->e_num] = graph_m[git->first].r_map[pit->e_num]+(s_prob.true_prob);
                 }
@@ -223,10 +226,10 @@ bool bdd_sim::sim_graph(gmap &graph)
                 {
                     //cout<<"ID: "<<pit->id<<" Event: "<<pit->e_num<<" Number of BDD Nodes: "<<bdd_nodecount(pit->p_func)<<endl;
                     s_prob.solve_prob(pit->p_func);
-                    cout<<"ID: "<<pit->id<<" Event: "<<pit->e_num<<" Prob: "<<s_prob.true_prob<<" True: "<<pit->t_prob<<endl;
+                    /*if(git->first == 880)
+                        cout<<"ID: "<<pit->id<<" Event: "<<pit->e_num<<" Prob: "<<s_prob.true_prob<<" True: "<<pit->t_prob<<endl;*/
                     graph_m[git->first].r_map[pit->e_num] = (s_prob.true_prob * pit->t_prob);
                     //graph_m[git->first].r_map[pit->e_num] = (s_prob.true_prob);
-                }
                 }
             }
             tp_map.clear();

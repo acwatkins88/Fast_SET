@@ -84,19 +84,20 @@ int main(int argc, char** argv)
         int num_events = 0;
         for(g_it = graph_m.begin(); g_it != graph_m.end(); ++g_it)
         {
-            if(out_find(g_it->first)&&(g_it->first == 880))
+            //if(out_find(g_it->first)&&(g_it->first == 880))
+            if(out_find(g_it->first))
             {
                 cout<<"Node: "<<g_it->first<<endl;
                 cout<<"Type: "<<graph_m[g_it->first].type<<endl;
-                cout<<"Pulses: "<<endl;;
+                //cout<<"Pulses: "<<endl;;
                 for(r_it = graph_m[g_it->first].r_map.begin(); r_it != graph_m[g_it->first].r_map.end(); ++r_it)
                 {
-                    cout<<"Event: "<<r_it->first<<endl;
-                    cout<<"Probability: "<<graph_m[g_it->first].r_map[r_it->first]<<endl;
+                    //cout<<"Event: "<<r_it->first<<endl;
+                    //cout<<"Probability: "<<graph_m[g_it->first].r_map[r_it->first]<<endl;
                     if(graph_m[g_it->first].r_map[r_it->first] > 1)
                     {
-                        //avg = avg + 1;
-                        //num_events++;
+                        avg = avg + 1;
+                        num_events++;
                     }
                     else
                     {

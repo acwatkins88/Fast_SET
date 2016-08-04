@@ -161,7 +161,7 @@ void gen_sim::proc_pulse(int n_num)
                 p_temp.p_gate = *i_it;
                 p_temp.p_pulse = t_it->id;
                 temp.prev_pulse.push_back(p_temp);
-                //temp.t_prob = t_it->t_prob;
+                temp.t_prob = t_it->t_prob;
                 
                 set_propfunc(n_num, *i_it, *t_it, temp);
                 

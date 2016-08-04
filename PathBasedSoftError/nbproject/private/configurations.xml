@@ -31,11 +31,11 @@
           <runcommandpicklistitem>"${OUTPUT_PATH}" "Circuits/c432.bench"</runcommandpicklistitem>
           <runcommandpicklistitem>"${OUTPUT_PATH}" "Circuits/c499.bench"</runcommandpicklistitem>
           <runcommandpicklistitem>"${OUTPUT_PATH}" "Circuits/7552.bench"</runcommandpicklistitem>
-          <runcommandpicklistitem>"${OUTPUT_PATH}" "Circuits/c7552.bench"</runcommandpicklistitem>
           <runcommandpicklistitem>"${OUTPUT_PATH}" "Circuits/c17.bench"</runcommandpicklistitem>
           <runcommandpicklistitem>"${OUTPUT_PATH}" "Circuits/c880.bench"</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}" "Circuits/c7552.bench"</runcommandpicklistitem>
         </runcommandpicklist>
-        <runcommand>"${OUTPUT_PATH}" "Circuits/c880.bench"</runcommand>
+        <runcommand>"${OUTPUT_PATH}" "Circuits/c7552.bench"</runcommand>
         <rundir></rundir>
         <buildfirst>true</buildfirst>
         <terminal-type>0</terminal-type>
