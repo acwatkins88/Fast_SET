@@ -179,8 +179,9 @@ bool bdd_sim::sim_graph(gmap &graph)
             //cout<<"Total: "<<total_count<<" List Num: "<<graph[git->first].p_list.size()<<endl;
             
             if ((total_count > MAX_BDD_NODES)&&(graph[git->first].fanout_num != 0)&&(CONE_SIM == 1))
-            {    
-                return true;
+            {   
+                if(graph.size() > MIN_GATE_NUM)
+                    return true;
             }
             
             list<transient>::iterator pit;
@@ -203,6 +204,7 @@ bool bdd_sim::sim_graph(gmap &graph)
         num_removed = bdd_optimize();
     }
     
+    cout<<"Solving Functions\n";
     list<transient>::iterator pit;
     list<int>::iterator fit;
     transient temp;
@@ -250,6 +252,8 @@ bool bdd_sim::sim_graph(gmap &graph)
             }
         }
     }
+    
+    cout<<"Functions Solved\n";
    
     /*for(git = graph.begin(); git != graph.end(); ++git)
     {
