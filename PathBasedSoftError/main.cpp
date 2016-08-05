@@ -89,11 +89,11 @@ int main(int argc, char** argv)
             {
                 cout<<"Node: "<<g_it->first<<endl;
                 cout<<"Type: "<<graph_m[g_it->first].type<<endl;
-                //cout<<"Pulses: "<<endl;;
+                cout<<"Pulses: "<<endl;;
                 for(r_it = graph_m[g_it->first].r_map.begin(); r_it != graph_m[g_it->first].r_map.end(); ++r_it)
                 {
-                    //cout<<"Event: "<<r_it->first<<endl;
-                    //cout<<"Probability: "<<graph_m[g_it->first].r_map[r_it->first]<<endl;
+                    cout<<"Event: "<<r_it->first<<endl;
+                    cout<<"Probability: "<<graph_m[g_it->first].r_map[r_it->first]<<endl;
                     if(graph_m[g_it->first].r_map[r_it->first] > 1)
                     {
                         avg = avg + 1;
@@ -110,6 +110,8 @@ int main(int argc, char** argv)
                 num_events = 0;
             }
         }
+        cout<<"Allocs: "<<b_sim.alloc_count<<endl;
+        cout<<"Deletes: "<<b_sim.del_count<<endl;
     }
     else if(CUR_SIM == ITR_SIM)
     {

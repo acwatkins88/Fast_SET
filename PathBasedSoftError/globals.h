@@ -148,10 +148,10 @@ typedef map <int, int> n_count;
 #define PART_RATIO 0.5
 
 // Maximum BDD node count
-#define MAX_BDD_NODES 3000000
+#define MAX_BDD_NODES 300000
 
 // Set a Minimum Number of Gates
-#define MIN_GATE_NUM 5
+#define MIN_GATE_NUM 10
 
 /*
  * 0 - No pulse

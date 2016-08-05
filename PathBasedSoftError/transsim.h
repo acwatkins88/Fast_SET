@@ -32,6 +32,8 @@ class gen_sim
 public:
     gen_sim(int);
     virtual ~gen_sim(){};
+    int alloc_count;
+    int del_count;
     
     //gmap graph;
     //circuitstruct circuit;
@@ -185,7 +187,7 @@ private:
     int count_nodes(gmap , int );
     void conv_partition(gmap & , int & , int );
     
-    int bdd_optimize();
+    void bdd_optimize();
 };
 
 /*
