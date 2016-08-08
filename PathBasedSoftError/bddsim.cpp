@@ -45,14 +45,14 @@ void bdd_sim::sim()
                 i--;
                 
                 gmap::iterator dit;
+                over_it++;
                 for(dit = graph.begin(); dit != over_it; ++dit)
                 {
                     if(graph[dit->first].func_del == false)
                     {
-                        cout<<"Deleting: "<<dit->first<<endl;
                         delete graph[dit->first].g_func;
                         del_count++;
-                        cout<<"done\n";
+                        //cout<<"Delete 0: "<<dit->first<<endl;
                     }
                 }
             }
@@ -109,6 +109,7 @@ bool bdd_sim::sim_graph(gmap &graph)
             graph[git->first].g_func = new bdd();
             *graph[git->first].g_func = new_var();
             alloc_count++;
+            //cout<<"Adding 1: "<<git->first<<endl;
             
             //if(git->first < 0)
             s_prob.inp_map[bdd_var(*graph[git->first].g_func)] = graph[git->first].prob;     
@@ -134,21 +135,10 @@ bool bdd_sim::sim_graph(gmap &graph)
                 }
             }
             
-            /*list<transient>::iterator it;
-            for(it = graph[git->first].p_list.begin(); it != graph[git->first].p_list.end(); ++it)
-                cout<<"Node: "<<git->first<<" Probability: "<<it->t_prob<<endl;*/
-            
             bdd_genfunc(git->first, graph[git->first].p_list);
             
             // Propagate Existing Pulses
             proc_pulse(git->first);
-            
-            /*cout<<"Node: "<<git->first<<" Num Pulses: "<<graph[git->first].p_list.size()<<" Pulses: "<<endl;
-            for(mit = graph[git->first].p_list.begin(); mit != graph[git->first].p_list.end(); ++mit)
-            {
-                cout<<"ID: "<<mit->id<<" Event: "<<mit->e_num<<endl;
-                //bdd_printtable(mit->p_func);
-            }*/
             
             // Check for Convergence 
             /*if ((graph[git->first].type != NOT) || (graph[git->first].type != BUF))
@@ -188,6 +178,7 @@ bool bdd_sim::sim_graph(gmap &graph)
                     delete graph[git->first].g_func;
                     graph[git->first].func_del = true;
                     del_count++;
+                    //cout<<"Delete 1: "<<git->first<<endl;
                 }
             }
         }
@@ -196,7 +187,6 @@ bool bdd_sim::sim_graph(gmap &graph)
         bdd_optimize();
     }
     
-    cout<<"Solving Functions\n";
     list<transient>::iterator pit;
     list<int>::iterator fit;
     transient temp;
@@ -207,6 +197,7 @@ bool bdd_sim::sim_graph(gmap &graph)
             delete graph[git->first].g_func;
             graph[git->first].func_del = true;
             del_count++;
+            //cout<<"Delete 2: "<<git->first<<endl;
         }
         
         if (out_find(git->first))
@@ -252,8 +243,6 @@ bool bdd_sim::sim_graph(gmap &graph)
         }
     }
     
-    cout<<"Functions Solved\n";
-    
     return false;
 }
 
@@ -267,6 +256,7 @@ void bdd_sim::gen_sensf(int n_num)
     
     graph[n_num].g_func = new bdd();
     alloc_count++;
+    //cout<<"Adding 2: "<<n_num<<endl;
     
     for(inp = graph[n_num].fanin.begin(); inp != graph[n_num].fanin.end(); ++inp)
     {
@@ -567,6 +557,7 @@ void bdd_sim::bdd_optimize()
                     delete graph[git->first].g_func;
                     graph[git->first].func_del = true;
                     del_count++;
+                    //cout<<"Delete 3: "<<git->first<<endl;
                 } 
             }
         }
