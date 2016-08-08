@@ -86,6 +86,7 @@ public:
     
     int proc_flag;                  // denotes when node is processed
     int del_flag;                   // denotes when node transients are deleted
+    bool func_del;
     
     std::list<int> part;            // partition number
     int c_size;                     // size of cell for partitioning

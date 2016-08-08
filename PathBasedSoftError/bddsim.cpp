@@ -37,12 +37,24 @@ void bdd_sim::sim()
             cout<<"Overflowed: "<<is_overflowed<<endl;
             
             if(is_overflowed)
-            {
+            { 
                 part_circuit(graph);
                 
                 conv_partition(graph_m, max_partn, i);
                 
                 i--;
+                
+                gmap::iterator dit;
+                for(dit = graph.begin(); dit != over_it; ++dit)
+                {
+                    if(graph[dit->first].func_del == false)
+                    {
+                        cout<<"Deleting: "<<dit->first<<endl;
+                        delete graph[dit->first].g_func;
+                        del_count++;
+                        cout<<"done\n";
+                    }
+                }
             }
             
             graph.clear();
@@ -154,6 +166,7 @@ bool bdd_sim::sim_graph(gmap &graph)
             
             if ((total_count > MAX_BDD_NODES)&&(graph[git->first].fanout_num != 0)&&(CONE_SIM == 1))
             {   
+                over_it = git;
                 return true;
             }
             
@@ -173,6 +186,7 @@ bool bdd_sim::sim_graph(gmap &graph)
                 if(graph[git->first].fanout_num == 0)
                 {
                     delete graph[git->first].g_func;
+                    graph[git->first].func_del = true;
                     del_count++;
                 }
             }
@@ -191,6 +205,7 @@ bool bdd_sim::sim_graph(gmap &graph)
         if((graph[git->first].type == INPUT))
         {
             delete graph[git->first].g_func;
+            graph[git->first].func_del = true;
             del_count++;
         }
         
@@ -550,6 +565,7 @@ void bdd_sim::bdd_optimize()
                     graph[git->first].del_flag = 1;
                     *graph[git->first].g_func = bdd_true();
                     delete graph[git->first].g_func;
+                    graph[git->first].func_del = true;
                     del_count++;
                 } 
             }
@@ -572,6 +588,7 @@ void bdd_sim::end_sim()
             
             //cout<<"Gate: "<<git->first<<endl;
             delete graph[git->first].g_func;
+            graph[git->first].func_del = true;
             del_count++;
         }
     }

@@ -49,6 +49,8 @@ protected:
     int size_part1;
     int size_part2;
     
+    gmap::iterator over_it;
+    
     // Data structures for partitioning
     gmap inp_g;
     // cells connected to a net

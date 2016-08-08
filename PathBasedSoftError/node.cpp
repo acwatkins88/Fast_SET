@@ -73,6 +73,7 @@ node::node()
     this->pulse = false;
     this->proc_flag = 0;
     this->del_flag = 0;
+    this->func_del = false;
     this->prob = 0;
     this->gen_flag = false;
 
