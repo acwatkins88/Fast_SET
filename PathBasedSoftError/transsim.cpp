@@ -134,7 +134,7 @@ void gen_sim::proc_pulse(int n_num)
         for (t_it = graph[*i_it].p_list.begin(); t_it != graph[*i_it].p_list.end(); ++t_it)
         {
             temp.delay = calc_delay();
-
+            
             // Attenuate glitch if width is smaller than 2*gate_delay (temporary)
             if ((t_it->width) > (2 * temp.delay))
             {

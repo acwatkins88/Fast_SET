@@ -96,6 +96,8 @@ void bdd_sim::sim()
 
 bool bdd_sim::sim_graph(gmap &graph)
 {
+    int bdd_nodenum;
+    int largest_bdd = 0;
     int total_count = 0;
     int num_removed = 0;
     bdd_prob s_prob;
@@ -150,19 +152,35 @@ bool bdd_sim::sim_graph(gmap &graph)
             }*/
             
             //total_count = total_count + count_nodes(graph, git->first) - num_removed;
-            total_count = bdd_getnodenum();
+            //total_count = bdd_getnodenum();
+            
+            list<transient>::iterator pit;
+            int max_bdd_size = 0;
+            for(pit = graph[git->first].p_list.begin(); pit != graph[git->first].p_list.end(); ++pit)
+            {
+                bdd_nodenum = bdd_nodecount(pit->p_func);
+                if(max_bdd_size < bdd_nodenum)
+                    max_bdd_size = bdd_nodenum;
+            }
+        
+            if(max_bdd_size > largest_bdd)
+                largest_bdd = max_bdd_size;
+            
+            cout<<"Largest BDD: "<<largest_bdd<<endl;
+                
             num_removed = 0;
             //cout<<"Total: "<<total_count<<" List Num: "<<graph[git->first].p_list.size()<<endl;
             
-            if ((total_count > MAX_BDD_NODES)&&(graph[git->first].fanout_num != 0)&&(CONE_SIM == 1))
+            //if ((total_count > MAX_BDD_NODES)&&(graph[git->first].fanout_num != 0)&&(CONE_SIM == 1))
+            if ((largest_bdd > MAX_BDD_NODES)&&(graph[git->first].fanout_num != 0)&&(CONE_SIM == 1))
             {   
                 over_it = git;
                 return true;
             }
             
-            list<transient>::iterator pit;
+            /*list<transient>::iterator pit;
             
-            /*cout<<"Node: "<<git->first<<endl;
+            cout<<"Node: "<<git->first<<endl;
             for (pit = graph[git->first].p_list.begin(); pit != graph[git->first].p_list.end(); ++pit)
                 cout<<"ID: "<<pit->id<<" Event: "<<pit->e_num<<endl;*/
             
