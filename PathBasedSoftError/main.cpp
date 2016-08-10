@@ -61,12 +61,11 @@ int main(int argc, char** argv)
     bdd_prob e_bdd;
     
     p_file.build_graph(argv[1]);
-    
+
     graph_m = graph;
     
-    //max_partn = b_sim.label_cone();
-    //graphn = b_sim.extract_circuit(0);
     unsigned t0=clock();
+    
     if(CUR_SIM == BDD_SIM)
         b_sim.sim();
     else if(CUR_SIM == ITR_SIM)

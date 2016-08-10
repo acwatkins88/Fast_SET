@@ -31,8 +31,8 @@
           <runcommandpicklistitem>"${OUTPUT_PATH}" "Circuits/7552.bench"</runcommandpicklistitem>
           <runcommandpicklistitem>"${OUTPUT_PATH}" "Circuits/c7552.bench"</runcommandpicklistitem>
           <runcommandpicklistitem>"${OUTPUT_PATH}" "Circuits/c6288.bench"</runcommandpicklistitem>
-          <runcommandpicklistitem>"${OUTPUT_PATH}" "Circuits/c17.bench"</runcommandpicklistitem>
           <runcommandpicklistitem>"${OUTPUT_PATH}" "Circuits/c880.bench"</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}" "Circuits/c17.bench"</runcommandpicklistitem>
           <runcommandpicklistitem>"${OUTPUT_PATH}" "Circuits/c1355.bench"</runcommandpicklistitem>
         </runcommandpicklist>
         <runcommand>"${OUTPUT_PATH}" "Circuits/c1355.bench"</runcommand>

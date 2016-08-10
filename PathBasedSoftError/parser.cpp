@@ -18,7 +18,7 @@ void parser::build_graph(char* filename)
 
     ifstream graphfile;
     graphfile.open(filename, ios::in);
-
+    
     // Find Maximum node id
     maxnodeid = 0;
     if (graphfile.is_open())
@@ -26,7 +26,6 @@ void parser::build_graph(char* filename)
         while (graphfile.good())
         {
             getline(graphfile, buff);
-
             pos = buff.find('#');
             if (pos == -1)
             {
@@ -107,6 +106,7 @@ void parser::build_graph(char* filename)
                         cout << "Node type could not be found\n";
                     }
                 }
+                cout<<"At End\n";
             }
         }
     } else

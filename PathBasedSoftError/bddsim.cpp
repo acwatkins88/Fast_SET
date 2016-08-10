@@ -4,6 +4,7 @@ void bdd_sim::sim()
 {
     alloc_count = 0;
     del_count = 0;
+    int inj_count = 0;
     bool is_overflowed;
     int max_partn;
     gmap::iterator git;
@@ -18,7 +19,11 @@ void bdd_sim::sim()
             graph[git->first].prob = T_PROB;
         else
         {
-            bdd_genp(git->first);
+            if(inj_count < NUM_INJ_PULSES)
+            {
+                bdd_genp(git->first);
+                inj_count++;
+            }
         }
     }
 
@@ -94,6 +99,11 @@ void bdd_sim::sim()
     }
 }
 
+/*
+ * Modify bdd_genfunc and proc_pulse such that the largest bdd is found in the routine
+ * Change proc_pulse so that if the bdd exceed the specified size, the change will occur instantly
+ */
+
 bool bdd_sim::sim_graph(gmap &graph)
 {
     int bdd_nodenum;
@@ -106,6 +116,8 @@ bool bdd_sim::sim_graph(gmap &graph)
 
     for (git = graph.begin(); git != graph.end(); ++git)
     {
+        cout<<"Starting: "<<git->first<<endl;
+        
         if (graph[git->first].type == INPUT)
         {
             graph[git->first].g_func = new bdd();
@@ -166,7 +178,7 @@ bool bdd_sim::sim_graph(gmap &graph)
             if(max_bdd_size > largest_bdd)
                 largest_bdd = max_bdd_size;
             
-            cout<<"Largest BDD: "<<largest_bdd<<endl;
+            cout<<"Largest BDD: "<<largest_bdd<<" Number of Pulses: "<<graph[git->first].p_list.size()<<endl;
                 
             num_removed = 0;
             //cout<<"Total: "<<total_count<<" List Num: "<<graph[git->first].p_list.size()<<endl;

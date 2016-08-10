@@ -927,7 +927,8 @@ int gen_sim::label_cone()
     
     for(git = graph.rbegin(); git != graph.rend(); ++git)
     {
-        if(out_find(git->first))
+        graph[git->first].part.push_back(0);
+        /*if(out_find(git->first))
         {
             git->second.part.push_back(part_l);
             part_l++;
@@ -942,9 +943,10 @@ int gen_sim::label_cone()
                         graph[git->first].part.push_back(*pit);
                 }
             }
-        }
+        }*/
     }
-    return part_l-1;
+    //return part_l-1;
+    return 0;
 }
 
 /*
