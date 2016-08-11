@@ -158,6 +158,7 @@ class bdd_sim : public gen_sim
 {
 public:
     void sim();
+    void pnode_sim();
     void end_sim();
     
     // Local graph - represented as a partition
@@ -190,27 +191,6 @@ private:
     void conv_partition(gmap & , int & , int );
     
     void bdd_optimize();
-};
-
-/*
- * Class for Signal Probability Based Simulation
- */
-class sigprob_sim : public gen_sim
-{
-public:
-    sigprob_sim(int t):gen_sim(t){};
-    void sim();
-    void end_sim();
-    
-private:
-    void gen_probp(int );
-    double calc_genprob(int , int );
-    bool check_gate(int , int );
-    void set_propfunc(int , int , transient , transient );
-    
-    // Functions for Convergence Calculation
-    void set_convprop(int , transient& , transient , transient );
-    double get_prob(list<transient> , list<prev_p> );
 };
 
 /*
@@ -249,7 +229,10 @@ public:
     void end_sim();
     
 private:
-    void level_circuit();
+    // Store the nodes according to level
+    map<int, list<int> > level_map;
+    
+    int level_circuit();
 };
 #endif	/* TRANSSIM_H */
 

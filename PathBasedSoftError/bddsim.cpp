@@ -1,5 +1,35 @@
 #include "transsim.h"
 
+void bdd_sim::pnode_sim()
+{
+    bdd_prob s_prob;
+    gmap::iterator git;
+    
+    for(git = graph.begin(); git != graph.end(); ++git)
+    {
+        cout<<"Starting: "<<git->first<<endl;
+        
+        if (graph[git->first].type == INPUT)
+        {
+            graph[git->first].g_func = new bdd();
+            *graph[git->first].g_func = new_var();
+            
+            graph[git->first].prob = 0.5;
+            
+            s_prob.inp_map[bdd_var(*graph[git->first].g_func)] = graph[git->first].prob;          
+        }
+        else
+        {   
+            // Generate Function for the Gate
+            gen_sensf(git->first);
+            
+            s_prob.solve_prob(*graph[git->first].g_func);
+            graph[git->first].prob = s_prob.true_prob;
+        }
+        cout<<"Node: "<<git->first<<" Prob: "<<graph[git->first].prob<<endl;
+    }
+}
+
 void bdd_sim::sim()
 {
     alloc_count = 0;

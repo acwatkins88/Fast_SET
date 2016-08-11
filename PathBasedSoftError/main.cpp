@@ -74,6 +74,9 @@ int main(int argc, char** argv)
         i_sim.sim();
     else if(CUR_SIM == CCM_SIM)
         c_sim.sim();
+    else if(CUR_SIM == SIGPROB_SIM)
+        b_sim.pnode_sim();
+    
     unsigned t1=clock()-t0;
     
     gmap::iterator g_it;

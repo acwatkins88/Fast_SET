@@ -124,6 +124,7 @@ public:
     
     // CCM Variables
     int level;
+    map<int, double> cor_coef; 
 };
 
 /*
