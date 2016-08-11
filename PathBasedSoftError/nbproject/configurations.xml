@@ -36,6 +36,7 @@
                    projectFiles="true">
       <itemPath>bddprob.cpp</itemPath>
       <itemPath>bddsim.cpp</itemPath>
+      <itemPath>ccmsim.cpp</itemPath>
       <itemPath>itrsim.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
       <itemPath>node.cpp</itemPath>
@@ -128,6 +129,8 @@
       </item>
       <item path="bddsim.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="ccmsim.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="config.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="delays.h" ex="false" tool="3" flavor2="0">
@@ -214,6 +217,8 @@
       <item path="bddprob.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="bddsim.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ccmsim.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="config.h" ex="false" tool="3" flavor2="0">
       </item>

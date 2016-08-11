@@ -37,6 +37,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/bddprob.o \
 	${OBJECTDIR}/bddsim.o \
+	${OBJECTDIR}/ccmsim.o \
 	${OBJECTDIR}/itrsim.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/node.o \
@@ -77,6 +78,11 @@ ${OBJECTDIR}/bddsim.o: bddsim.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/bddsim.o bddsim.cpp
+
+${OBJECTDIR}/ccmsim.o: ccmsim.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ccmsim.o ccmsim.cpp
 
 ${OBJECTDIR}/itrsim.o: itrsim.cpp 
 	${MKDIR} -p ${OBJECTDIR}

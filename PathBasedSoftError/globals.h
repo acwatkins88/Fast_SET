@@ -131,7 +131,7 @@ typedef map <int, int> n_count;
 #define BDD_SIM 0 
 #define SIGPROB_SIM 1
 #define ITR_SIM 2
-#define PART_SIM 3
+#define CCM_SIM 3
 
 /*
  * Temp Test Values
@@ -167,7 +167,7 @@ typedef map <int, int> n_count;
  * 1 - Not Used
  * 2 - ITR_SIM
  */
-#define CUR_SIM 0
+#define CUR_SIM 3
 
 #endif	/* GLOBALS_H */
 

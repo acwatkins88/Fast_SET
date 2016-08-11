@@ -77,6 +77,7 @@ public:
 class node 
 {
 public:
+    // General Node Elements
     int type;                       // Gate type
     int fanout_num;                 // Number of fanouts
     int fanin_num;                  // Number of fanins
@@ -88,6 +89,7 @@ public:
     int del_flag;                   // denotes when node transients are deleted
     bool func_del;
     
+    // Partitioning
     std::list<int> part;            // partition number
     int c_size;                     // size of cell for partitioning
     int pins;                       // number of pins in the cell
@@ -119,6 +121,9 @@ public:
     map<int, double> r_map;
     map<int, bdd> bdd_map;
     map<int, double> p_prob_map;
+    
+    // CCM Variables
+    int level;
 };
 
 /*

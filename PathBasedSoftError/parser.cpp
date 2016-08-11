@@ -106,7 +106,6 @@ void parser::build_graph(char* filename)
                         cout << "Node type could not be found\n";
                     }
                 }
-                cout<<"At End\n";
             }
         }
     } else

@@ -240,5 +240,16 @@ private:
     
 };
 
+class ccm_sim : public gen_sim
+{
+public:
+    ccm_sim(int t):gen_sim(t){};
+    ~ccm_sim(){};
+    void sim();
+    void end_sim();
+    
+private:
+    void level_circuit();
+};
 #endif	/* TRANSSIM_H */
 

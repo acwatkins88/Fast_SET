@@ -58,6 +58,8 @@ int main(int argc, char** argv)
     parser p_file;
     bdd_sim b_sim(BDD_SIM);
     itr_sim i_sim(ITR_SIM);
+    ccm_sim c_sim(CCM_SIM);
+    
     bdd_prob e_bdd;
     
     p_file.build_graph(argv[1]);
@@ -70,6 +72,8 @@ int main(int argc, char** argv)
         b_sim.sim();
     else if(CUR_SIM == ITR_SIM)
         i_sim.sim();
+    else if(CUR_SIM == CCM_SIM)
+        c_sim.sim();
     unsigned t1=clock()-t0;
     
     gmap::iterator g_it;
@@ -127,6 +131,13 @@ int main(int argc, char** argv)
                     cout<<"Probability: "<<graph[g_it->first].r_map[r_it->first]<<endl;
                 }
             }
+        }
+    }
+    else if(CUR_SIM == CCM_SIM)
+    {
+        for(g_it = graph.begin(); g_it != graph.end(); ++g_it)
+        {
+            cout<<"Node: "<<g_it->first<<" Level: "<<graph[g_it->first].level<<endl;
         }
     }
     
