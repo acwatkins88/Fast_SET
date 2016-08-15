@@ -140,7 +140,7 @@ int main(int argc, char** argv)
     {
         for(g_it = graph.begin(); g_it != graph.end(); ++g_it)
         {
-            cout<<"Node: "<<g_it->first<<" Level: "<<graph[g_it->first].level<<endl;
+            cout<<"Node: "<<g_it->first<<" Level: "<<graph[g_it->first].level<<" Prob: "<<graph[g_it->first].prob<<endl;
         }
     }
     
