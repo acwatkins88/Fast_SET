@@ -8,6 +8,7 @@ void ccm_sim :: sim()
     double temp_prob;
     double temp_cor;
     double temp_cor2;
+    double l_prob;
     list<int>::iterator lit;
     list<int>::iterator t_lit;
     list<int>::iterator in_it;
@@ -61,8 +62,9 @@ void ccm_sim :: sim()
                 temp_prob = 1;
                 for(in_it = graph[*lit].fanin.begin(); in_it != graph[*lit].fanin.end(); ++in_it)
                 {
-                    temp_prob = temp_prob*graph[*in_it].prob; 
+                    temp_prob = temp_prob*graph[*in_it].prob;
                 }
+                l_prob = temp_prob;
                 
                 temp_fin1 = graph[*lit].fanin;
                 temp_fin2 = temp_fin1;
@@ -106,6 +108,10 @@ void ccm_sim :: sim()
                             temp_cor2 = temp_cor2*temp_cor;
                         }
                     }
+                    l_prob = 1/l_prob;
+                    if(temp_cor2 > l_prob)
+                        temp_cor2 = l_prob;
+                    
                     graph[*lit].cor_coef[*t_lit] = temp_cor2;
                     
                 }
@@ -119,6 +125,10 @@ void ccm_sim :: sim()
                 {
                     graph[*lit].cor_coef[*lit] = 1/graph[*lit].prob;
                 }
+            }
+            if(graph[*lit].type == NOR)
+            {
+                
             }
             cout<<"Node: "<<*lit<<endl;
             for(cit = graph[*lit].cor_coef.begin(); cit != graph[*lit].cor_coef.end(); ++cit)
