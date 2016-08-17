@@ -142,7 +142,7 @@ typedef map <int, int> n_count;
 #define REORDER_TH 1000
 
 // Set to 1 to simulate output cones
-#define CONE_SIM 1
+#define CONE_SIM 0
 
 // Set initial partition ratio
 #define PART_RATIO 0.5
@@ -167,7 +167,7 @@ typedef map <int, int> n_count;
  * 1 - Not Used
  * 2 - ITR_SIM
  */
-#define CUR_SIM 1
+#define CUR_SIM 0
 
 #endif	/* GLOBALS_H */
 

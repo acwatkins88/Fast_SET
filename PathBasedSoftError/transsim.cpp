@@ -1046,11 +1046,18 @@ void gen_sim::part_circuit(gmap graphi)
     inp_g = graphi;
     
     load_pstruct();
+    print_pstruct();
     calc_csize();
     init_part();
     init_gain();
     move_cells();
     update_inputs();
+    
+    gmap::iterator git;
+    for(git = graphi.begin(); git != graphi.end(); ++git)
+    {
+        cout<<"PNode: "<<git->first<<" Part: "<<graphi[git->first].b_part_num<<endl;
+    }
 }
 
 /*

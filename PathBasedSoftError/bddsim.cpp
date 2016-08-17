@@ -62,8 +62,6 @@ void bdd_sim::sim()
         max_partn = label_cone();
         graph_m = graph;
         
-        list<transient>::iterator pit;
-        
         for (int i = 0; i <= max_partn; i++)
         {
             graph = extract_circuit(i);
@@ -101,7 +99,14 @@ void bdd_sim::sim()
     {
         // Partition Circuit into two parts
         
-        gmap::iterator git;
+        for(git = graph.begin(); git != graph.end(); ++git)
+            graph[git->first].static_part = 0;
+
+        graph_m = graph;
+        
+        
+        
+        /*gmap::iterator git;
         list<int>::iterator lit;
         
         max_partn = 0;
@@ -125,7 +130,7 @@ void bdd_sim::sim()
             
             graph.clear();
             graph = graph_m;
-        }
+        }*/
     }
 }
 

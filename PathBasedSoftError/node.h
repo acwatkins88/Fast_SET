@@ -89,6 +89,8 @@ public:
     int del_flag;                   // denotes when node transients are deleted
     bool func_del;
     
+    int static_part;                // Partition Number for for topological simulation
+    
     // Partitioning
     std::list<int> part;            // partition number
     int c_size;                     // size of cell for partitioning

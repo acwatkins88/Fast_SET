@@ -70,6 +70,9 @@ void ccm_sim :: sim()
                 temp_fin2 = temp_fin1;
                 temp_fin2.pop_front();
                 temp_cor =1;
+                
+                // Determine Correlation Coefficient for Probability Calculation
+                
                 for(fin1_it = temp_fin1.begin(); fin1_it != temp_fin1.end(); ++fin1_it)
                 {
                     if(!temp_fin2.empty())
@@ -86,7 +89,9 @@ void ccm_sim :: sim()
                 }
                 temp_prob = temp_prob*temp_cor;
                 
-                for(t_lit = temp_l.begin(); t_lit != temp_l.end(); ++t_lit)
+                // Calculate the Correlation Coefficients for the gate
+                
+                /*for(t_lit = temp_l.begin(); t_lit != temp_l.end(); ++t_lit)
                 {
                     temp_cor2 = 1;
                     for(cin1_it = graph[*t_lit].fanin.begin(); cin1_it != graph[*t_lit].fanin.end(); ++cin1_it)
@@ -124,12 +129,9 @@ void ccm_sim :: sim()
                 if(graph[*lit].fanout_num > 1)
                 {
                     graph[*lit].cor_coef[*lit] = 1/graph[*lit].prob;
-                }
+                }*/
             }
-            if(graph[*lit].type == NOR)
-            {
-                
-            }
+            
             cout<<"Node: "<<*lit<<endl;
             for(cit = graph[*lit].cor_coef.begin(); cit != graph[*lit].cor_coef.end(); ++cit)
                 cout<<"Key: "<<cit->first<<" Val: "<<graph[*lit].cor_coef[cit->first]<<endl;
