@@ -131,6 +131,10 @@ protected:
     virtual void set_propfunc(int , int , transient , transient );
     virtual void set_convprop(int , transient& , transient , transient );
     
+    // Non-output cone simulation routines
+    gmap extract_tcir(int );
+    void conv_tpart(gmap & , int & , int );
+    
     // Fuctions for partitioning a circuit
     void part_circuit(gmap );
     void load_pstruct();
@@ -145,7 +149,6 @@ protected:
     int calc_maxgain();
     bool is_cell_free(int );
     bool is_bucket_empty();
-    
     
     // Test Functions
     void print_pstruct();

@@ -82,7 +82,7 @@ Type: 5
 Average: 0.0987904
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% With Partitioning
+% With Partitioning - 300000 Nodes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Node: 388
@@ -141,28 +141,30 @@ Type: 5
 Average: 0.130454
 Node: 863
 Type: 5
-Average: 0.393671
+Average: 0.121293
 Node: 864
 Type: 5
-Average: 0.0959043
+Average: 0.108463
 Node: 865
 Type: 5
-Average: 0.122422
+Average: 0.119006
 Node: 866
 Type: 5
-Average: 0.277603
+Average: 0.0793072
 Node: 874
 Type: 5
-Average: 0.157518
+Average: 0.100209
 Node: 878
 Type: 5
-Average: 0.220752
+Average: 0.076096
 Node: 879
 Type: 5
-Average: 0.238664
+Average: 0.0814166
 Node: 880
 Type: 5
-Average: 0.135053
+Average: 0.0895578
+
+
 
 
 

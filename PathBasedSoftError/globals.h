@@ -148,7 +148,7 @@ typedef map <int, int> n_count;
 #define PART_RATIO 0.5
 
 // Maximum BDD node count
-#define MAX_BDD_NODES 10000000
+#define MAX_BDD_NODES 5000000
 
 // Set a Minimum Number of Gates
 #define MIN_GATE_NUM 10
@@ -167,7 +167,7 @@ typedef map <int, int> n_count;
  * 1 - Not Used
  * 2 - ITR_SIM
  */
-#define CUR_SIM 0
+#define CUR_SIM 2
 
 #endif	/* GLOBALS_H */
 

@@ -85,6 +85,9 @@ Average: 0.0987904
 % With Partitioning - 300000 Nodes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Gate Processed: 880
+Overflowed: 0
+Garbage collection #47: 10000019 nodes / 5859164 free / 0.2s / 5.6s total
 Node: 388
 Type: 5
 Average: 0.5
@@ -132,39 +135,34 @@ Type: 5
 Average: 0.4375
 Node: 767
 Type: 5
-Average: 0.389706
+Average: 0.458333
 Node: 768
 Type: 5
-Average: 0.389706
+Average: 0.354167
 Node: 850
 Type: 5
-Average: 0.130454
+Average: 0.22256
 Node: 863
 Type: 5
-Average: 0.121293
+Average: 0.161489
 Node: 864
 Type: 5
-Average: 0.108463
+Average: 0.154672
 Node: 865
 Type: 5
-Average: 0.119006
+Average: 0.17832
 Node: 866
 Type: 5
-Average: 0.0793072
+Average: 0.117133
 Node: 874
 Type: 5
-Average: 0.100209
+Average: 0.130868
 Node: 878
 Type: 5
-Average: 0.076096
+Average: 0.0974427
 Node: 879
 Type: 5
-Average: 0.0814166
+Average: 0.105232
 Node: 880
 Type: 5
-Average: 0.0895578
-
-
-
-
-
+Average: 0.114943

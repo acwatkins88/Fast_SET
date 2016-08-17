@@ -1034,6 +1034,100 @@ gmap gen_sim::extract_circuit(int part_num)
 }
 
 /*
+ * Circuit Extraction for non-output cone simulation
+ */
+gmap gen_sim::extract_tcir(int part_num)
+{
+    int f_count = 0;
+    gmap temp_graph;
+    gmap::iterator git;
+    list<int>::iterator lit;
+    
+    for(git = graph_m.begin(); git != graph_m.end(); ++git)
+    {
+        if(graph_m[git->first].static_part == part_num)
+        {
+            temp_graph[git->first] = graph_m[git->first];
+        }
+    }
+    
+    for(git = temp_graph.begin(); git != temp_graph.end(); ++git)
+    {
+        temp_graph[git->first].fanin.clear();
+        temp_graph[git->first].fanout.clear();
+        for(lit = graph_m[git->first].fanin.begin(); lit != graph_m[git->first].fanin.end(); ++lit)
+        {
+            if(graph_m[*lit].static_part == part_num)
+            {
+                temp_graph[git->first].fanin.push_back(*lit);
+                f_count++;
+            }
+        }
+        temp_graph[git->first].fanin_num = f_count;
+        f_count = 0;
+        
+        for(lit = graph_m[git->first].fanout.begin(); lit != graph_m[git->first].fanout.end(); ++lit)
+        {
+            if(graph_m[*lit].static_part == part_num)
+            {
+                temp_graph[git->first].fanout.push_back(*lit);
+                f_count++;
+            }
+        }
+        temp_graph[git->first].fanout_num = f_count;
+        f_count = 0;
+    }
+    
+    int n_count  = -1;
+    
+    for(git = temp_graph.begin(); git != temp_graph.end(); ++git)
+    {
+        if((temp_graph[git->first].fanin_num != (graph_m[git->first].fanin_num))&&(temp_graph[git->first].type != INPUT))
+        {   
+            for(lit = graph_m[git->first].fanin.begin(); lit != graph_m[git->first].fanin.end(); ++ lit)
+            {
+                if((graph_m[*lit].type != INPUT)&&(!l_find(temp_graph[git->first].fanin, *lit)))
+                {
+                    temp_graph[n_count].type = INPUT;
+                    temp_graph[n_count].fanout.push_back(git->first);
+                    temp_graph[n_count].fanout_num = 1;
+                    temp_graph[n_count].prob = graph_m[*lit].prob;
+                    temp_graph[n_count].static_part = graph_m[*lit].static_part;
+                    temp_graph[git->first].fanin.push_back(n_count);
+                    temp_graph[git->first].fanin_num++;
+                    n_count--;
+                }
+            }
+        }
+    }
+    
+    return temp_graph;
+}
+
+/*
+ * Conversion of partition to from part_circuit to graph
+ */
+void gen_sim::conv_tpart(gmap& g_main, int& max_part, int cur_partnum)
+{
+    gmap::iterator git;  
+    max_part++;
+    
+    for(git = g_main.begin(); git != g_main.end(); ++git)
+    {
+        if((g_main[git->first].static_part > cur_partnum))
+            g_main[git->first].static_part++;
+    }
+    
+    for(git = inp_g.begin(); git != inp_g.end(); ++git)
+    {
+        if((inp_g[git->first].b_part_num == 1) && (git->first >= 0))
+        {
+            g_main[git->first].static_part++;
+        }
+    }
+}
+
+/*
  * Main Routine to partition a graph
  */
 void gen_sim::part_circuit(gmap graphi)
@@ -1046,18 +1140,11 @@ void gen_sim::part_circuit(gmap graphi)
     inp_g = graphi;
     
     load_pstruct();
-    print_pstruct();
     calc_csize();
     init_part();
     init_gain();
     move_cells();
     update_inputs();
-    
-    gmap::iterator git;
-    for(git = graphi.begin(); git != graphi.end(); ++git)
-    {
-        cout<<"PNode: "<<git->first<<" Part: "<<graphi[git->first].b_part_num<<endl;
-    }
 }
 
 /*
@@ -1387,6 +1474,7 @@ void gen_sim::update_inputs()
 {
     int part_num;
     int part_count = 0;
+    double fo_limit;
     gmap::iterator git;
     list<int>::iterator lit;
     
@@ -1394,15 +1482,19 @@ void gen_sim::update_inputs()
     {
         if(inp_g[git->first].type == INPUT)
         {
+            //cout<<"Node: "<<git->first<<" Part: "<<inp_g[git->first].b_part_num<<endl;
             part_num = inp_g[git->first].b_part_num;
             
             for(lit = inp_g[git->first].fanout.begin(); lit != inp_g[git->first].fanout.end(); ++lit)
             {
                 if(part_num != inp_g[*lit].b_part_num)
+                {
                     part_count++;
+                }
             }
-
-            if(part_count == inp_g[git->first].fanout_num)
+            fo_limit = 0.5*inp_g[git->first].fanout_num;
+            
+            if(part_count > fo_limit)
             {
                 if(inp_g[git->first].b_part_num == 1)
                     inp_g[git->first].b_part_num =2;
