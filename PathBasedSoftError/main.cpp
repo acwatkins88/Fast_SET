@@ -125,7 +125,9 @@ int main(int argc, char** argv)
         int num_events = 0;
         for(g_it = graph.begin(); g_it != graph.end(); ++g_it)
         {
-            if(out_find(g_it->first))
+            if(out_find(g_it->first) && (graph[g_it->first].type == INPUT))
+                cout<<"Average: "<<graph[g_it->first].prob<<endl;
+            else if(out_find(g_it->first)&&graph[g_it->first].type != INPUT)
             {
                 cout<<"Node: "<<g_it->first<<endl;
                 cout<<"Type: "<<graph[g_it->first].type<<endl;
