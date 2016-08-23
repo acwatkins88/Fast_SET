@@ -54,7 +54,6 @@ int main(int argc, char** argv)
     //gmap graphn;
     bdd_init(10000000, 50000);
     
-    ifstream file_h;
     parser p_file;
     bdd_sim b_sim(BDD_SIM);
     itr_sim i_sim(ITR_SIM);
@@ -62,8 +61,13 @@ int main(int argc, char** argv)
     
     bdd_prob e_bdd;
     
+    // Read Input Files
     p_file.build_graph(argv[1]);
-
+    parse_table(argv[2], nmos_cur);
+    parse_table(argv[3], pmos_cur);
+    parse_table(argv[4], nmos_miller);
+    parse_table(argv[5], pmos_miller);
+    
     graph_m = graph;
     
     unsigned t0=clock();
@@ -125,9 +129,13 @@ int main(int argc, char** argv)
         int num_events = 0;
         for(g_it = graph.begin(); g_it != graph.end(); ++g_it)
         {
-            if(out_find(g_it->first) && (graph[g_it->first].type == INPUT))
+            if((out_find(g_it->first) == true) && (graph[g_it->first].type == INPUT))
+            {
+                cout<<"Node: "<<g_it->first<<endl;
+                cout<<"Type: "<<graph[g_it->first].type<<endl;
                 cout<<"Average: "<<graph[g_it->first].prob<<endl;
-            else if(out_find(g_it->first)&&graph[g_it->first].type != INPUT)
+            }
+            else if((out_find(g_it->first) == true) && (graph[g_it->first].type != INPUT))
             {
                 cout<<"Node: "<<g_it->first<<endl;
                 cout<<"Type: "<<graph[g_it->first].type<<endl;

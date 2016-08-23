@@ -67,7 +67,11 @@ class enh_trans
 {
 public:
     int type;
+    int e_num;
     int id;
+    
+    double t_prob;
+    
     vector<int> volt_pulse;    
 };
 

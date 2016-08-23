@@ -27,7 +27,7 @@ inp conval(conv out) {
 /*
  * Additional Parsing Functions
  */
-void parse_table(ifstream &inp_file, vector<vector<double> > &out_table);
+void parse_table(char* filename, vector<vector<double> > &out_table);
 
 /*
  * Class to parse input files

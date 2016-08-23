@@ -2,21 +2,6 @@
 
 using namespace std;
 
-// Not Implemented
-/*void part_sim(parser inpfile, char* hfilename)
-{
-    int part_num, i;
-    gmap::iterator g_it;
-    gmap temp_g;
-    
-    part_num = inpfile.parse_hgraph(hfilename);
-    
-    for(i = 0; i < part_num; i++)
-    {
-        // Set input variables
-    }
-}*/
-
 gen_sim::gen_sim(int t)
 {
     sim_type = t;
@@ -29,7 +14,7 @@ gen_sim::gen_sim(int t)
  * type - Rising Or Falling
  * n_num - node to inject
  */
-/*enh_trans gen_sim::gen_pulse(int n_num, double charge)
+enh_trans gen_sim::gen_pulse(int n_num, double charge)
 {
     enh_trans temp;
     
@@ -66,7 +51,7 @@ gen_sim::gen_sim(int t)
         default:
             cout<<"Error Determining Gate: "<<n_num<<" of Type: "<<graph[n_num].type<<endl;
     }
-}*/
+}
 
 /*
  * Generate Transient Pulse
@@ -96,19 +81,41 @@ transient gen_sim::gen_pulse(int type, int n_num)
 /*
  * Inject Transient Pulse into NAND Gate
  */
-/*vector<double> gen_sim::inj_NAND(int n_num, double charge)
+vector<double> gen_sim::inj_NAND(int n_num, double charge)
 {
     vector<double> temp_out;
     
     
-}*/
+}
 
 /*
  * Index transistor current
  */
 double gen_sim::ind_current(int type, double d_volt, double g_volt)
 {
+    int d_size;
+    int d_index;
+    int g_size;
+    int g_index;
     
+    if(type == PMOS)
+    {
+        d_size = pmos_cur.size();
+        g_size = pmos_cur[1].size();
+        
+        d_index = floor(d_size/MAX_VAL);
+        g_index = floor(g_size/MAX_VAL);
+    }
+    else if(type == NMOS)
+    {
+        d_size = nmos_cur.size();
+        g_size = nmos_cur[1].size();
+        
+        d_index = floor(d_size/MAX_VAL);
+        g_index = floor(g_size/MAX_VAL);
+    }
+    else
+        cout<<"Invalid Transistor Type - Current Index\n";
 }
 
 /*
@@ -116,7 +123,16 @@ double gen_sim::ind_current(int type, double d_volt, double g_volt)
  */
 double gen_sim::ind_miller(int type, double d_volt, double g_volt)
 {
-    
+    if(type == PMOS)
+    {
+        
+    }
+    else if(type == NMOS)
+    {
+        
+    }
+    else
+        cout<<"Invalid Transistor Type - Miller Index\n";
 }
 
 /*

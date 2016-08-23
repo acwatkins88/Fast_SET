@@ -233,13 +233,16 @@ bool parser::checklist(list<int> inplist, int val)
 /*
  * Code to Import Current and Value Tables
  */
-void parse_table(ifstream &inp_file, vector<vector<double> > &out_table)
+void parse_table(char* filename, vector<vector<double> > &out_table)
 {
+    ifstream inp_file;
     string buff;
     string num_buff;
     stringstream t_ss;
     vector<double> temp_vec;
-
+    
+    inp_file.open(filename, ios::in);
+    
     while (getline(inp_file, buff))
     {
         t_ss << buff;

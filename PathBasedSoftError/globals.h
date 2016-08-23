@@ -169,5 +169,8 @@ typedef map <int, int> n_count;
  */
 #define CUR_SIM 0
 
+// Constants for LUT
+#define MAX_VAL 1.8
+
 #endif	/* GLOBALS_H */
 
