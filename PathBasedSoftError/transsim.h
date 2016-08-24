@@ -71,13 +71,6 @@ protected:
     
     transient gen_pulse(int, int );
     
-    // Inject Pulse
-    vector<double> inj_NAND(int, double);
-    
-    // Gate injection functions
-    double ind_current(int , double , double );
-    double ind_miller(int , double , double );
-    
     void proc_pulse(int);
     double calc_delay();
     
@@ -152,6 +145,16 @@ protected:
     
     // Test Functions
     void print_pstruct();
+    
+    // Enhanced Pulse Methods
+    enh_trans gen_enhpulse(int , double );
+    
+    // Inject Pulse
+    vector<double> inj_NAND(int, double);
+    
+    // Gate injection functions
+    double ind_current(int , double , double );
+    double ind_miller(int , double , double );
 };
 
 /*

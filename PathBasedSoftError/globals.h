@@ -56,19 +56,19 @@ typedef map <int, int> n_count;
  * Enhanced Pulse Model Parameters
  */
 // Granularity of Vd
-#define VD_GRAN 0.0125
+#define VD_GRAN 0.005
 
 // Granularity of Vg
-#define VG_GRAN 0.0125
+#define VG_GRAN 0.005
 
 // Absolute Value of Minimum Value For Characterization
-#define MIN_VAL 1.5
+#define MIN_VAL 0
 
 // Maximum value of Vd
-#define MAX_VAL 1.5
+#define MAX_VD 1.8
 
 // Maximum value of Vg
-#define MAX_VG 1.5
+#define MAX_VG 1.8
 
 /*
  * Additional Circuit Parameters
@@ -168,9 +168,6 @@ typedef map <int, int> n_count;
  * 2 - ITR_SIM
  */
 #define CUR_SIM 0
-
-// Constants for LUT
-#define MAX_VAL 1.8
 
 #endif	/* GLOBALS_H */
 

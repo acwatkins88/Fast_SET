@@ -14,7 +14,7 @@ gen_sim::gen_sim(int t)
  * type - Rising Or Falling
  * n_num - node to inject
  */
-enh_trans gen_sim::gen_pulse(int n_num, double charge)
+enh_trans gen_sim::gen_enhpulse(int n_num, double charge)
 {
     enh_trans temp;
     
@@ -103,19 +103,26 @@ double gen_sim::ind_current(int type, double d_volt, double g_volt)
         d_size = pmos_cur.size();
         g_size = pmos_cur[1].size();
         
-        d_index = floor(d_size/MAX_VAL);
-        g_index = floor(g_size/MAX_VAL);
+        d_index = floor((d_volt*d_size)/MAX_VD);
+        g_index = floor((g_volt*g_size)/MAX_VG);
+        
+        return pmos_cur[d_index][g_index];
     }
     else if(type == NMOS)
     {
         d_size = nmos_cur.size();
         g_size = nmos_cur[1].size();
         
-        d_index = floor(d_size/MAX_VAL);
-        g_index = floor(g_size/MAX_VAL);
+        d_index = floor((d_volt*d_size)/MAX_VD);
+        g_index = floor((g_volt*g_size)/MAX_VG);
+        
+        return nmos_cur[d_index][g_index];
     }
     else
+    {
         cout<<"Invalid Transistor Type - Current Index\n";
+        return 0;
+    }
 }
 
 /*
@@ -123,16 +130,36 @@ double gen_sim::ind_current(int type, double d_volt, double g_volt)
  */
 double gen_sim::ind_miller(int type, double d_volt, double g_volt)
 {
+    int d_size;
+    int d_index;
+    int g_size;
+    int g_index;
+    
     if(type == PMOS)
     {
+        d_size = pmos_miller.size();
+        g_size = pmos_miller[1].size();
         
+        d_index = floor((d_volt*d_size)/MAX_VD);
+        g_index = floor((g_volt*g_size)/MAX_VG);
+        
+        return pmos_miller[d_index][g_index];
     }
     else if(type == NMOS)
     {
+        d_size = nmos_miller.size();
+        g_size = nmos_miller[1].size();
         
+        d_index = floor((d_volt*d_size)/MAX_VD);
+        g_index = floor((g_volt*g_size)/MAX_VG);
+        
+        return nmos_miller[d_index][g_index];
     }
     else
-        cout<<"Invalid Transistor Type - Miller Index\n";
+    {
+        cout<<"Invalid Transistor Type - Current Index\n";
+        return 0;
+    }
 }
 
 /*
