@@ -103,8 +103,8 @@ double gen_sim::ind_current(int type, double d_volt, double g_volt)
         d_size = pmos_cur.size();
         g_size = pmos_cur[1].size();
         
-        d_index = floor((d_volt*d_size)/MAX_VD);
-        g_index = floor((g_volt*g_size)/MAX_VG);
+        d_index = floor((d_volt + MIN_VAL)*(d_size/MAX_VD));
+        g_index = floor((g_volt + MIN_VAL)*(g_size/MAX_VG));
         
         return pmos_cur[d_index][g_index];
     }
@@ -113,8 +113,8 @@ double gen_sim::ind_current(int type, double d_volt, double g_volt)
         d_size = nmos_cur.size();
         g_size = nmos_cur[1].size();
         
-        d_index = floor((d_volt*d_size)/MAX_VD);
-        g_index = floor((g_volt*g_size)/MAX_VG);
+        d_index = floor((d_volt + MIN_VAL)*(d_size/MAX_VD));
+        g_index = floor((g_volt + MIN_VAL)*(g_size/MAX_VG));
         
         return nmos_cur[d_index][g_index];
     }

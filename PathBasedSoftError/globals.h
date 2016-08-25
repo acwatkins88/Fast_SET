@@ -70,6 +70,9 @@ typedef map <int, int> n_count;
 // Maximum value of Vg
 #define MAX_VG 1.8
 
+// Define the Number of Steps
+#define NUM_STEPS 700
+
 /*
  * Additional Circuit Parameters
  */
