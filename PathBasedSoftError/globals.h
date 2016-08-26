@@ -46,12 +46,6 @@ typedef map <int, int> n_count;
 #define ITR_STEP 1000000
 #define MAX_INPT 20             //Max Iterative Inputs
 
-
-/*
- * Enhanced Pulse Model - Number of Points
- */
-#define PT_NUM 1500
-
 /*
  * Enhanced Pulse Model Parameters
  */
@@ -72,6 +66,14 @@ typedef map <int, int> n_count;
 
 // Define the Number of Steps
 #define NUM_STEPS 700
+
+// Initial Internal Node Voltage
+#define INT_NODE_VOLT 0.5
+
+// Constant Tau Value for Injection
+#define TAU 32e-12
+
+#define STEP_GRAN 0.5e-12
 
 /*
  * Additional Circuit Parameters
@@ -121,7 +123,7 @@ typedef map <int, int> n_count;
 #define DELAYPT .5
 
 // Vdd Value
-#define VDD 1
+#define VDD 1.05
 
 // Pin Capacitance
 #define PINCAP .32e-15

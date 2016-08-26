@@ -150,7 +150,7 @@ protected:
     enh_trans gen_enhpulse(int , double );
     
     // Inject Pulse
-    vector<double> inj_NAND(int, double);
+    vector<double> inj_NAND(int, double, int);
     
     // Gate injection functions
     double ind_current(int , double , double );

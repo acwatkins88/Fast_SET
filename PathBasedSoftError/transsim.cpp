@@ -81,11 +81,30 @@ transient gen_sim::gen_pulse(int type, int n_num)
 /*
  * Inject Transient Pulse into NAND Gate
  */
-vector<double> gen_sim::inj_NAND(int n_num, double charge)
+vector<double> gen_sim::inj_NAND(int n_num, double charge, int type)
 {
+    int t;
+    double time, vg_init, vd_init;
+    list<int>::iterator lit;
     vector<double> temp_out;
     
+    if(type == RISING)
+    {
+        vg_init = 1;
+        vd_init = 1;
+        temp_out[0] = 0; 
+    }
+    else
+    {
+        vg_init = 0;
+        vd_init = 0;
+        temp_out[0] = 1;
+    }
     
+    for(t = 0; t < 700; t++)
+    {
+        time = STEP_GRAN*t;
+    }
 }
 
 /*
@@ -103,8 +122,8 @@ double gen_sim::ind_current(int type, double d_volt, double g_volt)
         d_size = pmos_cur.size();
         g_size = pmos_cur[1].size();
         
-        d_index = floor((d_volt + MIN_VAL)*(d_size/MAX_VD));
-        g_index = floor((g_volt + MIN_VAL)*(g_size/MAX_VG));
+        d_index = floor((d_volt + MIN_VAL)*(d_size/MAX_VD))+1;
+        g_index = floor((g_volt + MIN_VAL)*(g_size/MAX_VG))+1;
         
         return pmos_cur[d_index][g_index];
     }
@@ -113,8 +132,8 @@ double gen_sim::ind_current(int type, double d_volt, double g_volt)
         d_size = nmos_cur.size();
         g_size = nmos_cur[1].size();
         
-        d_index = floor((d_volt + MIN_VAL)*(d_size/MAX_VD));
-        g_index = floor((g_volt + MIN_VAL)*(g_size/MAX_VG));
+        d_index = floor((d_volt + MIN_VAL)*(d_size/MAX_VD))+1;
+        g_index = floor((g_volt + MIN_VAL)*(g_size/MAX_VG))+1;
         
         return nmos_cur[d_index][g_index];
     }
