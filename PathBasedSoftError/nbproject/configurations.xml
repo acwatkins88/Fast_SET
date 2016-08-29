@@ -5,7 +5,7 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>bddprob.h</itemPath>
-      <itemPath>config.h</itemPath>
+      <itemPath>constants.h</itemPath>
       <itemPath>delays.h</itemPath>
       <itemPath>gates.h</itemPath>
       <itemPath>globals.h</itemPath>
@@ -131,7 +131,7 @@
       </item>
       <item path="ccmsim.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="config.h" ex="false" tool="3" flavor2="0">
+      <item path="constants.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="delays.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -220,7 +220,7 @@
       </item>
       <item path="ccmsim.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="config.h" ex="false" tool="3" flavor2="0">
+      <item path="constants.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="delays.h" ex="false" tool="3" flavor2="0">
       </item>

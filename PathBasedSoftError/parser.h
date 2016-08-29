@@ -2,6 +2,7 @@
 #define PARSER_H
 
 #include "globals.h"
+#include "constants.h"
 
 using namespace std;
 

@@ -9,6 +9,7 @@
 #define	TRANSSIM_H
 
 #include "globals.h"
+#include "constants.h"
 #include "bddprob.h"
 #include "sigprob.h"
 #include "parser.h"
@@ -150,7 +151,13 @@ protected:
     enh_trans gen_enhpulse(int , double );
     
     // Inject Pulse
+    vector<double> inj_NAND2(double, int);
+    
+    // Attempt to Generalize the Algorithm
     vector<double> inj_NAND(int, double, int);
+    
+    double sum_vector(vector<double> );
+    double avg_vector(vector<double> );
     
     // Gate injection functions
     double ind_current(int , double , double );

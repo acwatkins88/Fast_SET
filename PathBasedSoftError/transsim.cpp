@@ -81,30 +81,161 @@ transient gen_sim::gen_pulse(int type, int n_num)
 /*
  * Inject Transient Pulse into NAND Gate
  */
-vector<double> gen_sim::inj_NAND(int n_num, double charge, int type)
+vector<double> gen_sim::inj_NAND2(double charge, int type)
 {
     int t;
     double time, vg_init, vd_init;
-    list<int>::iterator lit;
+    double temp_vg, temp_vd;
+    double ipa, ipb, ina, inb;
+    double cmpa, cmpb, cmna;
+    double p_cur, n_cur;
+    
+    vector<double> n_volt;
     vector<double> temp_out;
+    vector<double> inj_cur;
+    
+    inj_cur[0] = 0;
     
     if(type == RISING)
     {
-        vg_init = 1;
-        vd_init = 1;
+        vg_init = VDD;
+        vd_init = VDD;
         temp_out[0] = 0; 
     }
-    else
+    else 
     {
         vg_init = 0;
         vd_init = 0;
-        temp_out[0] = 1;
+        temp_out[0] = VDD;
     }
     
-    for(t = 0; t < 700; t++)
+    n_volt[0] = INT_NODE_VOLT;
+    
+    for(t = 1; t <= 700; t++)
     {
+        ipa = ind_current(type, vd_init, vg_init);
+        ipb = ind_current(type, vd_init, vg_init);
+
+        temp_vg = vg_init - n_volt[t - 1];
+        temp_vd = temp_out[t - 1] - n_volt[t - 1];
+
+        ina = ind_current(type, temp_vd, temp_vg);
+        inb = ind_current(type, n_volt[t - 1], vg_init);
+
+        cmpa = ind_miller(type, vd_init, vg_init);
+        cmpb = ind_miller(type, vd_init, vg_init);
+
+        cmna = ind_miller(type, vd_init, vg_init);
+
+    
         time = STEP_GRAN*t;
+        
+        n_volt[t] = (((-ina + inb)*time)/ST_NODE_CAP) + n_volt[t-1];
+        
+        inj_cur[t] = (2*charge/TAU*sqrt(PI))*(sqrt(time/TAU))*(exp(-time/TAU));
+        
+        p_cur = ipa + ipb;
+        n_cur = (ina + inb)/2;
+        
+        temp_out[t] = (((p_cur + n_cur - inj_cur[t])*time)/(C_LOAD + cmpa + cmpb + cmna)) + temp_out[t-1]; 
     }
+}
+
+/*
+ * Attempt at Generalizing the enhanced injection model
+ */
+vector<double> gen_sim::inj_NAND(int n_num, double charge, int type)
+{
+    int i;
+    double time, temp_vg, temp_vd;
+    double vd_init, vg_init;
+    double n_cur, p_cur;
+    int itr_num = graph[n_num].fanin_num;
+    
+    vector<double> ip;
+    vector<double> in;
+    vector<double> cmp;
+    vector<double> cmn;
+    
+    vector<vector<double> > n_volt;
+    vector<double> inj_cur;
+    vector<double> temp_out;
+    
+    inj_cur[0] = 0;
+    
+    if(type == RISING)
+    {
+        vg_init = VDD;
+        vd_init = VDD;
+        temp_out[0] = 0; 
+    }
+    else 
+    {
+        vg_init = 0;
+        vd_init = 0;
+        temp_out[0] = VDD;
+    }
+    
+            // Initialize n_volt
+    for(i = 0; i < itr_num; i++)
+        n_volt[i][0] = INT_NODE_VOLT;
+    
+    for(int t = 1; t <= 700; t++)
+    {
+
+        for(i = 0; i < itr_num; i++)
+        {
+            ip[i] = ind_current(type, vd_init, vg_init);
+            cmp[i] = ind_miller(type, vd_init, vg_init);
+            
+            if(i == 0)
+                temp_vd = temp_out[i-1] - n_volt[0];
+            else if(i != (itr_num-1))
+                temp_vd = n_volt[i] - n_volt[i-1];
+            else
+                temp_vd = n_volt[i];
+            
+            if(i == (itr_num-1))
+                temp_vg = vg_init;
+            else
+                temp_vg = vg_init - n_volt[i];
+            
+            in[i] = ind_current(type, temp_vd, temp_vg);
+            
+            if(i == 0)
+                cmn[i] = ind_miller(type, vd_init, vg_init);
+        }
+        time = STEP_GRAN*t;
+        
+        p_cur = sum_vector(ip);
+        n_cur = avg_vector(in);
+    }
+}
+
+/*
+ * Sum the elements of a vector
+ */
+double gen_sim::sum_vector(vector<double> inp)
+{
+    double sum = 0;
+    vector<double>::iterator vit;
+    
+    for(vit = inp.begin; vit != inp.end(); ++vit)
+        sum = sum + *vit;
+    
+    return sum;
+}
+
+/*
+ * Average the elements in a vector
+ */
+double gen_sim::avg_vector(vector<double> inp)
+{
+    double sum; 
+    
+    sum = sum_vector(inp);
+        
+    return sum/inp.size();
 }
 
 /*
@@ -122,8 +253,8 @@ double gen_sim::ind_current(int type, double d_volt, double g_volt)
         d_size = pmos_cur.size();
         g_size = pmos_cur[1].size();
         
-        d_index = floor((d_volt + MIN_VAL)*(d_size/MAX_VD))+1;
-        g_index = floor((g_volt + MIN_VAL)*(g_size/MAX_VG))+1;
+        d_index = floor((d_volt + MIN_VAL)/(VD_GRAN))+1;
+        g_index = floor((g_volt + MIN_VAL)/(VG_GRAN))+1;
         
         return pmos_cur[d_index][g_index];
     }
@@ -132,8 +263,8 @@ double gen_sim::ind_current(int type, double d_volt, double g_volt)
         d_size = nmos_cur.size();
         g_size = nmos_cur[1].size();
         
-        d_index = floor((d_volt + MIN_VAL)*(d_size/MAX_VD))+1;
-        g_index = floor((g_volt + MIN_VAL)*(g_size/MAX_VG))+1;
+        d_index = floor((d_volt + MIN_VAL)/(VD_GRAN))+1;
+        g_index = floor((g_volt + MIN_VAL)/(VG_GRAN))+1;
         
         return nmos_cur[d_index][g_index];
     }
@@ -159,8 +290,8 @@ double gen_sim::ind_miller(int type, double d_volt, double g_volt)
         d_size = pmos_miller.size();
         g_size = pmos_miller[1].size();
         
-        d_index = floor((d_volt*d_size)/MAX_VD);
-        g_index = floor((g_volt*g_size)/MAX_VG);
+        d_index = floor((d_volt + MIN_VAL)*(d_size/MAX_VD))+1;
+        g_index = floor((g_volt + MIN_VAL)*(g_size/MAX_VG))+1;
         
         return pmos_miller[d_index][g_index];
     }
@@ -169,8 +300,8 @@ double gen_sim::ind_miller(int type, double d_volt, double g_volt)
         d_size = nmos_miller.size();
         g_size = nmos_miller[1].size();
         
-        d_index = floor((d_volt*d_size)/MAX_VD);
-        g_index = floor((g_volt*g_size)/MAX_VG);
+        d_index = floor((d_volt + MIN_VAL)*(d_size/MAX_VD))+1;
+        g_index = floor((g_volt + MIN_VAL)*(g_size/MAX_VG))+1;
         
         return nmos_miller[d_index][g_index];
     }

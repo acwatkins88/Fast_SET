@@ -9,6 +9,7 @@
 #define	BDDPROB_H
 
 #include "globals.h"
+#include "constants.h"
 
 extern gmap graph;
 extern circuitstruct circuit;

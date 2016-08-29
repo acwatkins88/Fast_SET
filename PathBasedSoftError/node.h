@@ -1,7 +1,7 @@
 #ifndef NODE_H
 #define NODE_H
 
-#include "config.h"
+#include "constants.h"
 #include <cmath>
 #include <vector>
 #include <list>

@@ -1,8 +1,8 @@
-build/Debug/GNU-Linux/node.o: node.cpp node.h config.h \
+build/Debug/GNU-Linux/node.o: node.cpp node.h constants.h \
  /home/acwatkins/Research/include/bdd.h
 
 node.h:
 
-config.h:
+constants.h:
 
 /home/acwatkins/Research/include/bdd.h:

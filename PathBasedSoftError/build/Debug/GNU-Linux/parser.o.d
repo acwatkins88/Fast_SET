@@ -1,5 +1,5 @@
 build/Debug/GNU-Linux/parser.o: parser.cpp parser.h globals.h \
- /home/acwatkins/Research/include/bdd.h node.h config.h gates.h
+ /home/acwatkins/Research/include/bdd.h node.h constants.h gates.h
 
 parser.h:
 
@@ -9,6 +9,6 @@ globals.h:
 
 node.h:
 
-config.h:
+constants.h:
 
 gates.h:
