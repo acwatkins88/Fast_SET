@@ -1,0 +1,1582 @@
+***** HSPICE -- F-2011.09 32-BIT (Sep  5 2011) linux ******
+ Input File: effresistance.sp
+ lic: No 'setenv LM_LICENSE_FILE' in current environment'
+ lic:
+ lic: FLEXlm: v10.8
+ lic: USER:   watkins              HOSTNAME: engr-e132-d10
+ lic: HOSTID: 002564bd04da         PID:      10449
+ lic: Using FLEXlm license file:
+ lic: 28000@131.230.191.194
+ lic: Checkout 1 hspice
+ lic: License/Maintenance for hspice will expire on 30-dec-2015/2015.06
+ lic: 1(in_use)/50(total) FLOATING license(s) on SERVER 131.230.191.194
+ lic:
+ init: begin read circuit files,  cpu clock=  4.00E-02
+       option search   = /synopsys/HSPICE/hspice/parts/ad
+       option search   = /synopsys/HSPICE/hspice/parts/ad
+       option search   = /synopsys/HSPICE/hspice/parts/behave
+       option search   = /synopsys/HSPICE/hspice/parts/bjt
+       option search   = /synopsys/HSPICE/hspice/parts/burr_brn
+       option search   = /synopsys/HSPICE/hspice/parts/comlinear
+       option search   = /synopsys/HSPICE/hspice/parts/dio
+       option search   = /synopsys/HSPICE/hspice/parts/fet
+       option search   = /synopsys/HSPICE/hspice/parts/lin_tech
+       option search   = /synopsys/HSPICE/hspice/parts/pci
+       option search   = /synopsys/HSPICE/hspice/parts/signet
+       option search   = /synopsys/HSPICE/hspice/parts/ti
+       option search   = /synopsys/HSPICE/hspice/parts/tline
+       option search   = /synopsys/HSPICE/hspice/parts/xilinx
+       option runlvl
+       option post
+       option measfo   =     1.00
+ init: end read circuit files,  cpu clock=  4.00E-02 memory=    149 kb
+ init: begin check errors,  cpu clock=  4.00E-02
+ init: end check errors,  cpu clock=  6.00E-02 memory=    155 kb
+ init: begin setup matrix, pivot=     0 cpu clock=  6.00E-02
+       establish matrix -- done,  cpu clock=  6.00E-02 memory=    157 kb
+       re-order matrix -- done,  cpu clock=  6.00E-02 memory=    157 kb
+ init: end setup matrix,  cpu clock=  6.00E-02 memory=    167 kb
+ sweep: parameter       parameter1       begin, #sweeps = 361
+ parameter: drain           =   -2.00E+00
+ output: effresistance.sw0
+ sweep: dc dc1    begin, #sweeps= 361 cpu clock=  6.00E-02
+ sweep: dc dc1    end,  cpu clock=  1.00E-01 memory=    179 kb
+ parameter: drain           =   -1.99E+00
+ output: effresistance.sw0
+ sweep: dc dc2    begin, #sweeps= 361 cpu clock=  1.00E-01
+ sweep: dc dc2    end,  cpu clock=  1.40E-01 memory=    179 kb
+ parameter: drain           =   -1.98E+00
+ output: effresistance.sw0
+ sweep: dc dc3    begin, #sweeps= 361 cpu clock=  1.40E-01
+ sweep: dc dc3    end,  cpu clock=  2.00E-01 memory=    179 kb
+ parameter: drain           =   -1.96E+00
+ output: effresistance.sw0
+ sweep: dc dc4    begin, #sweeps= 361 cpu clock=  2.00E-01
+ sweep: dc dc4    end,  cpu clock=  2.40E-01 memory=    179 kb
+ parameter: drain           =   -1.95E+00
+ output: effresistance.sw0
+ sweep: dc dc5    begin, #sweeps= 361 cpu clock=  2.40E-01
+ sweep: dc dc5    end,  cpu clock=  2.80E-01 memory=    179 kb
+ parameter: drain           =   -1.94E+00
+ output: effresistance.sw0
+ sweep: dc dc6    begin, #sweeps= 361 cpu clock=  2.80E-01
+ sweep: dc dc6    end,  cpu clock=  3.40E-01 memory=    179 kb
+ parameter: drain           =   -1.93E+00
+ output: effresistance.sw0
+ sweep: dc dc7    begin, #sweeps= 361 cpu clock=  3.40E-01
+ sweep: dc dc7    end,  cpu clock=  3.80E-01 memory=    179 kb
+ parameter: drain           =   -1.91E+00
+ output: effresistance.sw0
+ sweep: dc dc8    begin, #sweeps= 361 cpu clock=  3.80E-01
+ sweep: dc dc8    end,  cpu clock=  4.40E-01 memory=    179 kb
+ parameter: drain           =   -1.90E+00
+ output: effresistance.sw0
+ sweep: dc dc9    begin, #sweeps= 361 cpu clock=  4.40E-01
+ sweep: dc dc9    end,  cpu clock=  4.80E-01 memory=    179 kb
+ parameter: drain           =   -1.89E+00
+ output: effresistance.sw0
+ sweep: dc dc10   begin, #sweeps= 361 cpu clock=  4.80E-01
+ sweep: dc dc10   end,  cpu clock=  5.40E-01 memory=    179 kb
+ parameter: drain           =   -1.88E+00
+ output: effresistance.sw0
+ sweep: dc dc11   begin, #sweeps= 361 cpu clock=  5.40E-01
+ sweep: dc dc11   end,  cpu clock=  5.80E-01 memory=    179 kb
+ parameter: drain           =   -1.86E+00
+ output: effresistance.sw0
+ sweep: dc dc12   begin, #sweeps= 361 cpu clock=  5.80E-01
+ sweep: dc dc12   end,  cpu clock=  6.20E-01 memory=    179 kb
+ parameter: drain           =   -1.85E+00
+ output: effresistance.sw0
+ sweep: dc dc13   begin, #sweeps= 361 cpu clock=  6.20E-01
+ sweep: dc dc13   end,  cpu clock=  6.80E-01 memory=    179 kb
+ parameter: drain           =   -1.84E+00
+ output: effresistance.sw0
+ sweep: dc dc14   begin, #sweeps= 361 cpu clock=  6.80E-01
+ sweep: dc dc14   end,  cpu clock=  7.20E-01 memory=    179 kb
+ parameter: drain           =   -1.82E+00
+ output: effresistance.sw0
+ sweep: dc dc15   begin, #sweeps= 361 cpu clock=  7.20E-01
+ sweep: dc dc15   end,  cpu clock=  7.60E-01 memory=    179 kb
+ parameter: drain           =   -1.81E+00
+ output: effresistance.sw0
+ sweep: dc dc16   begin, #sweeps= 361 cpu clock=  7.60E-01
+ sweep: dc dc16   end,  cpu clock=  8.20E-01 memory=    179 kb
+ parameter: drain           =   -1.80E+00
+ output: effresistance.sw0
+ sweep: dc dc17   begin, #sweeps= 361 cpu clock=  8.20E-01
+ sweep: dc dc17   end,  cpu clock=  8.60E-01 memory=    179 kb
+ parameter: drain           =   -1.79E+00
+ output: effresistance.sw0
+ sweep: dc dc18   begin, #sweeps= 361 cpu clock=  8.60E-01
+ sweep: dc dc18   end,  cpu clock=  9.00E-01 memory=    179 kb
+ parameter: drain           =   -1.77E+00
+ output: effresistance.sw0
+ sweep: dc dc19   begin, #sweeps= 361 cpu clock=  9.00E-01
+ sweep: dc dc19   end,  cpu clock=  9.60E-01 memory=    179 kb
+ parameter: drain           =   -1.76E+00
+ output: effresistance.sw0
+ sweep: dc dc20   begin, #sweeps= 361 cpu clock=  9.60E-01
+ sweep: dc dc20   end,  cpu clock=  1.00E+00 memory=    179 kb
+ parameter: drain           =   -1.75E+00
+ output: effresistance.sw0
+ sweep: dc dc21   begin, #sweeps= 361 cpu clock=  1.00E+00
+ sweep: dc dc21   end,  cpu clock=  1.04E+00 memory=    179 kb
+ parameter: drain           =   -1.74E+00
+ output: effresistance.sw0
+ sweep: dc dc22   begin, #sweeps= 361 cpu clock=  1.04E+00
+ sweep: dc dc22   end,  cpu clock=  1.08E+00 memory=    179 kb
+ parameter: drain           =   -1.73E+00
+ output: effresistance.sw0
+ sweep: dc dc23   begin, #sweeps= 361 cpu clock=  1.08E+00
+ sweep: dc dc23   end,  cpu clock=  1.14E+00 memory=    179 kb
+ parameter: drain           =   -1.71E+00
+ output: effresistance.sw0
+ sweep: dc dc24   begin, #sweeps= 361 cpu clock=  1.14E+00
+ sweep: dc dc24   end,  cpu clock=  1.18E+00 memory=    179 kb
+ parameter: drain           =   -1.70E+00
+ output: effresistance.sw0
+ sweep: dc dc25   begin, #sweeps= 361 cpu clock=  1.18E+00
+ sweep: dc dc25   end,  cpu clock=  1.24E+00 memory=    179 kb
+ parameter: drain           =   -1.69E+00
+ output: effresistance.sw0
+ sweep: dc dc26   begin, #sweeps= 361 cpu clock=  1.24E+00
+ sweep: dc dc26   end,  cpu clock=  1.28E+00 memory=    179 kb
+ parameter: drain           =   -1.68E+00
+ output: effresistance.sw0
+ sweep: dc dc27   begin, #sweeps= 361 cpu clock=  1.28E+00
+ sweep: dc dc27   end,  cpu clock=  1.34E+00 memory=    179 kb
+ parameter: drain           =   -1.66E+00
+ output: effresistance.sw0
+ sweep: dc dc28   begin, #sweeps= 361 cpu clock=  1.34E+00
+ sweep: dc dc28   end,  cpu clock=  1.38E+00 memory=    179 kb
+ parameter: drain           =   -1.65E+00
+ output: effresistance.sw0
+ sweep: dc dc29   begin, #sweeps= 361 cpu clock=  1.38E+00
+ sweep: dc dc29   end,  cpu clock=  1.42E+00 memory=    179 kb
+ parameter: drain           =   -1.64E+00
+ output: effresistance.sw0
+ sweep: dc dc30   begin, #sweeps= 361 cpu clock=  1.42E+00
+ sweep: dc dc30   end,  cpu clock=  1.48E+00 memory=    179 kb
+ parameter: drain           =   -1.62E+00
+ output: effresistance.sw0
+ sweep: dc dc31   begin, #sweeps= 361 cpu clock=  1.48E+00
+ sweep: dc dc31   end,  cpu clock=  1.52E+00 memory=    179 kb
+ parameter: drain           =   -1.61E+00
+ output: effresistance.sw0
+ sweep: dc dc32   begin, #sweeps= 361 cpu clock=  1.52E+00
+ sweep: dc dc32   end,  cpu clock=  1.58E+00 memory=    179 kb
+ parameter: drain           =   -1.60E+00
+ output: effresistance.sw0
+ sweep: dc dc33   begin, #sweeps= 361 cpu clock=  1.58E+00
+ sweep: dc dc33   end,  cpu clock=  1.62E+00 memory=    179 kb
+ parameter: drain           =   -1.59E+00
+ output: effresistance.sw0
+ sweep: dc dc34   begin, #sweeps= 361 cpu clock=  1.62E+00
+ sweep: dc dc34   end,  cpu clock=  1.66E+00 memory=    179 kb
+ parameter: drain           =   -1.57E+00
+ output: effresistance.sw0
+ sweep: dc dc35   begin, #sweeps= 361 cpu clock=  1.66E+00
+ sweep: dc dc35   end,  cpu clock=  1.72E+00 memory=    179 kb
+ parameter: drain           =   -1.56E+00
+ output: effresistance.sw0
+ sweep: dc dc36   begin, #sweeps= 361 cpu clock=  1.72E+00
+ sweep: dc dc36   end,  cpu clock=  1.76E+00 memory=    179 kb
+ parameter: drain           =   -1.55E+00
+ output: effresistance.sw0
+ sweep: dc dc37   begin, #sweeps= 361 cpu clock=  1.76E+00
+ sweep: dc dc37   end,  cpu clock=  1.80E+00 memory=    179 kb
+ parameter: drain           =   -1.54E+00
+ output: effresistance.sw0
+ sweep: dc dc38   begin, #sweeps= 361 cpu clock=  1.80E+00
+ sweep: dc dc38   end,  cpu clock=  1.86E+00 memory=    179 kb
+ parameter: drain           =   -1.52E+00
+ output: effresistance.sw0
+ sweep: dc dc39   begin, #sweeps= 361 cpu clock=  1.86E+00
+ sweep: dc dc39   end,  cpu clock=  1.90E+00 memory=    179 kb
+ parameter: drain           =   -1.51E+00
+ output: effresistance.sw0
+ sweep: dc dc40   begin, #sweeps= 361 cpu clock=  1.90E+00
+ sweep: dc dc40   end,  cpu clock=  1.94E+00 memory=    179 kb
+ parameter: drain           =   -1.50E+00
+ output: effresistance.sw0
+ sweep: dc dc41   begin, #sweeps= 361 cpu clock=  1.94E+00
+ sweep: dc dc41   end,  cpu clock=  2.00E+00 memory=    179 kb
+ parameter: drain           =   -1.49E+00
+ output: effresistance.sw0
+ sweep: dc dc42   begin, #sweeps= 361 cpu clock=  2.00E+00
+ sweep: dc dc42   end,  cpu clock=  2.04E+00 memory=    179 kb
+ parameter: drain           =   -1.48E+00
+ output: effresistance.sw0
+ sweep: dc dc43   begin, #sweeps= 361 cpu clock=  2.04E+00
+ sweep: dc dc43   end,  cpu clock=  2.10E+00 memory=    179 kb
+ parameter: drain           =   -1.46E+00
+ output: effresistance.sw0
+ sweep: dc dc44   begin, #sweeps= 361 cpu clock=  2.10E+00
+ sweep: dc dc44   end,  cpu clock=  2.14E+00 memory=    179 kb
+ parameter: drain           =   -1.45E+00
+ output: effresistance.sw0
+ sweep: dc dc45   begin, #sweeps= 361 cpu clock=  2.14E+00
+ sweep: dc dc45   end,  cpu clock=  2.18E+00 memory=    179 kb
+ parameter: drain           =   -1.44E+00
+ output: effresistance.sw0
+ sweep: dc dc46   begin, #sweeps= 361 cpu clock=  2.18E+00
+ sweep: dc dc46   end,  cpu clock=  2.24E+00 memory=    179 kb
+ parameter: drain           =   -1.42E+00
+ output: effresistance.sw0
+ sweep: dc dc47   begin, #sweeps= 361 cpu clock=  2.24E+00
+ sweep: dc dc47   end,  cpu clock=  2.28E+00 memory=    179 kb
+ parameter: drain           =   -1.41E+00
+ output: effresistance.sw0
+ sweep: dc dc48   begin, #sweeps= 361 cpu clock=  2.28E+00
+ sweep: dc dc48   end,  cpu clock=  2.32E+00 memory=    179 kb
+ parameter: drain           =   -1.40E+00
+ output: effresistance.sw0
+ sweep: dc dc49   begin, #sweeps= 361 cpu clock=  2.32E+00
+ sweep: dc dc49   end,  cpu clock=  2.36E+00 memory=    179 kb
+ parameter: drain           =   -1.39E+00
+ output: effresistance.sw0
+ sweep: dc dc50   begin, #sweeps= 361 cpu clock=  2.36E+00
+ sweep: dc dc50   end,  cpu clock=  2.42E+00 memory=    179 kb
+ parameter: drain           =   -1.38E+00
+ output: effresistance.sw0
+ sweep: dc dc51   begin, #sweeps= 361 cpu clock=  2.42E+00
+ sweep: dc dc51   end,  cpu clock=  2.46E+00 memory=    179 kb
+ parameter: drain           =   -1.36E+00
+ output: effresistance.sw0
+ sweep: dc dc52   begin, #sweeps= 361 cpu clock=  2.46E+00
+ sweep: dc dc52   end,  cpu clock=  2.52E+00 memory=    179 kb
+ parameter: drain           =   -1.35E+00
+ output: effresistance.sw0
+ sweep: dc dc53   begin, #sweeps= 361 cpu clock=  2.52E+00
+ sweep: dc dc53   end,  cpu clock=  2.56E+00 memory=    179 kb
+ parameter: drain           =   -1.34E+00
+ output: effresistance.sw0
+ sweep: dc dc54   begin, #sweeps= 361 cpu clock=  2.56E+00
+ sweep: dc dc54   end,  cpu clock=  2.60E+00 memory=    179 kb
+ parameter: drain           =   -1.32E+00
+ output: effresistance.sw0
+ sweep: dc dc55   begin, #sweeps= 361 cpu clock=  2.60E+00
+ sweep: dc dc55   end,  cpu clock=  2.64E+00 memory=    179 kb
+ parameter: drain           =   -1.31E+00
+ output: effresistance.sw0
+ sweep: dc dc56   begin, #sweeps= 361 cpu clock=  2.64E+00
+ sweep: dc dc56   end,  cpu clock=  2.70E+00 memory=    179 kb
+ parameter: drain           =   -1.30E+00
+ output: effresistance.sw0
+ sweep: dc dc57   begin, #sweeps= 361 cpu clock=  2.70E+00
+ sweep: dc dc57   end,  cpu clock=  2.74E+00 memory=    179 kb
+ parameter: drain           =   -1.29E+00
+ output: effresistance.sw0
+ sweep: dc dc58   begin, #sweeps= 361 cpu clock=  2.74E+00
+ sweep: dc dc58   end,  cpu clock=  2.80E+00 memory=    179 kb
+ parameter: drain           =   -1.27E+00
+ output: effresistance.sw0
+ sweep: dc dc59   begin, #sweeps= 361 cpu clock=  2.80E+00
+ sweep: dc dc59   end,  cpu clock=  2.82E+00 memory=    179 kb
+ parameter: drain           =   -1.26E+00
+ output: effresistance.sw0
+ sweep: dc dc60   begin, #sweeps= 361 cpu clock=  2.82E+00
+ sweep: dc dc60   end,  cpu clock=  2.88E+00 memory=    179 kb
+ parameter: drain           =   -1.25E+00
+ output: effresistance.sw0
+ sweep: dc dc61   begin, #sweeps= 361 cpu clock=  2.88E+00
+ sweep: dc dc61   end,  cpu clock=  2.92E+00 memory=    179 kb
+ parameter: drain           =   -1.24E+00
+ output: effresistance.sw0
+ sweep: dc dc62   begin, #sweeps= 361 cpu clock=  2.92E+00
+ sweep: dc dc62   end,  cpu clock=  2.98E+00 memory=    179 kb
+ parameter: drain           =   -1.23E+00
+ output: effresistance.sw0
+ sweep: dc dc63   begin, #sweeps= 361 cpu clock=  2.98E+00
+ sweep: dc dc63   end,  cpu clock=  3.02E+00 memory=    179 kb
+ parameter: drain           =   -1.21E+00
+ output: effresistance.sw0
+ sweep: dc dc64   begin, #sweeps= 361 cpu clock=  3.02E+00
+ sweep: dc dc64   end,  cpu clock=  3.06E+00 memory=    179 kb
+ parameter: drain           =   -1.20E+00
+ output: effresistance.sw0
+ sweep: dc dc65   begin, #sweeps= 361 cpu clock=  3.06E+00
+ sweep: dc dc65   end,  cpu clock=  3.12E+00 memory=    179 kb
+ parameter: drain           =   -1.19E+00
+ output: effresistance.sw0
+ sweep: dc dc66   begin, #sweeps= 361 cpu clock=  3.12E+00
+ sweep: dc dc66   end,  cpu clock=  3.16E+00 memory=    179 kb
+ parameter: drain           =   -1.17E+00
+ output: effresistance.sw0
+ sweep: dc dc67   begin, #sweeps= 361 cpu clock=  3.16E+00
+ sweep: dc dc67   end,  cpu clock=  3.22E+00 memory=    179 kb
+ parameter: drain           =   -1.16E+00
+ output: effresistance.sw0
+ sweep: dc dc68   begin, #sweeps= 361 cpu clock=  3.22E+00
+ sweep: dc dc68   end,  cpu clock=  3.26E+00 memory=    179 kb
+ parameter: drain           =   -1.15E+00
+ output: effresistance.sw0
+ sweep: dc dc69   begin, #sweeps= 361 cpu clock=  3.26E+00
+ sweep: dc dc69   end,  cpu clock=  3.32E+00 memory=    179 kb
+ parameter: drain           =   -1.14E+00
+ output: effresistance.sw0
+ sweep: dc dc70   begin, #sweeps= 361 cpu clock=  3.32E+00
+ sweep: dc dc70   end,  cpu clock=  3.36E+00 memory=    179 kb
+ parameter: drain           =   -1.12E+00
+ output: effresistance.sw0
+ sweep: dc dc71   begin, #sweeps= 361 cpu clock=  3.36E+00
+ sweep: dc dc71   end,  cpu clock=  3.40E+00 memory=    179 kb
+ parameter: drain           =   -1.11E+00
+ output: effresistance.sw0
+ sweep: dc dc72   begin, #sweeps= 361 cpu clock=  3.40E+00
+ sweep: dc dc72   end,  cpu clock=  3.46E+00 memory=    179 kb
+ parameter: drain           =   -1.10E+00
+ output: effresistance.sw0
+ sweep: dc dc73   begin, #sweeps= 361 cpu clock=  3.46E+00
+ sweep: dc dc73   end,  cpu clock=  3.50E+00 memory=    179 kb
+ parameter: drain           =   -1.09E+00
+ output: effresistance.sw0
+ sweep: dc dc74   begin, #sweeps= 361 cpu clock=  3.50E+00
+ sweep: dc dc74   end,  cpu clock=  3.56E+00 memory=    179 kb
+ parameter: drain           =   -1.07E+00
+ output: effresistance.sw0
+ sweep: dc dc75   begin, #sweeps= 361 cpu clock=  3.56E+00
+ sweep: dc dc75   end,  cpu clock=  3.60E+00 memory=    179 kb
+ parameter: drain           =   -1.06E+00
+ output: effresistance.sw0
+ sweep: dc dc76   begin, #sweeps= 361 cpu clock=  3.60E+00
+ sweep: dc dc76   end,  cpu clock=  3.64E+00 memory=    179 kb
+ parameter: drain           =   -1.05E+00
+ output: effresistance.sw0
+ sweep: dc dc77   begin, #sweeps= 361 cpu clock=  3.64E+00
+ sweep: dc dc77   end,  cpu clock=  3.70E+00 memory=    179 kb
+ parameter: drain           =   -1.04E+00
+ output: effresistance.sw0
+ sweep: dc dc78   begin, #sweeps= 361 cpu clock=  3.70E+00
+ sweep: dc dc78   end,  cpu clock=  3.74E+00 memory=    179 kb
+ parameter: drain           =   -1.02E+00
+ output: effresistance.sw0
+ sweep: dc dc79   begin, #sweeps= 361 cpu clock=  3.74E+00
+ sweep: dc dc79   end,  cpu clock=  3.80E+00 memory=    179 kb
+ parameter: drain           =   -1.01E+00
+ output: effresistance.sw0
+ sweep: dc dc80   begin, #sweeps= 361 cpu clock=  3.80E+00
+ sweep: dc dc80   end,  cpu clock=  3.84E+00 memory=    179 kb
+ parameter: drain           =   -1.00E+00
+ output: effresistance.sw0
+ sweep: dc dc81   begin, #sweeps= 361 cpu clock=  3.84E+00
+ sweep: dc dc81   end,  cpu clock=  3.88E+00 memory=    179 kb
+ parameter: drain           =   -9.88E-01
+ output: effresistance.sw0
+ sweep: dc dc82   begin, #sweeps= 361 cpu clock=  3.88E+00
+ sweep: dc dc82   end,  cpu clock=  3.94E+00 memory=    179 kb
+ parameter: drain           =   -9.75E-01
+ output: effresistance.sw0
+ sweep: dc dc83   begin, #sweeps= 361 cpu clock=  3.94E+00
+ sweep: dc dc83   end,  cpu clock=  3.98E+00 memory=    179 kb
+ parameter: drain           =   -9.62E-01
+ output: effresistance.sw0
+ sweep: dc dc84   begin, #sweeps= 361 cpu clock=  3.98E+00
+ sweep: dc dc84   end,  cpu clock=  4.04E+00 memory=    179 kb
+ parameter: drain           =   -9.50E-01
+ output: effresistance.sw0
+ sweep: dc dc85   begin, #sweeps= 361 cpu clock=  4.04E+00
+ sweep: dc dc85   end,  cpu clock=  4.08E+00 memory=    179 kb
+ parameter: drain           =   -9.38E-01
+ output: effresistance.sw0
+ sweep: dc dc86   begin, #sweeps= 361 cpu clock=  4.08E+00
+ sweep: dc dc86   end,  cpu clock=  4.14E+00 memory=    179 kb
+ parameter: drain           =   -9.25E-01
+ output: effresistance.sw0
+ sweep: dc dc87   begin, #sweeps= 361 cpu clock=  4.14E+00
+ sweep: dc dc87   end,  cpu clock=  4.18E+00 memory=    179 kb
+ parameter: drain           =   -9.12E-01
+ output: effresistance.sw0
+ sweep: dc dc88   begin, #sweeps= 361 cpu clock=  4.18E+00
+ sweep: dc dc88   end,  cpu clock=  4.24E+00 memory=    179 kb
+ parameter: drain           =   -9.00E-01
+ output: effresistance.sw0
+ sweep: dc dc89   begin, #sweeps= 361 cpu clock=  4.24E+00
+ sweep: dc dc89   end,  cpu clock=  4.28E+00 memory=    179 kb
+ parameter: drain           =   -8.87E-01
+ output: effresistance.sw0
+ sweep: dc dc90   begin, #sweeps= 361 cpu clock=  4.28E+00
+ sweep: dc dc90   end,  cpu clock=  4.32E+00 memory=    179 kb
+ parameter: drain           =   -8.75E-01
+ output: effresistance.sw0
+ sweep: dc dc91   begin, #sweeps= 361 cpu clock=  4.32E+00
+ sweep: dc dc91   end,  cpu clock=  4.38E+00 memory=    179 kb
+ parameter: drain           =   -8.63E-01
+ output: effresistance.sw0
+ sweep: dc dc92   begin, #sweeps= 361 cpu clock=  4.38E+00
+ sweep: dc dc92   end,  cpu clock=  4.42E+00 memory=    179 kb
+ parameter: drain           =   -8.50E-01
+ output: effresistance.sw0
+ sweep: dc dc93   begin, #sweeps= 361 cpu clock=  4.42E+00
+ sweep: dc dc93   end,  cpu clock=  4.46E+00 memory=    179 kb
+ parameter: drain           =   -8.37E-01
+ output: effresistance.sw0
+ sweep: dc dc94   begin, #sweeps= 361 cpu clock=  4.46E+00
+ sweep: dc dc94   end,  cpu clock=  4.52E+00 memory=    179 kb
+ parameter: drain           =   -8.25E-01
+ output: effresistance.sw0
+ sweep: dc dc95   begin, #sweeps= 361 cpu clock=  4.52E+00
+ sweep: dc dc95   end,  cpu clock=  4.56E+00 memory=    179 kb
+ parameter: drain           =   -8.12E-01
+ output: effresistance.sw0
+ sweep: dc dc96   begin, #sweeps= 361 cpu clock=  4.56E+00
+ sweep: dc dc96   end,  cpu clock=  4.60E+00 memory=    179 kb
+ parameter: drain           =   -8.00E-01
+ output: effresistance.sw0
+ sweep: dc dc97   begin, #sweeps= 361 cpu clock=  4.60E+00
+ sweep: dc dc97   end,  cpu clock=  4.66E+00 memory=    179 kb
+ parameter: drain           =   -7.87E-01
+ output: effresistance.sw0
+ sweep: dc dc98   begin, #sweeps= 361 cpu clock=  4.66E+00
+ sweep: dc dc98   end,  cpu clock=  4.70E+00 memory=    179 kb
+ parameter: drain           =   -7.75E-01
+ output: effresistance.sw0
+ sweep: dc dc99   begin, #sweeps= 361 cpu clock=  4.70E+00
+ sweep: dc dc99   end,  cpu clock=  4.74E+00 memory=    179 kb
+ parameter: drain           =   -7.62E-01
+ output: effresistance.sw0
+ sweep: dc dc100  begin, #sweeps= 361 cpu clock=  4.74E+00
+ sweep: dc dc100  end,  cpu clock=  4.80E+00 memory=    179 kb
+ parameter: drain           =   -7.50E-01
+ output: effresistance.sw0
+ sweep: dc dc101  begin, #sweeps= 361 cpu clock=  4.80E+00
+ sweep: dc dc101  end,  cpu clock=  4.84E+00 memory=    179 kb
+ parameter: drain           =   -7.37E-01
+ output: effresistance.sw0
+ sweep: dc dc102  begin, #sweeps= 361 cpu clock=  4.84E+00
+ sweep: dc dc102  end,  cpu clock=  4.88E+00 memory=    179 kb
+ parameter: drain           =   -7.25E-01
+ output: effresistance.sw0
+ sweep: dc dc103  begin, #sweeps= 361 cpu clock=  4.88E+00
+ sweep: dc dc103  end,  cpu clock=  4.92E+00 memory=    179 kb
+ parameter: drain           =   -7.12E-01
+ output: effresistance.sw0
+ sweep: dc dc104  begin, #sweeps= 361 cpu clock=  4.92E+00
+ sweep: dc dc104  end,  cpu clock=  4.98E+00 memory=    179 kb
+ parameter: drain           =   -7.00E-01
+ output: effresistance.sw0
+ sweep: dc dc105  begin, #sweeps= 361 cpu clock=  4.98E+00
+ sweep: dc dc105  end,  cpu clock=  5.02E+00 memory=    179 kb
+ parameter: drain           =   -6.88E-01
+ output: effresistance.sw0
+ sweep: dc dc106  begin, #sweeps= 361 cpu clock=  5.02E+00
+ sweep: dc dc106  end,  cpu clock=  5.06E+00 memory=    179 kb
+ parameter: drain           =   -6.75E-01
+ output: effresistance.sw0
+ sweep: dc dc107  begin, #sweeps= 361 cpu clock=  5.06E+00
+ sweep: dc dc107  end,  cpu clock=  5.12E+00 memory=    179 kb
+ parameter: drain           =   -6.62E-01
+ output: effresistance.sw0
+ sweep: dc dc108  begin, #sweeps= 361 cpu clock=  5.12E+00
+ sweep: dc dc108  end,  cpu clock=  5.16E+00 memory=    179 kb
+ parameter: drain           =   -6.50E-01
+ output: effresistance.sw0
+ sweep: dc dc109  begin, #sweeps= 361 cpu clock=  5.16E+00
+ sweep: dc dc109  end,  cpu clock=  5.20E+00 memory=    179 kb
+ parameter: drain           =   -6.37E-01
+ output: effresistance.sw0
+ sweep: dc dc110  begin, #sweeps= 361 cpu clock=  5.20E+00
+ sweep: dc dc110  end,  cpu clock=  5.26E+00 memory=    179 kb
+ parameter: drain           =   -6.25E-01
+ output: effresistance.sw0
+ sweep: dc dc111  begin, #sweeps= 361 cpu clock=  5.26E+00
+ sweep: dc dc111  end,  cpu clock=  5.30E+00 memory=    179 kb
+ parameter: drain           =   -6.12E-01
+ output: effresistance.sw0
+ sweep: dc dc112  begin, #sweeps= 361 cpu clock=  5.30E+00
+ sweep: dc dc112  end,  cpu clock=  5.36E+00 memory=    179 kb
+ parameter: drain           =   -6.00E-01
+ output: effresistance.sw0
+ sweep: dc dc113  begin, #sweeps= 361 cpu clock=  5.36E+00
+ sweep: dc dc113  end,  cpu clock=  5.40E+00 memory=    179 kb
+ parameter: drain           =   -5.87E-01
+ output: effresistance.sw0
+ sweep: dc dc114  begin, #sweeps= 361 cpu clock=  5.40E+00
+ sweep: dc dc114  end,  cpu clock=  5.44E+00 memory=    179 kb
+ parameter: drain           =   -5.75E-01
+ output: effresistance.sw0
+ sweep: dc dc115  begin, #sweeps= 361 cpu clock=  5.44E+00
+ sweep: dc dc115  end,  cpu clock=  5.48E+00 memory=    179 kb
+ parameter: drain           =   -5.62E-01
+ output: effresistance.sw0
+ sweep: dc dc116  begin, #sweeps= 361 cpu clock=  5.48E+00
+ sweep: dc dc116  end,  cpu clock=  5.54E+00 memory=    179 kb
+ parameter: drain           =   -5.50E-01
+ output: effresistance.sw0
+ sweep: dc dc117  begin, #sweeps= 361 cpu clock=  5.54E+00
+ sweep: dc dc117  end,  cpu clock=  5.58E+00 memory=    179 kb
+ parameter: drain           =   -5.37E-01
+ output: effresistance.sw0
+ sweep: dc dc118  begin, #sweeps= 361 cpu clock=  5.58E+00
+ sweep: dc dc118  end,  cpu clock=  5.64E+00 memory=    179 kb
+ parameter: drain           =   -5.25E-01
+ output: effresistance.sw0
+ sweep: dc dc119  begin, #sweeps= 361 cpu clock=  5.64E+00
+ sweep: dc dc119  end,  cpu clock=  5.68E+00 memory=    179 kb
+ parameter: drain           =   -5.12E-01
+ output: effresistance.sw0
+ sweep: dc dc120  begin, #sweeps= 361 cpu clock=  5.68E+00
+ sweep: dc dc120  end,  cpu clock=  5.72E+00 memory=    179 kb
+ parameter: drain           =   -5.00E-01
+ output: effresistance.sw0
+ sweep: dc dc121  begin, #sweeps= 361 cpu clock=  5.72E+00
+ sweep: dc dc121  end,  cpu clock=  5.78E+00 memory=    179 kb
+ parameter: drain           =   -4.87E-01
+ output: effresistance.sw0
+ sweep: dc dc122  begin, #sweeps= 361 cpu clock=  5.78E+00
+ sweep: dc dc122  end,  cpu clock=  5.82E+00 memory=    179 kb
+ parameter: drain           =   -4.75E-01
+ output: effresistance.sw0
+ sweep: dc dc123  begin, #sweeps= 361 cpu clock=  5.82E+00
+ sweep: dc dc123  end,  cpu clock=  5.88E+00 memory=    179 kb
+ parameter: drain           =   -4.62E-01
+ output: effresistance.sw0
+ sweep: dc dc124  begin, #sweeps= 361 cpu clock=  5.88E+00
+ sweep: dc dc124  end,  cpu clock=  5.92E+00 memory=    179 kb
+ parameter: drain           =   -4.50E-01
+ output: effresistance.sw0
+ sweep: dc dc125  begin, #sweeps= 361 cpu clock=  5.92E+00
+ sweep: dc dc125  end,  cpu clock=  5.96E+00 memory=    179 kb
+ parameter: drain           =   -4.38E-01
+ output: effresistance.sw0
+ sweep: dc dc126  begin, #sweeps= 361 cpu clock=  5.96E+00
+ sweep: dc dc126  end,  cpu clock=  6.02E+00 memory=    179 kb
+ parameter: drain           =   -4.25E-01
+ output: effresistance.sw0
+ sweep: dc dc127  begin, #sweeps= 361 cpu clock=  6.02E+00
+ sweep: dc dc127  end,  cpu clock=  6.06E+00 memory=    179 kb
+ parameter: drain           =   -4.12E-01
+ output: effresistance.sw0
+ sweep: dc dc128  begin, #sweeps= 361 cpu clock=  6.06E+00
+ sweep: dc dc128  end,  cpu clock=  6.10E+00 memory=    179 kb
+ parameter: drain           =   -4.00E-01
+ output: effresistance.sw0
+ sweep: dc dc129  begin, #sweeps= 361 cpu clock=  6.10E+00
+ sweep: dc dc129  end,  cpu clock=  6.16E+00 memory=    179 kb
+ parameter: drain           =   -3.87E-01
+ output: effresistance.sw0
+ sweep: dc dc130  begin, #sweeps= 361 cpu clock=  6.16E+00
+ sweep: dc dc130  end,  cpu clock=  6.20E+00 memory=    179 kb
+ parameter: drain           =   -3.75E-01
+ output: effresistance.sw0
+ sweep: dc dc131  begin, #sweeps= 361 cpu clock=  6.20E+00
+ sweep: dc dc131  end,  cpu clock=  6.26E+00 memory=    179 kb
+ parameter: drain           =   -3.62E-01
+ output: effresistance.sw0
+ sweep: dc dc132  begin, #sweeps= 361 cpu clock=  6.26E+00
+ sweep: dc dc132  end,  cpu clock=  6.30E+00 memory=    179 kb
+ parameter: drain           =   -3.50E-01
+ output: effresistance.sw0
+ sweep: dc dc133  begin, #sweeps= 361 cpu clock=  6.30E+00
+ sweep: dc dc133  end,  cpu clock=  6.34E+00 memory=    179 kb
+ parameter: drain           =   -3.37E-01
+ output: effresistance.sw0
+ sweep: dc dc134  begin, #sweeps= 361 cpu clock=  6.34E+00
+ sweep: dc dc134  end,  cpu clock=  6.40E+00 memory=    179 kb
+ parameter: drain           =   -3.25E-01
+ output: effresistance.sw0
+ sweep: dc dc135  begin, #sweeps= 361 cpu clock=  6.40E+00
+ sweep: dc dc135  end,  cpu clock=  6.44E+00 memory=    179 kb
+ parameter: drain           =   -3.12E-01
+ output: effresistance.sw0
+ sweep: dc dc136  begin, #sweeps= 361 cpu clock=  6.44E+00
+ sweep: dc dc136  end,  cpu clock=  6.48E+00 memory=    179 kb
+ parameter: drain           =   -3.00E-01
+ output: effresistance.sw0
+ sweep: dc dc137  begin, #sweeps= 361 cpu clock=  6.48E+00
+ sweep: dc dc137  end,  cpu clock=  6.54E+00 memory=    179 kb
+ parameter: drain           =   -2.87E-01
+ output: effresistance.sw0
+ sweep: dc dc138  begin, #sweeps= 361 cpu clock=  6.54E+00
+ sweep: dc dc138  end,  cpu clock=  6.58E+00 memory=    179 kb
+ parameter: drain           =   -2.75E-01
+ output: effresistance.sw0
+ sweep: dc dc139  begin, #sweeps= 361 cpu clock=  6.58E+00
+ sweep: dc dc139  end,  cpu clock=  6.62E+00 memory=    179 kb
+ parameter: drain           =   -2.62E-01
+ output: effresistance.sw0
+ sweep: dc dc140  begin, #sweeps= 361 cpu clock=  6.62E+00
+ sweep: dc dc140  end,  cpu clock=  6.68E+00 memory=    179 kb
+ parameter: drain           =   -2.50E-01
+ output: effresistance.sw0
+ sweep: dc dc141  begin, #sweeps= 361 cpu clock=  6.68E+00
+ sweep: dc dc141  end,  cpu clock=  6.72E+00 memory=    179 kb
+ parameter: drain           =   -2.37E-01
+ output: effresistance.sw0
+ sweep: dc dc142  begin, #sweeps= 361 cpu clock=  6.72E+00
+ sweep: dc dc142  end,  cpu clock=  6.76E+00 memory=    179 kb
+ parameter: drain           =   -2.25E-01
+ output: effresistance.sw0
+ sweep: dc dc143  begin, #sweeps= 361 cpu clock=  6.76E+00
+ sweep: dc dc143  end,  cpu clock=  6.82E+00 memory=    179 kb
+ parameter: drain           =   -2.12E-01
+ output: effresistance.sw0
+ sweep: dc dc144  begin, #sweeps= 361 cpu clock=  6.82E+00
+ sweep: dc dc144  end,  cpu clock=  6.86E+00 memory=    179 kb
+ parameter: drain           =   -2.00E-01
+ output: effresistance.sw0
+ sweep: dc dc145  begin, #sweeps= 361 cpu clock=  6.86E+00
+ sweep: dc dc145  end,  cpu clock=  6.90E+00 memory=    179 kb
+ parameter: drain           =   -1.88E-01
+ output: effresistance.sw0
+ sweep: dc dc146  begin, #sweeps= 361 cpu clock=  6.90E+00
+ sweep: dc dc146  end,  cpu clock=  6.96E+00 memory=    179 kb
+ parameter: drain           =   -1.75E-01
+ output: effresistance.sw0
+ sweep: dc dc147  begin, #sweeps= 361 cpu clock=  6.96E+00
+ sweep: dc dc147  end,  cpu clock=  7.00E+00 memory=    179 kb
+ parameter: drain           =   -1.62E-01
+ output: effresistance.sw0
+ sweep: dc dc148  begin, #sweeps= 361 cpu clock=  7.00E+00
+ sweep: dc dc148  end,  cpu clock=  7.06E+00 memory=    179 kb
+ parameter: drain           =   -1.50E-01
+ output: effresistance.sw0
+ sweep: dc dc149  begin, #sweeps= 361 cpu clock=  7.06E+00
+ sweep: dc dc149  end,  cpu clock=  7.10E+00 memory=    179 kb
+ parameter: drain           =   -1.37E-01
+ output: effresistance.sw0
+ sweep: dc dc150  begin, #sweeps= 361 cpu clock=  7.10E+00
+ sweep: dc dc150  end,  cpu clock=  7.14E+00 memory=    179 kb
+ parameter: drain           =   -1.25E-01
+ output: effresistance.sw0
+ sweep: dc dc151  begin, #sweeps= 361 cpu clock=  7.14E+00
+ sweep: dc dc151  end,  cpu clock=  7.20E+00 memory=    179 kb
+ parameter: drain           =   -1.12E-01
+ output: effresistance.sw0
+ sweep: dc dc152  begin, #sweeps= 361 cpu clock=  7.20E+00
+ sweep: dc dc152  end,  cpu clock=  7.24E+00 memory=    179 kb
+ parameter: drain           =   -1.00E-01
+ output: effresistance.sw0
+ sweep: dc dc153  begin, #sweeps= 361 cpu clock=  7.24E+00
+ sweep: dc dc153  end,  cpu clock=  7.28E+00 memory=    179 kb
+ parameter: drain           =   -8.75E-02
+ output: effresistance.sw0
+ sweep: dc dc154  begin, #sweeps= 361 cpu clock=  7.28E+00
+ sweep: dc dc154  end,  cpu clock=  7.32E+00 memory=    179 kb
+ parameter: drain           =   -7.50E-02
+ output: effresistance.sw0
+ sweep: dc dc155  begin, #sweeps= 361 cpu clock=  7.32E+00
+ sweep: dc dc155  end,  cpu clock=  7.38E+00 memory=    179 kb
+ parameter: drain           =   -6.25E-02
+ output: effresistance.sw0
+ sweep: dc dc156  begin, #sweeps= 361 cpu clock=  7.38E+00
+ sweep: dc dc156  end,  cpu clock=  7.42E+00 memory=    179 kb
+ parameter: drain           =   -5.00E-02
+ output: effresistance.sw0
+ sweep: dc dc157  begin, #sweeps= 361 cpu clock=  7.42E+00
+ sweep: dc dc157  end,  cpu clock=  7.48E+00 memory=    179 kb
+ parameter: drain           =   -3.75E-02
+ output: effresistance.sw0
+ sweep: dc dc158  begin, #sweeps= 361 cpu clock=  7.48E+00
+ sweep: dc dc158  end,  cpu clock=  7.52E+00 memory=    179 kb
+ parameter: drain           =   -2.50E-02
+ output: effresistance.sw0
+ sweep: dc dc159  begin, #sweeps= 361 cpu clock=  7.52E+00
+ sweep: dc dc159  end,  cpu clock=  7.56E+00 memory=    179 kb
+ parameter: drain           =   -1.25E-02
+ output: effresistance.sw0
+ sweep: dc dc160  begin, #sweeps= 361 cpu clock=  7.56E+00
+ sweep: dc dc160  end,  cpu clock=  7.60E+00 memory=    179 kb
+ parameter: drain           =    0.00E+00
+ output: effresistance.sw0
+ sweep: dc dc161  begin, #sweeps= 361 cpu clock=  7.60E+00
+ sweep: dc dc161  end,  cpu clock=  7.66E+00 memory=    179 kb
+ parameter: drain           =    1.25E-02
+ output: effresistance.sw0
+ sweep: dc dc162  begin, #sweeps= 361 cpu clock=  7.66E+00
+ sweep: dc dc162  end,  cpu clock=  7.70E+00 memory=    179 kb
+ parameter: drain           =    2.50E-02
+ output: effresistance.sw0
+ sweep: dc dc163  begin, #sweeps= 361 cpu clock=  7.70E+00
+ sweep: dc dc163  end,  cpu clock=  7.74E+00 memory=    179 kb
+ parameter: drain           =    3.75E-02
+ output: effresistance.sw0
+ sweep: dc dc164  begin, #sweeps= 361 cpu clock=  7.74E+00
+ sweep: dc dc164  end,  cpu clock=  7.80E+00 memory=    179 kb
+ parameter: drain           =    5.00E-02
+ output: effresistance.sw0
+ sweep: dc dc165  begin, #sweeps= 361 cpu clock=  7.80E+00
+ sweep: dc dc165  end,  cpu clock=  7.84E+00 memory=    179 kb
+ parameter: drain           =    6.25E-02
+ output: effresistance.sw0
+ sweep: dc dc166  begin, #sweeps= 361 cpu clock=  7.84E+00
+ sweep: dc dc166  end,  cpu clock=  7.88E+00 memory=    179 kb
+ parameter: drain           =    7.50E-02
+ output: effresistance.sw0
+ sweep: dc dc167  begin, #sweeps= 361 cpu clock=  7.88E+00
+ sweep: dc dc167  end,  cpu clock=  7.94E+00 memory=    179 kb
+ parameter: drain           =    8.75E-02
+ output: effresistance.sw0
+ sweep: dc dc168  begin, #sweeps= 361 cpu clock=  7.94E+00
+ sweep: dc dc168  end,  cpu clock=  7.98E+00 memory=    179 kb
+ parameter: drain           =    1.00E-01
+ output: effresistance.sw0
+ sweep: dc dc169  begin, #sweeps= 361 cpu clock=  7.98E+00
+ sweep: dc dc169  end,  cpu clock=  8.04E+00 memory=    179 kb
+ parameter: drain           =    1.13E-01
+ output: effresistance.sw0
+ sweep: dc dc170  begin, #sweeps= 361 cpu clock=  8.04E+00
+ sweep: dc dc170  end,  cpu clock=  8.08E+00 memory=    179 kb
+ parameter: drain           =    1.25E-01
+ output: effresistance.sw0
+ sweep: dc dc171  begin, #sweeps= 361 cpu clock=  8.08E+00
+ sweep: dc dc171  end,  cpu clock=  8.14E+00 memory=    179 kb
+ parameter: drain           =    1.38E-01
+ output: effresistance.sw0
+ sweep: dc dc172  begin, #sweeps= 361 cpu clock=  8.14E+00
+ sweep: dc dc172  end,  cpu clock=  8.18E+00 memory=    179 kb
+ parameter: drain           =    1.50E-01
+ output: effresistance.sw0
+ sweep: dc dc173  begin, #sweeps= 361 cpu clock=  8.18E+00
+ sweep: dc dc173  end,  cpu clock=  8.22E+00 memory=    179 kb
+ parameter: drain           =    1.63E-01
+ output: effresistance.sw0
+ sweep: dc dc174  begin, #sweeps= 361 cpu clock=  8.22E+00
+ sweep: dc dc174  end,  cpu clock=  8.28E+00 memory=    179 kb
+ parameter: drain           =    1.75E-01
+ output: effresistance.sw0
+ sweep: dc dc175  begin, #sweeps= 361 cpu clock=  8.28E+00
+ sweep: dc dc175  end,  cpu clock=  8.32E+00 memory=    179 kb
+ parameter: drain           =    1.88E-01
+ output: effresistance.sw0
+ sweep: dc dc176  begin, #sweeps= 361 cpu clock=  8.32E+00
+ sweep: dc dc176  end,  cpu clock=  8.38E+00 memory=    179 kb
+ parameter: drain           =    2.00E-01
+ output: effresistance.sw0
+ sweep: dc dc177  begin, #sweeps= 361 cpu clock=  8.38E+00
+ sweep: dc dc177  end,  cpu clock=  8.42E+00 memory=    179 kb
+ parameter: drain           =    2.12E-01
+ output: effresistance.sw0
+ sweep: dc dc178  begin, #sweeps= 361 cpu clock=  8.42E+00
+ sweep: dc dc178  end,  cpu clock=  8.46E+00 memory=    179 kb
+ parameter: drain           =    2.25E-01
+ output: effresistance.sw0
+ sweep: dc dc179  begin, #sweeps= 361 cpu clock=  8.46E+00
+ sweep: dc dc179  end,  cpu clock=  8.52E+00 memory=    179 kb
+ parameter: drain           =    2.38E-01
+ output: effresistance.sw0
+ sweep: dc dc180  begin, #sweeps= 361 cpu clock=  8.52E+00
+ sweep: dc dc180  end,  cpu clock=  8.56E+00 memory=    179 kb
+ parameter: drain           =    2.50E-01
+ output: effresistance.sw0
+ sweep: dc dc181  begin, #sweeps= 361 cpu clock=  8.56E+00
+ sweep: dc dc181  end,  cpu clock=  8.60E+00 memory=    179 kb
+ parameter: drain           =    2.63E-01
+ output: effresistance.sw0
+ sweep: dc dc182  begin, #sweeps= 361 cpu clock=  8.60E+00
+ sweep: dc dc182  end,  cpu clock=  8.66E+00 memory=    179 kb
+ parameter: drain           =    2.75E-01
+ output: effresistance.sw0
+ sweep: dc dc183  begin, #sweeps= 361 cpu clock=  8.66E+00
+ sweep: dc dc183  end,  cpu clock=  8.70E+00 memory=    179 kb
+ parameter: drain           =    2.88E-01
+ output: effresistance.sw0
+ sweep: dc dc184  begin, #sweeps= 361 cpu clock=  8.70E+00
+ sweep: dc dc184  end,  cpu clock=  8.74E+00 memory=    179 kb
+ parameter: drain           =    3.00E-01
+ output: effresistance.sw0
+ sweep: dc dc185  begin, #sweeps= 361 cpu clock=  8.74E+00
+ sweep: dc dc185  end,  cpu clock=  8.80E+00 memory=    179 kb
+ parameter: drain           =    3.12E-01
+ output: effresistance.sw0
+ sweep: dc dc186  begin, #sweeps= 361 cpu clock=  8.80E+00
+ sweep: dc dc186  end,  cpu clock=  8.84E+00 memory=    179 kb
+ parameter: drain           =    3.25E-01
+ output: effresistance.sw0
+ sweep: dc dc187  begin, #sweeps= 361 cpu clock=  8.84E+00
+ sweep: dc dc187  end,  cpu clock=  8.88E+00 memory=    179 kb
+ parameter: drain           =    3.37E-01
+ output: effresistance.sw0
+ sweep: dc dc188  begin, #sweeps= 361 cpu clock=  8.88E+00
+ sweep: dc dc188  end,  cpu clock=  8.94E+00 memory=    179 kb
+ parameter: drain           =    3.50E-01
+ output: effresistance.sw0
+ sweep: dc dc189  begin, #sweeps= 361 cpu clock=  8.94E+00
+ sweep: dc dc189  end,  cpu clock=  8.98E+00 memory=    179 kb
+ parameter: drain           =    3.63E-01
+ output: effresistance.sw0
+ sweep: dc dc190  begin, #sweeps= 361 cpu clock=  8.98E+00
+ sweep: dc dc190  end,  cpu clock=  9.02E+00 memory=    179 kb
+ parameter: drain           =    3.75E-01
+ output: effresistance.sw0
+ sweep: dc dc191  begin, #sweeps= 361 cpu clock=  9.02E+00
+ sweep: dc dc191  end,  cpu clock=  9.08E+00 memory=    179 kb
+ parameter: drain           =    3.88E-01
+ output: effresistance.sw0
+ sweep: dc dc192  begin, #sweeps= 361 cpu clock=  9.08E+00
+ sweep: dc dc192  end,  cpu clock=  9.12E+00 memory=    179 kb
+ parameter: drain           =    4.00E-01
+ output: effresistance.sw0
+ sweep: dc dc193  begin, #sweeps= 361 cpu clock=  9.12E+00
+ sweep: dc dc193  end,  cpu clock=  9.16E+00 memory=    179 kb
+ parameter: drain           =    4.13E-01
+ output: effresistance.sw0
+ sweep: dc dc194  begin, #sweeps= 361 cpu clock=  9.16E+00
+ sweep: dc dc194  end,  cpu clock=  9.22E+00 memory=    179 kb
+ parameter: drain           =    4.25E-01
+ output: effresistance.sw0
+ sweep: dc dc195  begin, #sweeps= 361 cpu clock=  9.22E+00
+ sweep: dc dc195  end,  cpu clock=  9.26E+00 memory=    179 kb
+ parameter: drain           =    4.38E-01
+ output: effresistance.sw0
+ sweep: dc dc196  begin, #sweeps= 361 cpu clock=  9.26E+00
+ sweep: dc dc196  end,  cpu clock=  9.32E+00 memory=    179 kb
+ parameter: drain           =    4.50E-01
+ output: effresistance.sw0
+ sweep: dc dc197  begin, #sweeps= 361 cpu clock=  9.32E+00
+ sweep: dc dc197  end,  cpu clock=  9.36E+00 memory=    179 kb
+ parameter: drain           =    4.63E-01
+ output: effresistance.sw0
+ sweep: dc dc198  begin, #sweeps= 361 cpu clock=  9.36E+00
+ sweep: dc dc198  end,  cpu clock=  9.40E+00 memory=    179 kb
+ parameter: drain           =    4.75E-01
+ output: effresistance.sw0
+ sweep: dc dc199  begin, #sweeps= 361 cpu clock=  9.40E+00
+ sweep: dc dc199  end,  cpu clock=  9.46E+00 memory=    179 kb
+ parameter: drain           =    4.88E-01
+ output: effresistance.sw0
+ sweep: dc dc200  begin, #sweeps= 361 cpu clock=  9.46E+00
+ sweep: dc dc200  end,  cpu clock=  9.50E+00 memory=    179 kb
+ parameter: drain           =    5.00E-01
+ output: effresistance.sw0
+ sweep: dc dc201  begin, #sweeps= 361 cpu clock=  9.50E+00
+ sweep: dc dc201  end,  cpu clock=  9.54E+00 memory=    179 kb
+ parameter: drain           =    5.13E-01
+ output: effresistance.sw0
+ sweep: dc dc202  begin, #sweeps= 361 cpu clock=  9.54E+00
+ sweep: dc dc202  end,  cpu clock=  9.60E+00 memory=    179 kb
+ parameter: drain           =    5.25E-01
+ output: effresistance.sw0
+ sweep: dc dc203  begin, #sweeps= 361 cpu clock=  9.60E+00
+ sweep: dc dc203  end,  cpu clock=  9.64E+00 memory=    179 kb
+ parameter: drain           =    5.38E-01
+ output: effresistance.sw0
+ sweep: dc dc204  begin, #sweeps= 361 cpu clock=  9.64E+00
+ sweep: dc dc204  end,  cpu clock=  9.68E+00 memory=    179 kb
+ parameter: drain           =    5.50E-01
+ output: effresistance.sw0
+ sweep: dc dc205  begin, #sweeps= 361 cpu clock=  9.68E+00
+ sweep: dc dc205  end,  cpu clock=  9.74E+00 memory=    179 kb
+ parameter: drain           =    5.62E-01
+ output: effresistance.sw0
+ sweep: dc dc206  begin, #sweeps= 361 cpu clock=  9.74E+00
+ sweep: dc dc206  end,  cpu clock=  9.78E+00 memory=    179 kb
+ parameter: drain           =    5.75E-01
+ output: effresistance.sw0
+ sweep: dc dc207  begin, #sweeps= 361 cpu clock=  9.78E+00
+ sweep: dc dc207  end,  cpu clock=  9.82E+00 memory=    179 kb
+ parameter: drain           =    5.88E-01
+ output: effresistance.sw0
+ sweep: dc dc208  begin, #sweeps= 361 cpu clock=  9.82E+00
+ sweep: dc dc208  end,  cpu clock=  9.88E+00 memory=    179 kb
+ parameter: drain           =    6.00E-01
+ output: effresistance.sw0
+ sweep: dc dc209  begin, #sweeps= 361 cpu clock=  9.88E+00
+ sweep: dc dc209  end,  cpu clock=  9.92E+00 memory=    179 kb
+ parameter: drain           =    6.13E-01
+ output: effresistance.sw0
+ sweep: dc dc210  begin, #sweeps= 361 cpu clock=  9.92E+00
+ sweep: dc dc210  end,  cpu clock=  9.98E+00 memory=    179 kb
+ parameter: drain           =    6.25E-01
+ output: effresistance.sw0
+ sweep: dc dc211  begin, #sweeps= 361 cpu clock=  9.98E+00
+ sweep: dc dc211  end,  cpu clock=  1.00E+01 memory=    179 kb
+ parameter: drain           =    6.38E-01
+ output: effresistance.sw0
+ sweep: dc dc212  begin, #sweeps= 361 cpu clock=  1.00E+01
+ sweep: dc dc212  end,  cpu clock=  1.01E+01 memory=    179 kb
+ parameter: drain           =    6.50E-01
+ output: effresistance.sw0
+ sweep: dc dc213  begin, #sweeps= 361 cpu clock=  1.01E+01
+ sweep: dc dc213  end,  cpu clock=  1.01E+01 memory=    179 kb
+ parameter: drain           =    6.63E-01
+ output: effresistance.sw0
+ sweep: dc dc214  begin, #sweeps= 361 cpu clock=  1.01E+01
+ sweep: dc dc214  end,  cpu clock=  1.02E+01 memory=    179 kb
+ parameter: drain           =    6.75E-01
+ output: effresistance.sw0
+ sweep: dc dc215  begin, #sweeps= 361 cpu clock=  1.02E+01
+ sweep: dc dc215  end,  cpu clock=  1.02E+01 memory=    179 kb
+ parameter: drain           =    6.88E-01
+ output: effresistance.sw0
+ sweep: dc dc216  begin, #sweeps= 361 cpu clock=  1.02E+01
+ sweep: dc dc216  end,  cpu clock=  1.02E+01 memory=    179 kb
+ parameter: drain           =    7.00E-01
+ output: effresistance.sw0
+ sweep: dc dc217  begin, #sweeps= 361 cpu clock=  1.02E+01
+ sweep: dc dc217  end,  cpu clock=  1.03E+01 memory=    179 kb
+ parameter: drain           =    7.13E-01
+ output: effresistance.sw0
+ sweep: dc dc218  begin, #sweeps= 361 cpu clock=  1.03E+01
+ sweep: dc dc218  end,  cpu clock=  1.03E+01 memory=    179 kb
+ parameter: drain           =    7.25E-01
+ output: effresistance.sw0
+ sweep: dc dc219  begin, #sweeps= 361 cpu clock=  1.03E+01
+ sweep: dc dc219  end,  cpu clock=  1.04E+01 memory=    179 kb
+ parameter: drain           =    7.38E-01
+ output: effresistance.sw0
+ sweep: dc dc220  begin, #sweeps= 361 cpu clock=  1.04E+01
+ sweep: dc dc220  end,  cpu clock=  1.04E+01 memory=    179 kb
+ parameter: drain           =    7.50E-01
+ output: effresistance.sw0
+ sweep: dc dc221  begin, #sweeps= 361 cpu clock=  1.04E+01
+ sweep: dc dc221  end,  cpu clock=  1.05E+01 memory=    179 kb
+ parameter: drain           =    7.63E-01
+ output: effresistance.sw0
+ sweep: dc dc222  begin, #sweeps= 361 cpu clock=  1.05E+01
+ sweep: dc dc222  end,  cpu clock=  1.05E+01 memory=    179 kb
+ parameter: drain           =    7.75E-01
+ output: effresistance.sw0
+ sweep: dc dc223  begin, #sweeps= 361 cpu clock=  1.05E+01
+ sweep: dc dc223  end,  cpu clock=  1.06E+01 memory=    179 kb
+ parameter: drain           =    7.88E-01
+ output: effresistance.sw0
+ sweep: dc dc224  begin, #sweeps= 361 cpu clock=  1.06E+01
+ sweep: dc dc224  end,  cpu clock=  1.06E+01 memory=    179 kb
+ parameter: drain           =    8.00E-01
+ output: effresistance.sw0
+ sweep: dc dc225  begin, #sweeps= 361 cpu clock=  1.06E+01
+ sweep: dc dc225  end,  cpu clock=  1.07E+01 memory=    179 kb
+ parameter: drain           =    8.12E-01
+ output: effresistance.sw0
+ sweep: dc dc226  begin, #sweeps= 361 cpu clock=  1.07E+01
+ sweep: dc dc226  end,  cpu clock=  1.07E+01 memory=    179 kb
+ parameter: drain           =    8.25E-01
+ output: effresistance.sw0
+ sweep: dc dc227  begin, #sweeps= 361 cpu clock=  1.07E+01
+ sweep: dc dc227  end,  cpu clock=  1.08E+01 memory=    179 kb
+ parameter: drain           =    8.38E-01
+ output: effresistance.sw0
+ sweep: dc dc228  begin, #sweeps= 361 cpu clock=  1.08E+01
+ sweep: dc dc228  end,  cpu clock=  1.08E+01 memory=    179 kb
+ parameter: drain           =    8.50E-01
+ output: effresistance.sw0
+ sweep: dc dc229  begin, #sweeps= 361 cpu clock=  1.08E+01
+ sweep: dc dc229  end,  cpu clock=  1.09E+01 memory=    179 kb
+ parameter: drain           =    8.63E-01
+ output: effresistance.sw0
+ sweep: dc dc230  begin, #sweeps= 361 cpu clock=  1.09E+01
+ sweep: dc dc230  end,  cpu clock=  1.09E+01 memory=    179 kb
+ parameter: drain           =    8.75E-01
+ output: effresistance.sw0
+ sweep: dc dc231  begin, #sweeps= 361 cpu clock=  1.09E+01
+ sweep: dc dc231  end,  cpu clock=  1.10E+01 memory=    179 kb
+ parameter: drain           =    8.88E-01
+ output: effresistance.sw0
+ sweep: dc dc232  begin, #sweeps= 361 cpu clock=  1.10E+01
+ sweep: dc dc232  end,  cpu clock=  1.10E+01 memory=    179 kb
+ parameter: drain           =    9.00E-01
+ output: effresistance.sw0
+ sweep: dc dc233  begin, #sweeps= 361 cpu clock=  1.10E+01
+ sweep: dc dc233  end,  cpu clock=  1.11E+01 memory=    179 kb
+ parameter: drain           =    9.13E-01
+ output: effresistance.sw0
+ sweep: dc dc234  begin, #sweeps= 361 cpu clock=  1.11E+01
+ sweep: dc dc234  end,  cpu clock=  1.11E+01 memory=    179 kb
+ parameter: drain           =    9.25E-01
+ output: effresistance.sw0
+ sweep: dc dc235  begin, #sweeps= 361 cpu clock=  1.11E+01
+ sweep: dc dc235  end,  cpu clock=  1.11E+01 memory=    179 kb
+ parameter: drain           =    9.38E-01
+ output: effresistance.sw0
+ sweep: dc dc236  begin, #sweeps= 361 cpu clock=  1.11E+01
+ sweep: dc dc236  end,  cpu clock=  1.12E+01 memory=    179 kb
+ parameter: drain           =    9.50E-01
+ output: effresistance.sw0
+ sweep: dc dc237  begin, #sweeps= 361 cpu clock=  1.12E+01
+ sweep: dc dc237  end,  cpu clock=  1.12E+01 memory=    179 kb
+ parameter: drain           =    9.63E-01
+ output: effresistance.sw0
+ sweep: dc dc238  begin, #sweeps= 361 cpu clock=  1.12E+01
+ sweep: dc dc238  end,  cpu clock=  1.13E+01 memory=    179 kb
+ parameter: drain           =    9.75E-01
+ output: effresistance.sw0
+ sweep: dc dc239  begin, #sweeps= 361 cpu clock=  1.13E+01
+ sweep: dc dc239  end,  cpu clock=  1.13E+01 memory=    179 kb
+ parameter: drain           =    9.88E-01
+ output: effresistance.sw0
+ sweep: dc dc240  begin, #sweeps= 361 cpu clock=  1.13E+01
+ sweep: dc dc240  end,  cpu clock=  1.14E+01 memory=    179 kb
+ parameter: drain           =    1.00E+00
+ output: effresistance.sw0
+ sweep: dc dc241  begin, #sweeps= 361 cpu clock=  1.14E+01
+ sweep: dc dc241  end,  cpu clock=  1.14E+01 memory=    179 kb
+ parameter: drain           =    1.01E+00
+ output: effresistance.sw0
+ sweep: dc dc242  begin, #sweeps= 361 cpu clock=  1.14E+01
+ sweep: dc dc242  end,  cpu clock=  1.15E+01 memory=    179 kb
+ parameter: drain           =    1.03E+00
+ output: effresistance.sw0
+ sweep: dc dc243  begin, #sweeps= 361 cpu clock=  1.15E+01
+ sweep: dc dc243  end,  cpu clock=  1.15E+01 memory=    179 kb
+ parameter: drain           =    1.04E+00
+ output: effresistance.sw0
+ sweep: dc dc244  begin, #sweeps= 361 cpu clock=  1.15E+01
+ sweep: dc dc244  end,  cpu clock=  1.16E+01 memory=    179 kb
+ parameter: drain           =    1.05E+00
+ output: effresistance.sw0
+ sweep: dc dc245  begin, #sweeps= 361 cpu clock=  1.16E+01
+ sweep: dc dc245  end,  cpu clock=  1.16E+01 memory=    179 kb
+ parameter: drain           =    1.06E+00
+ output: effresistance.sw0
+ sweep: dc dc246  begin, #sweeps= 361 cpu clock=  1.16E+01
+ sweep: dc dc246  end,  cpu clock=  1.17E+01 memory=    179 kb
+ parameter: drain           =    1.08E+00
+ output: effresistance.sw0
+ sweep: dc dc247  begin, #sweeps= 361 cpu clock=  1.17E+01
+ sweep: dc dc247  end,  cpu clock=  1.17E+01 memory=    179 kb
+ parameter: drain           =    1.09E+00
+ output: effresistance.sw0
+ sweep: dc dc248  begin, #sweeps= 361 cpu clock=  1.17E+01
+ sweep: dc dc248  end,  cpu clock=  1.18E+01 memory=    179 kb
+ parameter: drain           =    1.10E+00
+ output: effresistance.sw0
+ sweep: dc dc249  begin, #sweeps= 361 cpu clock=  1.18E+01
+ sweep: dc dc249  end,  cpu clock=  1.18E+01 memory=    179 kb
+ parameter: drain           =    1.11E+00
+ output: effresistance.sw0
+ sweep: dc dc250  begin, #sweeps= 361 cpu clock=  1.18E+01
+ sweep: dc dc250  end,  cpu clock=  1.18E+01 memory=    179 kb
+ parameter: drain           =    1.12E+00
+ output: effresistance.sw0
+ sweep: dc dc251  begin, #sweeps= 361 cpu clock=  1.18E+01
+ sweep: dc dc251  end,  cpu clock=  1.19E+01 memory=    179 kb
+ parameter: drain           =    1.14E+00
+ output: effresistance.sw0
+ sweep: dc dc252  begin, #sweeps= 361 cpu clock=  1.19E+01
+ sweep: dc dc252  end,  cpu clock=  1.19E+01 memory=    179 kb
+ parameter: drain           =    1.15E+00
+ output: effresistance.sw0
+ sweep: dc dc253  begin, #sweeps= 361 cpu clock=  1.19E+01
+ sweep: dc dc253  end,  cpu clock=  1.20E+01 memory=    179 kb
+ parameter: drain           =    1.16E+00
+ output: effresistance.sw0
+ sweep: dc dc254  begin, #sweeps= 361 cpu clock=  1.20E+01
+ sweep: dc dc254  end,  cpu clock=  1.20E+01 memory=    179 kb
+ parameter: drain           =    1.18E+00
+ output: effresistance.sw0
+ sweep: dc dc255  begin, #sweeps= 361 cpu clock=  1.20E+01
+ sweep: dc dc255  end,  cpu clock=  1.21E+01 memory=    179 kb
+ parameter: drain           =    1.19E+00
+ output: effresistance.sw0
+ sweep: dc dc256  begin, #sweeps= 361 cpu clock=  1.21E+01
+ sweep: dc dc256  end,  cpu clock=  1.21E+01 memory=    179 kb
+ parameter: drain           =    1.20E+00
+ output: effresistance.sw0
+ sweep: dc dc257  begin, #sweeps= 361 cpu clock=  1.21E+01
+ sweep: dc dc257  end,  cpu clock=  1.22E+01 memory=    179 kb
+ parameter: drain           =    1.21E+00
+ output: effresistance.sw0
+ sweep: dc dc258  begin, #sweeps= 361 cpu clock=  1.22E+01
+ sweep: dc dc258  end,  cpu clock=  1.22E+01 memory=    179 kb
+ parameter: drain           =    1.23E+00
+ output: effresistance.sw0
+ sweep: dc dc259  begin, #sweeps= 361 cpu clock=  1.22E+01
+ sweep: dc dc259  end,  cpu clock=  1.23E+01 memory=    179 kb
+ parameter: drain           =    1.24E+00
+ output: effresistance.sw0
+ sweep: dc dc260  begin, #sweeps= 361 cpu clock=  1.23E+01
+ sweep: dc dc260  end,  cpu clock=  1.23E+01 memory=    179 kb
+ parameter: drain           =    1.25E+00
+ output: effresistance.sw0
+ sweep: dc dc261  begin, #sweeps= 361 cpu clock=  1.23E+01
+ sweep: dc dc261  end,  cpu clock=  1.23E+01 memory=    179 kb
+ parameter: drain           =    1.26E+00
+ output: effresistance.sw0
+ sweep: dc dc262  begin, #sweeps= 361 cpu clock=  1.23E+01
+ sweep: dc dc262  end,  cpu clock=  1.24E+01 memory=    179 kb
+ parameter: drain           =    1.28E+00
+ output: effresistance.sw0
+ sweep: dc dc263  begin, #sweeps= 361 cpu clock=  1.24E+01
+ sweep: dc dc263  end,  cpu clock=  1.24E+01 memory=    179 kb
+ parameter: drain           =    1.29E+00
+ output: effresistance.sw0
+ sweep: dc dc264  begin, #sweeps= 361 cpu clock=  1.24E+01
+ sweep: dc dc264  end,  cpu clock=  1.25E+01 memory=    179 kb
+ parameter: drain           =    1.30E+00
+ output: effresistance.sw0
+ sweep: dc dc265  begin, #sweeps= 361 cpu clock=  1.25E+01
+ sweep: dc dc265  end,  cpu clock=  1.25E+01 memory=    179 kb
+ parameter: drain           =    1.31E+00
+ output: effresistance.sw0
+ sweep: dc dc266  begin, #sweeps= 361 cpu clock=  1.25E+01
+ sweep: dc dc266  end,  cpu clock=  1.26E+01 memory=    179 kb
+ parameter: drain           =    1.33E+00
+ output: effresistance.sw0
+ sweep: dc dc267  begin, #sweeps= 361 cpu clock=  1.26E+01
+ sweep: dc dc267  end,  cpu clock=  1.26E+01 memory=    179 kb
+ parameter: drain           =    1.34E+00
+ output: effresistance.sw0
+ sweep: dc dc268  begin, #sweeps= 361 cpu clock=  1.26E+01
+ sweep: dc dc268  end,  cpu clock=  1.27E+01 memory=    179 kb
+ parameter: drain           =    1.35E+00
+ output: effresistance.sw0
+ sweep: dc dc269  begin, #sweeps= 361 cpu clock=  1.27E+01
+ sweep: dc dc269  end,  cpu clock=  1.27E+01 memory=    179 kb
+ parameter: drain           =    1.36E+00
+ output: effresistance.sw0
+ sweep: dc dc270  begin, #sweeps= 361 cpu clock=  1.27E+01
+ sweep: dc dc270  end,  cpu clock=  1.28E+01 memory=    179 kb
+ parameter: drain           =    1.38E+00
+ output: effresistance.sw0
+ sweep: dc dc271  begin, #sweeps= 361 cpu clock=  1.28E+01
+ sweep: dc dc271  end,  cpu clock=  1.28E+01 memory=    179 kb
+ parameter: drain           =    1.39E+00
+ output: effresistance.sw0
+ sweep: dc dc272  begin, #sweeps= 361 cpu clock=  1.28E+01
+ sweep: dc dc272  end,  cpu clock=  1.29E+01 memory=    179 kb
+ parameter: drain           =    1.40E+00
+ output: effresistance.sw0
+ sweep: dc dc273  begin, #sweeps= 361 cpu clock=  1.29E+01
+ sweep: dc dc273  end,  cpu clock=  1.29E+01 memory=    179 kb
+ parameter: drain           =    1.41E+00
+ output: effresistance.sw0
+ sweep: dc dc274  begin, #sweeps= 361 cpu clock=  1.29E+01
+ sweep: dc dc274  end,  cpu clock=  1.30E+01 memory=    179 kb
+ parameter: drain           =    1.43E+00
+ output: effresistance.sw0
+ sweep: dc dc275  begin, #sweeps= 361 cpu clock=  1.30E+01
+ sweep: dc dc275  end,  cpu clock=  1.30E+01 memory=    179 kb
+ parameter: drain           =    1.44E+00
+ output: effresistance.sw0
+ sweep: dc dc276  begin, #sweeps= 361 cpu clock=  1.30E+01
+ sweep: dc dc276  end,  cpu clock=  1.31E+01 memory=    179 kb
+ parameter: drain           =    1.45E+00
+ output: effresistance.sw0
+ sweep: dc dc277  begin, #sweeps= 361 cpu clock=  1.31E+01
+ sweep: dc dc277  end,  cpu clock=  1.31E+01 memory=    179 kb
+ parameter: drain           =    1.46E+00
+ output: effresistance.sw0
+ sweep: dc dc278  begin, #sweeps= 361 cpu clock=  1.31E+01
+ sweep: dc dc278  end,  cpu clock=  1.31E+01 memory=    179 kb
+ parameter: drain           =    1.48E+00
+ output: effresistance.sw0
+ sweep: dc dc279  begin, #sweeps= 361 cpu clock=  1.32E+01
+ sweep: dc dc279  end,  cpu clock=  1.32E+01 memory=    179 kb
+ parameter: drain           =    1.49E+00
+ output: effresistance.sw0
+ sweep: dc dc280  begin, #sweeps= 361 cpu clock=  1.32E+01
+ sweep: dc dc280  end,  cpu clock=  1.32E+01 memory=    179 kb
+ parameter: drain           =    1.50E+00
+ output: effresistance.sw0
+ sweep: dc dc281  begin, #sweeps= 361 cpu clock=  1.32E+01
+ sweep: dc dc281  end,  cpu clock=  1.33E+01 memory=    179 kb
+ parameter: drain           =    1.51E+00
+ output: effresistance.sw0
+ sweep: dc dc282  begin, #sweeps= 361 cpu clock=  1.33E+01
+ sweep: dc dc282  end,  cpu clock=  1.33E+01 memory=    179 kb
+ parameter: drain           =    1.53E+00
+ output: effresistance.sw0
+ sweep: dc dc283  begin, #sweeps= 361 cpu clock=  1.33E+01
+ sweep: dc dc283  end,  cpu clock=  1.34E+01 memory=    179 kb
+ parameter: drain           =    1.54E+00
+ output: effresistance.sw0
+ sweep: dc dc284  begin, #sweeps= 361 cpu clock=  1.34E+01
+ sweep: dc dc284  end,  cpu clock=  1.34E+01 memory=    179 kb
+ parameter: drain           =    1.55E+00
+ output: effresistance.sw0
+ sweep: dc dc285  begin, #sweeps= 361 cpu clock=  1.34E+01
+ sweep: dc dc285  end,  cpu clock=  1.35E+01 memory=    179 kb
+ parameter: drain           =    1.56E+00
+ output: effresistance.sw0
+ sweep: dc dc286  begin, #sweeps= 361 cpu clock=  1.35E+01
+ sweep: dc dc286  end,  cpu clock=  1.35E+01 memory=    179 kb
+ parameter: drain           =    1.58E+00
+ output: effresistance.sw0
+ sweep: dc dc287  begin, #sweeps= 361 cpu clock=  1.35E+01
+ sweep: dc dc287  end,  cpu clock=  1.36E+01 memory=    179 kb
+ parameter: drain           =    1.59E+00
+ output: effresistance.sw0
+ sweep: dc dc288  begin, #sweeps= 361 cpu clock=  1.36E+01
+ sweep: dc dc288  end,  cpu clock=  1.36E+01 memory=    179 kb
+ parameter: drain           =    1.60E+00
+ output: effresistance.sw0
+ sweep: dc dc289  begin, #sweeps= 361 cpu clock=  1.36E+01
+ sweep: dc dc289  end,  cpu clock=  1.37E+01 memory=    179 kb
+ parameter: drain           =    1.61E+00
+ output: effresistance.sw0
+ sweep: dc dc290  begin, #sweeps= 361 cpu clock=  1.37E+01
+ sweep: dc dc290  end,  cpu clock=  1.37E+01 memory=    179 kb
+ parameter: drain           =    1.62E+00
+ output: effresistance.sw0
+ sweep: dc dc291  begin, #sweeps= 361 cpu clock=  1.37E+01
+ sweep: dc dc291  end,  cpu clock=  1.38E+01 memory=    179 kb
+ parameter: drain           =    1.64E+00
+ output: effresistance.sw0
+ sweep: dc dc292  begin, #sweeps= 361 cpu clock=  1.38E+01
+ sweep: dc dc292  end,  cpu clock=  1.38E+01 memory=    179 kb
+ parameter: drain           =    1.65E+00
+ output: effresistance.sw0
+ sweep: dc dc293  begin, #sweeps= 361 cpu clock=  1.38E+01
+ sweep: dc dc293  end,  cpu clock=  1.39E+01 memory=    179 kb
+ parameter: drain           =    1.66E+00
+ output: effresistance.sw0
+ sweep: dc dc294  begin, #sweeps= 361 cpu clock=  1.39E+01
+ sweep: dc dc294  end,  cpu clock=  1.39E+01 memory=    179 kb
+ parameter: drain           =    1.68E+00
+ output: effresistance.sw0
+ sweep: dc dc295  begin, #sweeps= 361 cpu clock=  1.39E+01
+ sweep: dc dc295  end,  cpu clock=  1.40E+01 memory=    179 kb
+ parameter: drain           =    1.69E+00
+ output: effresistance.sw0
+ sweep: dc dc296  begin, #sweeps= 361 cpu clock=  1.40E+01
+ sweep: dc dc296  end,  cpu clock=  1.40E+01 memory=    179 kb
+ parameter: drain           =    1.70E+00
+ output: effresistance.sw0
+ sweep: dc dc297  begin, #sweeps= 361 cpu clock=  1.40E+01
+ sweep: dc dc297  end,  cpu clock=  1.41E+01 memory=    179 kb
+ parameter: drain           =    1.71E+00
+ output: effresistance.sw0
+ sweep: dc dc298  begin, #sweeps= 361 cpu clock=  1.41E+01
+ sweep: dc dc298  end,  cpu clock=  1.41E+01 memory=    179 kb
+ parameter: drain           =    1.73E+00
+ output: effresistance.sw0
+ sweep: dc dc299  begin, #sweeps= 361 cpu clock=  1.41E+01
+ sweep: dc dc299  end,  cpu clock=  1.42E+01 memory=    179 kb
+ parameter: drain           =    1.74E+00
+ output: effresistance.sw0
+ sweep: dc dc300  begin, #sweeps= 361 cpu clock=  1.42E+01
+ sweep: dc dc300  end,  cpu clock=  1.42E+01 memory=    179 kb
+ parameter: drain           =    1.75E+00
+ output: effresistance.sw0
+ sweep: dc dc301  begin, #sweeps= 361 cpu clock=  1.42E+01
+ sweep: dc dc301  end,  cpu clock=  1.42E+01 memory=    179 kb
+ parameter: drain           =    1.76E+00
+ output: effresistance.sw0
+ sweep: dc dc302  begin, #sweeps= 361 cpu clock=  1.42E+01
+ sweep: dc dc302  end,  cpu clock=  1.43E+01 memory=    179 kb
+ parameter: drain           =    1.78E+00
+ output: effresistance.sw0
+ sweep: dc dc303  begin, #sweeps= 361 cpu clock=  1.43E+01
+ sweep: dc dc303  end,  cpu clock=  1.43E+01 memory=    179 kb
+ parameter: drain           =    1.79E+00
+ output: effresistance.sw0
+ sweep: dc dc304  begin, #sweeps= 361 cpu clock=  1.43E+01
+ sweep: dc dc304  end,  cpu clock=  1.44E+01 memory=    179 kb
+ parameter: drain           =    1.80E+00
+ output: effresistance.sw0
+ sweep: dc dc305  begin, #sweeps= 361 cpu clock=  1.44E+01
+ sweep: dc dc305  end,  cpu clock=  1.44E+01 memory=    179 kb
+ parameter: drain           =    1.81E+00
+ output: effresistance.sw0
+ sweep: dc dc306  begin, #sweeps= 361 cpu clock=  1.44E+01
+ sweep: dc dc306  end,  cpu clock=  1.45E+01 memory=    179 kb
+ parameter: drain           =    1.83E+00
+ output: effresistance.sw0
+ sweep: dc dc307  begin, #sweeps= 361 cpu clock=  1.45E+01
+ sweep: dc dc307  end,  cpu clock=  1.45E+01 memory=    179 kb
+ parameter: drain           =    1.84E+00
+ output: effresistance.sw0
+ sweep: dc dc308  begin, #sweeps= 361 cpu clock=  1.45E+01
+ sweep: dc dc308  end,  cpu clock=  1.46E+01 memory=    179 kb
+ parameter: drain           =    1.85E+00
+ output: effresistance.sw0
+ sweep: dc dc309  begin, #sweeps= 361 cpu clock=  1.46E+01
+ sweep: dc dc309  end,  cpu clock=  1.46E+01 memory=    179 kb
+ parameter: drain           =    1.86E+00
+ output: effresistance.sw0
+ sweep: dc dc310  begin, #sweeps= 361 cpu clock=  1.46E+01
+ sweep: dc dc310  end,  cpu clock=  1.47E+01 memory=    179 kb
+ parameter: drain           =    1.88E+00
+ output: effresistance.sw0
+ sweep: dc dc311  begin, #sweeps= 361 cpu clock=  1.47E+01
+ sweep: dc dc311  end,  cpu clock=  1.47E+01 memory=    179 kb
+ parameter: drain           =    1.89E+00
+ output: effresistance.sw0
+ sweep: dc dc312  begin, #sweeps= 361 cpu clock=  1.47E+01
+ sweep: dc dc312  end,  cpu clock=  1.48E+01 memory=    179 kb
+ parameter: drain           =    1.90E+00
+ output: effresistance.sw0
+ sweep: dc dc313  begin, #sweeps= 361 cpu clock=  1.48E+01
+ sweep: dc dc313  end,  cpu clock=  1.48E+01 memory=    179 kb
+ parameter: drain           =    1.91E+00
+ output: effresistance.sw0
+ sweep: dc dc314  begin, #sweeps= 361 cpu clock=  1.48E+01
+ sweep: dc dc314  end,  cpu clock=  1.49E+01 memory=    179 kb
+ parameter: drain           =    1.93E+00
+ output: effresistance.sw0
+ sweep: dc dc315  begin, #sweeps= 361 cpu clock=  1.49E+01
+ sweep: dc dc315  end,  cpu clock=  1.49E+01 memory=    179 kb
+ parameter: drain           =    1.94E+00
+ output: effresistance.sw0
+ sweep: dc dc316  begin, #sweeps= 361 cpu clock=  1.49E+01
+ sweep: dc dc316  end,  cpu clock=  1.50E+01 memory=    179 kb
+ parameter: drain           =    1.95E+00
+ output: effresistance.sw0
+ sweep: dc dc317  begin, #sweeps= 361 cpu clock=  1.50E+01
+ sweep: dc dc317  end,  cpu clock=  1.50E+01 memory=    179 kb
+ parameter: drain           =    1.96E+00
+ output: effresistance.sw0
+ sweep: dc dc318  begin, #sweeps= 361 cpu clock=  1.50E+01
+ sweep: dc dc318  end,  cpu clock=  1.51E+01 memory=    179 kb
+ parameter: drain           =    1.98E+00
+ output: effresistance.sw0
+ sweep: dc dc319  begin, #sweeps= 361 cpu clock=  1.51E+01
+ sweep: dc dc319  end,  cpu clock=  1.51E+01 memory=    179 kb
+ parameter: drain           =    1.99E+00
+ output: effresistance.sw0
+ sweep: dc dc320  begin, #sweeps= 361 cpu clock=  1.51E+01
+ sweep: dc dc320  end,  cpu clock=  1.52E+01 memory=    179 kb
+ parameter: drain           =    2.00E+00
+ output: effresistance.sw0
+ sweep: dc dc321  begin, #sweeps= 361 cpu clock=  1.52E+01
+ sweep: dc dc321  end,  cpu clock=  1.52E+01 memory=    179 kb
+ parameter: drain           =    2.01E+00
+ output: effresistance.sw0
+ sweep: dc dc322  begin, #sweeps= 361 cpu clock=  1.52E+01
+ sweep: dc dc322  end,  cpu clock=  1.52E+01 memory=    179 kb
+ parameter: drain           =    2.03E+00
+ output: effresistance.sw0
+ sweep: dc dc323  begin, #sweeps= 361 cpu clock=  1.52E+01
+ sweep: dc dc323  end,  cpu clock=  1.53E+01 memory=    179 kb
+ parameter: drain           =    2.04E+00
+ output: effresistance.sw0
+ sweep: dc dc324  begin, #sweeps= 361 cpu clock=  1.53E+01
+ sweep: dc dc324  end,  cpu clock=  1.53E+01 memory=    179 kb
+ parameter: drain           =    2.05E+00
+ output: effresistance.sw0
+ sweep: dc dc325  begin, #sweeps= 361 cpu clock=  1.53E+01
+ sweep: dc dc325  end,  cpu clock=  1.54E+01 memory=    179 kb
+ parameter: drain           =    2.06E+00
+ output: effresistance.sw0
+ sweep: dc dc326  begin, #sweeps= 361 cpu clock=  1.54E+01
+ sweep: dc dc326  end,  cpu clock=  1.54E+01 memory=    179 kb
+ parameter: drain           =    2.08E+00
+ output: effresistance.sw0
+ sweep: dc dc327  begin, #sweeps= 361 cpu clock=  1.54E+01
+ sweep: dc dc327  end,  cpu clock=  1.55E+01 memory=    179 kb
+ parameter: drain           =    2.09E+00
+ output: effresistance.sw0
+ sweep: dc dc328  begin, #sweeps= 361 cpu clock=  1.55E+01
+ sweep: dc dc328  end,  cpu clock=  1.55E+01 memory=    179 kb
+ parameter: drain           =    2.10E+00
+ output: effresistance.sw0
+ sweep: dc dc329  begin, #sweeps= 361 cpu clock=  1.55E+01
+ sweep: dc dc329  end,  cpu clock=  1.56E+01 memory=    179 kb
+ parameter: drain           =    2.11E+00
+ output: effresistance.sw0
+ sweep: dc dc330  begin, #sweeps= 361 cpu clock=  1.56E+01
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ sweep: dc dc330  end,  cpu clock=  1.56E+01 memory=    179 kb
+ parameter: drain           =    2.12E+00
+ output: effresistance.sw0
+ sweep: dc dc331  begin, #sweeps= 361 cpu clock=  1.56E+01
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ sweep: dc dc331  end,  cpu clock=  1.57E+01 memory=    179 kb
+ parameter: drain           =    2.14E+00
+ output: effresistance.sw0
+ sweep: dc dc332  begin, #sweeps= 361 cpu clock=  1.57E+01
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ sweep: dc dc332  end,  cpu clock=  1.58E+01 memory=    179 kb
+ parameter: drain           =    2.15E+00
+ output: effresistance.sw0
+ sweep: dc dc333  begin, #sweeps= 361 cpu clock=  1.58E+01
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ sweep: dc dc333  end,  cpu clock=  1.58E+01 memory=    179 kb
+ parameter: drain           =    2.16E+00
+ output: effresistance.sw0
+ sweep: dc dc334  begin, #sweeps= 361 cpu clock=  1.58E+01
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ sweep: dc dc334  end,  cpu clock=  1.59E+01 memory=    179 kb
+ parameter: drain           =    2.17E+00
+ output: effresistance.sw0
+ sweep: dc dc335  begin, #sweeps= 361 cpu clock=  1.59E+01
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ sweep: dc dc335  end,  cpu clock=  1.59E+01 memory=    179 kb
+ parameter: drain           =    2.19E+00
+ output: effresistance.sw0
+ sweep: dc dc336  begin, #sweeps= 361 cpu clock=  1.59E+01
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ sweep: dc dc336  end,  cpu clock=  1.60E+01 memory=    179 kb
+ parameter: drain           =    2.20E+00
+ output: effresistance.sw0
+ sweep: dc dc337  begin, #sweeps= 361 cpu clock=  1.60E+01
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ sweep: dc dc337  end,  cpu clock=  1.60E+01 memory=    179 kb
+ parameter: drain           =    2.21E+00
+ output: effresistance.sw0
+ sweep: dc dc338  begin, #sweeps= 361 cpu clock=  1.60E+01
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ sweep: dc dc338  end,  cpu clock=  1.61E+01 memory=    179 kb
+ parameter: drain           =    2.23E+00
+ output: effresistance.sw0
+ sweep: dc dc339  begin, #sweeps= 361 cpu clock=  1.61E+01
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ sweep: dc dc339  end,  cpu clock=  1.62E+01 memory=    179 kb
+ parameter: drain           =    2.24E+00
+ output: effresistance.sw0
+ sweep: dc dc340  begin, #sweeps= 361 cpu clock=  1.62E+01
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ sweep: dc dc340  end,  cpu clock=  1.62E+01 memory=    179 kb
+ parameter: drain           =    2.25E+00
+ output: effresistance.sw0
+ sweep: dc dc341  begin, #sweeps= 361 cpu clock=  1.62E+01
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ sweep: dc dc341  end,  cpu clock=  1.63E+01 memory=    179 kb
+ parameter: drain           =    2.26E+00
+ output: effresistance.sw0
+ sweep: dc dc342  begin, #sweeps= 361 cpu clock=  1.63E+01
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ sweep: dc dc342  end,  cpu clock=  1.63E+01 memory=    179 kb
+ parameter: drain           =    2.28E+00
+ output: effresistance.sw0
+ sweep: dc dc343  begin, #sweeps= 361 cpu clock=  1.63E+01
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ sweep: dc dc343  end,  cpu clock=  1.64E+01 memory=    179 kb
+ parameter: drain           =    2.29E+00
+ output: effresistance.sw0
+ sweep: dc dc344  begin, #sweeps= 361 cpu clock=  1.64E+01
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ sweep: dc dc344  end,  cpu clock=  1.64E+01 memory=    179 kb
+ parameter: drain           =    2.30E+00
+ output: effresistance.sw0
+ sweep: dc dc345  begin, #sweeps= 361 cpu clock=  1.64E+01
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ sweep: dc dc345  end,  cpu clock=  1.65E+01 memory=    179 kb
+ parameter: drain           =    2.31E+00
+ output: effresistance.sw0
+ sweep: dc dc346  begin, #sweeps= 361 cpu clock=  1.65E+01
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ sweep: dc dc346  end,  cpu clock=  1.66E+01 memory=    179 kb
+ parameter: drain           =    2.33E+00
+ output: effresistance.sw0
+ sweep: dc dc347  begin, #sweeps= 361 cpu clock=  1.66E+01
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ sweep: dc dc347  end,  cpu clock=  1.66E+01 memory=    179 kb
+ parameter: drain           =    2.34E+00
+ output: effresistance.sw0
+ sweep: dc dc348  begin, #sweeps= 361 cpu clock=  1.66E+01
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ sweep: dc dc348  end,  cpu clock=  1.67E+01 memory=    179 kb
+ parameter: drain           =    2.35E+00
+ output: effresistance.sw0
+ sweep: dc dc349  begin, #sweeps= 361 cpu clock=  1.67E+01
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ sweep: dc dc349  end,  cpu clock=  1.67E+01 memory=    179 kb
+ parameter: drain           =    2.36E+00
+ output: effresistance.sw0
+ sweep: dc dc350  begin, #sweeps= 361 cpu clock=  1.67E+01
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ sweep: dc dc350  end,  cpu clock=  1.68E+01 memory=    179 kb
+ parameter: drain           =    2.38E+00
+ output: effresistance.sw0
+ sweep: dc dc351  begin, #sweeps= 361 cpu clock=  1.68E+01
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ sweep: dc dc351  end,  cpu clock=  1.68E+01 memory=    179 kb
+ parameter: drain           =    2.39E+00
+ output: effresistance.sw0
+ sweep: dc dc352  begin, #sweeps= 361 cpu clock=  1.68E+01
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ sweep: dc dc352  end,  cpu clock=  1.69E+01 memory=    179 kb
+ parameter: drain           =    2.40E+00
+ output: effresistance.sw0
+ sweep: dc dc353  begin, #sweeps= 361 cpu clock=  1.69E+01
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ sweep: dc dc353  end,  cpu clock=  1.70E+01 memory=    179 kb
+ parameter: drain           =    2.41E+00
+ output: effresistance.sw0
+ sweep: dc dc354  begin, #sweeps= 361 cpu clock=  1.70E+01
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ sweep: dc dc354  end,  cpu clock=  1.70E+01 memory=    179 kb
+ parameter: drain           =    2.42E+00
+ output: effresistance.sw0
+ sweep: dc dc355  begin, #sweeps= 361 cpu clock=  1.70E+01
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ sweep: dc dc355  end,  cpu clock=  1.71E+01 memory=    179 kb
+ parameter: drain           =    2.44E+00
+ output: effresistance.sw0
+ sweep: dc dc356  begin, #sweeps= 361 cpu clock=  1.71E+01
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ sweep: dc dc356  end,  cpu clock=  1.71E+01 memory=    179 kb
+ parameter: drain           =    2.45E+00
+ output: effresistance.sw0
+ sweep: dc dc357  begin, #sweeps= 361 cpu clock=  1.71E+01
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ sweep: dc dc357  end,  cpu clock=  1.72E+01 memory=    179 kb
+ parameter: drain           =    2.46E+00
+ output: effresistance.sw0
+ sweep: dc dc358  begin, #sweeps= 361 cpu clock=  1.72E+01
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ sweep: dc dc358  end,  cpu clock=  1.72E+01 memory=    179 kb
+ parameter: drain           =    2.48E+00
+ output: effresistance.sw0
+ sweep: dc dc359  begin, #sweeps= 361 cpu clock=  1.72E+01
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ sweep: dc dc359  end,  cpu clock=  1.73E+01 memory=    179 kb
+ parameter: drain           =    2.49E+00
+ output: effresistance.sw0
+ sweep: dc dc360  begin, #sweeps= 361 cpu clock=  1.73E+01
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ sweep: dc dc360  end,  cpu clock=  1.74E+01 memory=    179 kb
+ parameter: drain           =    2.50E+00
+ output: effresistance.sw0
+ sweep: dc dc361  begin, #sweeps= 361 cpu clock=  1.74E+01
+ dcop: begin pseudo transient
+ dcop: ...succeeded
+ dcop: end pseudo transient
+ sweep: dc dc361  end,  cpu clock=  1.74E+01 memory=    179 kb
+ sweep: parameter       parameter       1 end
+>info:         ***** hspice job concluded
+ lic: Release hspice token(s)

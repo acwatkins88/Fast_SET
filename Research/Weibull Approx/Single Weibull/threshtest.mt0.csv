@@ -1,0 +1,20 @@
+$DATA1 SOURCE='HSPICE' VERSION='F-2011.09 32-BIT'
+$OPTION MEASFORM=3
+.TITLE '$ calculate delay of gate'
+minval,maxval,minthresh,maxthresh,temper,alter#
+0.4908,   1.0000,   failed,   failed,  25.0000,1
+0.4908,   1.0000,   failed,   failed,  25.0000,2
+0.4908,   1.0000,   failed,   failed,  25.0000,3
+0.4908,   1.0000,   failed,   failed,  25.0000,4
+0.4908,   1.0000,   failed,   failed,  25.0000,5
+0.4908,   1.0000,   failed,   failed,  25.0000,6
+0.4908,   1.0000,   failed,   failed,  25.0000,7
+0.4908,   1.0000,   failed,   failed,  25.0000,8
+0.4908,   1.0000,   failed,   failed,  25.0000,9
+0.4908,   1.0000,   failed,   failed,  25.0000,10
+0.4908,   1.0000,   failed,   failed,  25.0000,11
+0.4908,   1.0000,   failed,   failed,  25.0000,12
+0.4908,   1.0000,   failed,   failed,  25.0000,13
+0.4908,   1.0000,   failed,   failed,  25.0000,14
+0.4908,   1.0000,   failed,   failed,  25.0000,15
+0.4908,   1.0000,   failed,   failed,  25.0000,16

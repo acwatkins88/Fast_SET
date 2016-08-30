@@ -1,0 +1,47 @@
+* "simulator" "HSPICE" 
+* "version" "F-2011.09 32-BIT"
+* "format" "HSP"
+* "rundate" "13:57:12 05/02/2016 "
+* "netlist" "Latchtest.sp "
+* "runtitle" ""
+* time =    0.            
+* temperature =   25.0000        
+*** BEGIN: Saved Operating Point ***                     
+.option 
++ gmindc= 1.000e-12       
+.nodeset
++ b =   0.2500        
++ ckh =   0.            
++ ckl =   1.0500        
++ co1 = 1.336e-04       
++ co2 = 1.327e-04       
++ co3 = 1.151e-06       
++ d =   1.0500        
++ n1 =   1.0500        
++ n2 =   1.0500        
++ n3 =   1.0500        
++ n4 =   1.0500        
++ n5 =   1.0500        
++ nm1a = 8.929e-05       
++ nm1b = 4.476e-05       
++ nm3a = 8.871e-05       
++ nm3b = 4.447e-05       
++ nm4 =   0.1221        
++ nm5a = 6.931e-07       
++ nm7 =   0.1221        
++ nm8 =   0.1222        
++ nm9a = 8.922e-05       
++ nm9b = 4.473e-05       
++ out = 1.335e-04       
++ pm1a =   0.9284        
++ pm1b =   0.1659        
++ pm3a =   1.0197        
++ pm3b =   0.8793        
++ pm4 =   1.0500        
++ pm5b =   0.9031        
++ pm7 =   1.0500        
++ pm8 =   1.0500        
++ pm9a =   1.0196        
++ pm9b =   0.8793        
++ vdd =   1.0500        
+***   END: Saved Operating Point ***                     

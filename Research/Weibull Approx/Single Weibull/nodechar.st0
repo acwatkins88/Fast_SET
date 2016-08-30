@@ -1,0 +1,57 @@
+***** HSPICE -- F-2011.09 32-BIT (Sep  5 2011) linux ******
+ Input File: nodechar.sp
+ lic: No 'setenv LM_LICENSE_FILE' in current environment'
+ lic:
+ lic: FLEXlm: v10.8
+ lic: USER:   watkins              HOSTNAME: engr-e132-d10
+ lic: HOSTID: 002564bd04da         PID:      10190
+ lic: Using FLEXlm license file:
+ lic: 28000@131.230.191.194
+ lic: Checkout 1 hspice
+ lic: License/Maintenance for hspice will expire on 30-dec-2015/2014.09
+ lic: 1(in_use)/50(total) FLOATING license(s) on SERVER 131.230.191.194
+ lic:
+ init: begin read circuit files,  cpu clock=  8.00E-02
+       option search   = /synopsys/HSPICE/hspice/parts/ad
+       option search   = /synopsys/HSPICE/hspice/parts/ad
+       option search   = /synopsys/HSPICE/hspice/parts/behave
+       option search   = /synopsys/HSPICE/hspice/parts/bjt
+       option search   = /synopsys/HSPICE/hspice/parts/burr_brn
+       option search   = /synopsys/HSPICE/hspice/parts/comlinear
+       option search   = /synopsys/HSPICE/hspice/parts/dio
+       option search   = /synopsys/HSPICE/hspice/parts/fet
+       option search   = /synopsys/HSPICE/hspice/parts/lin_tech
+       option search   = /synopsys/HSPICE/hspice/parts/pci
+       option search   = /synopsys/HSPICE/hspice/parts/signet
+       option search   = /synopsys/HSPICE/hspice/parts/ti
+       option search   = /synopsys/HSPICE/hspice/parts/tline
+       option search   = /synopsys/HSPICE/hspice/parts/xilinx
+       option runlvl
+       option ingold   =     1.00
+       option measfi   =     1.00
+       option post
+       option captab
+ init: end read circuit files,  cpu clock=  8.00E-02 memory=    223 kb
+ init: begin check errors,  cpu clock=  8.00E-02
+ init: end check errors,  cpu clock=  8.00E-02 memory=    261 kb
+ init: begin setup matrix, pivot=     0 cpu clock=  8.00E-02
+       establish matrix -- done,  cpu clock=  8.00E-02 memory=    267 kb
+       re-order matrix -- done,  cpu clock=  8.00E-02 memory=    268 kb
+ init: end setup matrix,  cpu clock=  8.00E-02 memory=    288 kb
+ dcop: begin dcop,  cpu clock=  8.00E-02
+ dcop: end dcop,  cpu clock=  8.00E-02 memory=    288 kb  tot_iter=       4
+ output: nodechar.tr0
+ sweep: tran tran0    begin, stop_t=  1.20E-09 #sweeps=2400 cpu clock=  1.00E-01
+ tran: time= 1.2000E-10 tot_iter=     960 conv_iter=     480 cpu clock= 1.00E-01
+ tran: time= 2.4000E-10 tot_iter=    1920 conv_iter=     960 cpu clock= 1.20E-01
+ tran: time= 3.6000E-10 tot_iter=    5142 conv_iter=    1461 cpu clock= 2.00E-01
+ tran: time= 4.8000E-10 tot_iter=    8380 conv_iter=    1956 cpu clock= 2.80E-01
+ tran: time= 6.0000E-10 tot_iter=    9340 conv_iter=    2436 cpu clock= 3.00E-01
+ tran: time= 7.2000E-10 tot_iter=   10300 conv_iter=    2916 cpu clock= 3.20E-01
+ tran: time= 8.4000E-10 tot_iter=   11260 conv_iter=    3396 cpu clock= 3.40E-01
+ tran: time= 9.6000E-10 tot_iter=   12220 conv_iter=    3876 cpu clock= 3.60E-01
+ tran: time= 1.0800E-09 tot_iter=   13180 conv_iter=    4356 cpu clock= 3.80E-01
+ tran: time= 1.2000E-09 tot_iter=   14140 conv_iter=    4836 cpu clock= 3.80E-01
+ sweep: tran tran0    end,  cpu clock=  4.00E-01 memory=    321 kb
+>info:         ***** hspice job concluded
+ lic: Release hspice token(s)

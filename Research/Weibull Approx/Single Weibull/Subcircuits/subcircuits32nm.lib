@@ -1,0 +1,483 @@
+.lib std_cells
+
+.subckt and2inp a b vdd z
+MP1 i a vdd vdd CMOSP W=80n L=32n  
+MP2 i b vdd vdd CMOSP W=80n L=32n 
+MN1 i a cn1 0 CMOSN W=40n L=32n 
+MN2 cn1 b 0 0 CMOSN W=40n L=32n
+mp3 z i vdd vdd CMOSP W=80n L=32n
+mn3 z i 0 0 CMOSN W=40n L=32n
+.ends and2inp
+
+.subckt nand2inp a b vdd z
+MP1 z a vdd vdd CMOSP W=80n L=32n 
+MP2 z b vdd vdd CMOSP W=80n L=32n 
+MN1 z a cn1 0 CMOSN W=40n L=32n 
+MN2 cn1 b 0 0 CMOSN W=40n L=32n
+.ends nand2inp
+
+.subckt nand3inp a b c vdd z
+MP1 z a vdd vdd CMOSP W=80n L=32n  
+MP2 z b vdd vdd CMOSP W=80n L=32n  
+MP3 z c vdd vdd CMOSP W=80n L=32n  
+MN1 z a cn1 0 CMOSN W=40n L=32n  
+MN2 cn1 b cn2 0 CMOSN W=40n L=32n
+MN3 cn2 c 0 0 CMOSN W=40n L=32n 
+.ends nand3inp
+
+.subckt nor2inp a b vdd x
+mp1 cp1 a vdd vdd CMOSP W=80n L=32n 
+mp2 x b cp1 vdd CMOSP W=80n L=32n 
+mn1 x a 0 0 CMOSN W=40n L=32n
+mn2 x b 0 0 CMOSN W=40n L=32n
+.ends nor2inp
+
+.subckt nor3inp a b c vdd x
+mp1 cp1 a vdd vdd CMOSP W=80n L=32n
+mp2 cp2 b cp1 vdd CMOSP W=80n L=32n
+mp3 x c cp2 vdd CMOSP W=80n L=32n
+mn1 x a 0 0 CMOSN W=40n L=32n
+mn2 x b 0 0 CMOSN W=40n L=32n
+mn3 x c 0 0 CMOSN W=40n L=32n
+.ends nor3inp
+
+.subckt or2inp a b vdd z
+mp1 cp1 a vdd vdd CMOSP W=80n L=32n
+mp2 x b cp1 vdd CMOSP W=80n L=32n
+mn1 x a 0 0 CMOSN W=40n L=32n
+mn2 x b 0 0 CMOSN W=40n L=32n
+mp3 z x vdd vdd CMOSP W=80n L=32n
+mn3 z x 0 0 CMOSN W=40n L=32n
+.ends or2inp
+
+.subckt inv a vdd z
+mp1 z a vdd vdd CMOSP W=80n L=32n
+mn1 z a 0 0 CMOSN W=40n L=32n
+.ends inv
+
+.subckt invg a ckh vdd z
+mp1 np1 ckh vdd vdd CMOSP W=80n L=32n
+mp2 z a np1 vdd CMOSP W=80n L=32n
+mn1 z a 0 0 CMOSN W=40n L=32n
+.ends invg
+
+.subckt invm a vdd z
+mp2 z a vdd vdd CMOSP W=40n L=32n
+mn1 z a 0 0 CMOSN W=40n L=32n
+.ends invm
+
+.subckt invclk a ckh ckl vdd z 
+mp1 n1 a vdd vdd CMOSP W=80n L=32n
+mp2 z ckh n1 vdd CMOSP W=80n L=32n
+mn1 z ckl n2 0 CMOSN W=40n L=32n
+mn2 n2 a 0 0 CMOSN W=40n L=32n
+.ends cele2
+
+.subckt cele1 a b vdd z 
+mp1 z a vdd vdd CMOSP W=80n L=32n
+mn1 z b 0 0 CMOSN W=40n L=32n
+.ends cele1
+
+.subckt buf a vdd z
+mp1 d a vdd vdd CMOSP W=80n L=32n
+mn1 d a 0 0 CMOSN W=40n L=32n
+mp2 z d vdd vdd CMOSP W=80n L=32n
+mn2 z d 0 0 CMOSN W=40n L=32n
+.ends buf
+
+.subckt pgate gb g vdd x z
+mp1 x gb z vdd CMOSP W=80n L=32n
+mn1 z g x 0 CMOSN W=40n L=32n
+.ends pgate
+
+.subckt cele2 a b vdd z 
+mp1 n1 a vdd vdd CMOSP W=320n L=32n
+mp2 z b n1 vdd CMOSP W=320n L=32n
+mn1 z a n2 0 CMOSN W=160n L=32n
+mn2 n2 b 0 0 CMOSN W=160n L=32n
+.ends cele2
+
+.subckt celeout2 a b vdd z 
+mp1 n1 a vdd vdd CMOSP W=160n L=32n
+mp2 z b n1 vdd CMOSP W=160n L=32n
+mn1 z a n2 0 CMOSN W=80n L=32n
+mn2 n2 b 0 0 CMOSN W=80n L=32n
+.ends celeout2
+
+.subckt celeoutint2 a b vdd z 
+mp1 n1 a vdd vdd CMOSP W=80n L=32n
+mp2 z b n1 vdd CMOSP W=80n L=32n
+mn1 z a n2 0 CMOSN W=40n L=32n
+mn2 n2 b 0 0 CMOSN W=40n L=32n
+.ends celeoutint2
+
+.subckt celemod2 a b clkh clkl vdd z 
+mp1 n1a a vdd vdd CMOSP W=80n L=32n
+mp2 n2a b n1a vdd CMOSP W=80n L=32n
+mp3 z clkh n2a vdd CMOSP W=80n L=32n
+mn1 z clkl n1b 0 CMOSN W=40n L=32n
+mn2 n1b a n2b 0 CMOSN W=40n L=32n
+mn3 n2b b 0 0 CMOSN W=40n L=32n
+.ends celemod2
+
+.subckt celemod3 a b clkh clkl vdd z
+mp1 n1p clkh vdd vdd CMOSP W=80n L=32n
+mp2 n2p a n1p vdd CMOSP W=80n L=32n
+mp3 z b n2p vdd CMOSP W=80n L=32n
+mn1 z b n1n 0 CMOSN W=40n L=32n
+mn2 n1n a n2n 0 CMOSN W=40n L=32n
+mn3 n2n clkl 0 0 CMOSN W=40n L=32n
+.ends cele3
+
+.subckt celeout3 a b c vdd z
+mp1 n1p a vdd vdd CMOSP W=80n L=32n
+mp2 n2p b n1p vdd CMOSP W=80n L=32n
+mp3 z c n2p vdd CMOSP W=80n L=32n
+mn1 z a n1n 0 CMOSN W=40n L=32n
+mn2 n1n b n2n 0 CMOSN W=40n L=32n
+mn3 n2n c 0 0 CMOSN W=40n L=32n
+.ends cele3
+
+.subckt cele3 a b c vdd z
+mp1 n1p a vdd vdd CMOSP W=320n L=32n
+mp2 n2p b n1p vdd CMOSP W=320n L=32n
+mp3 z c n2p vdd CMOSP W=320n L=32n
+mn1 z a n1n 0 CMOSN W=160n L=32n
+mn2 n1n b n2n 0 CMOSN W=160n L=32n
+mn3 n2n c 0 0 CMOSN W=160n L=32n
+.ends cele3
+
+.subckt cele3inv a b c vdd z
+mn1 n1p a vdd vdd CMOSN W=40n L=32n
+mp2 n2p b n1p vdd CMOSP W=80n L=32n
+mp3 z c n2p vdd CMOSP W=80n L=32n
+mp1 n1n a z 0 CMOSP W=80n L=32n
+mn2 n1n b n2n 0 CMOSN W=40n L=32n
+mn3 n2n c 0 0 CMOSN W=40n L=32n
+.ends cele3inv
+
+.subckt cele4 a b c d clkh clkl vdd z
+mp1 n1p a vdd vdd CMOSP W=80n L=32n
+mp2 n2p b n1p vdd CMOSP W=80n L=32n
+mp3 n3p c n2p vdd CMOSP W=80n L=32n
+mp4 z clkh n3p vdd CMOSP W=80n L=32n
+mn1 z clkl n1n 0 CMOSN W=40n L=32n
+mn2 n1n a n2n 0 CMOSN W=40n L=32n
+mn3 n2n b n3n 0 CMOSN W=40n L=32n
+mn4 n3n d 0 0 CMOSN W=40n L=32n
+.ends cele4
+
+.subckt fbcell in ckh ckl vdd out  
+xcel out in vdd co1 cele2
+xinv co1 ckh ckl vdd out invclk
+.ends fbcell
+
+.subckt latch ckh ckl vdd out
+xinv1 out vdd n1 inv
+xinv2 n1 ckh ckl vdd out invclk
+.ends latch
+
+.subckt ccoup a vdd b
+mp1 b a vdd vdd CMOSP W=80n L=32n
+mn1 a b 0 0 CMOSN W=40n L=32n
+.ends ccoup
+
+.subckt ccoupckl a ckl vdd b
+mp1 b a vdd vdd CMOSP W=80n L=32n
+mn1 a ckl nm1 0 CMOSN W=40n L=32n
+mn2 nm1 b 0 0 CMOSN W=40n L=32n
+.ends ccoupclk 
+
+.subckt ccoupckh a ckh vdd b
+mp1 pm1 a vdd vdd CMOSP W=80n L=32n
+mp2 b ckh pm1 vdd CMOSP W=80n L=32n
+mn2 a b 0 0 CMOSN W=40n L=32n
+.ends ccoupclk 
+
+.subckt pgate145 gb g vdd x z
+mp1 x gb z vdd CMOSP W=145n L=32n
+mn1 z g x 0 CMOSN W=40n L=32n
+.ends pgate
+
+.subckt pgate160 gb g vdd x z
+mp1 x gb z vdd CMOSP W=160n L=32n
+mn1 z g x 0 CMOSN W=40n L=32n
+.ends pgate
+
+$$$$$$$$$$$$$$$$$$$$$$$$$
+$$ Start DICE
+$$$$$$$$$$$$$$$$$$$$$$$$$
+.subckt dice d ckh ckl vdd n3
+mp1 n0 n3 vdd vdd CMOSP W=80n L=32n
+mn1 n0 n1 0 0 CMOSN W=40n L=32n
+
+mp2 n1 n0 vdd vdd CMOSP W=80n L=32n
+mn2 n1 n2 0 0 CMOSN W=40n L=32n
+
+mp3 n2 n1 vdd vdd CMOSP W=80n L=32n
+mn3 n2 n3 0 0 CMOSN W=40n L=32n
+
+mp4 n3 n2 vdd vdd CMOSP W=80n L=32n
+mn4 n3 n0 0 0 CMOSN W=40n L=32n
+
+xpg1 ckl ckh vdd d n0 pgate
+xpg2 ckl ckh vdd d n2 pgate
+.ends dice
+
+$$$$$$$$$$$$$$$$$$$$$$$$$
+$$ Start HSMUF
+$$$$$$$$$$$$$$$$$$$$$$$$$
+
+.subckt hsmuf d ckh ckl vdd out
+mp1 n1 n2 vdd vdd CMOSP W=80n L=32n
+mn1 n1 n6 0 0 CMOSN W=40n L=32n
+
+mp2a np2 n3 vdd vdd CMOSP W=80n L=32n
+mp2b n2 ckh np2 vdd CMOSP W=80n L=32n
+mn2a n2 ckl nn2 0 CMOSN W=40n L=32n
+mn2b nn2 n1 0 0 CMOSN W=40n L=32n
+
+mp3 n3 n4 vdd vdd CMOSP W=80n L=32n
+mn3 n3 n2 0 0 CMOSN W=40n L=32n
+
+mp4a np4 n5 vdd vdd CMOSP W=80n L=32n
+mp4b n4 ckh np4 vdd CMOSP W=80n L=32n
+mn4a n4 ckl nn4 0 CMOSN W=40n L=32n
+mn4b nn4 n3 0 0 CMOSN W=40n L=32n
+
+mp5 n5 n6 vdd vdd CMOSP W=80n L=32n
+mn5 n5 n4 0 0 CMOSN W=40n L=32n
+
+mp6a np6 n1 vdd vdd CMOSP W=80n L=32n
+mp6b n6 ckh np6 vdd CMOSP W=80n L=32n
+mn6a n6 ckl nn6 0 CMOSN W=40n L=32n
+mn6b nn6 n5 0 0 CMOSN W=40n L=32n
+
+xcele n3 n5 n1 vdd q cele3
+
+$ No Keeper
+xpg1 ckh ckl vdd q out pgate
+xpg2 ckl ckh vdd d n2 pgate
+xpg3 ckl ckh vdd d n4 pgate
+xpg4 ckl ckh vdd d n6 pgate
+xpg5 ckl ckh vdd d out pgate
+
+$$ Weak Keeper
+$xpg1 ckh ckl vdd q out pgate160
+$xpg2 ckl ckh vdd d n2 pgate145
+$xpg3 ckl ckh vdd d n4 pgate145
+$xpg4 ckl ckh vdd d n6 pgate145
+$xpg5 ckl ckh vdd d out pgate160
+
+mp7 q no vdd vdd CMOSP W=80n L=32n
+mn7 q no 0 0 CMOSN W=40n L=32n
+
+xinv2 q vdd no inv
+.ends hsmuf
+
+$$$$$$$$$$$$$$$$$$$$$$$$$
+$$ Start Interception
+$$$$$$$$$$$$$$$$$$$$$$$$$
+
+.subckt inter d ckh vdd out
+xcele1 n1 n5 vdd n2 celeoutint2
+xcele2 n2 n6 vdd n3 celeoutint2
+xcele3 n3 n1 vdd n4 celeoutint2
+xcele4 n4 n2 vdd n5 celeoutint2
+xcele5 n5 n3 vdd n6 celeoutint2
+xcele6 n6 n4 vdd n1 celeoutint2
+
+xcele7 n1 n5 n3 vdd out cele3
+
+mp7 out no vdd vdd CMOSP W=80n L=32n
+mn7 out no 0 0 CMOSN W=40n L=32n
+
+xinv4 out vdd no inv
+
+mp7b out no pm1 vdd CMOSP W=80n L=32n
+mn7a out no nm1 0 CMOSN W=40n L=32n
+
+xinv2 out vdd no inv
+
+mn1 d ckh n2 0 CMOSN W=40n L=32n
+mn2 d ckh n4 0 CMOSN W=40n L=32n
+mn3 d ckh n6 0 CMOSN W=40n L=32n
+
+xinv3 d vdd db inv
+
+mn4 db ckh n1 0 CMOSN W=40n L=32n
+mn5 db ckh n3 0 CMOSN W=40n L=32n
+mn6 db ckh n5 0 CMOSN W=40n L=32n
+
+.ends inter
+
+$$$$$$$$$$$$$$$$$$$$$$$$$
+$$ Start NRDNUT - PROPOSED
+$$$$$$$$$$$$$$$$$$$$$$$$$
+
+.subckt reclatch d ckh ckl vdd out
+
+$$ CELL 1
+
+mp1a pm1a n5 vdd vdd CMOSP W=80n L=32n
+mp1b pm1b n2 pm1a vdd CMOSP W=80n L=32n
+mp1c co1 ckh pm1b vdd CMOSP W=80n L=32n
+mn1a co1 ckl nm1a 0 CMOSN W=40n L=32n
+mn1b nm1a n2 nm1b 0 CMOSN W=40n L=32n
+mn1c nm1b n5 0 0 CMOSN W=40n L=32n
+
+mp2 n1 co1 vdd vdd CMOSP W=80n L=32n
+mn2 n1 co1 0 0 CMOSN W=40n L=32n
+
+xpg1 ckl ckh vdd d co1 pgate
+
+$$ CELL 2
+mp3a pm3a n1 vdd vdd CMOSP W=80n L=32n
+mp3b pm3b n5 pm3a vdd CMOSP W=80n L=32n
+mp3c co2 n3 pm3b vdd CMOSP W=80n L=32n 
+mn3a co2 n1 nm3a 0 CMOSN W=40n L=32n 
+mn3b nm3a n4 nm3b 0 CMOSN W=40n L=32n 
+mn3c nm3b n3 0 0 CMOSN W=40n L=32n 
+
+mp4a pm4 out vdd vdd CMOSP W=80n L=32n
+mp4b n2 co2 pm4 vdd CMOSP W=80n L=32n
+mn4a n2 out nm4 0 CMOSN W=40n L=32n
+mn4b nm4 co2 0 0 CMOSN W=40n L=32n
+
+xpg4 ckl ckh vdd d co2 pgate
+
+$$ CELL 3 
+
+mp5a pm5b n4 vdd vdd CMOSP W=80n L=32n
+mp5b co3 n2 pm5b vdd CMOSP W=80n L=32n
+mn5a co3 n4 nm5a 0 CMOSN W=40n L=32n 
+mn5b nm5a n2 0 0 CMOSN W=40n L=32n
+
+mp6 n3 co3 vdd vdd CMOSP W=80n L=32n
+mn6 n3 co3 0 0 CMOSN W=40n L=32n
+
+$xpg3 ckl ckh vdd d co3 pgate
+
+$$ CELL 4
+
+mp7a pm7 co1 vdd vdd CMOSP W=80n L=32n
+mp7b n4 out pm7 vdd CMOSP W=80n L=32n
+mn7a n4 co1 nm7 0 CMOSN W=40n L=32n
+mn7b nm7 co2 0 0 CMOSN W=40n L=32n
+
+mp8a pm8 co2 vdd vdd CMOSP W=80n L=32n
+mp8b n5 co3 pm8 vdd CMOSP W=80n L=32n
+mn8a n5 out nm8 0 CMOSN W=40n L=32n
+mn8b nm8 co3 0 0 CMOSN W=40n L=32n
+
+mp9a pm9a n4 vdd vdd CMOSP W=80n L=32n
+mp9b pm9b n1 pm9a vdd CMOSP W=80n L=32n
+mp9c out n3 pm9b vdd CMOSP W=80n L=32n
+mn9a out n1 nm9a 0 CMOSN W=40n L=32n
+mn9b nm9a n3 nm9b 0 CMOSN W=40n L=32n 
+mn9c nm9b n5 0 0 CMOSN W=40n L=32n 
+
+xpg2 ckl ckh vdd d out pgate
+
+.ends reclatch
+
+$$$$$$$$$$$$$$$$$$$$$$$$$
+$$ Start DONUT MODIFIED
+$$$$$$$$$$$$$$$$$$$$$$$$$
+
+.subckt donut d ckh ckl vdd out
+xpg1 ckl ckh vdd d n2 pgate
+xpg2 ckl ckh vdd d n4 pgate
+xpg3 ckl ckh vdd d n6 pgate
+xpg4 ckl ckh vdd d n8 pgate
+
+xbuf1 n2 vdd out buf
+
+$xcc1 n2 vdd n1 ccoup
+mp1 n1 n2 vdd vdd CMOSP W=80n L=32n
+mn1a n2 ckl nm1 0 CMOSN W=40n L=32n
+mn1b nm1 n1 0 0 CMOSN W=40n L=32n
+
+$xcc2 n2 vdd n3 ccoup
+mp2 n3 n2 vdd vdd CMOSP W=80n L=32n
+mn2a n2 ckl nm2 0 CMOSN W=40n L=32n
+mn2b nm2 n3 0 0 CMOSN W=40n L=32n
+
+$xcc3 n1 vdd n8 ccoup 
+mp3a pm3 n1 vdd vdd CMOSP W=80n L=32n
+mp3b n8 ckh pm3 vdd CMOSP W=80n L=32n
+mn3 n1 n8 0 0 CMOSN W=40n L=32n
+
+$xcc4 n9 vdd n2 ccoup
+mp4a pm4 n9 vdd vdd CMOSP W=80n L=32n
+mp4b n2 ckh pm4 vdd CMOSP W=80n L=32n
+mn4 n9 n2 0 0 CMOSN W=40n L=32n
+
+$xcc5 n3 vdd n4 ccoup
+mp5a pm5 n3 vdd vdd CMOSP W=80n L=32n
+mp5b n4 ckh pm5 vdd CMOSP W=80n L=32n
+mn5 n3 n4 0 0 CMOSN W=40n L=32n
+
+$xcc6 n8 vdd n9 ccoup
+mp6 n9 n8 vdd vdd CMOSP W=80n L=32n
+mn6a n8 ckl nm6 0 CMOSN W=40n L=32n
+mn6b nm6 n9 0 0 CMOSN W=40n L=32n
+
+$xcc7 n4 vdd n9 ccoup
+mp7 n9 n4 vdd vdd CMOSP W=80n L=32n
+mn7a n4 ckl nm7 0 CMOSN W=40n L=32n
+mn7b nm7 n9 0 0 CMOSN W=40n L=32n
+
+$xcc8 n7 vdd n8 ccoup
+mp8a pm8 n7 vdd vdd CMOSP W=80n L=32n
+mp8b n8 ckh pm8 vdd CMOSP W=80n L=32n
+mn8 n7 n8 0 0 CMOSN W=40n L=32n
+
+$xcc9 n9 vdd n6 ccoup
+mp9a pm9 n9 vdd vdd CMOSP W=80n L=32n
+mp9b n6 ckh pm9 vdd CMOSP W=80n L=32n
+mn9 n9 n6 0 0 CMOSN W=40n L=32n
+
+$xcc10 n5 vdd n4 ccoup
+mp10a pm10 n5 vdd vdd CMOSP W=80n L=32n
+mp10b n4 ckh pm10 vdd CMOSP W=80n L=32n
+mn10 n5 n4 0 0 CMOSN W=40n L=32n
+
+$xcc11 n6 vdd n7 ccoup
+mp11 n7 n6 vdd vdd CMOSP W=80n L=32n
+mn11a n6 ckl nm11 0 CMOSN W=40n L=32n
+mn11b nm11 n7 0 0 CMOSN W=40n L=32n
+
+$xcc12 n6 vdd n5 ccoup 
+mp12 n5 n6 vdd vdd CMOSP W=80n L=32n
+mn12a n6 ckl nm12 0 CMOSN W=40n L=32n
+mn12b nm12 n5 0 0 CMOSN W=40n L=32n
+.ends donut
+
+$$$$$$$$$$$$$$$$$$$$$$$$$
+$$ Start DONUT STANDARD
+$$$$$$$$$$$$$$$$$$$$$$$$$
+
+.subckt donutstd d ckh ckl vdd out
+xpg1 ckl ckh vdd d n2 pgate
+xpg2 ckl ckh vdd d n4 pgate
+xpg3 ckl ckh vdd d n6 pgate
+xpg4 ckl ckh vdd d n8 pgate
+
+xbuf1 n2 vdd out buf
+
+xcc1 n2 vdd n1 ccoup
+xcc2 n2 vdd n3 ccoup
+xcc3 n1 vdd n8 ccoup 
+xcc4 n9 vdd n2 ccoup
+xcc5 n3 vdd n4 ccoup
+xcc6 n8 vdd n9 ccoup
+xcc7 n4 vdd n9 ccoup
+xcc8 n7 vdd n8 ccoup
+xcc9 n9 vdd n6 ccoup
+xcc10 n5 vdd n4 ccoup
+xcc11 n6 vdd n7 ccoup
+xcc12 n6 vdd n5 ccoup 
+.ends donutstd
+
+.endl

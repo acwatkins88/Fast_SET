@@ -1,0 +1,451 @@
+% Test Resistance Based Pulsed Approximation Method
+clc;
+clear all;
+close all;
+commandwindow;
+
+addpath('/ugrad/watkins/Desktop/Research/Weibull Approx/HspiceToolbox');
+addpath('/ugrad/watkins/Desktop/Research/Weibull Approx/Single Weibull');
+addpath('/ugrad/watkins/Desktop/Research/Weibull Approx/Single Weibull/delays');
+
+% Vdd
+vdd = 1;
+
+% Input Num
+inp_num = 2;
+
+% Gate Type
+% NAND2 = 1
+% NAND3 = 2
+% NOR2 = 3
+% NOR3 = 4
+gate_type = 3;
+
+% Signal number of PMOS resistance file
+p_fnum = 9;
+
+% Signal number of NMOS resistance file
+n_fnum = 9; 
+
+% Signal number of PMOS current file
+cp_fnum = 10;
+
+% Signal number of NMOS current file
+cn_fnum = 10;
+ 
+% Granularity of Vd
+Vd_gran = 0.0125;
+
+% Granularity of Vg
+Vg_gran = 0.0125;
+
+% Absolute Value of Minimum Value For Characterization
+min_val = 1.5;
+
+% Maximum value of Vd
+max_vd = 1.5;
+
+% Maximum value of Vg
+max_vg = 1.5;
+
+% Number of steps
+steps = 2399;
+
+% Input File Indexes
+Vg1_in = 10;
+Vg2_in = 13;
+Vg3_in = 11;
+Res_out = 8;
+
+cn1_in = 6;
+cn2_in = 7;
+
+% Initial Node Voltage Node 1
+% n_vol_1 = 0.90;
+n_vol_1 = 0;
+
+% Initial Node Voltage Node 2
+% n_vol_2 = 0.90;
+n_vol_2 = 0;
+
+% Load capacitance
+% c_load = 0.65e-15;
+% c_load = 0.52e-15;
+% c_load = 0.45e-15;
+c_load = 0.35e-15;
+
+% 3 input load Cap
+% c_load = 0.75e-15;
+
+% Shift Commands
+shift = 2;
+enable_shift = 0;
+
+% LUT input
+pres = loadsig('TransVals/pmosres.sw0');
+nres = loadsig('TransVals/nmosres.sw0');
+
+% Simulation Data (p11 to p12)
+inpsig = loadsig('singleapprox.tr0');
+Vg1 = inpsig(Vg1_in).data;
+Vg2 = inpsig(Vg2_in).data;
+in
+Vg3 = inpsig(Vg3_in).data;
+
+% Miller Capacitance Data
+n_miller = loadsig('TransVals/nmosmiller.tr0');
+p_miller = loadsig('TransVals/pmosmiller.tr0');
+
+Cp_miller = p_miller(10).data;
+[gp_size, p_col] = size(Cp_miller);
+max_gp = 1.5;
+
+Cn_miller = n_miller(10).data;
+[gn_size, n_col] = size(Cn_miller);
+
+g1_length = length(Vg1);
+g2_length = length(Vg2);
+
+% HSpice Calculated Output
+result = inpsig(Res_out).data;
+
+t_node_vol = inpsig(5).data;
+
+t_pcur1 = abs(inpsig(2).data);
+t_pcur2 = abs(inpsig(3).data);
+t_pcur = t_pcur1+t_pcur2;
+
+% Scale down Hspice signal for comparison
+inp_l = length(Vg1);
+scale = floor(inp_l/steps);
+count = 1;
+for i = 1:inp_l
+    if mod(i,scale) == 0
+        red_tpcur(count) = t_pcur(i);
+        tn_volarr(count) = t_node_vol(i);
+        c_sig(count) = result(i);
+        Vg1_down(count) = Vg1(i);
+        Vg2_down(count) = Vg2(i);
+        Vg3_down(count) = Vg3(i);
+        count = count + 1;
+    end
+end
+
+% disp('Node Voltages');
+% lssig(nsig)
+
+disp('PMOS Resistance');
+lssig(pres)
+
+disp('NMOS Resistance');
+lssig(nres)
+
+disp('Inp Sig');
+lssig(inpsig)
+
+disp('PMOS Miller');
+lssig(p_miller)
+
+disp('NMOS Miller');
+lssig(n_miller)
+
+vdd = 1;
+
+% ------------------------------------
+% Input Type
+% 0 - a = 0, b = 0
+% 1 - a = 0, b = 1
+% 2 - a = 1, b = 0
+% 3 - a = 1, b = 1
+% ------------------------------------
+init_out = 0;
+
+% ------------------------------------
+% Initial Conditions
+% ------------------------------------
+
+vout_init = init_out;
+
+g_itr = floor(g2_length/steps);
+
+vout(1) = vout_init;
+
+% Current Arrays
+in2_arr(1) = 0;
+in3_arr(1) = 0;
+
+% Resistance Arrays
+rn2_arr(1) = 0;
+rn3_arr(1) = 0;
+
+n_vol_arr_1(1) = n_vol_1;
+n_vol_arr_2(1) = n_vol_2;
+
+% ------------------------------------
+% Start of Simulation
+% ------------------------------------
+
+for index = 2:steps
+    
+    % ------------------------------------
+    % Get Values from LUT
+    % ------------------------------------
+    if index == 1 || index == 2
+        vd = vout_init;
+        vd_prev = vout_init;
+        vg1 = Vg1(1);
+        vg2 = Vg2(1);
+        vg3 = Vg3(1);
+    else
+        vd = vout(index-1);
+        vd_prev = vout(index-2);
+        vg1 = Vg1(index*g_itr - g_itr);
+        vg2 = Vg2(index*g_itr - g_itr);
+        vg3 = Vg3(index*g_itr - g_itr);
+    end
+    
+    % Convert vd to index
+    vd_i = floor((vd+min_val)/Vd_gran)+1;
+    
+    % Convert vg to index
+    vg1_i = floor((vg1+min_val)/Vg_gran)+1;
+    
+    vg2_i = floor((vg2+min_val)/Vg_gran)+1;
+    
+    vg3_i = floor((vg3+min_val)/Vg_gran)+1;
+    
+    % Indexes for Miller Capacitance
+    max_gvol = max_vg + min_val;
+    
+    vg1mp_i = floor((vg1+min_val)*(gp_size/max_gvol))+1;
+    vg2mp_i = floor((vg2+min_val)*(gp_size/max_gvol))+1;
+    vg3mp_i = floor((vg3+min_val)*(gp_size/max_gvol))+1;
+    
+    vdp = vd;
+    vdp_i = floor((vdp+min_val)/Vd_gran)+1;
+    
+    % PMOS  
+    rp1 = pres(p_fnum).data(vg1_i, vd_i);
+    ip1 = pres(cp_fnum).data(vg1_i, vd_i);
+    cmp1 = Cp_miller(vg1mp_i, vdp_i);
+    cmp1_arr(index) = cmp1;
+    
+    rp2 = pres(p_fnum).data(vg2_i, vd_i);
+    ip2 = pres(cp_fnum).data(vg2_i, vd_i);
+    cmp2 = Cp_miller(vg2mp_i, vdp_i);
+    
+    rp3 = pres(p_fnum).data(vg3_i, vd_i);
+    ip3 = pres(cp_fnum).data(vg3_i, vd_i);
+    cmp3 = Cp_miller(vg3mp_i, vdp_i);
+    
+    % NMOS
+    vn1g = vg1 - n_vol_1;
+   
+    % Gate Voltage for Miller 1
+    vg1mn_i = floor((vn1g+min_val)*(gp_size/max_gvol));
+    vn1g_i = floor((vn1g+min_val)/Vg_gran)+1;
+    
+    vdn1 = vd - n_vol_1;
+    vdn1_i = floor((vdn1+min_val)/Vd_gran)+1;
+    
+    rn1 = nres(n_fnum).data(vn1g_i, vdn1_i);
+    in1 = nres(cn_fnum).data(vn1g_i, vdn1_i);
+    cmn1 = Cn_miller(vg1mn_i, vdn1_i);
+    
+    vdn2 = n_vol_1;
+%     vdn2 = n_vol_1 - n_vol_2;
+    vdn2_i = floor((vdn2+min_val)/Vd_gran)+1;
+    
+    vn2g = vg2 - n_vol_2;
+    
+    % Gate Voltage for Miller 2
+    vg2mn_i = floor((vn2g+min_val)*(gp_size/max_gvol));
+    vn2g_i = floor((vn2g+min_val)/Vg_gran)+1;
+    n_vol1_i = floor((n_vol_1+min_val)/Vg_gran)+1;
+    
+    rn2 = nres(n_fnum).data(vn2g_i, vdn2_i);
+    in2 = nres(cn_fnum).data(vn2g_i, vdn2_i);
+    cmn2 = Cn_miller(vg2mn_i, vdn2_i);
+    
+    vdn3 = n_vol_2;
+    vdn3_i = floor((vdn3+min_val)/Vd_gran)+1;
+    n_vol2_i = floor((n_vol_2+min_val)/Vg_gran)+1;
+    
+    % Gate voltage for Miller 3
+    vg3mn_i = floor((vg3+min_val)*(gp_size/max_gvol));
+    rn3 = nres(n_fnum).data(vg3_i, vdn3_i);
+    in3 = nres(cn_fnum).data(vg3_i, vdn3_i);
+    cmn3 = Cn_miller(vg3mn_i, vdn3_i);
+    
+    % ------------------------------------
+    % Evaluate Result
+    % ------------------------------------
+
+    % 2 - Input NAND Gate
+    % Node Va
+    rpeq = 1/(1/rp1 + 1/rp2);
+    p_cur = ip1 +  ip2 + ip3;
+    pcur_arr(index) = p_cur;
+    
+    
+    t_step = 0.5e-12*g_itr;
+    
+    del_vga = Vg1(index*g_itr) - Vg1(index*g_itr - g_itr);
+    del_vgb = Vg2(index*g_itr) - Vg2(index*g_itr - g_itr);
+    del_vgc = Vg3(index*g_itr) - Vg3(index*g_itr - g_itr);
+    
+    avg_i = -(in1+in2+in3)/3;
+    n_cur = avg_i;
+    ncur_arr(index) = n_cur;
+    
+    del_arra(index) = del_vga;
+    del_arrb(index) = del_vgb;
+    del_arrc(index) = del_vgc;
+    
+    cmp1_arr(index) = cmp1;
+    cmp2_arr(index) = cmp2;
+    cmp3_arr(index) = cmp3-cmn3;
+    
+%     cmn1_arr(index) = cmn1;
+    cmn2_arr(index) = cmn2;
+    cmn3_arr(index) = cmn3;
+    
+    % Current Arrays
+    in1_arr(index) = in1;
+    in2_arr(index) = in2;
+    in3_arr(index) = in3;
+    
+    % Resistance Arrays
+%     rn2_arr(index) = rn2;
+%     rn3_arr(index) = rn3;
+    
+%     in1_ideal(index) = inpsig(20).data(index);
+%     in2_ideal(index) = inpsig(21).data(index);
+%     in3_ideal(index) = inpsig(22).data(index);
+
+    % Node Voltage Calculation
+%     n_vol = inpsig(5).data(index);
+
+    n_vol_arr_1(index) = (((-in1 + in2)*t_step)/(cmn2)) + n_vol_arr_1(index-1) + del_vgb;
+    n_vol_1 = n_vol_arr_1(index);
+    
+%     n_vol_1 = inpsig(cn1_in).data(index);
+%     n_vol_arr_1(index) = inpsig(cn1_in).data(index);
+    
+    n_vol_arr_2(index) = (((-in2 + in3)*t_step)/(cmn3)) + n_vol_arr_2(index-1) + del_vgc;
+    n_vol_2 = n_vol_arr_2(index);
+    
+%     n_vol_2 = inpsig(cn2_in).data(index);
+%     n_vol_arr_2(index) = inpsig(cn2_in).data(index);
+   
+    % Pulse Approximatin with Load Capacitance
+%     vout(index) = (((p_cur - n_cur)*t_step)/c_load) + vout(index-1);
+    
+    % Latest Pulse Approximation Algorithm - 2 input NAND
+%     nom = (p_cur-n_cur)*t_step+(cmp1+cmn1)*del_vga+cmp2*del_vgb;
+%     vout(index) = (nom/(c_load+cmp1+cmp2+cmn1))+vout(index-1); 
+%     nom_arr(index) = nom;
+        
+%     cmp3 = 0; 
+    
+    % Latest Pulse Approximation Algorithm - 3 input NAND
+    nom = (p_cur-n_cur)*t_step+(cmp1+cmn1)*del_vga+(cmp2)*del_vgb + (cmp3)*del_vgc;
+    vout(index) = (nom/(c_load+cmp1+cmp2+cmp3+cmn1))+vout(index-1); 
+    
+    % Without c1 
+%     nom = (p_cur-n_cur)*t_step+(cmp1)*del_vga+(cmp2)*del_vgb + (cmp3)*del_vgc;
+%     vout(index) = (nom/(c_load+cmp1+cmp2+cmp3))+vout(index-1); 
+%     nom_arr(index) = nom;
+end
+
+% Shift signal
+if enable_shift == 1
+    temp_s = vout;
+    t_ind = 1;
+    for i = 1:steps
+        if i <= (shift+1)
+            vout(i) = temp_s(1);
+        else
+            vout(i) = temp_s(t_ind);
+            t_ind = t_ind+1;
+        end
+    end
+end
+
+figure;
+hold on
+plot(Vg1_down, 'm');
+plot(Vg2_down, 'k');
+plot(Vg3_down, 'g');
+plot(c_sig, 'r');
+plot(vout, 'b');
+legend('Input a', 'Input b', 'HSpice Output', 'Estimated Output')
+title('Plot of Original Data with Inputs');
+hold off
+
+figure;
+hold on;
+plot(c_sig, 'r');
+plot(vout, 'b');
+legend('Hspice Output', 'Estimated Output');
+title('Comparison of Hspice and the Model');
+hold off;
+
+% figure;
+% hold on;
+% plot(pcur_arr, 'r');
+% plot(pcur_ideal, 'b');
+% legend('Calculated', 'Ideal');
+% hold off;
+
+% figure;
+% hold on;
+% plot(ncur_arr, 'r');
+% plot(in1_ideal, 'b');
+% plot(in2_ideal, 'k');
+% plot(in3_ideal, 'g');
+% legend('Calculated', 'Ideal 1','Ideal 2', 'Ideal 3');
+% hold off;
+
+figure;
+hold on;
+plot(n_vol_arr_1, 'r');
+plot(inpsig(cn1_in).data);
+legend('Calculated', 'Hspice');
+hold off;
+
+figure;
+hold on;
+plot(n_vol_arr_2, 'r');
+plot(inpsig(cn2_in).data);
+legend('Calculated', 'Hspice');
+hold off;
+
+% figure;
+% hold on;
+% plot(cmn2_arr);
+% plot(cmn3_arr, 'r');
+% hold off;
+
+% val = 1:steps;
+% length(val)
+% length(vout)
+% length(cmn2_arr)
+% figure;
+% plotyy(val, vout, val, cmn1_arr);
+
+% figure;
+% hold on;
+% plot(n_vol_arr);
+% plot(c_sig, 'r');
+% legend('Node Voltage', 'Output Voltage');
+% hold off;
+
+% figure;
+% hold on;
+% plot(inpsig(6).data, 'r');
+% plot(n_vol_arr);
+% legend('Hspice', 'Calculated');
+% title('Comparison of Node Voltages');
+% hold off;
+

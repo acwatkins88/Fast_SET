@@ -1,0 +1,33 @@
+\o Program:		@(#)$CDS: libManager version 6.1.6 - CAT33 05/07/2013 21:21 (sjfnl896) $
+\o Sub version:		sub-version  s001 
+\o Arguments:		-unmapped -mpssession virtuoso29790 -mpshost engr-e132-d10 
+\o Working Directory:	engr-e132-d10:/ugrad/watkins/Desktop/Research/Weibull Approx/Single Weibull
+\o 64-bit offsets
+\o Qt version: 		4.7.2
+\o changeWorkingDir("/ugrad/watkins/Desktop/Research/Weibull Approx/Single Weibull") unnecessary.
+\o ddSetForcedLib("") unnecessary.
+\o Log file is "/ugrad/watkins/Desktop/Research/Weibull Approx/Single Weibull/libManager.log".
+\o Opening libManager window.
+\a nrSetWindowVisibility(cdsLibManager "show")
+\o MPS service: map window
+\o Library Manager customization server connected.
+\a nrSetCurrentWindow(cdsLibManager)
+\w Warning: The directory: '/ugrad/watkins/Desktop/Research/Weibull Approx/Single Weibull/work' does not exist
+\w 	but was defined in libFile '/cadence/IUS/tools/inca/files/cds.lib' for Lib 'worklib'.
+\w Warning: ddiAddLibToOA: Can't access library 'vital_memory' at path '/cadence/IUS/tools/inca/files/VITAL_MEMORY' in OA 2.2.
+\w OA Exception is: 'Cannot open .oalib file in the library.'
+\w Warning: ddiAddLibToOA: Can't access library 'cds_assertions' at path '/cadence/IUS/tools/inca/files/CDS_ASSERTIONS' in OA 2.2.
+\w OA Exception is: 'Cannot open .oalib file in the library.'
+\w Warning: ddiAddLibToOA: Can't access library 'cds_inhconn' at path '/cadence/IUS/tools/inca/files/CDS_INHCONN' in OA 2.2.
+\w OA Exception is: 'Cannot open .oalib file in the library.'
+\w Warning: ddiAddLibToOA: Can't access library 'ncutils' at path '/cadence/IUS/tools/inca/files/NCUTILS' in OA 2.2.
+\w OA Exception is: 'Cannot open .oalib file in the library.'
+\a nrResizeWindow(cdsLibManager list(8 30 729 493))
+\a nrResizeWindow(cdsLibManager list(131 104 729 493))
+\a cdsLibManager->libListBox->value = "ncmodels"
+\a cdsLibManager->cellListBox->value = "top_mem"
+\a cdsLibManager->cellLineEdit->value = "top_mem"
+\a cdsLibManager->libLineEdit->value = "ncmodels"
+\a nrSetWindowVisibility(cdsLibManager "hide")
+\o libManager is exiting.
+\a exit(0)

@@ -1,0 +1,614 @@
+Using: /usr/bin/time -p /synopsys/HSPICE/hspice/linux/hspice currentcalc.sp
+ ****** HSPICE -- F-2011.09 32-BIT (Sep  5 2011) linux ******                   
+  Copyright (C) 2011 Synopsys, Inc. All Rights Reserved.                        
+  Unpublished-rights reserved under US copyright laws.
+  This program is protected by law and is subject to the
+  terms and conditions of the license agreement from Synopsys.
+  Use of this program is your acceptance to be bound by the
+  license agreement. HSPICE is the trademark of Synopsys, Inc.
+  Input File: currentcalc.sp                                                    
+  Command line options: currentcalc.sp
+ lic: No 'setenv LM_LICENSE_FILE' in current environment' 
+ lic:  
+ lic: FLEXlm: v10.8 
+ lic: USER:   watkins              HOSTNAME: engr-e132-d10 
+ lic: HOSTID: 002564bd04da         PID:      17194 
+ lic: Using FLEXlm license file: 
+ lic: 28000@131.230.191.194 
+ lic: Checkout 1 hspice 
+ lic: License/Maintenance for hspice will expire on 30-dec-2013/2012.06 
+ lic: 1(in_use)/50(total) FLOATING license(s) on SERVER 131.230.191.194 
+ lic:   
+ Init: read install configuration file: /synopsys/HSPICE/hspice/meta.cfg
+1****** HSPICE -- F-2011.09 32-BIT (Sep  5 2011) linux ******                   
+ ******  
+ $parallel and series stack current characterization
+
+  ******  mos   model parameters tnom=  25.000 temp=  25.000 *****
+ Model Name: cmosp  
+ BSIM4 Model (Level 54)
+    MOBMOD = 2
+    BINUNIT = 1
+    PARAMCHK = 1
+    CAPMOD = 2
+    DIOMOD = 1
+    RDSMOD = 0
+    TRNQSMOD = 0
+    ACNQSMOD = 0
+    RBODYMOD = 0
+    RGATEMOD = 0
+    PERMOD = 1
+    GEOMOD = 0
+    RGEOMOD = 0
+    FNOIMOD = 1
+    TNOIMOD = 0
+    IGCMOD = 0
+    IGBMOD = 0
+    STIMOD = 1
+    VBFWDMOD = 0
+    VERSION =    4.3 
+    TOXREF =  3e-09 
+    TOXE = 2.4e-09 
+    TOXP = 2.4e-09 
+    TOXM = 2.4e-09 
+    DTOX =      0 
+    EPSROX =    3.9 
+    CDSC = 0.00024 
+    CDSCB =      0 
+    CDSCD =      0 
+    CIT =      0 
+    NFACTOR = 0.003481 
+    XJ = 1.5e-07 
+    VSAT = 8.4e+04 
+    A0 =      2 
+    AGS =  2.087 
+    A1 =      0 
+    A2 =      1 
+    AT = 3.3e+04 
+    KETA =   0.05 
+    NSUB =  6e+16 
+    NDEP = 1.7e+17 
+    NSD =  1e+20 
+    NGATE =  1e+20 
+    GAMMA1 =      0 
+    GAMMA2 =      0 
+    VBX =      0 
+    VBM =     -3 
+    XT = 1.55e-07 
+    K1 = 0.5378 
+    KT1 =  -0.11 
+    KT1L =      0 
+    KT2 =  0.022 
+    K2 = -0.1001 
+    K3 =  87.19 
+    K3B =     10 
+    LPE0 = 3.625e-08 
+    LPEB = -1.473e-08 
+    DVTP0 =      0 
+    DVTP1 =      0 
+    W0 = 1.983e-06 
+    DVT0 = 0.009269 
+    DVT1 = 0.05083 
+    DVT2 = -5.289e-05 
+    DVT0W =      0 
+    DVT1W =      0 
+    DVT2W = -0.032 
+    DROUT = 0.9794 
+    DSUB =      1 
+    VTH0 = -0.1829 
+    EU =  1.638 
+    UA = 2.065e-15 
+    UA1 =  1e-09 
+    UB =  1e-23 
+    UB1 = -1e-18 
+    UC = -1.838e-17 
+    UC1 = -5.6e-11 
+    U0 =    100 
+    UTE =   -1.5 
+    VOFF = -0.04221 
+    VOFFL =      0 
+    MINV =      0 
+    FPROUT = 1.439e-05 
+    PDITS =      0 
+    PDITSD =      0 
+    PDITSL =      0 
+    DELTA = 0.01356 
+    RDSW =  872.6 
+    RDSWMIN =    100 
+    RDWMIN =      0 
+    RSWMIN =      0 
+    RDW =    100 
+    RSW =    100 
+    PRWG = 0.1222 
+    PRWB =    0.1 
+    PRT =      0 
+    ETA0 =  1e-05 
+    ETAB =      0 
+    PCLM =  0.534 
+    PDIBLC1 = 0.5062 
+    PDIBLC2 = 0.00473 
+    PDIBLCB =      0 
+    PSCBE1 = 1.696e+08 
+    PSCBE2 =  3e-06 
+    PVAG = 0.4223 
+    WR =      1 
+    DWG = -7.761e-08 
+    DWB = 2.989e-08 
+    XW =      0 
+    XWREF =      0 
+    XL =      0 
+    XLREF =      0 
+    B0 = 1.734e-07 
+    B1 =  1e-07 
+    ALPHA0 =      0 
+    ALPHA1 =      0 
+    AGIDL =      0 
+    BGIDL = 2.3e+09 
+    CGIDL =    0.5 
+    PHIN =      0 
+    EGIDL =    0.8 
+    AIGC =   0.31 
+    BIGC =  0.024 
+    CIGC =   0.03 
+    AIGSD =   0.31 
+    BIGSD =  0.024 
+    CIGSD =   0.03 
+    AIGBACC =   0.43 
+    BIGBACC =  0.054 
+    CIGBACC =  0.075 
+    AIGBINV =   0.35 
+    BIGBINV =   0.03 
+    CIGBINV =  0.006 
+    NIGC =      1 
+    NIGBINV =      3 
+    NIGBACC =      1 
+    NTOX =      1 
+    EIGBINV =    1.1 
+    PIGCD =      1 
+    POXEDGE =      1 
+    XRCRG1 =     12 
+    TNOIA =    1.5 
+    TNOIB =    3.5 
+    NTNOI =      1 
+    XRCRG2 =      1 
+    BETA0 =     30 
+    IJTHDFWD =    0.1 
+    IJTHSFWD =    0.1 
+    IJTHDREV =    0.1 
+    IJTHSREV =    0.1 
+    XJBVD =      1 
+    XJBVS =      1 
+    BVD =     10 
+    BVS =     10 
+    VFB =     -1 
+    GBMIN =  1e-12 
+    RBDB =     50 
+    RBPB =     50 
+    RBSB =     50 
+    RBPS =     50 
+    RBPD =     50 
+    CGSL =      0 
+    CGDL =      0 
+    CKAPPAS =    0.6 
+    CKAPPAD =    0.6 
+    CF =      0 
+    CLC =  1e-07 
+    CLE =    0.6 
+    DWC = 1.54e-08 
+    DLC = 1.382e-10 
+    DLCIG = 1.382e-10 
+    DWJ = 1.54e-08 
+    VFBCV =     -1 
+    ACDE =      1 
+    MOIN =     15 
+    NOFF =      1 
+    VOFFCV =      0 
+    DMCG =      0 
+    DMCI =      0 
+    DMDG =      0 
+    DMCGT =      0 
+    XGW =      0 
+    XGL =      0 
+    RSHG =    0.1 
+    NGCON =      1 
+    TCJ =      0 
+    TPB =      0 
+    TCJSW =      0 
+    TPBSW =      0 
+    TCJSWG =      0 
+    TPBSWG =      0 
+    SK0 =      0 
+    SK1 =      0 
+    SK2 =      0 
+    SL =  2e-06 
+    SW =  2e-06 
+    K =      0 
+    WKETA = -0.03641 
+    PVSAT =   -100 
+    TNOM =  300.1 
+    CGSO =  1e-10 
+    CGDO =  1e-10 
+    CGBO =      0 
+    XPART =    0.5 
+    RSH =    7.6 
+    JSS = 0.0001 
+    JSWS =      0 
+    JSWGS =      0 
+    PBS =      1 
+    MJS =  0.475 
+    PBSWS =  0.965 
+    MJSWS =  0.432 
+    CJS = 6.434e-09 
+    CJSWS = 1.084e-09 
+    NJS =      1 
+    PBSWGS = 0.9009 
+    MJSWGS = 0.2169 
+    CJSWGS = 6.3e-11 
+    XTIS =      3 
+    JSD = 0.0001 
+    JSWD =      0 
+    JSWGD =      0 
+    PBD =      1 
+    MJD =  0.475 
+    PBSWD =  0.965 
+    MJSWD =  0.432 
+    CJD = 6.434e-09 
+    CJSWD = 1.084e-09 
+    NJD =      1 
+    PBSWGD = 0.9009 
+    MJSWGD = 0.2169 
+    CJSWGD = 6.3e-11 
+    XTID =      3 
+    LMLT =      1 
+    WMLT =      1 
+    LINT = 1.382e-10 
+    LL =      0 
+    LLC =      0 
+    LLN =      1 
+    LW =      0 
+    LWC =      0 
+    LWN =      1 
+    LWL =      0 
+    LWLC =      0 
+    LMIN =      0 
+    LMAX =      1 
+    WINT = 1.54e-08 
+    WL =      0 
+    WLC =      0 
+    WLN =      1 
+    WW =      0 
+    WWC =      0 
+    WWN =      1 
+    WWL =      0 
+    WWLC =      0 
+    WMIN =      0 
+    WMAX =      1 
+    NOIA = 6.188e+40 
+    NOIB = 1.5e+25 
+    NOIC = 8.75e+09 
+    EM = 4.1e+07 
+    EF =      1 
+    AF =      1 
+    KF =      0 
+    TRS =      0 
+    TRD =      0 
+    TEMPMOD  =      0 
+    LAMBDA   =      0 
+    VTL      =  2e+05 m/s
+    LC       =  5e-09 
+    XN       =      3 
+    LLAMBDA  =      0 
+    LVTL     =      0 
+    LXN      =      0 
+    WLAMBDA  =      0 
+    WVTL     =      0 
+    WXN      =      0 
+    PLAMBDA  =      0 
+    PVTL     =      0 
+    PXN      =      0 
+    RNOIA    =  0.577 
+    RNOIB    =   0.37 
+    SAREF(SA0) =  1e-06 m
+    SBREF(SB0) =  1e-06 m
+    WLOD     =      0 m
+    KU0      =      0 1/m
+    KVSAT    =      0 
+    KVTH0    =      0 m
+    TKU0     =      0 
+    LLODKU0  =      0 
+    WLODKU0  =      0 
+    LLODVTH  =      0 
+    WLODVTH  =      0 
+    LKU0     =      0 
+    WKU0     =      0 
+    PKU0     =      0 
+    LKVTH0   =      0 
+    WKVTH0   =      0 
+    PKVTH0   =      0 
+    STK2     =      0 
+    LODK2    =      1 
+    STETA0   =      0 
+    LODETA0  =      1 
+    LXRCRG1  =      0 
+    WXRCRG1  =      0 
+    PXRCRG1  =      0 
+    LXRCRG2  =      0 
+    WXRCRG2  =      0 
+    PXRCRG2  =      0 
+  
+
+ **warning** the following singular supplies were terminated to 1 meg resistor 
+   supply       node1            node2
+  vd1                     0:d                defined in subckt 0                     0:0                defined in subckt 0               
+      
+ *****************************************************************
+ ******  option summary
+ ******
+ runlvl  = 3         bypass  = 2         
+ ******  
+ $parallel and series stack current characterization
+
+  ******  dc transfer curves tnom=  25.000 temp=  25.000 *****
+x
+
+        volt    current    
+                    mpo    
+    0.         -6.501e-05  
+  5.0000e-03   -6.449e-05  
+  1.0000e-02   -6.397e-05  
+  1.5000e-02   -6.344e-05  
+  2.0000e-02   -6.292e-05  
+  2.5000e-02   -6.240e-05  
+  3.0000e-02   -6.188e-05  
+  3.5000e-02   -6.135e-05  
+  4.0000e-02   -6.083e-05  
+  4.5000e-02   -6.031e-05  
+  5.0000e-02   -5.978e-05  
+  5.5000e-02   -5.926e-05  
+  6.0000e-02   -5.873e-05  
+  6.5000e-02   -5.821e-05  
+  7.0000e-02   -5.768e-05  
+  7.5000e-02   -5.715e-05  
+  8.0000e-02   -5.663e-05  
+  8.5000e-02   -5.610e-05  
+  9.0000e-02   -5.557e-05  
+  9.5000e-02   -5.504e-05  
+    0.10000    -5.451e-05  
+    0.10500    -5.398e-05  
+    0.11000    -5.345e-05  
+    0.11500    -5.292e-05  
+    0.12000    -5.238e-05  
+    0.12500    -5.185e-05  
+    0.13000    -5.131e-05  
+    0.13500    -5.077e-05  
+    0.14000    -5.023e-05  
+    0.14500    -4.969e-05  
+    0.15000    -4.915e-05  
+    0.15500    -4.861e-05  
+    0.16000    -4.806e-05  
+    0.16500    -4.752e-05  
+    0.17000    -4.697e-05  
+    0.17500    -4.642e-05  
+    0.18000    -4.587e-05  
+    0.18500    -4.531e-05  
+    0.19000    -4.476e-05  
+    0.19500    -4.420e-05  
+    0.20000    -4.364e-05  
+    0.20500    -4.308e-05  
+    0.21000    -4.251e-05  
+    0.21500    -4.195e-05  
+    0.22000    -4.138e-05  
+    0.22500    -4.080e-05  
+    0.23000    -4.023e-05  
+    0.23500    -3.965e-05  
+    0.24000    -3.908e-05  
+    0.24500    -3.849e-05  
+    0.25000    -3.791e-05  
+    0.25500    -3.733e-05  
+    0.26000    -3.674e-05  
+    0.26500    -3.615e-05  
+    0.27000    -3.555e-05  
+    0.27500    -3.496e-05  
+    0.28000    -3.436e-05  
+    0.28500    -3.376e-05  
+    0.29000    -3.316e-05  
+    0.29500    -3.255e-05  
+    0.30000    -3.195e-05  
+    0.30500    -3.134e-05  
+    0.31000    -3.073e-05  
+    0.31500    -3.012e-05  
+    0.32000    -2.951e-05  
+    0.32500    -2.890e-05  
+    0.33000    -2.828e-05  
+    0.33500    -2.767e-05  
+    0.34000    -2.706e-05  
+    0.34500    -2.644e-05  
+    0.35000    -2.583e-05  
+    0.35500    -2.522e-05  
+    0.36000    -2.461e-05  
+    0.36500    -2.400e-05  
+    0.37000    -2.339e-05  
+    0.37500    -2.278e-05  
+    0.38000    -2.218e-05  
+    0.38500    -2.158e-05  
+    0.39000    -2.098e-05  
+    0.39500    -2.039e-05  
+    0.40000    -1.980e-05  
+    0.40500    -1.921e-05  
+    0.41000    -1.863e-05  
+    0.41500    -1.806e-05  
+    0.42000    -1.749e-05  
+    0.42500    -1.692e-05  
+    0.43000    -1.637e-05  
+    0.43500    -1.582e-05  
+    0.44000    -1.527e-05  
+    0.44500    -1.474e-05  
+    0.45000    -1.421e-05  
+    0.45500    -1.369e-05  
+    0.46000    -1.318e-05  
+    0.46500    -1.268e-05  
+    0.47000    -1.219e-05  
+    0.47500    -1.170e-05  
+    0.48000    -1.123e-05  
+    0.48500    -1.076e-05  
+    0.49000    -1.030e-05  
+    0.49500    -9.857e-06  
+    0.50000    -9.421e-06  
+    0.50500    -8.995e-06  
+    0.51000    -8.579e-06  
+    0.51500    -8.173e-06  
+    0.52000    -7.778e-06  
+    0.52500    -7.394e-06  
+    0.53000    -7.020e-06  
+    0.53500    -6.657e-06  
+    0.54000    -6.306e-06  
+    0.54500    -5.965e-06  
+    0.55000    -5.635e-06  
+    0.55500    -5.317e-06  
+    0.56000    -5.009e-06  
+    0.56500    -4.714e-06  
+    0.57000    -4.429e-06  
+    0.57500    -4.156e-06  
+    0.58000    -3.894e-06  
+    0.58500    -3.643e-06  
+    0.59000    -3.404e-06  
+    0.59500    -3.176e-06  
+    0.60000    -2.959e-06  
+    0.60500    -2.753e-06  
+    0.61000    -2.557e-06  
+    0.61500    -2.372e-06  
+    0.62000    -2.198e-06  
+    0.62500    -2.033e-06  
+    0.63000    -1.878e-06  
+    0.63500    -1.733e-06  
+    0.64000    -1.596e-06  
+    0.64500    -1.469e-06  
+    0.65000    -1.350e-06  
+    0.65500    -1.239e-06  
+    0.66000    -1.136e-06  
+    0.66500    -1.040e-06  
+    0.67000    -9.511e-07  
+    0.67500    -8.689e-07  
+    0.68000    -7.929e-07  
+    0.68500    -7.228e-07  
+    0.69000    -6.582e-07  
+    0.69500    -5.987e-07  
+    0.70000    -5.441e-07  
+    0.70500    -4.941e-07  
+    0.71000    -4.482e-07  
+    0.71500    -4.062e-07  
+    0.72000    -3.679e-07  
+    0.72500    -3.328e-07  
+    0.73000    -3.009e-07  
+    0.73500    -2.719e-07  
+    0.74000    -2.454e-07  
+    0.74500    -2.214e-07  
+    0.75000    -1.996e-07  
+    0.75500    -1.798e-07  
+    0.76000    -1.619e-07  
+    0.76500    -1.457e-07  
+    0.77000    -1.310e-07  
+    0.77500    -1.178e-07  
+    0.78000    -1.058e-07  
+    0.78500    -9.498e-08  
+    0.79000    -8.524e-08  
+    0.79500    -7.645e-08  
+    0.80000    -6.855e-08  
+    0.80500    -6.143e-08  
+    0.81000    -5.503e-08  
+    0.81500    -4.927e-08  
+    0.82000    -4.410e-08  
+    0.82500    -3.946e-08  
+    0.83000    -3.529e-08  
+    0.83500    -3.156e-08  
+    0.84000    -2.820e-08  
+    0.84500    -2.520e-08  
+    0.85000    -2.251e-08  
+    0.85500    -2.010e-08  
+    0.86000    -1.795e-08  
+    0.86500    -1.602e-08  
+    0.87000    -1.429e-08  
+    0.87500    -1.275e-08  
+    0.88000    -1.137e-08  
+    0.88500    -1.014e-08  
+    0.89000    -9.037e-09  
+    0.89500    -8.054e-09  
+    0.90000    -7.177e-09  
+    0.90500    -6.393e-09  
+    0.91000    -5.695e-09  
+    0.91500    -5.071e-09  
+    0.92000    -4.515e-09  
+    0.92500    -4.020e-09  
+    0.93000    -3.578e-09  
+    0.93500    -3.184e-09  
+    0.94000    -2.833e-09  
+    0.94500    -2.521e-09  
+    0.95000    -2.242e-09  
+    0.95500    -1.994e-09  
+    0.96000    -1.774e-09  
+    0.96500    -1.577e-09  
+    0.97000    -1.402e-09  
+    0.97500    -1.247e-09  
+    0.98000    -1.108e-09  
+    0.98500    -9.848e-10  
+    0.99000    -8.752e-10  
+    0.99500    -7.777e-10  
+    1.00000    -6.910e-10  
+y
+
+          ***** job concluded
+1****** HSPICE -- F-2011.09 32-BIT (Sep  5 2011) linux ******                   
+ ******  
+ $parallel and series stack current characterization
+
+  ******  job statistics summary tnom=  25.000 temp=  25.000 *****
+  
+  
+ ******  Machine Information  ******
+ CPU:
+ model name	: Intel(R) Xeon(R) CPU           E5520  @ 2.27GHz
+ cpu MHz	: 2261.181
+  
+ OS:
+ Linux version 3.2.0-4-amd64 (debian-kernel@lists.debian.org) (gcc version 4.6.3
+  (Debian 4.6.3-14) ) #1 SMP Debian 3.2.41-2+deb7u2
+
+
+  ******  HSPICE Threads Information  ******
+
+  Command Line Threads Count :     1
+  Available CPU Count        :    16
+  Actual Threads Count       :     1
+
+
+  ******  Circuit Statistics  ******
+  # nodes       =       4 # elements   =       5
+  # resistors   =       1 # capacitors =       0 # inductors   =       0
+  # mutual_inds =       0 # vccs       =       0 # vcvs        =       0
+  # cccs        =       0 # ccvs       =       0 # volt_srcs   =       3
+  # curr_srcs   =       0 # diodes     =       0 # bjts        =       0
+  # jfets       =       0 # mosfets    =       1 # U elements  =       0
+  # T elements  =       0 # W elements =       0 # B elements  =       0
+  # S elements  =       0 # P elements =       0 # va device   =       0
+  # vector_srcs =       0
+
+
+  ******  Runtime Statistics (seconds)  ******
+
+  analysis           time    # points   tot. iter  conv.iter
+  op point           0.00           1           0
+  dc sweep           0.00         201         403
+  readin             0.00
+  errchk             0.02
+  setup              0.00
+  output             0.00
+
+
+           peak memory used         83.30 megabytes
+           total cpu time            0.02 seconds
+           total elapsed time        0.97 seconds
+           job started at     14:05:51 08/06/2013
+           job ended   at     14:05:52 08/06/2013
+
+
+ lic: Release hspice token(s) 
