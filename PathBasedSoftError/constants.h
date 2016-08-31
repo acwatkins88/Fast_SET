@@ -24,19 +24,19 @@
  * Enhanced Pulse Model Parameters
  */
 // Granularity of Vd
-#define VD_GRAN 0.005
+#define VD_GRAN 0.0125
 
 // Granularity of Vg
-#define VG_GRAN 0.005
+#define VG_GRAN 0.0125
 
 // Absolute Value of Minimum Value For Characterization
-#define MIN_VAL 0
+#define MIN_VAL 2
 
 // Maximum value of Vd
-#define MAX_VD 1.8
+#define MAX_VD 2.5
 
 // Maximum value of Vg
-#define MAX_VG 1.8
+#define MAX_VG 2.5
 
 // Define the Number of Steps
 #define NUM_STEPS 700

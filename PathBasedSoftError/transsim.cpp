@@ -189,16 +189,16 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type)
             cmp[i] = ind_miller(type, vd_init, vg_init);
             
             if(i == 0)
-                temp_vd = temp_out[i-1] - n_volt[0];
+                temp_vd = temp_out[t-1] - n_volt[0][t-1];
             else if(i != (itr_num-1))
-                temp_vd = n_volt[i] - n_volt[i-1];
+                temp_vd = n_volt[i][t-1] - n_volt[i-1][t-1];
             else
-                temp_vd = n_volt[i];
+                temp_vd = n_volt[i][t-1];
             
             if(i == (itr_num-1))
                 temp_vg = vg_init;
             else
-                temp_vg = vg_init - n_volt[i];
+                temp_vg = vg_init - n_volt[i][t-1];
             
             in[i] = ind_current(type, temp_vd, temp_vg);
             
@@ -209,6 +209,13 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type)
         
         p_cur = sum_vector(ip);
         n_cur = avg_vector(in);
+        
+        for(i = 0; i < itr_num-1; i++)
+            n_volt[i][t] = (((-in[i] + in[i+1])*time)/ST_NODE_CAP) + n_volt[i][t-1];
+        
+        inj_cur[t] = (2*charge/TAU*sqrt(PI))*(sqrt(time/TAU))*(exp(-time/TAU));
+        
+        temp_out[t] = (((p_cur + n_cur - inj_cur[t])*time)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];     
     }
 }
 
@@ -220,7 +227,7 @@ double gen_sim::sum_vector(vector<double> inp)
     double sum = 0;
     vector<double>::iterator vit;
     
-    for(vit = inp.begin; vit != inp.end(); ++vit)
+    for(vit = inp.begin(); vit != inp.end(); ++vit)
         sum = sum + *vit;
     
     return sum;
