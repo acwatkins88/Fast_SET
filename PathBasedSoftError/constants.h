@@ -116,6 +116,13 @@
 #define SIGPROB_SIM 1
 #define ITR_SIM 2
 #define CCM_SIM 3
+#define INJ_SIM 4
+
+/*
+ * Test Values for Charge Injection
+ */
+#define S_NODE 10
+#define CHARGE 12e-15
 
 /*
  * Temp Test Values

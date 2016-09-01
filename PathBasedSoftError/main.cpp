@@ -80,6 +80,10 @@ int main(int argc, char** argv)
         c_sim.sim();
     else if(CUR_SIM == SIGPROB_SIM)
         b_sim.pnode_sim();
+    else if(CUR_SIM == INJ_SIM)
+    {
+        b_sim.inj_NAND(S_NODE, CHARGE, RISING);
+    }
     
     unsigned t1=clock()-t0;
     
