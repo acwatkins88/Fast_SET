@@ -40,6 +40,7 @@ public:
     //circuitstruct circuit;
     
     vector<double> inj_NAND(int, double, int);
+    void export_vec(vector<double> );
     
     virtual void sim() = 0;
     virtual void end_sim() = 0;

@@ -146,10 +146,12 @@ vector<double> gen_sim::inj_NAND2(double charge, int type)
  */
 vector<double> gen_sim::inj_NAND(int n_num, double charge, int type)
 {
+    cout<<"Beginning\n";
     int i;
     double time, temp_vg, temp_vd;
     double vd_init, vg_init;
     double n_cur, p_cur;
+    double cur_nvolt, cur_out;
     int itr_num = graph[n_num].fanin_num;
     
     vector<double> ip;
@@ -161,32 +163,43 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type)
     vector<double> inj_cur;
     vector<double> temp_out;
     
-    inj_cur[0] = 0;
+    //inj_cur[0] = 0;
+    inj_cur.push_back(0);
     
     if(type == RISING)
     {
         vg_init = VDD;
         vd_init = VDD;
-        temp_out[0] = 0; 
+        //temp_out[0] = 0; 
+        temp_out.push_back(0);
     }
     else 
     {
         vg_init = 0;
         vd_init = 0;
-        temp_out[0] = VDD;
+        //temp_out[0] = VDD;
+        temp_out.push_back(VDD);
     }
     
-            // Initialize n_volt
+    vector<double> temp_vec;
+    // Initialize n_volt
     for(i = 0; i < itr_num; i++)
-        n_volt[i][0] = INT_NODE_VOLT;
+    {
+        //n_volt[i][0] = INT_NODE_VOLT;
+        temp_vec.push_back(0);
+        n_volt.push_back(temp_vec);
+    }
     
     for(int t = 1; t <= 700; t++)
     {
-
+        cout<<"Iteration: "<<t<<endl;
         for(i = 0; i < itr_num; i++)
         {
-            ip[i] = ind_current(type, vd_init, vg_init);
-            cmp[i] = ind_miller(type, vd_init, vg_init);
+            ip.push_back(ind_current(PMOS, vd_init, vg_init));
+            cout<<"Current Loaded\n";
+            cmp.push_back(ind_miller(PMOS, vd_init, vg_init));
+            
+            cout<<"Values Loaded\n";
             
             if(i == 0)
                 temp_vd = temp_out[t-1] - n_volt[0][t-1];
@@ -203,7 +216,7 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type)
             in[i] = ind_current(type, temp_vd, temp_vg);
             
             if(i == 0)
-                cmn[i] = ind_miller(type, vd_init, vg_init);
+                cmn.push_back(ind_miller(NMOS, vd_init, vg_init));
         }
         time = STEP_GRAN*t;
         
@@ -211,12 +224,30 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type)
         n_cur = avg_vector(in);
         
         for(i = 0; i < itr_num-1; i++)
-            n_volt[i][t] = (((-in[i] + in[i+1])*time)/ST_NODE_CAP) + n_volt[i][t-1];
+            n_volt[i].push_back((((-in[i] + in[i+1])*time)/ST_NODE_CAP) + n_volt[i][t-1]);
         
-        inj_cur[t] = (2*charge/TAU*sqrt(PI))*(sqrt(time/TAU))*(exp(-time/TAU));
+        cur_nvolt = (2*charge/TAU*sqrt(PI))*(sqrt(time/TAU))*(exp(-time/TAU));
+        inj_cur.push_back(cur_nvolt);
         
-        temp_out[t] = (((p_cur + n_cur - inj_cur[t])*time)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];     
+        cur_out = (((p_cur + n_cur - inj_cur[t])*time)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
+        temp_out.push_back(cur_out);     
     }
+}
+
+/*
+ * Print result to external file
+ */
+void gen_sim::export_vec(vector<double> inp_vec)
+{
+    ofstream o_file;
+    vector<double>::iterator vit;
+    
+    o_file.open("OutputRes.out", ios::trunc);
+    
+    for(vit = inp_vec.begin(); vit != inp_vec.end(); ++vit)
+        o_file<<*vit<<" ";
+    
+    o_file.close();
 }
 
 /*
@@ -292,13 +323,19 @@ double gen_sim::ind_miller(int type, double d_volt, double g_volt)
     int g_size;
     int g_index;
     
+    cout<<"Finding Miller Capacitance\n";
     if(type == PMOS)
     {
         d_size = pmos_miller.size();
         g_size = pmos_miller[1].size();
         
+        cout<<"Determined Sizes\n";
+        
         d_index = floor((d_volt + MIN_VAL)*(d_size/MAX_VD))+1;
+        cout<<"d_size: "<<d_size<<" d_index: "<<d_index<<endl;
         g_index = floor((g_volt + MIN_VAL)*(g_size/MAX_VG))+1;
+        cout<<"g_size: "<<g_size<<" g_index: "<<g_index<<endl;
+        cout<<"Volt: "<<g_volt<<" LUT Size 1: "<<pmos_miller.size()<<" LUT Size 2: "<<pmos_miller[1].size()<<endl;
         
         return pmos_miller[d_index][g_index];
     }

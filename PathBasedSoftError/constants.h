@@ -158,7 +158,7 @@
  * 1 - Not Used
  * 2 - ITR_SIM
  */
-#define CUR_SIM 0
+#define CUR_SIM 4
 
 #endif /* CONSTANTS_H */
 

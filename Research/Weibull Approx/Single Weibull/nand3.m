@@ -3,11 +3,15 @@
 clc;
 clear all;
 close all;
-commandwindow;
+%commandwindow;
 
-addpath('/ugrad/watkins/Desktop/Research/Weibull Approx/HspiceToolbox');
-addpath('/ugrad/watkins/Desktop/Research/Weibull Approx/Single Weibull');
-addpath('/ugrad/watkins/Desktop/Research/Weibull Approx/Single Weibull/delays');
+%addpath('/ugrad/watkins/Desktop/Research/Weibull Approx/HspiceToolbox');
+%addpath('/ugrad/watkins/Desktop/Research/Weibull Approx/Single Weibull');
+%addpath('/ugrad/watkins/Desktop/Research/Weibull Approx/Single Weibull/delays');
+
+addpath('/home/adam/Fast_SET/Research/Weibull Approx/HspiceToolbox');
+addpath('/home/adam/Fast_SET/Research/Weibull Approx/Single Weibull');
+addpath('/home/adam/Fast_SET/Research/Weibull Approx/Single Weibull/delays');
 
 % Vdd
 vdd = 1.05;
@@ -40,11 +44,11 @@ max_vd = 2.5;
 max_vg = 2.5;
 
 % Number of steps
-steps = 300;
+steps = 700;
 
 % Flag == 0 - Our Method
 % Flag == 1 - [6] Method
-flag = 1;
+flag = 0;
 
 % Input File Indexes
 if flag == 0
@@ -169,7 +173,7 @@ init_out = 0;
 
 vout_init = init_out;
 
-g_itr = floor(g2_length/steps);
+g_itr = floor(g2_length/steps)
 
 vout(1) = vout_init;
 
@@ -311,6 +315,7 @@ for index = 2:steps
     % Latest Pulse Approximation Algorithm - 3 input NAND
     nom = (p_cur+n_cur)*t_step+(cmp1+cmn1)*del_vga+(cmp2)*del_vgb + (cmp3)*del_vgc;
     vout(index) = (nom/(c_load+cmp1+cmp2+cmp3+cmn1))+vout(index-1);
+    index
 end
 toc
 
@@ -353,7 +358,7 @@ for i = 1:length(vout)
     fprintf(res_file, '%e\n', c_sig(i));
 end
 
-figure;
+figure
 hold on
 plot(Vg1_down, 'm');
 plot(Vg2_down, 'k');
@@ -364,7 +369,7 @@ legend('Input a', 'Input b', 'HSpice Output', 'Estimated Output')
 title('Plot of Original Data with Inputs');
 hold off
 
-figure;
+figure
 hold on;
 plot(c_sig, 'r');
 plot(vout, 'b');
