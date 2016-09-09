@@ -24,19 +24,19 @@
  * Enhanced Pulse Model Parameters
  */
 // Granularity of Vd
-#define VD_GRAN 0.005
+#define VD_GRAN 0.0125
 
 // Granularity of Vg
-#define VG_GRAN 0.005
+#define VG_GRAN 0.0125
 
 // Absolute Value of Minimum Value For Characterization
-#define MIN_VAL 0
+#define MIN_VAL 2
 
 // Maximum value of Vd
-#define MAX_VD 1.8
+#define MAX_VD 2.5
 
 // Maximum value of Vg
-#define MAX_VG 1.8
+#define MAX_VG 2.5
 
 // Define the Number of Steps
 #define NUM_STEPS 700
@@ -116,6 +116,13 @@
 #define SIGPROB_SIM 1
 #define ITR_SIM 2
 #define CCM_SIM 3
+#define INJ_SIM 4
+
+/*
+ * Test Values for Charge Injection
+ */
+#define S_NODE 10
+#define CHARGE 12e-15
 
 /*
  * Temp Test Values
@@ -151,7 +158,7 @@
  * 1 - Not Used
  * 2 - ITR_SIM
  */
-#define CUR_SIM 0
+#define CUR_SIM 4
 
 #endif /* CONSTANTS_H */
 

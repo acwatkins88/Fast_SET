@@ -39,6 +39,9 @@ public:
     //gmap graph;
     //circuitstruct circuit;
     
+    vector<double> inj_NAND(int, double, int);
+    void export_vec(vector<double> );
+    
     virtual void sim() = 0;
     virtual void end_sim() = 0;
 //private:
@@ -154,7 +157,7 @@ protected:
     vector<double> inj_NAND2(double, int);
     
     // Attempt to Generalize the Algorithm
-    vector<double> inj_NAND(int, double, int);
+    //vector<double> inj_NAND(int, double, int);
     
     double sum_vector(vector<double> );
     double avg_vector(vector<double> );
