@@ -67,8 +67,8 @@ tstep = 0.5e-12;
 % tstep = 100e-12;
 
 % End Time of Output File
-% endtime = 1200e-12;
-endtime = 3000e-12;
+endtime = 1200e-12;
+% endtime = 3000e-12;
 % endtime = 200e-9;
 % -----------------------------------------------------------
 %Q1 = input("Enter Pulse 1 Charge Value: ");
