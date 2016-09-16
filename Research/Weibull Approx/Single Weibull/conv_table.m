@@ -4,9 +4,13 @@ clear all;
 close all;
 commandwindow;
 
-addpath('/ugrad/watkins/Desktop/Research/Weibull Approx/HspiceToolbox');
-addpath('/ugrad/watkins/Desktop/Research/Weibull Approx/Single Weibull');
-addpath('/ugrad/watkins/Desktop/Research/Weibull Approx/Single Weibull/delays');
+% addpath('/ugrad/watkins/Desktop/Research/Weibull Approx/HspiceToolbox');
+% addpath('/ugrad/watkins/Desktop/Research/Weibull Approx/Single Weibull');
+% addpath('/ugrad/watkins/Desktop/Research/Weibull Approx/Single Weibull/delays');
+
+addpath('/home/adam/Fast_SET/Research/Weibull Approx/HspiceToolbox');
+addpath('/home/adam/Fast_SET/Research/Weibull Approx/Single Weibull');
+addpath('/home/adam/Fast_SET/Research/Weibull Approx/Single Weibull/delays');
 
 % MOS Current File Index
 f_cnum = 9;

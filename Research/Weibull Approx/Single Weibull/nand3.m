@@ -5,9 +5,13 @@ clear all;
 close all;
 commandwindow;
 
-addpath('/ugrad/watkins/Desktop/Research/Weibull Approx/HspiceToolbox');
-addpath('/ugrad/watkins/Desktop/Research/Weibull Approx/Single Weibull');
-addpath('/ugrad/watkins/Desktop/Research/Weibull Approx/Single Weibull/delays');
+% addpath('/ugrad/watkins/Desktop/Research/Weibull Approx/HspiceToolbox');
+% addpath('/ugrad/watkins/Desktop/Research/Weibull Approx/Single Weibull');
+% addpath('/ugrad/watkins/Desktop/Research/Weibull Approx/Single Weibull/delays');
+
+addpath('/home/adam/Fast_SET/Research/Weibull Approx/HspiceToolbox');
+addpath('/home/adam/Fast_SET/Research/Weibull Approx/Single Weibull');
+addpath('/home/adam/Fast_SET/Research/Weibull Approx/Single Weibull/delays');
 
 % Vdd
 vdd = 1.05;
@@ -40,11 +44,11 @@ max_vd = 2.5;
 max_vg = 2.5;
 
 % Number of steps
-steps = 300;
+steps = 900;
 
 % Flag == 0 - Our Method
 % Flag == 1 - [6] Method
-flag = 1;
+flag = 0;
 
 % Input File Indexes
 if flag == 0
@@ -69,7 +73,7 @@ n_vol_1 = 0;
 n_vol_2 = 0;
 
 % Load capacitance
-c_load = 0;
+c_load = 0.25e-15;
 
 % Shift Commands
 shift = 2;
@@ -92,7 +96,8 @@ inp_file = fopen('t_input.dat', 'w+');
 for i = 1:inp_dim
     fprintf(inp_file, '%e ', t);
     fprintf(inp_file, '%e ', Vg1(i));
-    fprintf(inp_file, '%e\n', Vg2(i));
+    fprintf(inp_file, '%e', Vg2(i));
+    fprintf(inp_file, '%e\n', Vg3(i));
     t = t+tstep_1;
 end
 
@@ -102,7 +107,7 @@ p_miller = loadsig('TransVals/32nmTables/pmosmiller.tr0');
 
 Cp_miller = p_miller(cp_fnum).data;
 [gp_size, p_col] = size(Cp_miller);
-max_gp = 1.5;
+% max_gp = 1.5;
 
 Cn_miller = n_miller(cn_fnum).data;
 [gn_size, n_col] = size(Cn_miller);
@@ -180,6 +185,16 @@ else
     n_vol_arr_1(1) = n_vol_1;
     n_vol_arr_2(1) = n_vol_2;
 end
+
+% figure;
+% hold on
+% plot(Vg1_down, 'm');
+% plot(Vg2_down, 'k');
+% plot(Vg3_down, 'g');
+% plot(c_sig, 'r');
+% legend('VG1', 'VG2', 'VG3', 'Hspice Output');
+% title('Comparison of Hspice and the Model');
+% hold off
 
 % ------------------------------------
 % Start of Simulation
@@ -278,8 +293,7 @@ for index = 2:steps
     % Node Va
 %     rpeq = 1/(1/rp1 + 1/rp2);
     p_cur = ip1 +  ip2 + ip3;
-%     pcur_arr(index) = p_cur;
-    
+    pcur_arr(index) = p_cur;
     
     t_step = 0.5e-12*g_itr;
     
@@ -289,7 +303,7 @@ for index = 2:steps
     
     avg_i = (in1+in2+in3)/3;
     n_cur = avg_i;
-%     ncur_arr(index) = n_cur;
+    ncur_arr(index) = n_cur;
     
     % Node Voltage Calculation
     %     n_vol = inpsig(5).data(index);
@@ -299,14 +313,14 @@ for index = 2:steps
 
 %     n_vol_1 = inpsig(cn1_in).data(index);
     
-    cmn3 = 0.5e-15;
+    cmn3 = 0.25e-15;
     n_vol_arr_2(index) = (((-in2 + in3)*t_step)/(cmn3)) + n_vol_arr_2(index-1);
     n_vol_2 = n_vol_arr_2(index);
     
 %     n_vol_2 = inpsig(cn2_in).data(index);
     
     % Pulse Approximatin with Load Capacitance
-    %     vout(index) = (((p_cur - n_cur)*t_step)/c_load) + vout(index-1);
+%   vout(index) = (((p_cur - n_cur)*t_step)/c_load) + vout(index-1);
     
     % Latest Pulse Approximation Algorithm - 3 input NAND
     nom = (p_cur+n_cur)*t_step+(cmp1+cmn1)*del_vga+(cmp2)*del_vgb + (cmp3)*del_vgc;
