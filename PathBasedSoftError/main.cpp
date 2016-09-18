@@ -83,6 +83,9 @@ int main(int argc, char** argv)
         b_sim.pnode_sim();
     else if(CUR_SIM == INJ_SIM)
     {
+        gmap::iterator test_it;
+        for(test_it = graph.begin(); test_it != graph.end(); ++test_it)
+            cout<<"Node: "<<test_it->first<<" Type: "<<graph[test_it->first].type<<endl;
         test_result = b_sim.inj_NAND(S_NODE, CHARGE, RISING);
         b_sim.export_vec(test_result);    
     }

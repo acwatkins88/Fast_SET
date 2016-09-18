@@ -111,7 +111,7 @@ vector<double> gen_sim::inj_NAND2(double charge, int type)
     
     n_volt[0] = INT_NODE_VOLT;
     
-    for(t = 1; t <= 700; t++)
+    for(t = 1; t <= NUM_STEPS; t++)
     {
         ipa = ind_current(type, vd_init, vg_init);
         ipb = ind_current(type, vd_init, vg_init);
@@ -152,6 +152,8 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type)
     double vd_init, vg_init;
     double n_cur, p_cur;
     double cur_nvolt, cur_out;
+    double res;
+    double g_itr;
     int itr_num = graph[n_num].fanin_num;
     
     vector<double> ip;
@@ -183,28 +185,27 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type)
     
     vector<double> temp_vec;
     // Initialize n_volt
-    for(i = 0; i < itr_num; i++)
+    for(i = 0; i < itr_num-1; i++)
     {
         //n_volt[i][0] = INT_NODE_VOLT;
         temp_vec.push_back(0);
         n_volt.push_back(temp_vec);
     }
     
-    for(int t = 1; t <= 700; t++)
+    for(int t = 1; t <= NUM_STEPS; t++)
     {
         cout<<"Iteration: "<<t<<endl;
-        for(i = 0; i < itr_num; i++)
+        for(i = 0; i < itr_num-1; i++)
         {
-            ip.push_back(ind_current(PMOS, vd_init, vg_init));
-            cout<<"Current Loaded\n";
-            cmp.push_back(ind_miller(PMOS, vd_init, vg_init));
-            
-            cout<<"Values Loaded\n";
+            res = ind_current(PMOS, temp_out[t-1], vg_init);
+            ip.push_back(res);
+            res = ind_miller(PMOS, temp_out[t-1], vg_init);
+            cmp.push_back(res);
             
             if(i == 0)
                 temp_vd = temp_out[t-1] - n_volt[0][t-1];
             else if(i != (itr_num-1))
-                temp_vd = n_volt[i][t-1] - n_volt[i-1][t-1];
+                temp_vd = n_volt[i-1][t-1] - n_volt[i][t-1];
             else
                 temp_vd = n_volt[i][t-1];
             
@@ -213,24 +214,40 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type)
             else
                 temp_vg = vg_init - n_volt[i][t-1];
             
-            in[i] = ind_current(type, temp_vd, temp_vg);
+            res = ind_current(NMOS, temp_vd, temp_vg);
+            in.push_back(res);
             
             if(i == 0)
                 cmn.push_back(ind_miller(NMOS, vd_init, vg_init));
+            
         }
-        time = STEP_GRAN*t;
+        time = STEP_GRAN*(t-1);
         
         p_cur = sum_vector(ip);
         n_cur = avg_vector(in);
+
+        /*cout<<"in: ";
+        for(int q = 0; q < in_size; q++)
+            cout<<in[q]<<endl;
+        */
+        cout<<"P current: "<<p_cur<<" N current: "<<n_cur<<endl;
+        cout<<"Size: "<<in.size()<<" in1: "<<in[0]<<" in2: "<<in[1]<<" in3: "<<in[2]<<endl;
+        for(i = 0; i < itr_num-2; i++)
+            n_volt[i].push_back((((in[i] - in[i+1])*time)/ST_NODE_CAP) + n_volt[i][t-1]);
+
         
-        for(i = 0; i < itr_num-1; i++)
-            n_volt[i].push_back((((-in[i] + in[i+1])*time)/ST_NODE_CAP) + n_volt[i][t-1]);
-        
-        cur_nvolt = (2*charge/TAU*sqrt(PI))*(sqrt(time/TAU))*(exp(-time/TAU));
+        cur_nvolt = (2*charge/(TAU*sqrt(PI)))*(sqrt(time/TAU))*(exp(-time/TAU));
         inj_cur.push_back(cur_nvolt);
         
-        cur_out = (((p_cur + n_cur - inj_cur[t])*time)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
+        //cur_out = (((p_cur + n_cur + inj_cur[t])*time)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
+        cur_out = (((p_cur + n_cur)*time)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
         temp_out.push_back(cur_out);     
+        cout<<"nvolt 1: "<<n_volt[0][t]<<" nvolt 2: "<<n_volt[1][t]<<" output: "<<cur_out<<endl;
+        
+        in.clear();
+        ip.clear();
+        cmp.clear();
+        cmn.clear();
     }
 }
 
@@ -288,23 +305,23 @@ double gen_sim::ind_current(int type, double d_volt, double g_volt)
     
     if(type == PMOS)
     {
-        d_size = pmos_cur.size();
-        g_size = pmos_cur[1].size();
+        d_size = pmos_cur[0].size();
+        g_size = pmos_cur.size();
         
         d_index = floor((d_volt + MIN_VAL)/(VD_GRAN))+1;
         g_index = floor((g_volt + MIN_VAL)/(VG_GRAN))+1;
         
-        return pmos_cur[d_index][g_index];
+        return pmos_cur[g_index][d_index];
     }
     else if(type == NMOS)
     {
-        d_size = nmos_cur.size();
-        g_size = nmos_cur[1].size();
+        d_size = nmos_cur[0].size();
+        g_size = nmos_cur.size();
         
         d_index = floor((d_volt + MIN_VAL)/(VD_GRAN))+1;
         g_index = floor((g_volt + MIN_VAL)/(VG_GRAN))+1;
         
-        return nmos_cur[d_index][g_index];
+        return nmos_cur[g_index][d_index];
     }
     else
     {
@@ -322,32 +339,33 @@ double gen_sim::ind_miller(int type, double d_volt, double g_volt)
     int d_index;
     int g_size;
     int g_index;
+    double div_d, div_g;
     
-    cout<<"Finding Miller Capacitance\n";
     if(type == PMOS)
     {
-        d_size = pmos_miller.size();
-        g_size = pmos_miller[1].size();
+        d_size = pmos_miller[0].size();
+        g_size = pmos_miller.size();
         
-        cout<<"Determined Sizes\n";
+        div_d = MAX_VD + MIN_VAL;
+        div_g = MAX_VG + MIN_VAL;
         
-        d_index = floor((d_volt + MIN_VAL)*(d_size/MAX_VD))+1;
-        cout<<"d_size: "<<d_size<<" d_index: "<<d_index<<endl;
-        g_index = floor((g_volt + MIN_VAL)*(g_size/MAX_VG))+1;
-        cout<<"g_size: "<<g_size<<" g_index: "<<g_index<<endl;
-        cout<<"Volt: "<<g_volt<<" LUT Size 1: "<<pmos_miller.size()<<" LUT Size 2: "<<pmos_miller[1].size()<<endl;
+        d_index = floor((d_volt + MIN_VAL)*(d_size/div_d))+1;
+        g_index = floor((g_volt + MIN_VAL)*(g_size/div_g))+1;
         
-        return pmos_miller[d_index][g_index];
+        return pmos_miller[g_index][d_index];
     }
     else if(type == NMOS)
     {
-        d_size = nmos_miller.size();
-        g_size = nmos_miller[1].size();
+        d_size = nmos_miller[0].size();
+        g_size = nmos_miller.size();
         
-        d_index = floor((d_volt + MIN_VAL)*(d_size/MAX_VD))+1;
-        g_index = floor((g_volt + MIN_VAL)*(g_size/MAX_VG))+1;
+        div_d = MAX_VD + MIN_VAL;
+        div_g = MAX_VG + MIN_VAL;
         
-        return nmos_miller[d_index][g_index];
+        d_index = floor((d_volt + MIN_VAL)*(d_size/div_d))+1;
+        g_index = floor((g_volt + MIN_VAL)*(g_size/div_g))+1;
+        
+        return nmos_miller[g_index][d_index];
     }
     else
     {

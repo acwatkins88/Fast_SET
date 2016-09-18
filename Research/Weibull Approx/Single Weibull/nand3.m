@@ -243,6 +243,7 @@ for index = 2:steps
     % PMOS
     ip1 = pres(cp_fnum).data(vg1_i, vd_i);
     cmp1 = Cp_miller(vg1mp_i, vdp_i);
+    cmp1_arr(index) = cmp1;
     
     ip2 = pres(cp_fnum).data(vg2_i, vd_i);
     cmp2 = Cp_miller(vg2mp_i, vdp_i);

@@ -1,0 +1,10 @@
+# Circuit for testing approximation algorithm
+
+INPUT(1)
+INPUT(2)
+INPUT(3)
+
+OUTPUT(4)
+
+4 = NAND(1, 2, 3)
+

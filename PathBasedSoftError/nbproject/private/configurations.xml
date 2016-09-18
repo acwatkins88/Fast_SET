@@ -24,7 +24,6 @@
       </nativedebugger>
       <runprofile version="9">
         <runcommandpicklist>
-          <runcommandpicklistitem>"${OUTPUT_PATH}" "Circuits/c17NOR.bench"</runcommandpicklistitem>
           <runcommandpicklistitem>"${OUTPUT_PATH}" "Circuits/c880.bench"</runcommandpicklistitem>
           <runcommandpicklistitem>"${OUTPUT_PATH}" "Circuits/c17.bench"</runcommandpicklistitem>
           <runcommandpicklistitem>"${OUTPUT_PATH}" "Circuits/c1355.bench"</runcommandpicklistitem>
@@ -34,8 +33,9 @@
           <runcommandpicklistitem>"${OUTPUT_PATH}" "Circuits/c5315.bench"</runcommandpicklistitem>
           <runcommandpicklistitem>"${OUTPUT_PATH}" "Circuits/c7552.bench"</runcommandpicklistitem>
           <runcommandpicklistitem>"${OUTPUT_PATH}" "Circuits/c17.bench" "Tables/nmoscur.out" "Tables/pmoscur.out" "Tables/nmosmiller.out" "Tables/pmosmiller.out"</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}" "Circuits/test_cir.bench" "Tables/nmoscur.out" "Tables/pmoscur.out" "Tables/nmosmiller.out" "Tables/pmosmiller.out"</runcommandpicklistitem>
         </runcommandpicklist>
-        <runcommand>"${OUTPUT_PATH}" "Circuits/c17.bench" "Tables/nmoscur.out" "Tables/pmoscur.out" "Tables/nmosmiller.out" "Tables/pmosmiller.out"</runcommand>
+        <runcommand>"${OUTPUT_PATH}" "Circuits/test_cir.bench" "Tables/nmoscur.out" "Tables/pmoscur.out" "Tables/nmosmiller.out" "Tables/pmosmiller.out"</runcommand>
         <rundir></rundir>
         <buildfirst>true</buildfirst>
         <terminal-type>0</terminal-type>

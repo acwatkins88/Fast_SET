@@ -42,7 +42,7 @@
 #define NUM_STEPS 900
 
 // Initial Internal Node Voltage
-#define INT_NODE_VOLT 0.5
+#define INT_NODE_VOLT 0
 
 // Constant Tau Value for Injection
 #define TAU 32e-12
@@ -50,7 +50,7 @@
 #define STEP_GRAN 0.5e-12
 
 #define C_LOAD 0.25e-15
-#define ST_NODE_CAP 0.10e-15
+#define ST_NODE_CAP 0.25e-15
 
 #define PI 3.14159265359
 
@@ -121,7 +121,7 @@
 /*
  * Test Values for Charge Injection
  */
-#define S_NODE 10
+#define S_NODE 4
 #define CHARGE 12e-15
 
 /*
