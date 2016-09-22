@@ -45,7 +45,7 @@
 #define INT_NODE_VOLT 0
 
 // Constant Tau Value for Injection
-#define TAU 32e-12
+#define TAU 90e-12
 
 #define STEP_GRAN 0.5e-12
 
@@ -122,7 +122,7 @@
  * Test Values for Charge Injection
  */
 #define S_NODE 4
-#define CHARGE 12e-15
+#define CHARGE 30e-15
 
 /*
  * Temp Test Values

@@ -151,7 +151,7 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type)
     double time, temp_vg, temp_vd;
     double vd_init, vg_init;
     double n_cur, p_cur;
-    double cur_nvolt, cur_out;
+    double inj_cur, cur_out;
     double res;
     int itr_num = graph[n_num].fanin_num;
     cout<<"Fanin Num: "<<graph[n_num].fanin_num<<endl;
@@ -162,11 +162,11 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type)
     vector<double> cmn;
     
     vector<vector<double> > n_volt;
-    vector<double> inj_cur;
+    vector<double> inj_cur_arr;
     vector<double> temp_out;
     
     //inj_cur[0] = 0;
-    inj_cur.push_back(0);
+    inj_cur_arr.push_back(0);
     
     if(type == RISING)
     {
@@ -240,11 +240,12 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type)
             n_volt[i].push_back((((-in[i] + in[i+1])*STEP_GRAN)/ST_NODE_CAP) + n_volt[i][t-1]);
 
         
-        cur_nvolt = (2*charge/(TAU*sqrt(PI)))*(sqrt(time/TAU))*(exp(-time/TAU));
-        inj_cur.push_back(cur_nvolt);
+        inj_cur = ((2*charge)/(TAU*sqrt(PI)))*(sqrt(time/TAU))*(exp(-time/TAU));
+        inj_cur_arr.push_back(inj_cur);
         
-        //cur_out = (((p_cur + n_cur + inj_cur[t])*time)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
-        cur_out = (((p_cur + n_cur)*STEP_GRAN)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
+        //cur_out = (((p_cur + n_cur + inj_cur)*STEP_GRAN)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
+        cur_out = (((p_cur + n_cur - inj_cur)*STEP_GRAN)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
+        //cur_out = (((p_cur + n_cur)*STEP_GRAN)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
         temp_out.push_back(cur_out);     
         cout<<"nvolt 1: "<<n_volt[0][t]<<" nvolt 2: "<<n_volt[1][t]<<" output: "<<cur_out<<endl;
         
