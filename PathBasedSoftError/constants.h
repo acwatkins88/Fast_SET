@@ -45,15 +45,17 @@
 #define INT_NODE_VOLT 0
 
 // Constant Tau Value for Injection
-#define TAU 90e-12
+#define TAU 32e-12
 
 #define STEP_GRAN 0.5e-12
 
-#define C_LOAD 0.25e-15
+//#define C_LOAD 0.15e-15
+#define C_LOAD 0
 #define ST_NODE_CAP 0.25e-15
 
 #define PI 3.14159265359
 
+#define SIM_TIME 1200e-12
 /*
  * Additional Circuit Parameters
  */
@@ -122,7 +124,7 @@
  * Test Values for Charge Injection
  */
 #define S_NODE 4
-#define CHARGE 30e-15
+#define CHARGE 5e-15
 
 /*
  * Temp Test Values

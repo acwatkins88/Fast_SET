@@ -152,7 +152,8 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type)
     double vd_init, vg_init;
     double n_cur, p_cur;
     double inj_cur, cur_out;
-    double res;
+    double res, tau;
+    double st_ratio;
     int itr_num = graph[n_num].fanin_num;
     cout<<"Fanin Num: "<<graph[n_num].fanin_num<<endl;
     
@@ -192,6 +193,10 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type)
         n_volt.push_back(temp_vec);
     }
     
+    st_ratio = SIM_TIME/STEP_GRAN;
+    st_ratio = st_ratio/NUM_STEPS;
+    cout<<"st_ratio: "<<st_ratio<<endl;
+    
     for(int t = 1; t <= NUM_STEPS; t++)
     {
         cout<<"Iteration: "<<t<<endl;
@@ -223,7 +228,8 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type)
                 cmn.push_back(ind_miller(NMOS, vd_init, vg_init));
             
         }
-        time = STEP_GRAN*(t-1);
+        //time = STEP_GRAN*(t-1);
+        time = STEP_GRAN*(st_ratio)*(t-1);
         
         //cout<<"PM1: "<<ip[0]<<" PM2: "<<ip[1]<<" PM3: "<<ip[2]<<endl;
         
@@ -239,12 +245,20 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type)
         for(i = 0; i < itr_num-1; i++)
             n_volt[i].push_back((((-in[i] + in[i+1])*STEP_GRAN)/ST_NODE_CAP) + n_volt[i][t-1]);
 
+        if(type == RISING)
+            tau = 32e-12;
+        else
+            tau = 32e-12;
         
-        inj_cur = ((2*charge)/(TAU*sqrt(PI)))*(sqrt(time/TAU))*(exp(-time/TAU));
+        inj_cur = ((2*charge)/(tau*sqrt(PI)))*(sqrt(time/tau))*(exp(-time/tau));
         inj_cur_arr.push_back(inj_cur);
         
-        //cur_out = (((p_cur + n_cur + inj_cur)*STEP_GRAN)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
-        cur_out = (((p_cur + n_cur - inj_cur)*STEP_GRAN)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
+        export_vec(inj_cur_arr, "CurOut");
+        
+        if(type == RISING)
+            cur_out = (((p_cur + n_cur + inj_cur)*STEP_GRAN)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
+        else
+            cur_out = (((p_cur + n_cur - inj_cur)*STEP_GRAN)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
         //cur_out = (((p_cur + n_cur)*STEP_GRAN)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
         temp_out.push_back(cur_out);     
         cout<<"nvolt 1: "<<n_volt[0][t]<<" nvolt 2: "<<n_volt[1][t]<<" output: "<<cur_out<<endl;
@@ -258,14 +272,16 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type)
 }
 
 /*
- * Print result to external file
+ * Print result to external file with .out at the extension
  */
-void gen_sim::export_vec(vector<double> inp_vec)
+void gen_sim::export_vec(vector<double> inp_vec, string file_name)
 {
     ofstream o_file;
     vector<double>::iterator vit;
     
-    o_file.open("OutputRes.out", ios::trunc);
+    file_name.append(".out");
+    
+    o_file.open(file_name.c_str(), ios::trunc);
     
     for(vit = inp_vec.begin(); vit != inp_vec.end(); ++vit)
         o_file<<*vit<<" ";
