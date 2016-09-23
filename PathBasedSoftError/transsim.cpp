@@ -153,7 +153,7 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type)
     double n_cur, p_cur;
     double inj_cur, cur_out;
     double res, tau;
-    double st_ratio;
+    double st_ratio, adj_step;
     int itr_num = graph[n_num].fanin_num;
     cout<<"Fanin Num: "<<graph[n_num].fanin_num<<endl;
     
@@ -195,11 +195,10 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type)
     
     st_ratio = SIM_TIME/STEP_GRAN;
     st_ratio = st_ratio/NUM_STEPS;
-    cout<<"st_ratio: "<<st_ratio<<endl;
     
     for(int t = 1; t <= NUM_STEPS; t++)
     {
-        cout<<"Iteration: "<<t<<endl;
+        //cout<<"Iteration: "<<t<<endl;
         for(i = 0; i < itr_num; i++)
         {
             /*if((i == 2)||(i == 1))
@@ -228,8 +227,10 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type)
                 cmn.push_back(ind_miller(NMOS, vd_init, vg_init));
             
         }
+
         //time = STEP_GRAN*(t-1);
         time = STEP_GRAN*(st_ratio)*(t-1);
+        adj_step = STEP_GRAN*st_ratio;
         
         //cout<<"PM1: "<<ip[0]<<" PM2: "<<ip[1]<<" PM3: "<<ip[2]<<endl;
         
@@ -242,11 +243,12 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type)
         */
         //cout<<"P current: "<<p_cur<<" N current: "<<n_cur<<endl;
         //cout<<"Size: "<<in.size()<<" in1: "<<in[0]<<" in2: "<<in[1]<<" in3: "<<in[2]<<endl;
+
         for(i = 0; i < itr_num-1; i++)
             n_volt[i].push_back((((-in[i] + in[i+1])*STEP_GRAN)/ST_NODE_CAP) + n_volt[i][t-1]);
-
+        
         if(type == RISING)
-            tau = 32e-12;
+            tau = 175e-12;
         else
             tau = 32e-12;
         
@@ -257,17 +259,162 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type)
         
         if(type == RISING)
             cur_out = (((p_cur + n_cur + inj_cur)*STEP_GRAN)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
+            //cur_out = (((p_cur + n_cur + inj_cur)*adj_step)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
         else
             cur_out = (((p_cur + n_cur - inj_cur)*STEP_GRAN)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
+            //cur_out = (((p_cur + n_cur - inj_cur)*adj_step)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
         //cur_out = (((p_cur + n_cur)*STEP_GRAN)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
-        temp_out.push_back(cur_out);     
-        cout<<"nvolt 1: "<<n_volt[0][t]<<" nvolt 2: "<<n_volt[1][t]<<" output: "<<cur_out<<endl;
+        temp_out.push_back(cur_out);  
+        
+        
+        //cout<<"nvolt 1: "<<n_volt[0][t]<<" nvolt 2: "<<n_volt[1][t]<<" output: "<<cur_out<<endl;
         
         in.clear();
         ip.clear();
         cmp.clear();
         cmn.clear();
     }
+    return temp_out;
+}
+
+vector<double> gen_sim::inj_NAND(int n_num, double charge, int type, int e_num, int id)
+{
+    cout<<"Beginning\n";
+    int i;
+    double time, temp_vg, temp_vd;
+    double vd_init, vg_init;
+    double n_cur, p_cur;
+    double inj_cur, cur_out;
+    double res, tau;
+    double st_ratio, adj_step;
+    int itr_num = graph[n_num].fanin_num;
+    cout<<"Fanin Num: "<<graph[n_num].fanin_num<<endl;
+    
+    vector<double> ip;
+    vector<double> in;
+    vector<double> cmp;
+    vector<double> cmn;
+    
+    vector<vector<double> > n_volt;
+    vector<double> inj_cur_arr;
+    vector<double> temp_out;
+    
+    enh_trans p_temp;
+    
+    //inj_cur[0] = 0;
+    inj_cur_arr.push_back(0);
+    
+    if(type == RISING)
+    {
+        vg_init = VDD;
+        vd_init = VDD;
+        //temp_out[0] = 0; 
+        temp_out.push_back(0);
+    }
+    else 
+    {
+        vg_init = 0;
+        vd_init = 0;
+        //temp_out[0] = VDD;
+        temp_out.push_back(VDD);
+    }
+    
+    vector<double> temp_vec;
+    // Initialize n_volt
+    for(i = 0; i < itr_num-1; i++)
+    {
+        //n_volt[i][0] = INT_NODE_VOLT;
+        temp_vec.push_back(0);
+        n_volt.push_back(temp_vec);
+    }
+    
+    st_ratio = SIM_TIME/STEP_GRAN;
+    st_ratio = st_ratio/NUM_STEPS;
+    
+    for(int t = 1; t <= NUM_STEPS; t++)
+    {
+        //cout<<"Iteration: "<<t<<endl;
+        for(i = 0; i < itr_num; i++)
+        {
+            /*if((i == 2)||(i == 1))
+                cout<<"I: "<<i<<" Out: "<<temp_out[t-1]<<" VG: "<<vg_init<<endl;*/
+            res = ind_current(PMOS, temp_out[t-1], vg_init);
+            ip.push_back(res);
+            res = ind_miller(PMOS, temp_out[t-1], vg_init);
+            cmp.push_back(res);
+            
+            if(i == 0)
+                temp_vd = temp_out[t-1] - n_volt[0][t-1];
+            else if(i != (itr_num-1))
+                temp_vd = n_volt[i-1][t-1] - n_volt[i][t-1];
+            else
+                temp_vd = n_volt[i-1][t-1];
+            
+            if(i == (itr_num-1))
+                temp_vg = vg_init;
+            else
+                temp_vg = vg_init - n_volt[i][t-1];
+            
+            res = ind_current(NMOS, temp_vd, temp_vg);
+            in.push_back(res);
+            
+            if(i == 0)
+                cmn.push_back(ind_miller(NMOS, vd_init, vg_init));
+            
+        }
+
+        //time = STEP_GRAN*(t-1);
+        time = STEP_GRAN*(st_ratio)*(t-1);
+        adj_step = STEP_GRAN*st_ratio;
+        
+        //cout<<"PM1: "<<ip[0]<<" PM2: "<<ip[1]<<" PM3: "<<ip[2]<<endl;
+        
+        p_cur = sum_vector(ip);
+        n_cur = avg_vector(in);
+
+        /*cout<<"in: ";
+        for(int q = 0; q < in_size; q++)
+            cout<<in[q]<<endl;
+        */
+        //cout<<"P current: "<<p_cur<<" N current: "<<n_cur<<endl;
+        //cout<<"Size: "<<in.size()<<" in1: "<<in[0]<<" in2: "<<in[1]<<" in3: "<<in[2]<<endl;
+
+        for(i = 0; i < itr_num-1; i++)
+            n_volt[i].push_back((((-in[i] + in[i+1])*STEP_GRAN)/ST_NODE_CAP) + n_volt[i][t-1]);
+        
+        if(type == RISING)
+            tau = 175e-12;
+        else
+            tau = 32e-12;
+        
+        inj_cur = ((2*charge)/(tau*sqrt(PI)))*(sqrt(time/tau))*(exp(-time/tau));
+        inj_cur_arr.push_back(inj_cur);
+        
+        export_vec(inj_cur_arr, "CurOut");
+        
+        if(type == RISING)
+            cur_out = (((p_cur + n_cur + inj_cur)*STEP_GRAN)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
+            //cur_out = (((p_cur + n_cur + inj_cur)*adj_step)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
+        else
+            cur_out = (((p_cur + n_cur - inj_cur)*STEP_GRAN)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
+            //cur_out = (((p_cur + n_cur - inj_cur)*adj_step)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
+        //cur_out = (((p_cur + n_cur)*STEP_GRAN)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
+        temp_out.push_back(cur_out);  
+                
+        //cout<<"nvolt 1: "<<n_volt[0][t]<<" nvolt 2: "<<n_volt[1][t]<<" output: "<<cur_out<<endl;
+        
+        in.clear();
+        ip.clear();
+        cmp.clear();
+        cmn.clear();
+    }
+    
+    p_temp.e_num = e_num;
+    p_temp.id = id;
+    p_temp.type = type;
+    p_temp.volt_pulse = temp_out;
+    graph[n_num].eh_plist.push_back(p_temp);
+    
     return temp_out;
 }
 

@@ -154,10 +154,11 @@ protected:
     enh_trans gen_enhpulse(int , double );
     
     // Inject Pulse
-    vector<double> inj_NAND2(double, int);
+   // vector<double> inj_NAND2(double, int);
     
     // Attempt to Generalize the Algorithm
-    //vector<double> inj_NAND(int, double, int);
+    vector<double> inj_NAND(int , double , int , int , int );
+    vector<double> prop_NAND(int );
     
     double sum_vector(vector<double> );
     double avg_vector(vector<double> );

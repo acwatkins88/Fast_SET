@@ -39,7 +39,7 @@
 #define MAX_VG 2.5
 
 // Define the Number of Steps
-#define NUM_STEPS 900
+#define NUM_STEPS 400
 
 // Initial Internal Node Voltage
 #define INT_NODE_VOLT 0
@@ -124,7 +124,7 @@
  * Test Values for Charge Injection
  */
 #define S_NODE 4
-#define CHARGE 5e-15
+#define CHARGE 10e-15
 
 /*
  * Temp Test Values
