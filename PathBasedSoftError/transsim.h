@@ -39,7 +39,7 @@ public:
     //gmap graph;
     //circuitstruct circuit;
     
-    vector<double> inj_NAND(int, double, int);
+    vector<double> inj_NAND(int , double , int , double &, double &);
     vector<double> prop_NAND(int );
     
     void export_vec(vector<double> , string );
@@ -155,12 +155,10 @@ protected:
     // Enhanced Pulse Methods
     enh_trans gen_enhpulse(int , double );
     
-    // Inject Pulse
-   // vector<double> inj_NAND2(double, int);
-    
     // Attempt to Generalize the Algorithm
-    vector<double> inj_NAND(int , double , int , int , int );
-    vector<double> prop_NAND(int );
+    vector<double> inj_NAND(int , double , int , double &, double &);
+    void prop_NAND(int );
+    void calc_NAND(list<enh_trans> , int );
     
     double sum_vector(vector<double> );
     double avg_vector(vector<double> );

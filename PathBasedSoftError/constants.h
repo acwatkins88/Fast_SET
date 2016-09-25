@@ -125,6 +125,8 @@
  */
 #define S_NODE 4
 #define CHARGE 10e-15
+#define ST_THRESH 0.25
+#define END_THRESH 0.25
 
 /*
  * Temp Test Values

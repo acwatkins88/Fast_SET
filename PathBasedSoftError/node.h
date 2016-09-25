@@ -70,9 +70,12 @@ public:
     int e_num;
     int id;
     
+    double st_time;
+    double end_time;
+    
     double t_prob;
     
-    vector<int> volt_pulse;    
+    vector<double> volt_pulse;    
 };
 
 /*

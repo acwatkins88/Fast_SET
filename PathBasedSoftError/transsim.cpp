@@ -81,7 +81,7 @@ transient gen_sim::gen_pulse(int type, int n_num)
 /*
  * Attempt at Generalizing the enhanced injection model
  */
-vector<double> gen_sim::inj_NAND(int n_num, double charge, int type)
+vector<double> gen_sim::inj_NAND(int n_num, double charge, int type, double &st_time, double &end_time)
 {
     int i;
     double time, temp_vg, temp_vd;
@@ -91,7 +91,6 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type)
     double res, tau;
     double st_ratio, adj_step;
     int itr_num = graph[n_num].fanin_num;
-    cout<<"Fanin Num: "<<graph[n_num].fanin_num<<endl;
     
     vector<double> ip;
     vector<double> in;
@@ -194,11 +193,21 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type)
         export_vec(inj_cur_arr, "CurOut");
         
         if(type == RISING)
+        {
             cur_out = (((p_cur + n_cur + inj_cur)*STEP_GRAN)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
-            //cur_out = (((p_cur + n_cur + inj_cur)*adj_step)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
+            if((temp_out[t-1] < ST_THRESH) && (cur_out > ST_THRESH))
+                st_time = t;
+            else if((temp_out[t-1] > END_THRESH) && (cur_out < END_THRESH))
+                end_time = t;
+        }
         else
+        {
             cur_out = (((p_cur + n_cur - inj_cur)*STEP_GRAN)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
-            //cur_out = (((p_cur + n_cur - inj_cur)*adj_step)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
+            if((temp_out[t-1] > ST_THRESH) && (cur_out < ST_THRESH))
+                st_time = t;
+            else if((temp_out[t-1] < END_THRESH) && (cur_out > END_THRESH))
+                end_time = t;
+        }
         //cur_out = (((p_cur + n_cur)*STEP_GRAN)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
         temp_out.push_back(cur_out);  
         
@@ -213,18 +222,49 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type)
     return temp_out;
 }
 
-vector<double> gen_sim::prop_NAND(int n_num)
+/*
+ * Function to propagate NAND gate
+ */
+void gen_sim::prop_NAND(int n_num)
 {
     list<int>::iterator lit;
     list<enh_trans>::iterator eit;
+    list<enh_trans> temp_l;
+    map<int, list<enh_trans> >::iterator mit;
+    map<int, list<enh_trans> > h_table;
     
     for(lit = graph[n_num].fanin.begin(); lit != graph[n_num].fanin.end(); ++lit)
     {
-        for(eit = graph[n_num].eh_plist.begin(); eit != graph[n_num].eh_plist.end(); ++eit)
+        for(eit = graph[*lit].eh_plist.begin(); eit != graph[*lit].eh_plist.end(); ++eit)
+        {
+            h_table[eit->e_num].push_back(*eit);    
+        }
+    }
+    
+    for(mit = h_table.begin(); mit != h_table.end(); ++mit)
+    {
+        temp_l = h_table[mit->first];
+        
+        for(eit = h_table[mit->first].begin(); eit != h_table[mit->first].end(); ++eit)
         {
             
         }
+        //calc_NAND(*mit, n_num);
     }
+}
+
+/*
+ * Determine the output given the inputs as a vector
+ */
+void gen_sim::calc_NAND(list<enh_trans> inputs, int n_num)
+{
+    /*list<list<double> > inp_vec;
+    list<enh_trans>::iterator lit;
+    
+    for(lit = inputs.begin(); lit != inputs.end(); ++lit)
+    {
+        
+    }*/
 }
 
 /*
