@@ -159,6 +159,7 @@ protected:
     vector<double> inj_NAND(int , double , int , double &, double &);
     void prop_NAND(int );
     void calc_NAND(list<enh_trans> , int );
+    bool is_overlap(enh_trans , enh_trans );
     
     double sum_vector(vector<double> );
     double avg_vector(vector<double> );
