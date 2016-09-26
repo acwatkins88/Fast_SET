@@ -83,11 +83,55 @@ int main(int argc, char** argv)
         b_sim.pnode_sim();
     else if(CUR_SIM == INJ_SIM)
     {
+        int id = 0;
+        int f_count = 0;
+        double st_time = 0;
+        double end_time = 0;
+        ostringstream s;
         gmap::iterator test_it;
+        enh_trans temp_pul;
+        list<enh_trans>::iterator pit;
+        vector<double> test_result;
+        
         for(test_it = graph.begin(); test_it != graph.end(); ++test_it)
             cout<<"Node: "<<test_it->first<<" Type: "<<graph[test_it->first].type<<endl;
-        test_result = b_sim.inj_NAND(S_NODE, CHARGE, FALLING);
-        b_sim.export_vec(test_result, "OutputRes");    
+        
+        for(test_it = graph.begin(); test_it != graph.end(); ++test_it)
+        {
+            if((test_it->first == 4)||(test_it->first == 5))
+            {
+                cout<<"Node: "<<test_it->first<<" f_count: "<<f_count<<endl;
+                temp_pul.e_num = 0;
+                test_result = b_sim.inj_NAND(S_NODE, CHARGE, FALLING, st_time, end_time);
+                temp_pul.volt_pulse = test_result;
+                temp_pul.st_time = st_time;
+                temp_pul.end_time = end_time;
+                temp_pul.s_node = test_it->first;
+                temp_pul.id = id;
+                id++;
+                
+                s << "OuputRes" << f_count;
+                b_sim.export_vec(test_result, s.str());
+                f_count++;
+                s.str(string());
+            }
+            else if(graph[test_it->first].type != INPUT)
+            {
+                cout<<"Node: "<<test_it->first<<" f_count: "<<f_count<<endl;
+                b_sim.prop_enhpulse(test_it->first);
+
+                for(pit = graph[test_it->first].eh_plist.begin(); pit != graph[test_it->first].eh_plist.end(); ++pit)
+                {
+                    cout<<"Pulse\n";
+                    s << "OutputRes" << f_count;
+                    b_sim.export_vec(pit->volt_pulse, s.str());
+                    f_count++;
+                    s.str(string());
+                }
+            }
+        }
+        
+        //b_sim.export_vec(test_result, "OutputRes");    
     }
     
     unsigned t1=clock()-t0;

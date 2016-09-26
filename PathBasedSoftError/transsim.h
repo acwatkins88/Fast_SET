@@ -40,7 +40,7 @@ public:
     //circuitstruct circuit;
     
     vector<double> inj_NAND(int , double , int , double &, double &);
-    vector<double> prop_NAND(int );
+    void prop_enhpulse(int );
     
     void export_vec(vector<double> , string );
     
@@ -156,9 +156,10 @@ protected:
     enh_trans gen_enhpulse(int , double );
     
     // Attempt to Generalize the Algorithm
-    vector<double> inj_NAND(int , double , int , double &, double &);
-    void prop_NAND(int );
-    void calc_NAND(list<enh_trans> , int );
+    //vector<double> inj_NAND(int , double , int , double &, double &);
+    //void prop_enhpulse(int );
+    enh_trans det_pulse(list<enh_trans> , int );
+    enh_trans calc_NAND(list<enh_trans> , int);
     bool is_overlap(enh_trans , enh_trans );
     
     double sum_vector(vector<double> );

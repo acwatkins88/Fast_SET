@@ -136,8 +136,6 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type, double &st_
         //cout<<"Iteration: "<<t<<endl;
         for(i = 0; i < itr_num; i++)
         {
-            /*if((i == 2)||(i == 1))
-                cout<<"I: "<<i<<" Out: "<<temp_out[t-1]<<" VG: "<<vg_init<<endl;*/
             res = ind_current(PMOS, temp_out[t-1], vg_init);
             ip.push_back(res);
             res = ind_miller(PMOS, temp_out[t-1], vg_init);
@@ -159,25 +157,15 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type, double &st_
             in.push_back(res);
             
             if(i == 0)
-                cmn.push_back(ind_miller(NMOS, vd_init, vg_init));
+                cmn.push_back(ind_miller(NMOS, temp_out[t-1], vg_init));
             
         }
 
-        //time = STEP_GRAN*(t-1);
         time = STEP_GRAN*(st_ratio)*(t-1);
         adj_step = STEP_GRAN*st_ratio;
         
-        //cout<<"PM1: "<<ip[0]<<" PM2: "<<ip[1]<<" PM3: "<<ip[2]<<endl;
-        
         p_cur = sum_vector(ip);
         n_cur = avg_vector(in);
-
-        /*cout<<"in: ";
-        for(int q = 0; q < in_size; q++)
-            cout<<in[q]<<endl;
-        */
-        //cout<<"P current: "<<p_cur<<" N current: "<<n_cur<<endl;
-        //cout<<"Size: "<<in.size()<<" in1: "<<in[0]<<" in2: "<<in[1]<<" in3: "<<in[2]<<endl;
 
         for(i = 0; i < itr_num-1; i++)
             n_volt[i].push_back((((-in[i] + in[i+1])*STEP_GRAN)/ST_NODE_CAP) + n_volt[i][t-1]);
@@ -208,7 +196,6 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type, double &st_
             else if((temp_out[t-1] < END_THRESH) && (cur_out > END_THRESH))
                 end_time = t;
         }
-        //cur_out = (((p_cur + n_cur)*STEP_GRAN)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
         temp_out.push_back(cur_out);  
         
         
@@ -225,9 +212,11 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type, double &st_
 /*
  * Function to propagate NAND gate
  */
-void gen_sim::prop_NAND(int n_num)
+void gen_sim::prop_enhpulse(int n_num)
 {
     enh_trans cur_pulse;
+    enh_trans out_pulse;
+    
     list<int>::iterator lit;
     list<enh_trans>::iterator eit;
     list<enh_trans> temp_l;
@@ -247,20 +236,35 @@ void gen_sim::prop_NAND(int n_num)
     {
         temp_l = h_table[mit->first];
         
-        while(temp_l.size() > 1)
+        while(temp_l.size() >= 1)
         {
             cur_pulse = temp_l.front();
             inputs.push_back(cur_pulse);
-            calc_NAND(inputs);
+            
+            out_pulse = det_pulse(inputs, n_num);
+            
+            out_pulse.e_num = mit->first;
+            out_pulse.id = this->id_n;
+            this->id_n++;
+            
+            graph[n_num].eh_plist.push_back(out_pulse);
             
             temp_l.pop_front();
             
             for(eit = temp_l.begin(); eit != temp_l.end(); ++eit)
             {
-                if(is_overlap(cur_pulse, *eit))
+                if((is_overlap(cur_pulse, *eit)) && (cur_pulse.s_node != eit->s_node))
                 {
                     inputs.push_back(*eit);
-                    calc_NAND(inputs, n_num);
+                    
+                    out_pulse = det_pulse(inputs, n_num);
+
+                    out_pulse.e_num = mit->first;
+                    out_pulse.id = this->id_n;
+                    this->id_n++;
+                    
+                    graph[n_num].eh_plist.push_back(out_pulse);
+                    
                     inputs.pop_back();
                 }
             }
@@ -269,24 +273,160 @@ void gen_sim::prop_NAND(int n_num)
     }
 }
 
+enh_trans gen_sim::det_pulse(list<enh_trans> inputs, int n_num)
+{
+    switch(graph[n_num].type)
+    {
+        case NAND:
+            return calc_NAND(inputs, n_num);
+    }
+}
+
 /*
  * Determine the output given the inputs as a vector
  */
-void gen_sim::calc_NAND(list<enh_trans> inputs, int n_num)
+enh_trans gen_sim::calc_NAND(list<enh_trans> inputs, int n_num)
 {
-    /*list<list<double> > inp_vec;
-    list<enh_trans>::iterator lit;
+    int i, type;
+    int itr_num = graph[n_num].fanin_num;
     
-    for(lit = inputs.begin(); lit != inputs.end(); ++lit)
+    double temp_vg, temp_vd;
+    double vd_init, vg_cur;
+    double n_cur, p_cur;
+    double cur_out;
+    double res;
+    
+    bool flag;
+    enh_trans pulse;
+    
+    list<enh_trans>::iterator lit;
+    list<int>::iterator fit;
+    
+    vector< vector<double> > ord_list;
+    vector<double> temp_v;
+    
+    vector<double> ip;
+    vector<double> in;
+    vector<double> cmp;
+    vector<double> cmn;
+    
+    vector<vector<double> > n_volt;
+    vector<double> temp_out;
+    
+    vd_init = 0;
+    // Order inputs according to list
+    for(fit = graph[n_num].fanin.begin(); fit != graph[n_num].fanin.end(); ++fit)
     {
+        flag = false;
+        for(lit = inputs.begin(); lit != inputs.end(); ++lit)
+        {
+            if(lit->s_node == *fit)
+            {
+                ord_list.push_back(lit->volt_pulse);
+                pulse.inp_nodes.push_back(*fit);
+                flag = true;
+                if(lit->volt_pulse[0] < 0.95)
+                    vd_init =  VDD;
+            }
+        }
+        if(!flag)
+        {
+            temp_v.push_back(VDD);
+            ord_list.push_back(temp_v);
+        }  
+    }
+    
+    if(vd_init == 0)
+        type = RISING;
+    else
+        type = FALLING;
+    
+    temp_out[0] = vd_init;
+    
+    vector<double> temp_vec;
+    // Initialize n_volt
+    for(i = 0; i < itr_num-1; i++)
+    {
+        //n_volt[i][0] = INT_NODE_VOLT;
+        temp_vec.push_back(0);
+        n_volt.push_back(temp_vec);
+    }
+    
+    for(int t = 1; t <= NUM_STEPS; t++)
+    {
+        //cout<<"Iteration: "<<t<<endl;
+        for(i = 0; i < itr_num; i++)
+        {
+            if(ord_list[i].size() != 1)
+                vg_cur = ord_list[i][t];
+            else
+                vg_cur = VDD;
+            
+            res = ind_current(PMOS, temp_out[t-1], vg_cur);
+            ip.push_back(res);
+            res = ind_miller(PMOS, temp_out[t-1], vg_cur);
+            cmp.push_back(res);
+            
+            if(i == 0)
+                temp_vd = temp_out[t-1] - n_volt[0][t-1];
+            else if(i != (itr_num-1))
+                temp_vd = n_volt[i-1][t-1] - n_volt[i][t-1];
+            else
+                temp_vd = n_volt[i-1][t-1];
+            
+            if(i == (itr_num-1))
+                temp_vg = vg_cur;
+            else
+                temp_vg = vg_cur - n_volt[i][t-1];
+            
+            res = ind_current(NMOS, temp_vd, temp_vg);
+            in.push_back(res);
+            
+            if(i == 0)
+                cmn.push_back(ind_miller(NMOS, temp_out[t-1], vg_cur));            
+        }
         
-    }*/
+        p_cur = sum_vector(ip);
+        n_cur = avg_vector(in);
+
+        for(i = 0; i < itr_num-1; i++)
+            n_volt[i].push_back((((-in[i] + in[i+1])*STEP_GRAN)/ST_NODE_CAP) + n_volt[i][t-1]);
+        
+        if(type == RISING)
+        {
+            cur_out = (((p_cur + n_cur)*STEP_GRAN)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
+            if((temp_out[t-1] < ST_THRESH) && (cur_out > ST_THRESH))
+                pulse.st_time = t;
+            else if((temp_out[t-1] > END_THRESH) && (cur_out < END_THRESH))
+                pulse.end_time = t;
+        }
+        else
+        {
+            cur_out = (((p_cur + n_cur)*STEP_GRAN)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
+            if((temp_out[t-1] > ST_THRESH) && (cur_out < ST_THRESH))
+                pulse.st_time = t;
+            else if((temp_out[t-1] < END_THRESH) && (cur_out > END_THRESH))
+                pulse.end_time = t;
+        }
+        temp_out.push_back(cur_out);  
+               
+        //cout<<"nvolt 1: "<<n_volt[0][t]<<" nvolt 2: "<<n_volt[1][t]<<" output: "<<cur_out<<endl;
+        
+        in.clear();
+        ip.clear();
+        cmp.clear();
+        cmn.clear();
+    }
+    
+    pulse.volt_pulse = temp_out;
+    
+    return pulse;
 }
 
 /*
  * Subroutine to check if two pulses overlap
  */
-bool is_overlap(enh_trans in1, enh_trans in2)
+bool gen_sim::is_overlap(enh_trans in1, enh_trans in2)
 {
     if((in1.st_time < in2.st_time)&&(in1.end_time < in2.end_time))
         return true;

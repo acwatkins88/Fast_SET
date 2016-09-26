@@ -69,6 +69,10 @@ public:
     int type;
     int e_num;
     int id;
+    int s_node;
+    
+    bdd p_func;
+    list<int> inp_nodes;
     
     double st_time;
     double end_time;
