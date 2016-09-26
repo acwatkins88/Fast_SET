@@ -227,9 +227,11 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type, double &st_
  */
 void gen_sim::prop_NAND(int n_num)
 {
+    enh_trans cur_pulse;
     list<int>::iterator lit;
     list<enh_trans>::iterator eit;
     list<enh_trans> temp_l;
+    list<enh_trans> inputs;
     map<int, list<enh_trans> >::iterator mit;
     map<int, list<enh_trans> > h_table;
     
@@ -245,11 +247,25 @@ void gen_sim::prop_NAND(int n_num)
     {
         temp_l = h_table[mit->first];
         
-        for(eit = h_table[mit->first].begin(); eit != h_table[mit->first].end(); ++eit)
+        while(temp_l.size() > 1)
         {
+            cur_pulse = temp_l.front();
+            inputs.push_back(cur_pulse);
+            calc_NAND(inputs);
             
+            temp_l.pop_front();
+            
+            for(eit = temp_l.begin(); eit != temp_l.end(); ++eit)
+            {
+                if(is_overlap(cur_pulse, *eit))
+                {
+                    inputs.push_back(*eit);
+                    calc_NAND(inputs, n_num);
+                    inputs.pop_back();
+                }
+            }
+            inputs.clear();
         }
-        //calc_NAND(*mit, n_num);
     }
 }
 
@@ -265,6 +281,23 @@ void gen_sim::calc_NAND(list<enh_trans> inputs, int n_num)
     {
         
     }*/
+}
+
+/*
+ * Subroutine to check if two pulses overlap
+ */
+bool is_overlap(enh_trans in1, enh_trans in2)
+{
+    if((in1.st_time < in2.st_time)&&(in1.end_time < in2.end_time))
+        return true;
+    else if((in1.st_time > in2.st_time)&&(in1.end_time > in2.end_time))
+        return true;
+    else if((in1.st_time < in2.st_time)&&(in1.end_time > in2.end_time))
+        return true;
+    else if((in1.st_time > in2.st_time)&&(in1.end_time < in2.end_time))
+        return true;
+    else
+        return false;
 }
 
 /*
