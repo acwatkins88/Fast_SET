@@ -39,7 +39,7 @@ public:
     //gmap graph;
     //circuitstruct circuit;
     
-    vector<double> inj_NAND(int , double , int , double &, double &);
+    vector<double> inj_NAND(int , double , int , double &, double &, int );
     void prop_enhpulse(int );
     
     void export_vec(vector<double> , string );
@@ -153,14 +153,14 @@ protected:
     void print_pstruct();
     
     // Enhanced Pulse Methods
-    enh_trans gen_enhpulse(int , double );
+    void gen_enhpulse(int , int );
     
     // Attempt to Generalize the Algorithm
-    //vector<double> inj_NAND(int , double , int , double &, double &);
+    //vector<double> inj_NAND(int , double , int , double &, double &, int );
     //void prop_enhpulse(int );
-    enh_trans det_pulse(list<enh_trans> , int );
-    enh_trans calc_NAND(list<enh_trans> , int);
-    bool is_overlap(enh_trans , enh_trans );
+    transient det_pulse(list<transient> , int );
+    transient calc_NAND(list<transient> , int);
+    bool is_overlap(transient , transient );
     
     double sum_vector(vector<double> );
     double avg_vector(vector<double> );

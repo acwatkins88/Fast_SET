@@ -13,12 +13,18 @@ gen_sim::gen_sim(int t)
  * Generate Transient Pulse
  * type - Rising Or Falling
  * n_num - node to inject
+ * Simple injection of 5 units
  */
-enh_trans gen_sim::gen_enhpulse(int n_num, double charge)
+transient gen_sim::gen_pulse(int type, int n_num)
 {
-    enh_trans temp;
+    transient temp_pul;
+    vector<double> test_result;
+    double st_time, end_time;
     
-    temp.id  = this->id_n;
+    temp_pul.e_num = this->event_n;
+    this->event_n++;
+    
+    temp_pul.id  = this->id_n;
     this->id_n++;
     
     graph[n_num].pulse = true;
@@ -31,6 +37,7 @@ enh_trans gen_sim::gen_enhpulse(int n_num, double charge)
             break;
         case NAND:
             // Generate Pulse for NAND Gate
+            test_result = inj_NAND(n_num, CHARGE, type, st_time, end_time, 0);
             break;
         case OR:
             // Generate Pulse for OR Gate
@@ -51,37 +58,21 @@ enh_trans gen_sim::gen_enhpulse(int n_num, double charge)
         default:
             cout<<"Error Determining Gate: "<<n_num<<" of Type: "<<graph[n_num].type<<endl;
     }
-}
 
-/*
- * Generate Transient Pulse
- * type - Rising Or Falling
- * n_num - node to inject
- * Simple injection of 5 units
- */
-transient gen_sim::gen_pulse(int type, int n_num)
-{
-    transient temp;
-    
-    temp.id  = this->id_n;
+    temp_pul.volt_pulse = test_result;
+    temp_pul.st_time = st_time;
+    temp_pul.end_time = end_time;
+    temp_pul.s_node = n_num;
+    temp_pul.id = this->id_n;
     this->id_n++;
     
-    graph[n_num].pulse = true;
-    
-    temp.type = type;
-    temp.width = 5;
-    temp.e_num = this->event_n;
-    this->event_n++;
-    
-    temp.s_node = n_num;
-    
-    return temp;
+    return temp_pul;
 }
 
 /*
  * Attempt at Generalizing the enhanced injection model
  */
-vector<double> gen_sim::inj_NAND(int n_num, double charge, int type, double &st_time, double &end_time)
+vector<double> gen_sim::inj_NAND(int n_num, double charge, int type, double &st_time, double &end_time, int delay)
 {
     int i;
     double time, temp_vg, temp_vd;
@@ -91,6 +82,7 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type, double &st_
     double res, tau;
     double st_ratio, adj_step;
     int itr_num = graph[n_num].fanin_num;
+    int inj_t = 0;
     
     vector<double> ip;
     vector<double> in;
@@ -108,14 +100,12 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type, double &st_
     {
         vg_init = VDD;
         vd_init = VDD;
-        //temp_out[0] = 0; 
         temp_out.push_back(0);
     }
     else 
     {
         vg_init = 0;
         vd_init = 0;
-        //temp_out[0] = VDD;
         temp_out.push_back(VDD);
     }
     
@@ -123,7 +113,6 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type, double &st_
     // Initialize n_volt
     for(i = 0; i < itr_num-1; i++)
     {
-        //n_volt[i][0] = INT_NODE_VOLT;
         temp_vec.push_back(0);
         n_volt.push_back(temp_vec);
     }
@@ -161,7 +150,6 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type, double &st_
             
         }
 
-        time = STEP_GRAN*(st_ratio)*(t-1);
         adj_step = STEP_GRAN*st_ratio;
         
         p_cur = sum_vector(ip);
@@ -175,9 +163,20 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type, double &st_
         else
             tau = 32e-12;
         
-        inj_cur = ((2*charge)/(tau*sqrt(PI)))*(sqrt(time/tau))*(exp(-time/tau));
+        if(t > delay)
+        {
+            time = STEP_GRAN*(st_ratio)*(inj_t);
+            inj_cur = ((2*charge)/(tau*sqrt(PI)))*(sqrt(time/tau))*(exp(-time/tau));
+            inj_t++;
+        }
+        else
+        {
+            inj_cur = 0;
+        }
+        //inj_cur = 0;
         inj_cur_arr.push_back(inj_cur);
         
+        // Export resulting pulse to output file
         export_vec(inj_cur_arr, "CurOut");
         
         if(type == RISING)
@@ -210,23 +209,23 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type, double &st_
 }
 
 /*
- * Function to propagate NAND gate
+ * Function to propagate enhanced pulse
  */
 void gen_sim::prop_enhpulse(int n_num)
 {
-    enh_trans cur_pulse;
-    enh_trans out_pulse;
+    transient cur_pulse;
+    transient out_pulse;
     
     list<int>::iterator lit;
-    list<enh_trans>::iterator eit;
-    list<enh_trans> temp_l;
-    list<enh_trans> inputs;
-    map<int, list<enh_trans> >::iterator mit;
-    map<int, list<enh_trans> > h_table;
+    list<transient>::iterator eit;
+    list<transient> temp_l;
+    list<transient> inputs;
+    map<int, list<transient> >::iterator mit;
+    map<int, list<transient> > h_table;
     
     for(lit = graph[n_num].fanin.begin(); lit != graph[n_num].fanin.end(); ++lit)
     {
-        for(eit = graph[*lit].eh_plist.begin(); eit != graph[*lit].eh_plist.end(); ++eit)
+        for(eit = graph[*lit].p_list.begin(); eit != graph[*lit].p_list.end(); ++eit)
         {
             h_table[eit->e_num].push_back(*eit);    
         }
@@ -235,8 +234,7 @@ void gen_sim::prop_enhpulse(int n_num)
     for(mit = h_table.begin(); mit != h_table.end(); ++mit)
     {
         temp_l = h_table[mit->first];
-        
-        while(temp_l.size() >= 1)
+        while(temp_l.size() > 1)
         {
             cur_pulse = temp_l.front();
             inputs.push_back(cur_pulse);
@@ -245,9 +243,10 @@ void gen_sim::prop_enhpulse(int n_num)
             
             out_pulse.e_num = mit->first;
             out_pulse.id = this->id_n;
+            out_pulse.s_node = n_num;
             this->id_n++;
             
-            graph[n_num].eh_plist.push_back(out_pulse);
+            graph[n_num].p_list.push_back(out_pulse);
             
             temp_l.pop_front();
             
@@ -261,9 +260,10 @@ void gen_sim::prop_enhpulse(int n_num)
 
                     out_pulse.e_num = mit->first;
                     out_pulse.id = this->id_n;
+                    out_pulse.s_node = n_num;
                     this->id_n++;
                     
-                    graph[n_num].eh_plist.push_back(out_pulse);
+                    graph[n_num].p_list.push_back(out_pulse);
                     
                     inputs.pop_back();
                 }
@@ -273,7 +273,7 @@ void gen_sim::prop_enhpulse(int n_num)
     }
 }
 
-enh_trans gen_sim::det_pulse(list<enh_trans> inputs, int n_num)
+transient gen_sim::det_pulse(list<transient> inputs, int n_num)
 {
     switch(graph[n_num].type)
     {
@@ -285,7 +285,7 @@ enh_trans gen_sim::det_pulse(list<enh_trans> inputs, int n_num)
 /*
  * Determine the output given the inputs as a vector
  */
-enh_trans gen_sim::calc_NAND(list<enh_trans> inputs, int n_num)
+transient gen_sim::calc_NAND(list<transient> inputs, int n_num)
 {
     int i, type;
     int itr_num = graph[n_num].fanin_num;
@@ -297,9 +297,10 @@ enh_trans gen_sim::calc_NAND(list<enh_trans> inputs, int n_num)
     double res;
     
     bool flag;
-    enh_trans pulse;
+    transient pulse;
+    prev_p p_inf;
     
-    list<enh_trans>::iterator lit;
+    list<transient>::iterator lit;
     list<int>::iterator fit;
     
     vector< vector<double> > ord_list;
@@ -323,7 +324,9 @@ enh_trans gen_sim::calc_NAND(list<enh_trans> inputs, int n_num)
             if(lit->s_node == *fit)
             {
                 ord_list.push_back(lit->volt_pulse);
-                pulse.inp_nodes.push_back(*fit);
+                p_inf.p_gate = *fit;
+                p_inf.p_pulse = lit->id;
+                pulse.prev_pulse.push_back(p_inf);
                 flag = true;
                 if(lit->volt_pulse[0] < 0.95)
                     vd_init =  VDD;
@@ -336,18 +339,17 @@ enh_trans gen_sim::calc_NAND(list<enh_trans> inputs, int n_num)
         }  
     }
     
-    if(vd_init == 0)
-        type = RISING;
-    else
+    if(vd_init != VDD)
         type = FALLING;
+    else
+        type = RISING;
     
-    temp_out[0] = vd_init;
+    temp_out.push_back(vd_init);
     
     vector<double> temp_vec;
     // Initialize n_volt
     for(i = 0; i < itr_num-1; i++)
     {
-        //n_volt[i][0] = INT_NODE_VOLT;
         temp_vec.push_back(0);
         n_volt.push_back(temp_vec);
     }
@@ -426,7 +428,7 @@ enh_trans gen_sim::calc_NAND(list<enh_trans> inputs, int n_num)
 /*
  * Subroutine to check if two pulses overlap
  */
-bool gen_sim::is_overlap(enh_trans in1, enh_trans in2)
+bool gen_sim::is_overlap(transient in1, transient in2)
 {
     if((in1.st_time < in2.st_time)&&(in1.end_time < in2.end_time))
         return true;

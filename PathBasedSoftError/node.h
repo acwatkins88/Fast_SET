@@ -47,6 +47,7 @@ public:
     
     double t_prob;             // Variable to Store Probability 
     
+    vector<double> volt_pulse;
     /*
      * Not Used Functions
      */	
@@ -58,28 +59,6 @@ public:
     double eval_volt(double time, int rf, double sttime);
     double eval_time(double volt, int rf, double sttime);
      
-};
-
-/*
- * Class for enhanced transient pulse model
- */
-class enh_trans
-{
-public:
-    int type;
-    int e_num;
-    int id;
-    int s_node;
-    
-    bdd p_func;
-    list<int> inp_nodes;
-    
-    double st_time;
-    double end_time;
-    
-    double t_prob;
-    
-    vector<double> volt_pulse;    
 };
 
 /*
@@ -116,7 +95,6 @@ public:
     
     bdd* g_func;                    // Gate Sensitization Function
     std::list<transient> p_list;    // Contains all pulses at a gate
-    std::list<enh_trans> eh_plist;  // Pulse list for enhanced pulse model
     bool pulse;                     // temp flag for a pulse
     //double delay;                 // Gate delay
     
