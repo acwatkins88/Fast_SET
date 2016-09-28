@@ -18,14 +18,8 @@ gen_sim::gen_sim(int t)
 transient gen_sim::gen_pulse(int type, int n_num)
 {
     transient temp_pul;
-    vector<double> test_result;
-    double st_time, end_time;
-    
-    temp_pul.e_num = this->event_n;
-    this->event_n++;
-    
-    temp_pul.id  = this->id_n;
-    this->id_n++;
+    //vector<double> test_result;
+    double st_time, end_time, width;
     
     graph[n_num].pulse = true;
     
@@ -37,7 +31,7 @@ transient gen_sim::gen_pulse(int type, int n_num)
             break;
         case NAND:
             // Generate Pulse for NAND Gate
-            test_result = inj_NAND(n_num, CHARGE, type, st_time, end_time, 0);
+            temp_pul = inj_NAND(n_num, CHARGE, type, 0);
             break;
         case OR:
             // Generate Pulse for OR Gate
@@ -58,8 +52,15 @@ transient gen_sim::gen_pulse(int type, int n_num)
         default:
             cout<<"Error Determining Gate: "<<n_num<<" of Type: "<<graph[n_num].type<<endl;
     }
-
-    temp_pul.volt_pulse = test_result;
+    
+    temp_pul.e_num = this->event_n;
+    this->event_n++;
+    
+    temp_pul.id  = this->id_n;
+    this->id_n++;
+    
+    temp_pul.width = width;
+    //temp_pul.volt_pulse = test_result;
     temp_pul.st_time = st_time;
     temp_pul.end_time = end_time;
     temp_pul.s_node = n_num;
@@ -72,17 +73,20 @@ transient gen_sim::gen_pulse(int type, int n_num)
 /*
  * Attempt at Generalizing the enhanced injection model
  */
-vector<double> gen_sim::inj_NAND(int n_num, double charge, int type, double &st_time, double &end_time, int delay)
+transient gen_sim::inj_NAND(int n_num, double charge, int type, int delay)
 {
     int i;
+    int inj_t = 0;
+    int itr_num = graph[n_num].fanin_num;
+    
     double time, temp_vg, temp_vd;
     double vd_init, vg_init;
     double n_cur, p_cur;
     double inj_cur, cur_out;
     double res, tau;
     double st_ratio, adj_step;
-    int itr_num = graph[n_num].fanin_num;
-    int inj_t = 0;
+    double w_val1 = 0;
+    double w_val2 = 0;
     
     vector<double> ip;
     vector<double> in;
@@ -92,6 +96,8 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type, double &st_
     vector<vector<double> > n_volt;
     vector<double> inj_cur_arr;
     vector<double> temp_out;
+    
+    transient temp_pul;
     
     //inj_cur[0] = 0;
     inj_cur_arr.push_back(0);
@@ -183,17 +189,33 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type, double &st_
         {
             cur_out = (((p_cur + n_cur + inj_cur)*STEP_GRAN)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
             if((temp_out[t-1] < ST_THRESH) && (cur_out > ST_THRESH))
-                st_time = t;
+                temp_pul.st_time = t;
             else if((temp_out[t-1] > END_THRESH) && (cur_out < END_THRESH))
-                end_time = t;
+                temp_pul.end_time = t;
+            if((temp_out[t-1] < W_THRESH1) && (cur_out > W_THRESH1))
+                w_val1 = t;
+            else if((temp_out[t-1] > W_THRESH2) && (cur_out < W_THRESH2))
+                w_val2 = t;
         }
         else
         {
             cur_out = (((p_cur + n_cur - inj_cur)*STEP_GRAN)/(C_LOAD + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
             if((temp_out[t-1] > ST_THRESH) && (cur_out < ST_THRESH))
-                st_time = t;
+                temp_pul.st_time = t;
             else if((temp_out[t-1] < END_THRESH) && (cur_out > END_THRESH))
-                end_time = t;
+                temp_pul.end_time = t;
+            if((temp_out[t-1] > W_THRESH1) && (cur_out < W_THRESH1))
+                w_val1 = t;
+            else if((temp_out[t-1] < W_THRESH2) && (cur_out > W_THRESH2))
+                w_val2 = t;
+        }
+        temp_pul.width = ((w_val1 - w_val2)*STEP_GRAN)/st_ratio;
+        if(temp_pul.width == 0)
+        {
+            temp_out.clear();
+            temp_out.push_back(0);
+            temp_pul.volt_pulse = temp_out;
+            return temp_pul;
         }
         temp_out.push_back(cur_out);  
         
@@ -205,13 +227,16 @@ vector<double> gen_sim::inj_NAND(int n_num, double charge, int type, double &st_
         cmp.clear();
         cmn.clear();
     }
-    return temp_out;
+    //return temp_out;
+    temp_pul.volt_pulse = temp_out;
+    return temp_pul;
+    
 }
 
 /*
  * Function to propagate enhanced pulse
  */
-void gen_sim::prop_enhpulse(int n_num)
+/*void gen_sim::prop_enhpulse(int n_num)
 {
     transient cur_pulse;
     transient out_pulse;
@@ -268,6 +293,39 @@ void gen_sim::prop_enhpulse(int n_num)
                     inputs.pop_back();
                 }
             }
+            inputs.clear();
+        }
+    }
+}*/
+
+/*
+ * Function to propagate enhanced pulse
+ */
+void gen_sim::prop_enhpulse(int n_num)
+{
+    transient out_pulse;
+    
+    list<int>::iterator lit;
+    list<transient>::iterator eit;
+    list<transient> inputs;
+    
+    for(lit = graph[n_num].fanin.begin(); lit != graph[n_num].fanin.end(); ++lit)
+    {
+        for(eit = graph[*lit].p_list.begin(); eit != graph[*lit].p_list.end(); ++eit)
+        {
+            inputs.push_back(*eit);
+
+            out_pulse = det_pulse(inputs, n_num);
+
+            out_pulse.e_num = eit->e_num;
+            out_pulse.id = this->id_n;
+            out_pulse.s_node = n_num;
+            this->id_n++;
+            
+            if(this->sim_type == BDD_SIM)
+                set_propfunc(n_num, *lit, *eit, out_pulse);
+            
+            graph[n_num].p_list.push_back(out_pulse);  
             inputs.clear();
         }
     }

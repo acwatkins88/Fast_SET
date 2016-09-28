@@ -160,6 +160,8 @@ bool bdd_sim::sim_graph(gmap &graph)
     int largest_bdd = 0;
     int total_count = 0;
     int num_removed = 0;
+    stringstream s;
+    int f_count = 0;; 
     bdd_prob s_prob;
     gmap::iterator git;
     list<transient>::iterator p_it;
@@ -202,7 +204,8 @@ bool bdd_sim::sim_graph(gmap &graph)
             bdd_genfunc(git->first, graph[git->first].p_list);
 
             // Propagate Existing Pulses
-            proc_pulse(git->first);
+            //proc_pulse(git->first);
+            prop_enhpulse(git->first);
             
             // Check for Convergence 
             /*if ((graph[git->first].type != NOT) || (graph[git->first].type != BUF))
@@ -317,6 +320,13 @@ bool bdd_sim::sim_graph(gmap &graph)
                     graph_m[git->first].r_map[pit->e_num] = (s_prob.true_prob * pit->t_prob);
                     //graph_m[git->first].r_map[pit->e_num] = (s_prob.true_prob);
                 }
+                if(PRINT_OUT == 1)
+                {
+                    s << "OutputRes" << f_count;
+                    export_vec(pit->volt_pulse, s.str());
+                    f_count++;
+                    s.str(string());
+                }
             }
             tp_map.clear();
         }
@@ -405,8 +415,11 @@ void bdd_sim::bdd_genp(int n_num)
     temp_r = gen_pulse(RISING, n_num);
     temp_f = gen_pulse(FALLING, n_num);
     
-    graph[n_num].p_list.push_back(temp_r);
-    graph[n_num].p_list.push_back(temp_f);
+    if(temp_r.volt_pulse.size() > 1)
+        graph[n_num].p_list.push_back(temp_r);
+    
+    if(temp_f.volt_pulse.size() > 1)
+        graph[n_num].p_list.push_back(temp_f);
     
     /*temp_r.p_func = gen_bdd(n_num, temp_r);
     temp_f.p_func = gen_bdd(n_num, temp_f);
@@ -429,15 +442,12 @@ void bdd_sim::bdd_genfunc(int n_num, list<transient>& inp_list)
     
     for(lit = inp_list.begin(); lit != inp_list.end(); ++lit)
     {
-        //if(lit->s_node == n_num)
-        //{
-            lit->p_func = gen_bdd(n_num, *lit);
+        lit->p_func = gen_bdd(n_num, *lit);
             
-            if(lit->p_func == const_f)
-            {
-                lit = inp_list.erase(lit);
-            }
-        //}
+        if(lit->p_func == const_f)
+        {
+            lit = inp_list.erase(lit);
+        }
     }
 }
 

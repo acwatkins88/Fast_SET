@@ -71,7 +71,6 @@ int main(int argc, char** argv)
     graph_m = graph;
     
     unsigned t0=clock();
-    vector<double> test_result;
     
     if(CUR_SIM == BDD_SIM)
         b_sim.sim();
@@ -85,8 +84,6 @@ int main(int argc, char** argv)
     {
         int id = 0;
         int f_count = 0;
-        double st_time = 0;
-        double end_time = 0;
         ostringstream s;
         gmap::iterator test_it;
         transient temp_pul;
@@ -101,17 +98,22 @@ int main(int argc, char** argv)
             if((test_it->first == 4)||(test_it->first == 5))
             {
                 cout<<"Node: "<<test_it->first<<" f_count: "<<f_count<<endl;
+                
+                if(test_it->first == 4)
+                    temp_pul = b_sim.inj_NAND(S_NODE, CHARGE, FALLING, 100);
+                else
+                    temp_pul = b_sim.inj_NAND(S_NODE, CHARGE, FALLING, 150);
+                
                 temp_pul.e_num = 0;
-                test_result = b_sim.inj_NAND(S_NODE, CHARGE, FALLING, st_time, end_time, 100);
                 temp_pul.volt_pulse = test_result;
-                temp_pul.st_time = st_time;
-                temp_pul.end_time = end_time;
                 temp_pul.s_node = test_it->first;
                 temp_pul.id = id;
                 id++;
                 
                 graph[test_it->first].p_list.push_back(temp_pul);
                 
+                cout<<"Node: "<<test_it->first<<" Size: "<<graph[test_it->first].p_list.size()<<endl;
+                        
                 s << "OutputRes" << f_count;
                 b_sim.export_vec(test_result, s.str());
                 f_count++;
@@ -119,11 +121,13 @@ int main(int argc, char** argv)
             }
             else if(graph[test_it->first].type != INPUT)
             {
-                cout<<"Node: "<<test_it->first<<" f_count: "<<f_count<<endl;
                 b_sim.prop_enhpulse(test_it->first);
-
+                
+                //cout<<"Node: "<<test_it->first<<" Size: "<<graph[test_it->first].p_list.size()<<endl;
+                
                 for(pit = graph[test_it->first].p_list.begin(); pit != graph[test_it->first].p_list.end(); ++pit)
                 {
+                    cout<<"Node: "<<test_it->first<<" f_count: "<<f_count<<endl;
                     s << "OutputRes" << f_count;
                     b_sim.export_vec(pit->volt_pulse, s.str());
                     f_count++;

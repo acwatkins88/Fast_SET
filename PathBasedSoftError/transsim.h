@@ -39,7 +39,7 @@ public:
     //gmap graph;
     //circuitstruct circuit;
     
-    vector<double> inj_NAND(int , double , int , double &, double &, int );
+    transient inj_NAND(int , double , int , int );
     void prop_enhpulse(int );
     
     void export_vec(vector<double> , string );

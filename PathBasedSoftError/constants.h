@@ -127,6 +127,8 @@
 #define CHARGE 15e-15
 #define ST_THRESH 0.25
 #define END_THRESH 0.25
+#define W_THRESH1 0.5
+#define W_THRESH2 0.5
 
 /*
  * Temp Test Values
@@ -162,7 +164,8 @@
  * 1 - Not Used
  * 2 - ITR_SIM
  */
-#define CUR_SIM 4
+#define CUR_SIM 0
+#define PRINT_OUT 0
 
 #endif /* CONSTANTS_H */
 
