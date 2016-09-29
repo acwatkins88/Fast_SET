@@ -209,16 +209,9 @@ transient gen_sim::inj_NAND(int n_num, double charge, int type, int delay)
             else if((temp_out[t-1] < W_THRESH2) && (cur_out > W_THRESH2))
                 w_val2 = t;
         }
-        temp_pul.width = ((w_val1 - w_val2)*STEP_GRAN)/st_ratio;
-        if(temp_pul.width == 0)
-        {
-            temp_out.clear();
-            temp_out.push_back(0);
-            temp_pul.volt_pulse = temp_out;
-            return temp_pul;
-        }
-        temp_out.push_back(cur_out);  
-        
+      
+        temp_pul.width = ((w_val1 - w_val2)*STEP_GRAN)/st_ratio; 
+        temp_out.push_back(cur_out);
         
         //cout<<"nvolt 1: "<<n_volt[0][t]<<" nvolt 2: "<<n_volt[1][t]<<" output: "<<cur_out<<endl;
         
@@ -227,76 +220,20 @@ transient gen_sim::inj_NAND(int n_num, double charge, int type, int delay)
         cmp.clear();
         cmn.clear();
     }
-    //return temp_out;
+
+
+    if (temp_pul.width == 0)
+    {
+        temp_out.clear();
+        temp_out.push_back(0);
+        temp_pul.volt_pulse = temp_out;
+        return temp_pul;
+    }
+    
     temp_pul.volt_pulse = temp_out;
     return temp_pul;
     
 }
-
-/*
- * Function to propagate enhanced pulse
- */
-/*void gen_sim::prop_enhpulse(int n_num)
-{
-    transient cur_pulse;
-    transient out_pulse;
-    
-    list<int>::iterator lit;
-    list<transient>::iterator eit;
-    list<transient> temp_l;
-    list<transient> inputs;
-    map<int, list<transient> >::iterator mit;
-    map<int, list<transient> > h_table;
-    
-    for(lit = graph[n_num].fanin.begin(); lit != graph[n_num].fanin.end(); ++lit)
-    {
-        for(eit = graph[*lit].p_list.begin(); eit != graph[*lit].p_list.end(); ++eit)
-        {
-            h_table[eit->e_num].push_back(*eit);    
-        }
-    }
-    
-    for(mit = h_table.begin(); mit != h_table.end(); ++mit)
-    {
-        temp_l = h_table[mit->first];
-        while(temp_l.size() > 1)
-        {
-            cur_pulse = temp_l.front();
-            inputs.push_back(cur_pulse);
-            
-            out_pulse = det_pulse(inputs, n_num);
-            
-            out_pulse.e_num = mit->first;
-            out_pulse.id = this->id_n;
-            out_pulse.s_node = n_num;
-            this->id_n++;
-            
-            graph[n_num].p_list.push_back(out_pulse);
-            
-            temp_l.pop_front();
-            
-            for(eit = temp_l.begin(); eit != temp_l.end(); ++eit)
-            {
-                if((is_overlap(cur_pulse, *eit)) && (cur_pulse.s_node != eit->s_node))
-                {
-                    inputs.push_back(*eit);
-                    
-                    out_pulse = det_pulse(inputs, n_num);
-
-                    out_pulse.e_num = mit->first;
-                    out_pulse.id = this->id_n;
-                    out_pulse.s_node = n_num;
-                    this->id_n++;
-                    
-                    graph[n_num].p_list.push_back(out_pulse);
-                    
-                    inputs.pop_back();
-                }
-            }
-            inputs.clear();
-        }
-    }
-}*/
 
 /*
  * Function to propagate enhanced pulse
@@ -331,6 +268,9 @@ void gen_sim::prop_enhpulse(int n_num)
     }
 }
 
+/*
+ * Routine to choose the pulse propagation algorithm based on the gate type
+ */
 transient gen_sim::det_pulse(list<transient> inputs, int n_num)
 {
     switch(graph[n_num].type)
@@ -680,6 +620,39 @@ void gen_sim::proc_pulse(int n_num)
 void gen_sim::set_propfunc(int n_num, int inp_node, transient p, transient temp)
 {
     cout<<"Invalid Prop Function\n";
+}
+
+/*
+ * Conversion check using the enhanced model
+ */
+void gen_sim::enhconv_check(int n_num)
+{
+    transient cur_trans;
+    list<int> fit;
+    list<transient> temp_l;
+    map<int,  list<transient> > h_table;
+    list<transient>::iterator pit;
+    map<int, list<transient> >::iterator hit;
+    
+    for(fit = graph[n_num].fanin.begin(); fit != graph[n_num].fanin.end(); ++fit)
+    {
+        for(pit = graph[*fit].p_list.begin(); pit != graph[*fit].p_list.end(); ++pit)
+        {
+            h_table[pit->e_num].push_back(*pit);
+        }
+    }
+    
+    for(hit = h_table.begin(); hit != h_table.end(); ++hit)
+    {
+        temp_l = *hit;
+        cur_trans = temp_l.front();
+        temp_l.pop_front();
+        
+        for(pit = temp_l.begin(); pit != temp_l.end(); ++pit)
+        {
+            
+        }
+    }
 }
 
 /*

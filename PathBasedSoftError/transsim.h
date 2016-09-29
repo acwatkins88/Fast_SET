@@ -162,6 +162,9 @@ protected:
     transient calc_NAND(list<transient> , int);
     bool is_overlap(transient , transient );
     
+    // Routines for enhanced conv check
+    void enhconv_check(int );
+    
     double sum_vector(vector<double> );
     double avg_vector(vector<double> );
     
