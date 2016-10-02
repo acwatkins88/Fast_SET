@@ -628,8 +628,10 @@ void gen_sim::set_propfunc(int n_num, int inp_node, transient p, transient temp)
 void gen_sim::enhconv_check(int n_num)
 {
     transient cur_trans;
-    list<int> fit;
+    transient n_pul;
+    list<int>::iterator fit;
     list<transient> temp_l;
+    list<transient> inputs;
     map<int,  list<transient> > h_table;
     list<transient>::iterator pit;
     map<int, list<transient> >::iterator hit;
@@ -644,16 +646,29 @@ void gen_sim::enhconv_check(int n_num)
     
     for(hit = h_table.begin(); hit != h_table.end(); ++hit)
     {
-        temp_l = *hit;
+        temp_l = h_table[hit->first];
         cur_trans = temp_l.front();
+        inputs.push_back(cur_trans);
         temp_l.pop_front();
         
         for(pit = temp_l.begin(); pit != temp_l.end(); ++pit)
         {
-            
+            if(is_overlap(cur_trans, *pit))
+            {
+                inputs.push_back(*pit);
+                n_pul = calc_NAND(inputs, n_num);
+                
+                eval_convfunc(n_num, cur_trans, *pit, n_pul);
+            }
         }
     }
 }
+
+void gen_sim::eval_convfunc(int n_num, transient t1, transient t2, transient& t3)
+{
+    cout<<"Error in Determining Conv Function\n";
+}
+
 
 /*
  * Process Reconvergencies
@@ -2014,5 +2029,47 @@ void gen_sim::print_pstruct()
             cout<<*cl_it<<" ";
         }
         cout<<endl;
+    }
+}
+
+/*
+ * Assign Levels to the Circuit
+ */
+void gen_sim::level_circuit(gmap& inp_graph)
+{
+    int max_level;
+    list<int>::iterator lit;
+    gmap::iterator git;
+    
+    for(git = inp_graph.begin(); git != inp_graph.end(); ++git)
+    {
+        if(inp_graph[git->first].type == INPUT)
+        {
+            inp_graph[git->first].level = 0;
+            //level_map[0].push_back(git->first);
+        }
+        else if(inp_graph[git->first].type == BUF || inp_graph[git->first].type == NOT)
+        {
+            for(lit = inp_graph[git->first].fanin.begin(); lit != inp_graph[git->first].fanin.end(); ++lit)
+            {
+                inp_graph[git->first].level = inp_graph[*lit].level;
+                //level_map[inp_graph[*lit].level].push_back(git->first);
+            }
+        }
+        else if(inp_graph[git->first].type != NA)
+        {
+            max_level = 0;
+            
+            for(lit = inp_graph[git->first].fanin.begin(); lit != inp_graph[git->first].fanin.end(); ++lit)
+            {
+                if(inp_graph[*lit].level > max_level)
+                    max_level = inp_graph[*lit].level;
+            }
+            max_level++;
+            inp_graph[git->first].level = max_level;
+            //level_map[max_level].push_back(git->first);
+        }
+        else
+            cout<<"Invalid Node Type\n";
     }
 }

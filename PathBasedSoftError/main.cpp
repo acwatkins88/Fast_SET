@@ -160,8 +160,8 @@ int main(int argc, char** argv)
                 //cout<<"Pulses: "<<endl;;
                 for(r_it = graph_m[g_it->first].r_map.begin(); r_it != graph_m[g_it->first].r_map.end(); ++r_it)
                 {
-                    //cout<<"Event: "<<r_it->first<<endl;
-                    //cout<<"Probability: "<<graph_m[g_it->first].r_map[r_it->first]<<endl;
+                    cout<<"Event: "<<r_it->first<<endl;
+                    cout<<"Probability: "<<graph_m[g_it->first].r_map[r_it->first]<<endl;
                     if(graph_m[g_it->first].r_map[r_it->first] > 1)
                     {
                         avg = avg + 1;
@@ -205,8 +205,8 @@ int main(int argc, char** argv)
                 }*/
                 for(r_it = graph[g_it->first].r_map.begin(); r_it != graph[g_it->first].r_map.end(); ++r_it)
                 {
-                    //cout<<"Event: "<<r_it->first<<endl;
-                    //cout<<"Probability: "<<graph_m[g_it->first].r_map[r_it->first]<<endl;
+                    cout<<"Event: "<<r_it->first<<endl;
+                    cout<<"Probability: "<<graph_m[g_it->first].r_map[r_it->first]<<endl;
                     if(graph_m[g_it->first].r_map[r_it->first] > 1)
                     {
                         avg = avg + 1;

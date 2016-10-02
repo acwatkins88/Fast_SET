@@ -1,0 +1,80 @@
+
+%---------------------------------------------------------------
+% \begin{thebibliography} does not automatically generate a
+% table of contents entry, so it needs to be manually added.
+%
+% The "{99}" indicates the maximum number of bibliography entries
+% and is used to reserve space when indenting the reference
+% number for each.  E.g., {9} reserves one number space for
+% reference numbers and should be used for less then 10 entries,
+% {99} reserves two number spaces, {999} reserves three.
+%
+% "\frenchspacing" can be used so that periods following
+% author initials are not given extra space (as an end of
+% sentence period would).
+%
+% Each reference is started with \bibitem{xxxxxx} where {xxxxxx}
+% is a unique label assigned to that reference.  You can then
+% refer to that reference in the text using the \cite command.
+% E.g. "... as seen in Rasulov \cite{RasulovB}..."
+% might be formatted as "... as seen in Rasulov [7]..."
+% Using reference labels and the \cite command eliminates the
+% need to manually keep track of reference numbers.
+% Note:  these labels are case sensitive ("rasulovb" will
+%        not match "RasulovB") and must be unique.
+%
+% Note the use of the "\bysame" definition used in the last
+% reference -- this should be used in place of the author's
+% name when a reference follows another by the same author.
+%---------------------------------------------------------------
+
+
+\begin{thebibliography}{99}
+\addcontentsline{toc}{chapter}{References}
+
+\frenchspacing
+
+
+\bibitem{Anton}
+Anton, H.,
+\emph{Elementary Linear Algebra},
+ John Wiley \& Sons, New York, 1977.
+
+\bibitem{Huang}
+Huang, X. and Krantz, S.G.,
+\emph{On a problem of Moser},
+Duke Math. J.
+{\bf 78} (1995), 213--228.
+
+\bibitem{Kellog}
+Kellog, O.D.,
+\emph{Harmonic functions and Green's integral},
+Trans. Amer. Math. Soc.
+{\bf 13} (1912), 109--132.
+
+\bibitem{Kruzhilin}
+Kruzhilin, N.G.,
+\emph{Local automorphisms and mappings of smooth strictly
+pseudoconvex hypersurfaces},
+(Russian),
+Dokl. Akad. Nauk SSSR
+{\bf 271} (1983), 280--282.
+
+\bibitem{Macdonald}
+Macdonald, I.G.,
+\emph{Symmetric Functions and Hall Polynomials},
+Second edition, Clarendon, Oxford, 1995.
+
+\bibitem{RasulovA}
+Rasulov, K.M.,
+Dokl. Akad. Nauk SSSR {\bf 252} (1980), 1059--1063; English transl. in Soviet Math. Dokl.
+{\bf 21} (1980).
+
+\bibitem{RasulovB}
+Rasulov, K.M.,
+%\bysame,
+Dokl. Akad. Nauk SSSR {\bf 270} (1983), 1061--1065; English transl. in Soviet Math. Dokl.
+{\bf 27} (1983).
+
+
+\end{thebibliography}

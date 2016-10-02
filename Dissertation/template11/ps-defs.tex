@@ -1,0 +1,106 @@
+%%      Definitions for PostScript Graphics 
+
+%% Definitions to put centered captions under
+%% centered graphics, 1/line, 2/line, and 3/line.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	EXAMPLES  showing how to use these
+%        definitions are found in
+%        Ch3.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+\input setps      
+\def\setps#1#2#3#4{\vskip#3\relax\noindent\hskip#1\relax
+ \special{eps:#4 x=#2, y=#3}}
+%\def\centerps#1#2#3{\vskip#2\relax\centerline{\hbox to#1{\special {ps:#3 x=#1, y=#2}\hfil}}}
+%
+\newif\iffigures
+\figurestrue
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%      Definition for one Graph on a line (3 variables)
+%         Variable #1: horizontal size of graphic
+%         Variable #2: vertical size of graphic
+%	    Variable #3: file name
+%
+\def\centerps#1#2#3{
+  \centerline{\hss
+  \hbox to #1{$\vcenter to #2{\vss
+    \iffigures \special{eps:#3 x=#1, y=#2} \fi
+    }$\hss}
+  \hss}
+  }
+%
+%     Caption definition to use for a centered graph
+%         Variable #1:  horizontal size of graph (as above)
+%	    Variable #2:  caption
+%
+\def\centercap#1#2{\vskip 6pt
+   \centerline{\hss \hbox to #1{\hss #2 \hss}\hss}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%      Two Graphs on a line  (6 variables)
+%         Variable #1: horizontal size of graphic 1
+%         Variable #2: vertical size of graphic 1
+%	    Variable #3: file name of graphic 1
+%         Variable #4: horizontal size of graphic 2
+%         Variable #5: vertical size of graphic 2
+%	    Variable #6: file name of graphic 2
+%
+\def\twops#1#2#3#4#5#6{
+ \centerline{\hss
+  \hbox to #1{$\vcenter to #2{\vss
+ \iffigures \special{eps:#3 x=#1, y=#2}\fi}$\hss}
+  \qquad
+  \hbox to #4{$\vcenter to #5{\vss
+ \iffigures \special{eps:#6 x=#4, y=#5}\fi}$\hss}
+   \hss}
+  }
+%
+%     Caption definition to use for 2 graphs on line
+%         Variable #1:  horizontal size of graph 1
+%	    Variable #2:  caption for graph 1
+%         Variable #3:  horizontal size of graph 2
+%	    Variable #4:  caption for graph 2
+%
+\def\twocap#1#2#3#4{\vskip 6pt
+   \centerline{\hss\hbox to #1{\hss #2 \hss} 
+            \qquad \hbox to #3{\hss #4 \hss}\hss}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%      Two Graphs on a line  (9 variables)
+%         Variable #1: horizontal size of graphic 1
+%         Variable #2: vertical size of graphic 1
+%	    Variable #3: file name of graphic 1
+%         Variable #4: horizontal size of graphic 2
+%         Variable #5: vertical size of graphic 2
+%	    Variable #6: file name of graphic 2
+%         Variable #7: horizontal size of graphic 3
+%         Variable #8: vertical size of graphic 3
+%	    Variable #9: file name of graphic 3
+%
+\def\threeps#1#2#3#4#5#6#7#8#9{
+ \centerline{\hss
+  \hbox to #1{$\vcenter to #2{\vss
+ \iffigures \special{eps:#3 x=#1, y=#2}\fi}$\hss}
+ \quad
+  \hbox to #4{$\vcenter to #5{\vss
+ \iffigures \special{eps:#6 x=#4, y=#5}\fi}$\hss}
+ \quad
+   \hbox to #7{$\vcenter to #8{\vss
+ \iffigures \special{eps:#9 x=#7, y=#8}\fi}$\hss}
+   \hss}
+  }
+%
+%     Caption definition to use for 3 graphs on line
+%         Variable #1:  horizontal size of graph 1
+%	    Variable #2:  caption for graph 1
+%         Variable #3:  horizontal size of graph 2
+%	    Variable #4:  caption for graph 2
+%         Variable #5:  horizontal size of graph 3
+%	    Variable #6:  caption for graph 3
+%
+\def\threecap#1#2#3#4#5#6{\vskip 6pt
+   \centerline{\hss\hbox to #1{\hss #2 \hss}
+             \quad \hbox to #3{\hss #4 \hss}
+             \quad \hbox to #5{\hss #6 \hss}\hss}}

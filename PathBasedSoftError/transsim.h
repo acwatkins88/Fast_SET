@@ -164,6 +164,7 @@ protected:
     
     // Routines for enhanced conv check
     void enhconv_check(int );
+    virtual void eval_convfunc(int , transient , transient , transient& );
     
     double sum_vector(vector<double> );
     double avg_vector(vector<double> );
@@ -171,6 +172,8 @@ protected:
     // Gate injection functions
     double ind_current(int , double , double );
     double ind_miller(int , double , double );
+    
+    void level_circuit(gmap& );
 };
 
 /*
@@ -207,6 +210,9 @@ private:
     bool m_findbdd(map<int, bdd> , int );
     
     bool sim_graph(gmap & );
+    
+    // Function to determine convergence bdd
+    void eval_convfunc(int , transient , transient , transient& );
     
     // Functions for adaptive partitoning
     int count_nodes(gmap , int );

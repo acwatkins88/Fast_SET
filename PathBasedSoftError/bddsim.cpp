@@ -34,11 +34,10 @@ void bdd_sim::sim()
 {
     alloc_count = 0;
     del_count = 0;
-    int inj_count = 0;
     bool is_overflowed;
     int max_partn;
     gmap::iterator git;
-    list<int>::iterator lit;
+    double val;
 
     this->sim_type = BDD_SIM;
     
@@ -50,11 +49,6 @@ void bdd_sim::sim()
         else
         {
             bdd_genp(git->first);
-            /*if(inj_count < NUM_INJ_PULSES)
-            {
-                bdd_genp(git->first);
-                inj_count++;
-            }*/
         }
     }
 
@@ -102,7 +96,7 @@ void bdd_sim::sim()
         
         for(git = graph.begin(); git != graph.end(); ++git)
             graph[git->first].static_part = 0;
-
+  
         max_partn = 0;
         graph_m = graph;
     
@@ -208,13 +202,14 @@ bool bdd_sim::sim_graph(gmap &graph)
             prop_enhpulse(git->first);
             
             // Check for Convergence 
-            /*if ((graph[git->first].type != NOT) || (graph[git->first].type != BUF))
+            if ((graph[git->first].type != NOT) || (graph[git->first].type != BUF))
             {
                 if(!graph[git->first].p_list.empty())
                 {
-                    conv_check(git->first);
+                    enhconv_check(git->first);
+                    //conv_check(git->first);
                 }
-            }*/
+            }
             
             //total_count = total_count + count_nodes(graph, git->first) - num_removed;
             //total_count = bdd_getnodenum();
@@ -332,23 +327,21 @@ bool bdd_sim::sim_graph(gmap &graph)
         }
         else if ((graph[git->first].type != INPUT)&&((graph[git->first].fanout_num != graph_m[git->first].fanout_num) || (graph[git->first].fanout_num == 0)))
         {
-            //if(CONE_SIM == 1)
-            //{
-                for (pit = graph[git->first].p_list.begin(); pit != graph[git->first].p_list.end(); ++pit)
+            for (pit = graph[git->first].p_list.begin(); pit != graph[git->first].p_list.end(); ++pit)
+            {
+                s_prob.solve_prob(pit->p_func);
+                pit->t_prob = s_prob.true_prob;
+                temp = *pit;
+                temp.p_func = bdd_true();
+                for (fit = graph_m[git->first].fanout.begin(); fit != graph_m[git->first].fanout.end(); ++fit)
                 {
-                    s_prob.solve_prob(pit->p_func);
-                    pit->t_prob = s_prob.true_prob;
-                    temp = *pit;
-                    temp.p_func = bdd_true();
-                    for (fit = graph_m[git->first].fanout.begin(); fit != graph_m[git->first].fanout.end(); ++fit)
-                    {
-                        tp_map[*fit].push_back(temp);
-                    }
+                    tp_map[*fit].push_back(temp);
                 }
-            //}
+            }
+
         }
     }
-    
+   
     return false;
 }
 
@@ -408,28 +401,38 @@ void bdd_sim::gen_sensf(int n_num)
 
 void bdd_sim::bdd_genp(int n_num)
 {
-    bdd const_f = bdd_false();
+    double val;
     transient temp_r;
     transient temp_f;
+    transient temp_i;
+    gmap::iterator git;
     
     temp_r = gen_pulse(RISING, n_num);
     temp_f = gen_pulse(FALLING, n_num);
     
-    if(temp_r.volt_pulse.size() > 1)
+    if((temp_r.volt_pulse.size() > 1))
         graph[n_num].p_list.push_back(temp_r);
     
-    if(temp_f.volt_pulse.size() > 1)
+    if((temp_f.volt_pulse.size() > 1))
         graph[n_num].p_list.push_back(temp_f);
     
-    /*temp_r.p_func = gen_bdd(n_num, temp_r);
-    temp_f.p_func = gen_bdd(n_num, temp_f);
-    
-    if(temp_r.p_func != const_f)
-       graph[n_num].p_list.push_back(temp_r);
-    
-    if(temp_f.p_func != const_f)
-        graph[n_num].p_list.push_back(temp_f);*/
-     
+    val = rand() % 10 + 1;
+    if(val >= floor(10*INJ_RATIO))
+    {
+        cout<<"Generating Extra Pulses: "<<val<<endl;
+        git = graph.find(n_num);
+        git++;
+        temp_i = gen_pulse(RISING, git->first);
+        temp_i.e_num = temp_r.e_num;
+        if(temp_i.volt_pulse.size() > 1)
+            graph[git->first].p_list.push_back(temp_i);
+        
+        temp_i = gen_pulse(FALLING, git->first);
+        temp_i.e_num = temp_f.e_num;
+        if(temp_i.volt_pulse.size() > 1)
+            graph[git->first].p_list.push_back(temp_i);
+      
+    }    
 }
 
 /*
@@ -628,6 +631,32 @@ void bdd_sim::conv_partition(gmap &g_main, int &max_part, int cur_partnum)
             g_main[git->first].part.remove(cur_partnum);
         }
     }
+}
+
+void bdd_sim::eval_convfunc(int n_num, transient t1, transient t2, transient& cur_p)
+{
+    bdd func = bdd_true();
+    list<int>::iterator fit;
+    
+    for(fit = graph[n_num].fanin.begin(); fit != graph[n_num].fanin.end(); ++fit)
+    {
+        if(*fit == t1.s_node)
+        {
+            func = func & t1.p_func;
+        }
+        else if(*fit == t2.s_node)
+        {
+            func = func & t2.p_func;
+        }
+        else
+        {
+            if((graph[n_num].type == AND) || (graph[n_num].type == NAND))
+                func = func & *graph[*fit].g_func;
+            else
+                func = func & bdd_not(*graph[*fit].g_func);
+        }
+    }
+    cur_p.p_func = func;
 }
 
 void bdd_sim::bdd_optimize()

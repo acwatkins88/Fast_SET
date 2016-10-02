@@ -1,0 +1,26 @@
+
+%---------------------------------------------------------------
+% The "*" following chapter or section commands omits chapter/
+% section numbers.  It also does not include the chapter/section
+% in the table of contents -- the \addcontentsline can be used
+% to manually force its entry.
+%---------------------------------------------------------------
+
+\chapter*{}
+%\addcontentsline{toc}{chapter}{Copyright}
+
+% This command creates the Copyright page without a page number
+\thispagestyle{empty}
+
+\vbox to 3.75in{}
+\begin{center}
+(Please replace Name and Year with your information and delete all instructions) \\
+Copyright by NAME, YEAR \\[-11pt]
+All Rights Reserved \\
+
+**(This page is optional)**
+\end{center}
+
+%\addtocounter{page}{-1}
+\newpage
+

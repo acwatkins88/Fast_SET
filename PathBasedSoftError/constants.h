@@ -130,6 +130,9 @@
 #define W_THRESH1 0.5
 #define W_THRESH2 0.5
 
+#define MULT_TRANS 1
+#define INJ_RATIO 0.5
+
 /*
  * Temp Test Values
  */
