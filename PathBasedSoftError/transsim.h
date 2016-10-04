@@ -40,6 +40,7 @@ public:
     //circuitstruct circuit;
     
     transient inj_NAND(int , double , int , int );
+    transient inj_NOR(int , double , int , int );
     void prop_enhpulse(int );
     
     void export_vec(vector<double> , string );

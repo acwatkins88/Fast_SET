@@ -155,7 +155,7 @@ bool bdd_sim::sim_graph(gmap &graph)
     int total_count = 0;
     int num_removed = 0;
     stringstream s;
-    int f_count = 0;; 
+    int f_count = 0;
     bdd_prob s_prob;
     gmap::iterator git;
     list<transient>::iterator p_it;
@@ -305,6 +305,7 @@ bool bdd_sim::sim_graph(gmap &graph)
                         cout<<"ID: "<<pit->id<<" Event: "<<pit->e_num<<" Prob: "<<s_prob.true_prob<<" True: "<<pit->t_prob<<endl;*/
                     graph_m[git->first].r_map[pit->e_num] = graph_m[git->first].r_map[pit->e_num]+(s_prob.true_prob * pit->t_prob);
                     //graph_m[git->first].r_map[pit->e_num] = graph_m[git->first].r_map[pit->e_num]+(s_prob.true_prob);
+                    //cout<<"Width: "<<pit->width<<endl;
                 }
                 else
                 {
@@ -314,10 +315,11 @@ bool bdd_sim::sim_graph(gmap &graph)
                         cout<<"ID: "<<pit->id<<" Event: "<<pit->e_num<<" Prob: "<<s_prob.true_prob<<" True: "<<pit->t_prob<<endl;*/
                     graph_m[git->first].r_map[pit->e_num] = (s_prob.true_prob * pit->t_prob);
                     //graph_m[git->first].r_map[pit->e_num] = (s_prob.true_prob);
+                    //cout<<"Width: "<<pit->width<<endl;
                 }
                 if(PRINT_OUT == 1)
                 {
-                    s << "OutputRes" << f_count;
+                    s <<"OutputRes"<<git->first<<"_"<<pit->e_num<<"_"<<pit->id;
                     export_vec(pit->volt_pulse, s.str());
                     f_count++;
                     s.str(string());
@@ -419,7 +421,7 @@ void bdd_sim::bdd_genp(int n_num)
     val = rand() % 10 + 1;
     if(val >= floor(10*INJ_RATIO))
     {
-        cout<<"Generating Extra Pulses: "<<val<<endl;
+        //cout<<"Generating Extra Pulses: "<<n_num<<" Event Rising: "<<temp_r.e_num<<" Event Falling: "<<temp_f.e_num<<endl;
         git = graph.find(n_num);
         git++;
         temp_i = gen_pulse(RISING, git->first);
@@ -669,8 +671,6 @@ void bdd_sim::bdd_optimize()
     
     for(git = graph.begin(); git != graph.end(); ++git)
     {
-        //if((graph[git->first].type != INPUT)&&(out_find(git->first) != true)&&(graph[git->first].fanout_num != 0)&&(graph[git->first].fanout_num == graph_m[git->first].fanout_num))
-        //if((out_find(git->first) != true)&&(graph[git->first].fanout_num != 0)&&(graph[git->first].fanout_num == graph_m[git->first].fanout_num))
         if((out_find(git->first) != true)&&(graph[git->first].fanout_num != 0))
         {
             if((graph[git->first].proc_flag == 1) && (graph[git->first].del_flag == 0))

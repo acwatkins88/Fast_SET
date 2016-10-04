@@ -100,9 +100,9 @@ int main(int argc, char** argv)
                 cout<<"Node: "<<test_it->first<<" f_count: "<<f_count<<endl;
                 
                 if(test_it->first == 4)
-                    temp_pul = b_sim.inj_NAND(S_NODE, CHARGE, FALLING, 100);
+                    temp_pul = b_sim.inj_NOR(S_NODE, CHARGE, FALLING, 100);
                 else
-                    temp_pul = b_sim.inj_NAND(S_NODE, CHARGE, FALLING, 150);
+                    temp_pul = b_sim.inj_NOR(S_NODE, CHARGE, FALLING, 150);
                 
                 temp_pul.e_num = 0;
                 temp_pul.volt_pulse = test_result;

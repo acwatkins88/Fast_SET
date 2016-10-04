@@ -7,6 +7,6 @@ INPUT(4)
 
 OUTPUT(6)
 
-4 = NAND(1, 2)
-5 = NAND(3, 4)
-6 = NAND(4, 5)
+4 = NOR(1, 2)
+5 = NOR(3, 4)
+6 = NOR(4, 5)
