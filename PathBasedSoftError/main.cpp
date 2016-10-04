@@ -88,7 +88,6 @@ int main(int argc, char** argv)
         gmap::iterator test_it;
         transient temp_pul;
         list<transient>::iterator pit;
-        vector<double> test_result;
         
         for(test_it = graph.begin(); test_it != graph.end(); ++test_it)
             cout<<"Node: "<<test_it->first<<" Type: "<<graph[test_it->first].type<<endl;
@@ -105,7 +104,7 @@ int main(int argc, char** argv)
                     temp_pul = b_sim.inj_NOR(S_NODE, CHARGE, FALLING, 150);
                 
                 temp_pul.e_num = 0;
-                temp_pul.volt_pulse = test_result;
+                //emp_pul.volt_pulse = test_result;
                 temp_pul.s_node = test_it->first;
                 temp_pul.id = id;
                 id++;
@@ -115,7 +114,7 @@ int main(int argc, char** argv)
                 cout<<"Node: "<<test_it->first<<" Size: "<<graph[test_it->first].p_list.size()<<endl;
                         
                 s << "OutputRes" << f_count;
-                b_sim.export_vec(test_result, s.str());
+                b_sim.export_vec(temp_pul.volt_pulse, s.str());
                 f_count++;
                 s.str(string());
             }
@@ -123,7 +122,7 @@ int main(int argc, char** argv)
             {
                 b_sim.prop_enhpulse(test_it->first);
                 
-                //cout<<"Node: "<<test_it->first<<" Size: "<<graph[test_it->first].p_list.size()<<endl;
+                cout<<"Node: "<<test_it->first<<" Size: "<<graph[test_it->first].p_list.size()<<endl;
                 
                 for(pit = graph[test_it->first].p_list.begin(); pit != graph[test_it->first].p_list.end(); ++pit)
                 {

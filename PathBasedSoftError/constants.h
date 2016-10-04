@@ -52,6 +52,7 @@
 //#define C_LOAD 0.15e-15
 #define C_LOAD 0
 #define ST_NODE_CAP 0.25e-15
+#define ST_NODE_CAP_P 0.15e-15
 
 #define PI 3.14159265359
 
@@ -166,8 +167,10 @@
  * 0 - BDD_SIM
  * 1 - Not Used
  * 2 - ITR_SIM
+ * 3 - CCM_SIM
+ * 4 - INJ_SIM 
  */
-#define CUR_SIM 0
+#define CUR_SIM 4
 #define PRINT_OUT 0
 
 #endif /* CONSTANTS_H */

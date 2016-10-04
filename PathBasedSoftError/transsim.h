@@ -161,6 +161,7 @@ protected:
     //void prop_enhpulse(int );
     transient det_pulse(list<transient> , int );
     transient calc_NAND(list<transient> , int);
+    transient calc_NOR (list<transient> , int );
     bool is_overlap(transient , transient );
     
     // Routines for enhanced conv check
