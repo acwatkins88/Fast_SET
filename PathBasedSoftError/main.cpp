@@ -58,6 +58,7 @@ int main(int argc, char** argv)
     bdd_sim b_sim(BDD_SIM);
     itr_sim i_sim(ITR_SIM);
     ccm_sim c_sim(CCM_SIM);
+    bdd_sim t_sim(INJ_SIM);
     
     bdd_prob e_bdd;
     
@@ -99,9 +100,9 @@ int main(int argc, char** argv)
                 cout<<"Node: "<<test_it->first<<" f_count: "<<f_count<<endl;
                 
                 if(test_it->first == 4)
-                    temp_pul = b_sim.inj_NOR(S_NODE, CHARGE, FALLING, 100);
+                    temp_pul = t_sim.inj_NOT(S_NODE, CHARGE, RISING, 100);
                 else
-                    temp_pul = b_sim.inj_NOR(S_NODE, CHARGE, FALLING, 150);
+                    temp_pul = t_sim.inj_NOT(S_NODE, CHARGE, RISING, 150);
                 
                 temp_pul.e_num = 0;
                 //emp_pul.volt_pulse = test_result;
@@ -114,21 +115,21 @@ int main(int argc, char** argv)
                 cout<<"Node: "<<test_it->first<<" Size: "<<graph[test_it->first].p_list.size()<<endl;
                         
                 s << "OutputRes" << f_count;
-                b_sim.export_vec(temp_pul.volt_pulse, s.str());
+                t_sim.export_vec(temp_pul.volt_pulse, s.str());
                 f_count++;
                 s.str(string());
             }
             else if(graph[test_it->first].type != INPUT)
             {
-                b_sim.prop_enhpulse(test_it->first);
+                t_sim.prop_enhpulse(test_it->first);
                 
-                cout<<"Node: "<<test_it->first<<" Size: "<<graph[test_it->first].p_list.size()<<endl;
+                //cout<<"Node: "<<test_it->first<<" Size: "<<graph[test_it->first].p_list.size()<<endl;
                 
                 for(pit = graph[test_it->first].p_list.begin(); pit != graph[test_it->first].p_list.end(); ++pit)
                 {
                     cout<<"Node: "<<test_it->first<<" f_count: "<<f_count<<endl;
                     s << "OutputRes" << f_count;
-                    b_sim.export_vec(pit->volt_pulse, s.str());
+                    t_sim.export_vec(pit->volt_pulse, s.str());
                     f_count++;
                     s.str(string());
                 }

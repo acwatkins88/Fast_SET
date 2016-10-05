@@ -41,6 +41,7 @@ public:
     
     transient inj_NAND(int , double , int , int );
     transient inj_NOR(int , double , int , int );
+    transient inj_NOT(int , double , int , int );
     void prop_enhpulse(int );
     
     void export_vec(vector<double> , string );
@@ -162,6 +163,8 @@ protected:
     transient det_pulse(list<transient> , int );
     transient calc_NAND(list<transient> , int);
     transient calc_NOR (list<transient> , int );
+    transient calc_NOT(list<transient> , int );
+    
     bool is_overlap(transient , transient );
     
     // Routines for enhanced conv check

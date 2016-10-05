@@ -645,10 +645,12 @@ void bdd_sim::eval_convfunc(int n_num, transient t1, transient t2, transient& cu
         if(*fit == t1.s_node)
         {
             func = func & t1.p_func;
+            cur_p.t_prob = cur_p.t_prob * t1.t_prob;
         }
         else if(*fit == t2.s_node)
         {
             func = func & t2.p_func;
+            cur_p.t_prob = cur_p.t_prob * t2.t_prob;
         }
         else
         {
@@ -667,7 +669,6 @@ void bdd_sim::bdd_optimize()
     
     gmap::iterator git;
     list<int>::iterator fo_it;
-    list<transient>::iterator lit;
     
     for(git = graph.begin(); git != graph.end(); ++git)
     {
