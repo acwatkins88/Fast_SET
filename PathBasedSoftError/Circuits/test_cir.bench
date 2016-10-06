@@ -7,7 +7,7 @@ INPUT(4)
 
 OUTPUT(6)
 
-4 = NOT(1, 2)
-5 = NOT(3, 4)
-6 = NAND(4, 5)
+4 = AND(1, 2)
+5 = AND(3, 4)
+6 = AND(4, 5)
 7 = NOT(6)

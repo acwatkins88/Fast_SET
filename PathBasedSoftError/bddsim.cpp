@@ -194,19 +194,21 @@ bool bdd_sim::sim_graph(gmap &graph)
                     graph[git->first].p_list.push_back(*tpit);
                 }
             }
-                     
+       
             bdd_genfunc(git->first, graph[git->first].p_list);
-
+  
             // Propagate Existing Pulses
             //proc_pulse(git->first);
+            cout<<"Before Propagation\n";
             prop_enhpulse(git->first);
+            cout<<"After Propagation\n";
             
             // Check for Convergence 
             if ((graph[git->first].type != NOT) || (graph[git->first].type != BUF))
             {
                 if(!graph[git->first].p_list.empty())
                 {
-                    enhconv_check(git->first);
+                    //enhconv_check(git->first);
                     //conv_check(git->first);
                 }
             }
@@ -282,6 +284,7 @@ bool bdd_sim::sim_graph(gmap &graph)
     list<transient>::iterator pit;
     list<int>::iterator fit;
     transient temp;
+    double latch_prob;
     for(git = graph.begin(); git != graph.end(); ++git)
     {
         if((graph[git->first].type == INPUT))
@@ -301,9 +304,9 @@ bool bdd_sim::sim_graph(gmap &graph)
                 {
                     //cout<<"ID: "<<pit->id<<" Event: "<<pit->e_num<<" Number of BDD Nodes: "<<bdd_nodecount(pit->p_func)<<endl;
                     s_prob.solve_prob(pit->p_func);
-                    /*if(git->first == 880)
-                        cout<<"ID: "<<pit->id<<" Event: "<<pit->e_num<<" Prob: "<<s_prob.true_prob<<" True: "<<pit->t_prob<<endl;*/
-                    graph_m[git->first].r_map[pit->e_num] = graph_m[git->first].r_map[pit->e_num]+(s_prob.true_prob * pit->t_prob);
+                    cout<<"Width: "<<pit->width<<endl;
+                    latch_prob = (pit->width - (SETUP_T + HOLD_T))/CLK;
+                    graph_m[git->first].r_map[pit->e_num] = graph_m[git->first].r_map[pit->e_num]+(s_prob.true_prob * pit->t_prob * latch_prob);
                     //graph_m[git->first].r_map[pit->e_num] = graph_m[git->first].r_map[pit->e_num]+(s_prob.true_prob);
                     //cout<<"Width: "<<pit->width<<endl;
                 }
@@ -311,9 +314,9 @@ bool bdd_sim::sim_graph(gmap &graph)
                 {
                     //cout<<"ID: "<<pit->id<<" Event: "<<pit->e_num<<" Number of BDD Nodes: "<<bdd_nodecount(pit->p_func)<<endl;
                     s_prob.solve_prob(pit->p_func);
-                    /*if(git->first == 880)
-                        cout<<"ID: "<<pit->id<<" Event: "<<pit->e_num<<" Prob: "<<s_prob.true_prob<<" True: "<<pit->t_prob<<endl;*/
-                    graph_m[git->first].r_map[pit->e_num] = (s_prob.true_prob * pit->t_prob);
+                    cout<<"Width: "<<pit->width<<endl;
+                    latch_prob = (pit->width - (SETUP_T + HOLD_T))/CLK;
+                    graph_m[git->first].r_map[pit->e_num] = (s_prob.true_prob * pit->t_prob * latch_prob);
                     //graph_m[git->first].r_map[pit->e_num] = (s_prob.true_prob);
                     //cout<<"Width: "<<pit->width<<endl;
                 }
@@ -409,30 +412,34 @@ void bdd_sim::bdd_genp(int n_num)
     transient temp_i;
     gmap::iterator git;
     
-    temp_r = gen_pulse(RISING, n_num);
-    temp_f = gen_pulse(FALLING, n_num);
+    temp_r = gen_pulse(RISING, n_num, INJ_DELAY);
+    temp_f = gen_pulse(FALLING, n_num, INJ_DELAY);
     
-    if((temp_r.volt_pulse.size() > 1))
+    if((temp_r.width > W_MIN))
         graph[n_num].p_list.push_back(temp_r);
     
-    if((temp_f.volt_pulse.size() > 1))
+    if((temp_f.width > W_MIN));
         graph[n_num].p_list.push_back(temp_f);
     
     val = rand() % 10 + 1;
-    if(val >= floor(10*INJ_RATIO))
+    if((val >= floor(10*INJ_RATIO))&&(MULT_TRANS == 1))
     {
         //cout<<"Generating Extra Pulses: "<<n_num<<" Event Rising: "<<temp_r.e_num<<" Event Falling: "<<temp_f.e_num<<endl;
         git = graph.find(n_num);
         git++;
-        temp_i = gen_pulse(RISING, git->first);
-        temp_i.e_num = temp_r.e_num;
-        if(temp_i.volt_pulse.size() > 1)
+        temp_i = gen_pulse(RISING, git->first, INJ_DELAY);
+        if(temp_i.width > W_MIN)
+        {
+            temp_i.e_num = temp_r.e_num;
             graph[git->first].p_list.push_back(temp_i);
+        }
         
-        temp_i = gen_pulse(FALLING, git->first);
-        temp_i.e_num = temp_f.e_num;
-        if(temp_i.volt_pulse.size() > 1)
+        temp_i = gen_pulse(FALLING, git->first, INJ_DELAY);
+        if(temp_i.width > W_MIN)
+        {
+            temp_i.e_num = temp_f.e_num;
             graph[git->first].p_list.push_back(temp_i);
+        }
       
     }    
 }

@@ -39,9 +39,7 @@ public:
     //gmap graph;
     //circuitstruct circuit;
     
-    transient inj_NAND(int , double , int , int );
-    transient inj_NOR(int , double , int , int );
-    transient inj_NOT(int , double , int , int );
+    transient gen_pulse(int , int , int );
     void prop_enhpulse(int );
     
     void export_vec(vector<double> , string );
@@ -77,7 +75,7 @@ protected:
     // General Simulation Functions
     //enh_trans gen_pulse(int, double);
     
-    transient gen_pulse(int, int );
+    //transient gen_pulse(int, int , int );
     
     void proc_pulse(int);
     double calc_delay();
@@ -160,10 +158,23 @@ protected:
     // Attempt to Generalize the Algorithm
     //vector<double> inj_NAND(int , double , int , double &, double &, int );
     //void prop_enhpulse(int );
+    
+    /// Injection Functions
+    transient inj_NAND(int , double , int , int );
+    transient inj_NOR(int , double , int , int );
+    transient inj_NOT(int , double , int , int );
+    transient inj_AND(int , double , int , int );
+    transient inj_OR(int , double , int , int );
+    transient inj_BUF(int , double , int , int );
+    
+    // Calculation Functions
     transient det_pulse(list<transient> , int );
     transient calc_NAND(list<transient> , int);
+    transient calc_AND(list<transient> , int);
     transient calc_NOR (list<transient> , int );
+    transient calc_OR (list<transient> , int );
     transient calc_NOT(list<transient> , int );
+    transient calc_BUF(list<transient> , int );
     
     bool is_overlap(transient , transient );
     
