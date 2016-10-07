@@ -15,7 +15,7 @@ gen_sim::gen_sim(int t)
  * n_num - node to inject
  * Simple injection of 5 units
  */
-transient gen_sim::gen_pulse(int type, int n_num)
+transient gen_sim::gen_pulse(int type, int n_num, int delay)
 {
     transient temp_pul;
     //vector<double> test_result;
@@ -27,31 +27,34 @@ transient gen_sim::gen_pulse(int type, int n_num)
     {
         case AND:
             // Generate Pulse For AND Gate
-            cout<<"AND Not Implemented\n";
+            temp_pul = inj_AND(n_num, CHARGE, type, delay);
             break;
         case NAND:
             // Generate Pulse for NAND Gate
-            temp_pul = inj_NAND(n_num, CHARGE, type, 0);
+            temp_pul = inj_NAND(n_num, CHARGE, type, delay);
             break;
         case OR:
             // Generate Pulse for OR Gate
-            cout<<"OR Not Implemented\n";
+            temp_pul = inj_OR(n_num, CHARGE, type, delay);
             break;
         case NOR:
             // Generate Pulse for NOR Gate
-            cout<<"NOR Not Implemented\n";
+            temp_pul = inj_NOR(n_num, CHARGE, type, delay);
             break;
         case BUF:
             // Generate Pulse for Buffer
-            cout<<"BUF Not Implemented\n";
+            temp_pul = inj_BUF(n_num, CHARGE, type, delay);
             break;
         case NOT:
             // Generate Pulse for Inverter
-            cout<<"NOT Not Implemented\n";
+            temp_pul = inj_NOT(n_num, CHARGE, type, delay);
             break;
         default:
             cout<<"Error Determining Gate: "<<n_num<<" of Type: "<<graph[n_num].type<<endl;
     }
+    
+    if(temp_pul.width <= W_MIN)
+        return temp_pul;
     
     temp_pul.e_num = this->event_n;
     this->event_n++;
@@ -59,10 +62,6 @@ transient gen_sim::gen_pulse(int type, int n_num)
     temp_pul.id  = this->id_n;
     this->id_n++;
     
-    temp_pul.width = width;
-    //temp_pul.volt_pulse = test_result;
-    temp_pul.st_time = st_time;
-    temp_pul.end_time = end_time;
     temp_pul.s_node = n_num;
     temp_pul.id = this->id_n;
     this->id_n++;
@@ -184,7 +183,7 @@ transient gen_sim::inj_NAND(int n_num, double charge, int type, int delay)
         inj_cur_arr.push_back(inj_cur);
         
         // Export resulting pulse to output file
-        export_vec(inj_cur_arr, "CurOut");
+        //export_vec(inj_cur_arr, "CurOut");
         
         if(type == RISING)
         {
@@ -223,18 +222,25 @@ transient gen_sim::inj_NAND(int n_num, double charge, int type, int delay)
         cmp.clear();
         cmn.clear();
     }
-
-
-    if (temp_pul.width == 0)
-    {
-        temp_out.clear();
-        temp_out.push_back(0);
-        temp_pul.volt_pulse = temp_out;
-        return temp_pul;
-    }
     
     temp_pul.volt_pulse = temp_out;
     return temp_pul;  
+}
+
+transient gen_sim::inj_AND(int n_num, double charge, int type, int delay)
+{
+    transient temp;
+    list<transient> inp;
+    
+    temp = inj_NAND(n_num, charge, type, delay);
+    
+    if(temp.width > W_MIN)
+    {
+        inp.push_back(temp);
+        return calc_NOT(inp, n_num);
+    }
+    else
+        return temp;
 }
 
 /*
@@ -355,7 +361,7 @@ transient gen_sim::inj_NOR(int n_num, double charge, int type, int delay)
         inj_cur_arr.push_back(inj_cur);
         
         // Export resulting pulse to output file
-        export_vec(inj_cur_arr, "CurOut");
+        //export_vec(inj_cur_arr, "CurOut");
         
         if(type == RISING)
         {
@@ -397,19 +403,26 @@ transient gen_sim::inj_NOR(int n_num, double charge, int type, int delay)
         cmp.clear();
         cmn.clear();
     }
-
-
-    if (temp_pul.width == 0)
-    {
-        temp_out.clear();
-        temp_out.push_back(0);
-        temp_pul.volt_pulse = temp_out;
-        return temp_pul;
-    }
     
     temp_pul.volt_pulse = temp_out;
 
     return temp_pul;   
+}
+
+transient gen_sim::inj_OR(int n_num, double charge, int type, int delay)
+{
+    transient temp;
+    list<transient> inp;
+    
+    temp = inj_NOR(n_num, charge, type, delay);
+    
+    if(temp.width > W_MIN)
+    {
+        inp.push_back(temp);
+        return calc_NOT(inp, n_num);
+    }
+    else
+        return temp;
 }
 
 /*
@@ -493,7 +506,7 @@ transient gen_sim::inj_NOT(int n_num, double charge, int type, int delay)
         inj_cur_arr.push_back(inj_cur);
         
         // Export resulting pulse to output file
-        export_vec(inj_cur_arr, "CurOut");
+        //export_vec(inj_cur_arr, "CurOut");
         
         if(type == RISING)
         {
@@ -530,18 +543,28 @@ transient gen_sim::inj_NOT(int n_num, double charge, int type, int delay)
         //cout<<"Output: "<<cur_out<<endl;
     }
 
-
-    if (temp_pul.width == 0)
-    {
-        temp_out.clear();
-        temp_out.push_back(0);
-        temp_pul.volt_pulse = temp_out;
-        return temp_pul;
-    }
-    
     temp_pul.volt_pulse = temp_out;
     
     return temp_pul;   
+}
+
+/*
+ * Function to inject a pulse into a buffer
+ */
+transient gen_sim::inj_BUF(int n_num, double charge, int type, int delay)
+{
+    transient temp;
+    list<transient> inp;
+    
+    temp = inj_NOT(n_num, charge, type, delay);
+    
+    if(temp.width > W_MIN)
+    {
+        inp.push_back(temp);
+        return calc_NOT(inp, n_num);
+    }
+    else
+        return temp;
 }
 
 /*
@@ -559,23 +582,22 @@ void gen_sim::prop_enhpulse(int n_num)
     {
         for(eit = graph[*lit].p_list.begin(); eit != graph[*lit].p_list.end(); ++eit)
         {
+            cout<<"Beginning\n";
             inputs.push_back(*eit);
 
             out_pulse = det_pulse(inputs, n_num);
-            
             out_pulse.e_num = eit->e_num;
             out_pulse.id = this->id_n;
             out_pulse.s_node = n_num;
             this->id_n++;
             
-            //cout<<"Sim Type: "<<this->sim_type<<endl;
-            if(this->sim_type == BDD_SIM)
-                set_propfunc(n_num, *lit, *eit, out_pulse);
-            
-            //cout<<"Volt Size: "<<out_pulse.volt_pulse.size()<<endl;
-            if(out_pulse.volt_pulse.size() > 1)
-                graph[n_num].p_list.push_back(out_pulse);  
-            
+            if(out_pulse.width > W_MIN)
+            {    
+                if(this->sim_type == BDD_SIM)
+                    set_propfunc(n_num, *lit, *eit, out_pulse);
+                
+                graph[n_num].p_list.push_back(out_pulse); 
+            }
             inputs.clear();
         }
     }
@@ -593,18 +615,16 @@ transient gen_sim::det_pulse(list<transient> inputs, int n_num)
         case NAND:
             return calc_NAND(inputs, n_num);
         case AND:
-            temp.push_back(calc_NAND(inputs, n_num));
-            return calc_NOT(temp, n_num);
+            cout<<"AND\n";
+            return calc_AND(inputs, n_num);
         case NOR:
             return calc_NOR(inputs, n_num);
         case OR:
-            temp.push_back(calc_NOR(inputs, n_num));
-            return calc_NOT(temp, n_num);
+            return calc_OR(inputs, n_num);
         case NOT:
             return calc_NOT(inputs, n_num);
         case BUF:
-            temp.push_back(calc_NOT(inputs, n_num));
-            return calc_NOT(temp, n_num);
+            return calc_BUF(inputs, n_num);
         default:
             cout<<"Gate Type "<<graph[n_num].type<<" Not Implemented\n";
     }
@@ -693,7 +713,7 @@ transient gen_sim::calc_NAND(list<transient> inputs, int n_num)
     
     for(int t = 1; t <= NUM_STEPS; t++)
     {
-        //cout<<"Iteration: "<<t<<endl;
+        cout<<"Iteration: "<<t<<endl;
         for(i = 0; i < itr_num; i++)
         {
             if(ord_list[i].size() != 1)
@@ -784,16 +804,26 @@ transient gen_sim::calc_NAND(list<transient> inputs, int n_num)
         cmn.clear();
     }
     
-    if (pulse.width == 0)
-    {
-        temp_out.clear();
-        temp_out.push_back(0);
-        pulse.volt_pulse = temp_out;
-    }
-    else
-        pulse.volt_pulse = temp_out;
+    pulse.volt_pulse = temp_out;
     
     return pulse;
+}
+
+transient gen_sim::calc_AND(list<transient> inputs, int n_num)
+{
+    transient temp;
+    list<transient> inp; 
+    
+    temp = calc_NAND(inputs, n_num);
+    cout<<"AND Width: "<<temp.width<<endl;
+    
+    if(temp.width > W_MIN)
+    {
+        inp.push_back(temp);
+        return calc_NOT(inp, n_num);
+    }
+    else
+        return temp;
 }
 
 /*
@@ -977,24 +1007,31 @@ transient gen_sim::calc_NOR(list<transient> inputs, int n_num)
         cmn.clear();
     }
     
-    if (pulse.width == 0)
-    {
-        temp_out.clear();
-        temp_out.push_back(0);
-        pulse.volt_pulse = temp_out;
-    }
-    else
-        pulse.volt_pulse = temp_out;
+    pulse.volt_pulse = temp_out;
     
     return pulse;
 }
 
+transient gen_sim::calc_OR(list<transient> inputs, int n_num)
+{
+    transient temp;
+    list<transient> inp; 
+    
+    temp = calc_NOR(inputs, n_num);
+    
+    if(temp.width > W_MIN)
+    {
+        inp.push_back(temp);
+        return calc_NOT(inp, n_num);
+    }
+    else
+        return temp;
+}
+
 transient gen_sim::calc_NOT(list<transient> inputs, int n_num)
 {
-    cout<<"Starting Not\n";
     int type;
     
-    double temp_vg, temp_vd;
     double vd_init, vg_cur;
     double cur_out;
     double eff_load;
@@ -1023,8 +1060,13 @@ transient gen_sim::calc_NOT(list<transient> inputs, int n_num)
     
     temp_out.push_back(vd_init);
     
+    st_ratio = SIM_TIME/STEP_GRAN;
+    st_ratio = st_ratio/NUM_STEPS;
+
     for(int t = 1; t <= NUM_STEPS; t++)
     {
+        //if(n_num == 6)
+            //cout<<"Iteration: "<<t<<endl;
         vg_cur = temp_p.volt_pulse[t];
         del_inp = temp_p.volt_pulse[t] - temp_p.volt_pulse[t-1];
   
@@ -1038,12 +1080,15 @@ transient gen_sim::calc_NOT(list<transient> inputs, int n_num)
              
         //cout<<"Miller Factor: "<<miller_factor<<" Cap: "<<cmn[i]<<" Delta; "<<del_inp[i]<<endl;
         
-        //cout<<"Ip0: "<<ip[0]<<" Ip1: "<<ip[1]<<" In0: "<<in[0]<<" In1: "<<in[1]<<endl;
+        //if(n_num == 6)
+            //cout<<"Ip: "<<ip<<" In: "<<in<<endl;
         
         if(type == RISING)
         {
             eff_load = graph[n_num].fanout_num*ST_NODE_CAP;
             cur_out = (((ip + in)*STEP_GRAN + miller_factor)/(eff_load + cmn + cmp)) + temp_out[t-1];
+            //f(n_num == 6)
+                //cout<<"Out: "<<cur_out<<" Vg: "<<vg_cur<<" Ip: "<<ip<<" In: "<<in<<endl;
             if((temp_out[t-1] < ST_THRESH) && (cur_out > ST_THRESH))
                 pulse.st_time = t;
             else if((temp_out[t-1] > END_THRESH) && (cur_out < END_THRESH))
@@ -1059,6 +1104,8 @@ transient gen_sim::calc_NOT(list<transient> inputs, int n_num)
         {
             eff_load = graph[n_num].fanout_num*ST_NODE_CAP;
             cur_out = (((ip + in)*STEP_GRAN + miller_factor)/(eff_load + cmn + cmp)) + temp_out[t-1];
+            //if(n_num == 6)
+                //cout<<"Out: "<<cur_out<<" Vg: "<<vg_cur<<" Ip: "<<ip<<" In: "<<in<<endl;
             if((temp_out[t-1] > ST_THRESH) && (cur_out < ST_THRESH))
                 pulse.st_time = t;
             else if((temp_out[t-1] < END_THRESH) && (cur_out > END_THRESH))
@@ -1074,16 +1121,25 @@ transient gen_sim::calc_NOT(list<transient> inputs, int n_num)
         temp_out.push_back(cur_out);  
     }
     
-    if (pulse.width == 0)
-    {
-        temp_out.clear();
-        temp_out.push_back(0);
-        pulse.volt_pulse = temp_out;
-    }
-    else
-        pulse.volt_pulse = temp_out;
+    pulse.volt_pulse = temp_out;
     
     return pulse; 
+}
+
+transient gen_sim::calc_BUF(list<transient> inputs, int n_num)
+{
+    transient temp;
+    list<transient> inp; 
+    
+    temp = calc_NOT(inputs, n_num);
+    
+    if(temp.width > W_MIN)
+    {
+        inp.push_back(temp);
+        return calc_NOT(inp, n_num);
+    }
+    else
+        return temp;
 }
 
 /*
@@ -1290,7 +1346,6 @@ void gen_sim::set_propfunc(int n_num, int inp_node, transient p, transient temp)
  */
 void gen_sim::enhconv_check(int n_num)
 {
-    stringstream s;
     transient cur_trans;
     transient n_pul;
     list<int>::iterator fit;
@@ -1310,7 +1365,6 @@ void gen_sim::enhconv_check(int n_num)
     
     for(hit = h_table.begin(); hit != h_table.end(); ++hit)
     {
-        cout<<"Event: "<<hit->first<<endl;
         temp_l = h_table[hit->first];
         cur_trans = temp_l.front();
         inputs.push_back(cur_trans);

@@ -130,9 +130,18 @@
 #define END_THRESH 0.25
 #define W_THRESH1 0.5
 #define W_THRESH2 0.5
+#define INJ_DELAY 20
 
-#define MULT_TRANS 1
+#define MULT_TRANS 0
 #define INJ_RATIO 0.5
+#define W_MIN 1e-12     // Paramter for the minimum width
+
+/*
+ * Flip Flop Values
+ */
+#define SETUP_T 22.5e-12
+#define HOLD_T 7.25e-12
+#define CLK 1.5e9;
 
 /*
  * Temp Test Values
@@ -170,7 +179,7 @@
  * 3 - CCM_SIM
  * 4 - INJ_SIM 
  */
-#define CUR_SIM 4
+#define CUR_SIM 0
 #define PRINT_OUT 0
 
 #endif /* CONSTANTS_H */

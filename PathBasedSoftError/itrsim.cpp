@@ -158,17 +158,17 @@ void itr_sim::gen_p(int n_num)
 {   
     if(graph[n_num].val == 0)
     {
-        graph[n_num].p_list.push_back(gen_pulse(RISING, n_num));
+        graph[n_num].p_list.push_back(gen_pulse(RISING, n_num, INJ_DELAY));
         
         // Increase event number since a falling pulse is not generated
         this->event_n++;
     }
     else if(graph[n_num].val == 1)
-    {
+    {   
+        graph[n_num].p_list.push_back(gen_pulse(FALLING, n_num, INJ_DELAY));
+        
         // Increase event number since a rising pulse is not generated
         this->event_n++;
-        
-        graph[n_num].p_list.push_back(gen_pulse(FALLING, n_num));
     }
 }
 

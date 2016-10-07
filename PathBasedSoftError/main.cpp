@@ -100,15 +100,15 @@ int main(int argc, char** argv)
                 cout<<"Node: "<<test_it->first<<" f_count: "<<f_count<<endl;
                 
                 if(test_it->first == 4)
-                    temp_pul = t_sim.inj_NOT(S_NODE, CHARGE, RISING, 100);
+                    temp_pul = t_sim.gen_pulse(RISING, test_it->first, 100);
                 else
-                    temp_pul = t_sim.inj_NOT(S_NODE, CHARGE, RISING, 150);
+                    temp_pul = t_sim.gen_pulse(RISING, test_it->first, 150);
                 
                 temp_pul.e_num = 0;
-                //emp_pul.volt_pulse = test_result;
+                /*//emp_pul.volt_pulse = test_result;
                 temp_pul.s_node = test_it->first;
                 temp_pul.id = id;
-                id++;
+                id++;*/
                 
                 graph[test_it->first].p_list.push_back(temp_pul);
                 
