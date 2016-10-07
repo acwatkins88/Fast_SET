@@ -1,14 +1,14 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2016.9.30)  30 SEP 2016 21:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.16)  6 OCT 2016 23:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**Thesis.tex
+**./Thesis.tex
 (./Thesis.tex
-LaTeX2e <2016/02/01>
-Babel <3.9q> and hyphenation patterns for 5 language(s) loaded.
+LaTeX2e <2016/03/31>
+Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
 (./siugrad51.cls
 Document Class: siugrad51 1999/01/07 v1.4a Standard LaTeX document class
-(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
+(e:/texlive/2015/texmf-dist/tex/latex/base/size12.clo
 File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -24,25 +24,25 @@ File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2016/03/03 v2.15a AMS math features
+(e:/texlive/2015/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2016/03/10 v2.15b AMS math features
 \@mathmargin=\skip43
 
 For additional information on amsmath, use the `?' option.
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(e:/texlive/2015/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
 
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+(e:/texlive/2015/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks14
 \ex@=\dimen103
 ))
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+(e:/texlive/2015/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen104
 )
-(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
-Package: amsopn 1999/12/14 v2.01 operator names
+(e:/texlive/2015/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
 )
 \inf@bad=\count88
 LaTeX Info: Redefining \frac on input line 199.
@@ -57,8 +57,8 @@ LaTeX Info: Redefining \cdots on input line 518.
 \Mathstrutbox@=\box26
 \strutbox@=\box27
 \big@size=\dimen105
-LaTeX Font Info:    Redeclaring font encoding OML on input line 630.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
+LaTeX Font Info:    Redeclaring font encoding OML on input line 634.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
 \macc@depth=\count93
 \c@MaxMatrixCols=\count94
 \dotsspace@=\muskip10
@@ -79,20 +79,20 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
 \multlinegap=\skip44
 \multlinetaggap=\skip45
 \mathdisplay@stack=\toks18
-LaTeX Info: Redefining \[ on input line 2735.
-LaTeX Info: Redefining \] on input line 2736.
+LaTeX Info: Redefining \[ on input line 2739.
+LaTeX Info: Redefining \] on input line 2740.
 )
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(e:/texlive/2015/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+(e:/texlive/2015/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
+(e:/texlive/2015/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2015/03/04 v2.20.2
 \thm@style=\toks19
 \thm@bodyfont=\toks20
@@ -104,102 +104,173 @@ Package: amsthm 2015/03/04 v2.20.2
 \thm@headsep=\skip48
 \dth@everypar=\toks24
 )
-(/usr/share/texlive/texmf-dist/tex/latex/base/latexsym.sty
+(e:/texlive/2015/texmf-dist/tex/latex/base/latexsym.sty
 Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
 \symlasy=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
 (Font)                  U/lasy/m/n --> U/lasy/b/n on input line 52.
 )
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(e:/texlive/2015/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+(e:/texlive/2015/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks25
 )
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(e:/texlive/2015/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2016/01/03 v1.0q Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+(e:/texlive/2015/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+(e:/texlive/2015/texmf-dist/tex/latex/latexconfig/graphics.cfg
 File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: dvips.def on input line 95.
+Package graphics Info: Driver file: pdftex.def on input line 95.
 
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/dvips.def
-File: dvips.def 2015/12/30 v3.0k Driver-dependent file (DPC,SPQR)
+(e:/texlive/2015/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(e:/texlive/2015/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(e:/texlive/2015/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count100
 ))
 \Gin@req@height=\dimen112
 \Gin@req@width=\dimen113
 )
-\c@theorem=\count100
-\c@example=\count101
- (./Thesis.aux)
+(e:/texlive/2015/texmf-dist/tex/latex/oberdiek/epstopdf.sty
+Package: epstopdf 2010/02/09 v2.5 Conversion with epstopdf on the fly (HO)
+
+(e:/texlive/2015/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(e:/texlive/2015/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(e:/texlive/2015/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(e:/texlive/2015/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(e:/texlive/2015/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(e:/texlive/2015/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+
+(e:/texlive/2015/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+(e:/texlive/2015/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(e:/texlive/2015/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(e:/texlive/2015/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+)))
+\c@theorem=\count101
+\c@example=\count102
+
+(./Thesis.aux)
 \openout1 = `Thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+ (e:/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count103
+\scratchdimen=\dimen114
+\scratchbox=\box28
+\nofMPsegments=\count104
+\nofMParguments=\count105
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count106
+\MPscratchDim=\dimen115
+\MPnumerator=\count107
+\makeMPintoPDFobject=\count108
+\everyMPtoPDFconversion=\toks27
+) (./Title.tex) (./Approval.tex [0
 
-(./Title.tex) (./Copyright.tex [0
+{e:/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [1
 
-] [1
+]) (./Abstract.tex [2
 
-]) (./Approval.tex [2
-
-]) (./Abstract.tex
-[3
-
-]) (./Dedication.tex [4
-
-]) (./Acknow.tex [5
-
-]) (./Preface.tex [6
+]) (./Dedication.tex [3
 
 ])
-(./Thesis.toc
+(./Acknow.tex [4
+
+]) (./Preface.tex [5
+
+]) (./Thesis.toc
 LaTeX Font Info:    Try loading font information for U+msa on input line 1.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+
+(e:/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 1.
 
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+(e:/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Try loading font information for U+lasy on input line 1.
 
-(/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
+(e:/texlive/2015/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 ))
 \tf@toc=\write3
 \openout3 = `Thesis.toc'.
 
- [7
+ [6
 
 ] (./Thesis.lot)
 \tf@lot=\write4
 \openout4 = `Thesis.lot'.
 
 
-[8
+[7
 
 ] (./Thesis.lof)
 \tf@lof=\write5
 \openout5 = `Thesis.lof'.
 
- [9
+ [8
 
 ] (./Intro.tex) (./ch1.tex [1
 
@@ -223,44 +294,246 @@ CHAPTER 2.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [8]
-File: ch2-fg1.ps Graphic file (type eps)
- <ch2-fg1.ps>
-File: ch2-fg2.ps Graphic file (type eps)
- <ch2-fg2.ps>
+Package epstopdf Info: Source file: <ch2-fg1.eps>
+(epstopdf)                    date: 2016-10-05 21:21:15
+(epstopdf)                    size: 32172 bytes
+(epstopdf)             Output file: <ch2-fg1-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-10-06 22:03:31
+(epstopdf)                    size: 5313 bytes
+(epstopdf)             Command: <repstopdf --outfile=ch2-fg1-eps-converted-to.p
+df ch2-fg1.eps>
+(epstopdf)             \includegraphics on input line 166.
+Package epstopdf Info: Output file is already uptodate.
+ <ch2-fg1-eps-converted-to.pdf, id=67, 234.8775pt x 46.2528pt>
+File: ch2-fg1-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ch2-fg1-eps-converted-to.pdf>
+Package pdftex.def Info: ch2-fg1-eps-converted-to.pdf used on input line 166.
+(pdftex.def)             Requested size: 274.6262pt x 54.08026pt.
+Package epstopdf Info: Source file: <ch2-fg2.eps>
+(epstopdf)                    date: 2016-10-05 21:21:15
+(epstopdf)                    size: 5823 bytes
+(epstopdf)             Output file: <ch2-fg2-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-10-06 22:03:33
+(epstopdf)                    size: 5870 bytes
+(epstopdf)             Command: <repstopdf --outfile=ch2-fg2-eps-converted-to.p
+df ch2-fg2.eps>
+(epstopdf)             \includegraphics on input line 186.
+Package epstopdf Info: Output file is already uptodate.
+
+<ch2-fg2-eps-converted-to.pdf, id=68, 614.295pt x 794.97pt>
+File: ch2-fg2-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ch2-fg2-eps-converted-to.pdf>
+Package pdftex.def Info: ch2-fg2-eps-converted-to.pdf used on input line 186.
+(pdftex.def)             Requested size: 274.6262pt x 355.40419pt.
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) (./ch3.tex [9] [10]
+) (./ch3.tex [9 <./ch2-fg1-eps-converted-to.pdf>] [10 <./ch2-fg2-eps-converted-
+to.pdf>]
 CHAPTER 3.
 [11
 
 ]
-File: ch3-square.ps Graphic file (type eps)
- <ch3-square.ps>
-File: ch3-circle.ps Graphic file (type eps)
- <ch3-circle.ps>
-File: ch3-triangle.ps Graphic file (type eps)
- <ch3-triangle.ps> [12]
-File: ch3-square.ps Graphic file (type eps)
- <ch3-square.ps>
-File: ch3-square.ps Graphic file (type eps)
+Package epstopdf Info: Source file: <ch3-square.eps>
+(epstopdf)                    date: 2016-10-05 21:21:15
+(epstopdf)                    size: 14838 bytes
+(epstopdf)             Output file: <ch3-square-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-10-06 22:04:36
+(epstopdf)                    size: 2463 bytes
+(epstopdf)             Command: <repstopdf --outfile=ch3-square-eps-converted-t
+o.pdf ch3-square.eps>
+(epstopdf)             \includegraphics on input line 49.
+Package epstopdf Info: Output file is already uptodate.
+ <ch3-square-eps-converted-to.pdf, id=86, 127.47626pt x 125.46875pt>
+File: ch3-square-eps-converted-to.pdf Graphic file (type pdf)
 
-<ch3-square.ps>
-File: ch3-square.ps Graphic file (type eps)
- <ch3-square.ps>
-File: ch3-circle.ps Graphic file (type eps)
- <ch3-circle.ps>
-File: ch3-circle.ps Graphic file (type eps)
- <ch3-circle.ps>
-File: ch3-circle.ps Graphic file (type eps)
+<use ch3-square-eps-converted-to.pdf>
+Package pdftex.def Info: ch3-square-eps-converted-to.pdf used on input line 49.
 
-<ch3-circle.ps>
-File: ch3-triangle.ps Graphic file (type eps)
- <ch3-triangle.ps>
-File: ch3-triangle.ps Graphic file (type eps)
- <ch3-triangle.ps>
-File: ch3-triangle.ps Graphic file (type eps)
- <ch3-triangle.ps> [13]
+(pdftex.def)             Requested size: 72.26999pt x 71.13501pt.
+Package epstopdf Info: Source file: <ch3-circle.eps>
+(epstopdf)                    date: 2016-10-05 21:21:15
+(epstopdf)                    size: 14846 bytes
+(epstopdf)             Output file: <ch3-circle-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-10-06 22:04:39
+(epstopdf)                    size: 2527 bytes
+(epstopdf)             Command: <repstopdf --outfile=ch3-circle-eps-converted-t
+o.pdf ch3-circle.eps>
+(epstopdf)             \includegraphics on input line 51.
+Package epstopdf Info: Output file is already uptodate.
+
+<ch3-circle-eps-converted-to.pdf, id=87, 157.58875pt x 152.57pt>
+File: ch3-circle-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ch3-circle-eps-converted-to.pdf>
+Package pdftex.def Info: ch3-circle-eps-converted-to.pdf used on input line 51.
+
+(pdftex.def)             Requested size: 72.26999pt x 69.96887pt.
+Package epstopdf Info: Source file: <ch3-triangle.eps>
+(epstopdf)                    date: 2016-10-05 21:21:15
+(epstopdf)                    size: 14975 bytes
+(epstopdf)             Output file: <ch3-triangle-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-10-06 22:04:40
+(epstopdf)                    size: 2490 bytes
+(epstopdf)             Command: <repstopdf --outfile=ch3-triangle-eps-converted
+-to.pdf ch3-triangle.eps>
+(epstopdf)             \includegraphics on input line 59.
+Package epstopdf Info: Output file is already uptodate.
+
+<ch3-triangle-eps-converted-to.pdf, id=88, 154.5775pt x 126.4725pt>
+File: ch3-triangle-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ch3-triangle-eps-converted-to.pdf>
+Package pdftex.def Info: ch3-triangle-eps-converted-to.pdf used on input line 5
+9.
+(pdftex.def)             Requested size: 72.26999pt x 59.13138pt.
+ [12 <./ch3-square-eps-converted-to.pdf> <./ch3-circle-eps-converted-to.pdf> <.
+/ch3-triangle-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <ch3-square.eps>
+(epstopdf)                    date: 2016-10-05 21:21:15
+(epstopdf)                    size: 14838 bytes
+(epstopdf)             Output file: <ch3-square-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-10-06 22:04:36
+(epstopdf)                    size: 2463 bytes
+(epstopdf)             Command: <repstopdf --outfile=ch3-square-eps-converted-t
+o.pdf ch3-square.eps>
+(epstopdf)             \includegraphics on input line 98.
+Package epstopdf Info: Output file is already uptodate.
+File: ch3-square-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ch3-square-eps-converted-to.pdf>
+Package pdftex.def Info: ch3-square-eps-converted-to.pdf used on input line 98.
+
+(pdftex.def)             Requested size: 72.26999pt x 71.13501pt.
+Package epstopdf Info: Source file: <ch3-square.eps>
+(epstopdf)                    date: 2016-10-05 21:21:15
+(epstopdf)                    size: 14838 bytes
+(epstopdf)             Output file: <ch3-square-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-10-06 22:04:36
+(epstopdf)                    size: 2463 bytes
+(epstopdf)             Command: <repstopdf --outfile=ch3-square-eps-converted-t
+o.pdf ch3-square.eps>
+(epstopdf)             \includegraphics on input line 100.
+Package epstopdf Info: Output file is already uptodate.
+File: ch3-square-eps-converted-to.pdf Graphic file (type pdf)
+ <use ch3-square-eps-converted-to.pdf>
+Package pdftex.def Info: ch3-square-eps-converted-to.pdf used on input line 100
+.
+(pdftex.def)             Requested size: 72.26999pt x 71.13501pt.
+Package epstopdf Info: Source file: <ch3-square.eps>
+(epstopdf)                    date: 2016-10-05 21:21:15
+(epstopdf)                    size: 14838 bytes
+(epstopdf)             Output file: <ch3-square-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-10-06 22:04:36
+(epstopdf)                    size: 2463 bytes
+(epstopdf)             Command: <repstopdf --outfile=ch3-square-eps-converted-t
+o.pdf ch3-square.eps>
+(epstopdf)             \includegraphics on input line 102.
+Package epstopdf Info: Output file is already uptodate.
+File: ch3-square-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ch3-square-eps-converted-to.pdf>
+Package pdftex.def Info: ch3-square-eps-converted-to.pdf used on input line 102
+.
+(pdftex.def)             Requested size: 72.26999pt x 71.13501pt.
+Package epstopdf Info: Source file: <ch3-circle.eps>
+(epstopdf)                    date: 2016-10-05 21:21:15
+(epstopdf)                    size: 14846 bytes
+(epstopdf)             Output file: <ch3-circle-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-10-06 22:04:39
+(epstopdf)                    size: 2527 bytes
+(epstopdf)             Command: <repstopdf --outfile=ch3-circle-eps-converted-t
+o.pdf ch3-circle.eps>
+(epstopdf)             \includegraphics on input line 113.
+Package epstopdf Info: Output file is already uptodate.
+File: ch3-circle-eps-converted-to.pdf Graphic file (type pdf)
+ <use ch3-circle-eps-converted-to.pdf>
+Package pdftex.def Info: ch3-circle-eps-converted-to.pdf used on input line 113
+.
+(pdftex.def)             Requested size: 72.26999pt x 69.96887pt.
+Package epstopdf Info: Source file: <ch3-circle.eps>
+(epstopdf)                    date: 2016-10-05 21:21:15
+(epstopdf)                    size: 14846 bytes
+(epstopdf)             Output file: <ch3-circle-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-10-06 22:04:39
+(epstopdf)                    size: 2527 bytes
+(epstopdf)             Command: <repstopdf --outfile=ch3-circle-eps-converted-t
+o.pdf ch3-circle.eps>
+(epstopdf)             \includegraphics on input line 115.
+Package epstopdf Info: Output file is already uptodate.
+File: ch3-circle-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ch3-circle-eps-converted-to.pdf>
+Package pdftex.def Info: ch3-circle-eps-converted-to.pdf used on input line 115
+.
+(pdftex.def)             Requested size: 72.26999pt x 69.96887pt.
+Package epstopdf Info: Source file: <ch3-circle.eps>
+(epstopdf)                    date: 2016-10-05 21:21:15
+(epstopdf)                    size: 14846 bytes
+(epstopdf)             Output file: <ch3-circle-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-10-06 22:04:39
+(epstopdf)                    size: 2527 bytes
+(epstopdf)             Command: <repstopdf --outfile=ch3-circle-eps-converted-t
+o.pdf ch3-circle.eps>
+(epstopdf)             \includegraphics on input line 117.
+Package epstopdf Info: Output file is already uptodate.
+File: ch3-circle-eps-converted-to.pdf Graphic file (type pdf)
+ <use ch3-circle-eps-converted-to.pdf>
+Package pdftex.def Info: ch3-circle-eps-converted-to.pdf used on input line 117
+.
+(pdftex.def)             Requested size: 72.26999pt x 69.96887pt.
+Package epstopdf Info: Source file: <ch3-triangle.eps>
+(epstopdf)                    date: 2016-10-05 21:21:15
+(epstopdf)                    size: 14975 bytes
+(epstopdf)             Output file: <ch3-triangle-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-10-06 22:04:40
+(epstopdf)                    size: 2490 bytes
+(epstopdf)             Command: <repstopdf --outfile=ch3-triangle-eps-converted
+-to.pdf ch3-triangle.eps>
+(epstopdf)             \includegraphics on input line 128.
+Package epstopdf Info: Output file is already uptodate.
+File: ch3-triangle-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ch3-triangle-eps-converted-to.pdf>
+Package pdftex.def Info: ch3-triangle-eps-converted-to.pdf used on input line 1
+28.
+(pdftex.def)             Requested size: 72.26999pt x 59.13138pt.
+Package epstopdf Info: Source file: <ch3-triangle.eps>
+(epstopdf)                    date: 2016-10-05 21:21:15
+(epstopdf)                    size: 14975 bytes
+(epstopdf)             Output file: <ch3-triangle-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-10-06 22:04:40
+(epstopdf)                    size: 2490 bytes
+(epstopdf)             Command: <repstopdf --outfile=ch3-triangle-eps-converted
+-to.pdf ch3-triangle.eps>
+(epstopdf)             \includegraphics on input line 130.
+Package epstopdf Info: Output file is already uptodate.
+File: ch3-triangle-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ch3-triangle-eps-converted-to.pdf>
+Package pdftex.def Info: ch3-triangle-eps-converted-to.pdf used on input line 1
+30.
+(pdftex.def)             Requested size: 72.26999pt x 59.13138pt.
+Package epstopdf Info: Source file: <ch3-triangle.eps>
+(epstopdf)                    date: 2016-10-05 21:21:15
+(epstopdf)                    size: 14975 bytes
+(epstopdf)             Output file: <ch3-triangle-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-10-06 22:04:40
+(epstopdf)                    size: 2490 bytes
+(epstopdf)             Command: <repstopdf --outfile=ch3-triangle-eps-converted
+-to.pdf ch3-triangle.eps>
+(epstopdf)             \includegraphics on input line 132.
+Package epstopdf Info: Output file is already uptodate.
+File: ch3-triangle-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ch3-triangle-eps-converted-to.pdf>
+Package pdftex.def Info: ch3-triangle-eps-converted-to.pdf used on input line 1
+32.
+(pdftex.def)             Requested size: 72.26999pt x 59.13138pt.
+ [13]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -270,12 +543,34 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 ] (./Thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 1662 strings out of 494911
- 19070 string characters out of 6179862
- 75464 words of memory out of 5000000
- 4904 multiletter control sequences out of 15000+600000
+ 2614 strings out of 493027
+ 34253 string characters out of 6137684
+ 100261 words of memory out of 5000000
+ 6061 multiletter control sequences out of 15000+600000
  11186 words of font info for 45 fonts, out of 8000000 for 9000
- 36 hyphenation exceptions out of 8191
- 27i,17n,26p,327b,335s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 1141 hyphenation exceptions out of 8191
+ 42i,17n,26p,976b,313s stack positions out of 5000i,500n,10000p,200000b,80000s
+<e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+bx10.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+<e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><e:/texli
+ve/2015/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><e:/texlive/20
+15/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><e:/texlive/2015/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><e:/texlive/2015/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmmi6.pfb><e:/texlive/2015/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmmi8.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr12.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5
+.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><e:/te
+xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><e:/texlive/2015/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><e:/texlive/2015/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmsy5.pfb><e:/texlive/2015/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy8.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmti12.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmtt12.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/latxfont
+/line10.pfb>
+Output written on Thesis.pdf (26 pages, 209141 bytes).
+PDF statistics:
+ 179 PDF objects out of 1000 (max. 8388607)
+ 125 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
-Output written on Thesis.dvi (27 pages, 43572 bytes).
