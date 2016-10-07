@@ -199,9 +199,7 @@ bool bdd_sim::sim_graph(gmap &graph)
   
             // Propagate Existing Pulses
             //proc_pulse(git->first);
-            cout<<"Before Propagation\n";
             prop_enhpulse(git->first);
-            cout<<"After Propagation\n";
             
             // Check for Convergence 
             if ((graph[git->first].type != NOT) || (graph[git->first].type != BUF))
@@ -213,6 +211,10 @@ bool bdd_sim::sim_graph(gmap &graph)
                 }
             }
             
+            for(tpit = graph[git->first].p_list.begin(); tpit != graph[git->first].p_list.end(); ++tpit)
+            {
+                cout<<"Node: "<<git->first<<" Event: "<<tpit->e_num<<" ID: "<<tpit->id<< " Source Node: "<<tpit->s_node<<endl;
+            }
             //total_count = total_count + count_nodes(graph, git->first) - num_removed;
             //total_count = bdd_getnodenum();
             
@@ -304,7 +306,7 @@ bool bdd_sim::sim_graph(gmap &graph)
                 {
                     //cout<<"ID: "<<pit->id<<" Event: "<<pit->e_num<<" Number of BDD Nodes: "<<bdd_nodecount(pit->p_func)<<endl;
                     s_prob.solve_prob(pit->p_func);
-                    cout<<"Width: "<<pit->width<<endl;
+                    //cout<<"Width: "<<pit->width<<endl;
                     latch_prob = (pit->width - (SETUP_T + HOLD_T))/CLK;
                     graph_m[git->first].r_map[pit->e_num] = graph_m[git->first].r_map[pit->e_num]+(s_prob.true_prob * pit->t_prob * latch_prob);
                     //graph_m[git->first].r_map[pit->e_num] = graph_m[git->first].r_map[pit->e_num]+(s_prob.true_prob);
@@ -314,7 +316,7 @@ bool bdd_sim::sim_graph(gmap &graph)
                 {
                     //cout<<"ID: "<<pit->id<<" Event: "<<pit->e_num<<" Number of BDD Nodes: "<<bdd_nodecount(pit->p_func)<<endl;
                     s_prob.solve_prob(pit->p_func);
-                    cout<<"Width: "<<pit->width<<endl;
+                    //cout<<"Width: "<<pit->width<<endl;
                     latch_prob = (pit->width - (SETUP_T + HOLD_T))/CLK;
                     graph_m[git->first].r_map[pit->e_num] = (s_prob.true_prob * pit->t_prob * latch_prob);
                     //graph_m[git->first].r_map[pit->e_num] = (s_prob.true_prob);

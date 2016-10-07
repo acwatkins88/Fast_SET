@@ -582,17 +582,19 @@ void gen_sim::prop_enhpulse(int n_num)
     {
         for(eit = graph[*lit].p_list.begin(); eit != graph[*lit].p_list.end(); ++eit)
         {
-            cout<<"Beginning\n";
+            //cout<<"Beginning\n";
             inputs.push_back(*eit);
 
             out_pulse = det_pulse(inputs, n_num);
-            out_pulse.e_num = eit->e_num;
-            out_pulse.id = this->id_n;
-            out_pulse.s_node = n_num;
-            this->id_n++;
             
+            //cout<<"Node: "<<n_num<<" Width: "<<out_pulse.width<<endl;
             if(out_pulse.width > W_MIN)
-            {    
+            {   
+                out_pulse.e_num = eit->e_num;
+                out_pulse.id = this->id_n;
+                out_pulse.s_node = n_num;
+                this->id_n++;
+                
                 if(this->sim_type == BDD_SIM)
                     set_propfunc(n_num, *lit, *eit, out_pulse);
                 
@@ -615,7 +617,6 @@ transient gen_sim::det_pulse(list<transient> inputs, int n_num)
         case NAND:
             return calc_NAND(inputs, n_num);
         case AND:
-            cout<<"AND\n";
             return calc_AND(inputs, n_num);
         case NOR:
             return calc_NOR(inputs, n_num);
@@ -635,6 +636,7 @@ transient gen_sim::det_pulse(list<transient> inputs, int n_num)
  */
 transient gen_sim::calc_NAND(list<transient> inputs, int n_num)
 {
+    //cout<<"Beginning NAND\n";
     int i, type;
     int itr_num = graph[n_num].fanin_num;
     
@@ -678,8 +680,10 @@ transient gen_sim::calc_NAND(list<transient> inputs, int n_num)
         flag = false;
         for(lit = inputs.begin(); lit != inputs.end(); ++lit)
         {
+            //cout<<"Cur s_node: "<<lit->s_node<<" Ideal s_node: "<<*fit<<endl;
             if(lit->s_node == *fit)
             {
+                //cout<<"Source Node: "<<lit->s_node<<endl;
                 ord_list.push_back(lit->volt_pulse);
                 p_inf.p_gate = *fit;
                 p_inf.p_pulse = lit->id;
@@ -713,7 +717,7 @@ transient gen_sim::calc_NAND(list<transient> inputs, int n_num)
     
     for(int t = 1; t <= NUM_STEPS; t++)
     {
-        cout<<"Iteration: "<<t<<endl;
+        //cout<<"Node: "<<n_num<<" Iteration: "<<t<<endl;
         for(i = 0; i < itr_num; i++)
         {
             if(ord_list[i].size() != 1)
@@ -726,6 +730,7 @@ transient gen_sim::calc_NAND(list<transient> inputs, int n_num)
                 vg_cur = VDD;
                 del_inp.push_back(0);
             }
+            //cout<<"Input: "<<i<<" Vg: "<<vg_cur<<endl;
             
             res = ind_current(PMOS, temp_out[t-1], vg_cur);
             ip.push_back(res);
@@ -815,7 +820,6 @@ transient gen_sim::calc_AND(list<transient> inputs, int n_num)
     list<transient> inp; 
     
     temp = calc_NAND(inputs, n_num);
-    cout<<"AND Width: "<<temp.width<<endl;
     
     if(temp.width > W_MIN)
     {
