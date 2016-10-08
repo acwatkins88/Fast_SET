@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.16)  6 OCT 2016 23:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.16)  7 OCT 2016 22:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -231,12 +231,12 @@ LaTeX Font Info:    ... okay on input line 88.
 
 ]) (./Abstract.tex [2
 
-]) (./Dedication.tex [3
+] [3]) (./Dedication.tex [4
 
 ])
-(./Acknow.tex [4
+(./Acknow.tex [5
 
-]) (./Preface.tex [5
+]) (./Preface.tex [6
 
 ]) (./Thesis.toc
 LaTeX Font Info:    Try loading font information for U+msa on input line 1.
@@ -257,20 +257,20 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 \tf@toc=\write3
 \openout3 = `Thesis.toc'.
 
- [6
+ [7
 
 ] (./Thesis.lot)
 \tf@lot=\write4
 \openout4 = `Thesis.lot'.
 
 
-[7
+[8
 
 ] (./Thesis.lof)
 \tf@lof=\write5
 \openout5 = `Thesis.lof'.
 
- [8
+ [9
 
 ] (./Intro.tex) (./ch1.tex [1
 
@@ -304,7 +304,7 @@ Package epstopdf Info: Source file: <ch2-fg1.eps>
 df ch2-fg1.eps>
 (epstopdf)             \includegraphics on input line 166.
 Package epstopdf Info: Output file is already uptodate.
- <ch2-fg1-eps-converted-to.pdf, id=67, 234.8775pt x 46.2528pt>
+ <ch2-fg1-eps-converted-to.pdf, id=70, 234.8775pt x 46.2528pt>
 File: ch2-fg1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ch2-fg1-eps-converted-to.pdf>
@@ -321,7 +321,7 @@ df ch2-fg2.eps>
 (epstopdf)             \includegraphics on input line 186.
 Package epstopdf Info: Output file is already uptodate.
 
-<ch2-fg2-eps-converted-to.pdf, id=68, 614.295pt x 794.97pt>
+<ch2-fg2-eps-converted-to.pdf, id=71, 614.295pt x 794.97pt>
 File: ch2-fg2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ch2-fg2-eps-converted-to.pdf>
@@ -347,7 +347,7 @@ Package epstopdf Info: Source file: <ch3-square.eps>
 o.pdf ch3-square.eps>
 (epstopdf)             \includegraphics on input line 49.
 Package epstopdf Info: Output file is already uptodate.
- <ch3-square-eps-converted-to.pdf, id=86, 127.47626pt x 125.46875pt>
+ <ch3-square-eps-converted-to.pdf, id=89, 127.47626pt x 125.46875pt>
 File: ch3-square-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ch3-square-eps-converted-to.pdf>
@@ -365,7 +365,7 @@ o.pdf ch3-circle.eps>
 (epstopdf)             \includegraphics on input line 51.
 Package epstopdf Info: Output file is already uptodate.
 
-<ch3-circle-eps-converted-to.pdf, id=87, 157.58875pt x 152.57pt>
+<ch3-circle-eps-converted-to.pdf, id=90, 157.58875pt x 152.57pt>
 File: ch3-circle-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ch3-circle-eps-converted-to.pdf>
@@ -383,7 +383,7 @@ Package epstopdf Info: Source file: <ch3-triangle.eps>
 (epstopdf)             \includegraphics on input line 59.
 Package epstopdf Info: Output file is already uptodate.
 
-<ch3-triangle-eps-converted-to.pdf, id=88, 154.5775pt x 126.4725pt>
+<ch3-triangle-eps-converted-to.pdf, id=91, 154.5775pt x 126.4725pt>
 File: ch3-triangle-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ch3-triangle-eps-converted-to.pdf>
@@ -567,10 +567,10 @@ pe1/public/amsfonts/cm/cmsy8.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmti12.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmtt12.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/latxfont
 /line10.pfb>
-Output written on Thesis.pdf (26 pages, 209141 bytes).
+Output written on Thesis.pdf (27 pages, 210755 bytes).
 PDF statistics:
- 179 PDF objects out of 1000 (max. 8388607)
- 125 compressed objects within 2 object streams
+ 182 PDF objects out of 1000 (max. 8388607)
+ 127 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

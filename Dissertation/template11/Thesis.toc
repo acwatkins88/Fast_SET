@@ -1,9 +1,9 @@
 \contentsline {chapter}{Abstract}{ii}
-\contentsline {chapter}{Dedication}{iii}
-\contentsline {chapter}{Acknowledgments}{iv}
-\contentsline {chapter}{Preface}{v}
-\contentsline {chapter}{List of Tables}{vii}
-\contentsline {chapter}{List of Figures}{viii}
+\contentsline {chapter}{Dedication}{iv}
+\contentsline {chapter}{Acknowledgments}{v}
+\contentsline {chapter}{Preface}{vi}
+\contentsline {chapter}{List of Tables}{viii}
+\contentsline {chapter}{List of Figures}{ix}
 \contentsline {chapter}{Introduction}{1}
 \contentsline {chapter}{\numberline {1}Systems of Linear Equations and Matrices}{2}
 \contentsline {section}{\numberline {1.1}Introductions to Systems of Linear Equations}{2}
