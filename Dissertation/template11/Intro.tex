@@ -9,47 +9,16 @@
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
 
-This paper provides an elementary treatment of linear algebra
-that is suitable for students in their freshman or sophomore year.
-Calculus is not a prerequisite.
+The continued reduction of the transistor feature size has led to the increase in the vulnerability of modern circuits to error. This effect, in turn, has made modern circuits more susceptible to radiation induced errors in space and terrestrial environments. A radiation induced error, commonly referred to as a soft error, occurs when a high energy particle from space or packaging strikes a transistor. Shown in Fig. \ref{strike}, the particle deposits energy in the active volume generating electron-hole pairs. This mechanism creates a new diffusion region that could allow a non-conducting device to temporarily conduct current. The mechanism causes a temporary voltage pulse, referred to as a single event transient (SET) to occur at the device.
 
-The aim in writing this paper is to present the fundamentals
-of linear algebra in the clearest possible way.  Pedagogy is the main
-consideration.  Formalism is secondary.  Where possible, basic ideas are
-studied by means of computational examples and geometrical
-interpretation.
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.45\linewidth]{Figures/StrikeFig}
+	%where an .eps filename suffix will be assumed under latex, 
+	%and a .pdf suffix will be assumed for pdflatex; or what has been declared
+	%via \DeclareGraphicsExtensions.
+	\caption{A energetic particle creating electron-hole pairs in a transistor.}
+	\label{strike}
+\end{figure} 
 
-The treatment of proofs varies.  Those proofs that are elementary and
-hve significant pedagogical content are presented precisely, in a style
-tailored for beginners.  A few proofs that are more difficult, but
-pedgogically valuable, are placed at the end of of the section and
-marked ``Optional''.  Still other proofs are omitted completely, with
-emphasis placed on applying the theorem.
-
-
-Chapter 1 deals with systems of linear equations, how to solve them, and
-some of their properties.  It also contains the basic material on
-matrices and their arithmetic properties.
-
-Chapter 2 deals with determinants.  I have used the classical
-permutation approach.  This is less abstract than the approach through
-$n$-linear alternative forms 
-
-% --------------------------------------------------------------
-% Below we force a page break to avoid a widow line
-% at the top of a page.  Note that the \noindent command
-% is entered so TeX doesn't treat the next line as the
-% beginning of a new paragraph.
-% --------------------------------------------------------------
-
-
-%\newpage \noindent
-and gives the student a better intuitive
-grasp of the subject than does an inductive development.
-
-Chapter 3 introduces vectors in $2$-space and $3$-space as arrows and
-develops the analytic geometry of lines and planes in $3$-space.
-Depending on the background of the students, this chapter can be omitted
-without a loss of continuity.
-
-
+In the case of a radiation particle striking a memory storage element, the data stored in the device can be changed. If the device is loses its value by a single particle, this is referred to as a single event upset (SEU). Additionally, due to the constant scaling down of the feature size, a single particle can also strike two transistors simultaneously which is referred to as a double node upset (DNU).
