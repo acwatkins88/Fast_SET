@@ -1,10 +1,12 @@
 \contentsline {figure}{\numberline {1}{\ignorespaces A energetic particle creating electron-hole pairs in a transistor.}}{1}
 \contentsline {figure}{\numberline {2}{\ignorespaces A particle striking two node concurrently causing a double node upset.}}{2}
-\contentsline {figure}{\numberline {1.1}{\ignorespaces (a) no solution, (b) one solution, (c) infinitely many solutions}}{5}
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Inside and outside numbers of a matrix multiplication problem of $A \times B = AB$, showing how the inside dimensions are dropped and the dimensions of the product are the outside dimenions.}}{7}
-\contentsline {figure}{\numberline {2.1}{\ignorespaces (a) no solution, (b) one solution, (c) infinitely many solutions}}{10}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Inside and outside numbers of a matrix multiplication problem of $A \times B = AB$, showing how the inside dimensions are dropped and the dimensions of the product are the outside dimenions.}}{12}
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Two rows of graphics: (a)\nobreakspace {}Square \ (b)\nobreakspace {}Circle \ (c)\nobreakspace {}Rectangle }}{15}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Three rows of graphics: (a)--(c) Squares. \ (d)--(f)\nobreakspace {}Circles. \ (g)--(i)\nobreakspace {}Ovals.}}{16}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Use of verbatim environment}}{17}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Matrix Rotated 90 degrees.}}{18}
+\contentsline {figure}{\numberline {3}{\ignorespaces An example of a radiation induced transient pulse.}}{4}
+\contentsline {figure}{\numberline {4}{\ignorespaces Two pulses arriving at a gate input.}}{4}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces (a) no solution, (b) one solution, (c) infinitely many solutions}}{7}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Inside and outside numbers of a matrix multiplication problem of $A \times B = AB$, showing how the inside dimensions are dropped and the dimensions of the product are the outside dimenions.}}{9}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces (a) no solution, (b) one solution, (c) infinitely many solutions}}{12}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Inside and outside numbers of a matrix multiplication problem of $A \times B = AB$, showing how the inside dimensions are dropped and the dimensions of the product are the outside dimenions.}}{14}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Two rows of graphics: (a)\nobreakspace {}Square \ (b)\nobreakspace {}Circle \ (c)\nobreakspace {}Rectangle }}{17}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Three rows of graphics: (a)--(c) Squares. \ (d)--(f)\nobreakspace {}Circles. \ (g)--(i)\nobreakspace {}Ovals.}}{18}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Use of verbatim environment}}{19}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Matrix Rotated 90 degrees.}}{20}
