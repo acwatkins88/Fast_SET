@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{DICE}
 T.~Calin, M.~Nicolaidis, and R.~Velazco.
@@ -19,6 +19,13 @@ K.~Katsarou and Y.~Tsiatouhas.
   tolerant design.
 \newblock {\em Electronics Letters}, 51(4):330--332, 2015.
 
+\bibitem{MARS_C}
+N.~Miskov-Zivanov and D.~Marculescu.
+\newblock Mars-c: modeling and reduction of soft errors in combinational
+  circuits.
+\newblock In {\em 2006 43rd ACM/IEEE Design Automation Conference}, pages
+  767--772, July 2006.
+
 \bibitem{METSys}
 N.~Miskov-Zivanov and D.~Marculescu.
 \newblock Multiple transient faults in combinational and sequential circuits: A
@@ -26,16 +33,60 @@ N.~Miskov-Zivanov and D.~Marculescu.
 \newblock {\em IEEE Transactions on Computer-Aided Design of Integrated
   Circuits and Systems}, 29(10):1614--1627, Oct 2010.
 
+\bibitem{SEMM}
+P.~C. Murley and G.~R. Srinivasan.
+\newblock Soft-error monte carlo modeling program, semm.
+\newblock {\em IBM J. Res. Dev.}, 40(1):109--118, January 1996.
+
 \bibitem{Omana_Trap}
 M.~Omana, G.~Papasso, D.~Rossi, and C.~Metra.
 \newblock A model for transient fault propagation in combinatorial logic.
 \newblock In {\em On-Line Testing Symposium, 2003. IOLTS 2003. 9th IEEE}, pages
   111--115, July 2003.
 
+\bibitem{SETA_LA}
+R.~Rajaraman, J.~S. Kim, N.~Vijaykrishnan, Y.~Xie, and M.~J. Irwin.
+\newblock Seat-la: a soft error analysis tool for combinational logic.
+\newblock In {\em 19th International Conference on VLSI Design held jointly
+  with 5th International Conference on Embedded Systems Design (VLSID'06)},
+  pages 4 pp.--, Jan 2006.
+
+\bibitem{PARAM_DESC}
+R.~R. Rao, K.~Chopra, D.~T. Blaauw, and D.~M. Sylvester.
+\newblock Computing the soft error rate of a combinational logic circuit using
+  parameterized descriptors.
+\newblock {\em IEEE Transactions on Computer-Aided Design of Integrated
+  Circuits and Systems}, 26(3):468--479, March 2007.
+
+\bibitem{Accurate_Masking}
+F.~Wang and Y.~Xie.
+\newblock Soft error rate analysis for combinational logic using an accurate
+  electrical masking model.
+\newblock {\em IEEE Transactions on Dependable and Secure Computing},
+  8(1):137--146, Jan 2011.
+
 \bibitem{HSMUF}
 A.~Yan, H.~Liang, Z.~Huang, and C.~Jiang.
 \newblock High-performance, low-cost, and highly reliable radiation hardened
   latch design.
 \newblock {\em Electronics Letters}, 52(2):139--141, 2016.
+
+\bibitem{FASER}
+Bin Zhang, Wei-Shen Wang, and M.~Orshansky.
+\newblock Faser: fast analysis of soft error susceptibility for cell-based
+  designs.
+\newblock In {\em 7th International Symposium on Quality Electronic Design
+  (ISQED'06)}, pages 6 pp.--760, March 2006.
+
+\bibitem{SERA}
+M.~Zhang and N.~R. Shanbhag.
+\newblock Soft-error-rate-analysis (sera) methodology.
+\newblock {\em IEEE Transactions on Computer-Aided Design of Integrated
+  Circuits and Systems}, 25(10):2140--2155, Oct 2006.
+
+\bibitem{PTM}
+Wei Zhao and Yu~Cao.
+\newblock Predictive technology model for nano-cmos design exploration.
+\newblock {\em J. Emerg. Technol. Comput. Syst.}, 3(1), April 2007.
 
 \end{thebibliography}
