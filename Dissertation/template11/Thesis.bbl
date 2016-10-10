@@ -1,0 +1,41 @@
+\begin{thebibliography}{1}
+
+\bibitem{DICE}
+T.~Calin, M.~Nicolaidis, and R.~Velazco.
+\newblock Upset hardened memory design for submicron cmos technology.
+\newblock {\em IEEE Transactions on Nuclear Science}, 43(6):2874--2878, Dec
+  1996.
+
+\bibitem{Inter}
+K.~Katsarou and Y.~Tsiatouhas.
+\newblock Soft error immune latch under seu related double-node charge
+  collection.
+\newblock In {\em 2015 IEEE 21st International On-Line Testing Symposium
+  (IOLTS)}, pages 46--49, July 2015.
+
+\bibitem{DNCS}
+K.~Katsarou and Y.~Tsiatouhas.
+\newblock Soft error interception latch: double node charge sharing seu
+  tolerant design.
+\newblock {\em Electronics Letters}, 51(4):330--332, 2015.
+
+\bibitem{METSys}
+N.~Miskov-Zivanov and D.~Marculescu.
+\newblock Multiple transient faults in combinational and sequential circuits: A
+  systematic approach.
+\newblock {\em IEEE Transactions on Computer-Aided Design of Integrated
+  Circuits and Systems}, 29(10):1614--1627, Oct 2010.
+
+\bibitem{Omana_Trap}
+M.~Omana, G.~Papasso, D.~Rossi, and C.~Metra.
+\newblock A model for transient fault propagation in combinatorial logic.
+\newblock In {\em On-Line Testing Symposium, 2003. IOLTS 2003. 9th IEEE}, pages
+  111--115, July 2003.
+
+\bibitem{HSMUF}
+A.~Yan, H.~Liang, Z.~Huang, and C.~Jiang.
+\newblock High-performance, low-cost, and highly reliable radiation hardened
+  latch design.
+\newblock {\em Electronics Letters}, 52(2):139--141, 2016.
+
+\end{thebibliography}
