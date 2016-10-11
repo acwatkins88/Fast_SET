@@ -1,10 +1,37 @@
 \begin{thebibliography}{10}
 
+\bibitem{TPDICE}
+D.~R. Blum and J.~G. Delgado-Frias.
+\newblock Schemes for eliminating transient-width clock overhead from
+  set-tolerant memory-based systems.
+\newblock {\em IEEE Transactions on Nuclear Science}, 53(3):1564--1573, June
+  2006.
+
 \bibitem{DICE}
 T.~Calin, M.~Nicolaidis, and R.~Velazco.
 \newblock Upset hardened memory design for submicron cmos technology.
 \newblock {\em IEEE Transactions on Nuclear Science}, 43(6):2874--2878, Dec
   1996.
+
+\bibitem{DONUT}
+N.~Eftaxiopoulos, N.~Axelos, and K.~Pekmestzi.
+\newblock Donut: A double node upset tolerant latch.
+\newblock In {\em 2015 IEEE Computer Society Annual Symposium on VLSI}, pages
+  509--514, July 2015.
+
+\bibitem{FERST}
+M.~Fazeli, S.~G. Miremadi, A.~Ejlali, and A.~Patooghy.
+\newblock Low energy single event upset/single event transient-tolerant latch
+  for deep submicron technologies.
+\newblock {\em IET Computers Digital Techniques}, 3(3):289--303, May 2009.
+
+\bibitem{Hazucha}
+P.~Hazucha, T.~Karnik, S.~Walstra, B.~Bloechel, J.~Tschanz, J.~Maiz,
+  K.~Soumyanath, G.~Dermer, S.~Narendra, V.~De, and S.~Borkar.
+\newblock Measurements and analysis of ser tolerant latch in a 90 nm dual-vt
+  cmos process.
+\newblock In {\em Custom Integrated Circuits Conference, 2003. Proceedings of
+  the IEEE 2003}, pages 617--620, Sept 2003.
 
 \bibitem{Inter}
 K.~Katsarou and Y.~Tsiatouhas.
@@ -18,6 +45,13 @@ K.~Katsarou and Y.~Tsiatouhas.
 \newblock Soft error interception latch: double node charge sharing seu
   tolerant design.
 \newblock {\em Electronics Letters}, 51(4):330--332, 2015.
+
+\bibitem{Multivdd}
+S.~Lin, H.~Yang, and R.~Luo.
+\newblock High speed soft-error-tolerant latch and flip-flop design for
+  multiple vdd circuit.
+\newblock In {\em IEEE Computer Society Annual Symposium on VLSI (ISVLSI '07)},
+  pages 273--278, March 2007.
 
 \bibitem{MARS_C}
 N.~Miskov-Zivanov and D.~Marculescu.
@@ -38,11 +72,30 @@ P.~C. Murley and G.~R. Srinivasan.
 \newblock Soft-error monte carlo modeling program, semm.
 \newblock {\em IBM J. Res. Dev.}, 40(1):109--118, January 1996.
 
+\bibitem{NicoFeedback}
+M.~Nicolaidis, R.~Perez, and D.~Alexandrescu.
+\newblock Low-cost highly-robust hardened cells using blocking feedback
+  transistors.
+\newblock In {\em 26th IEEE VLSI Test Symposium (vts 2008)}, pages 371--376,
+  April 2008.
+
 \bibitem{Omana_Trap}
 M.~Omana, G.~Papasso, D.~Rossi, and C.~Metra.
 \newblock A model for transient fault propagation in combinatorial logic.
 \newblock In {\em On-Line Testing Symposium, 2003. IOLTS 2003. 9th IEEE}, pages
   111--115, July 2003.
+
+\bibitem{HIPER}
+M.~Omana, D.~Rossi, and C.~Metra.
+\newblock High-performance robust latches.
+\newblock {\em IEEE Transactions on Computers}, 59(11):1455--1465, Nov 2010.
+
+\bibitem{SEMULatch}
+Ramin Rajaei, Mahmoud Tabandeh, and Mahdi Fazeli.
+\newblock Single event multiple upset (semu) tolerant latch designs in presence
+  of process and temperature variations.
+\newblock {\em Journal of Circuits, Systems and Computers}, 24(01):1550007,
+  2015.
 
 \bibitem{SETA_LA}
 R.~Rajaraman, J.~S. Kim, N.~Vijaykrishnan, Y.~Xie, and M.~J. Irwin.
@@ -78,6 +131,13 @@ Bin Zhang, Wei-Shen Wang, and M.~Orshansky.
 \newblock In {\em 7th International Symposium on Quality Electronic Design
   (ISQED'06)}, pages 6 pp.--760, March 2006.
 
+\bibitem{BISER}
+M.~Zhang, S.~Mitra, T.~M. Mak, N.~Seifert, N.~J. Wang, Q.~Shi, K.~S. Kim, N.~R.
+  Shanbhag, and S.~J. Patel.
+\newblock Sequential element design with built-in soft error resilience.
+\newblock {\em IEEE Transactions on Very Large Scale Integration (VLSI)
+  Systems}, 14(12):1368--1378, Dec 2006.
+
 \bibitem{SERA}
 M.~Zhang and N.~R. Shanbhag.
 \newblock Soft-error-rate-analysis (sera) methodology.
@@ -88,5 +148,11 @@ M.~Zhang and N.~R. Shanbhag.
 Wei Zhao and Yu~Cao.
 \newblock Predictive technology model for nano-cmos design exploration.
 \newblock {\em J. Emerg. Technol. Comput. Syst.}, 3(1), April 2007.
+
+\bibitem{injeq}
+J.~F. Ziegler.
+\newblock Terrestrial cosmic rays.
+\newblock {\em IBM Journal of Research and Development}, 40(1):19--39, Jan
+  1996.
 
 \end{thebibliography}

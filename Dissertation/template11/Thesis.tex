@@ -37,7 +37,10 @@
 %\usepackage{epsfig}
 \usepackage{graphicx}
 \usepackage{epstopdf}
-
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hhline}
+\usepackage{array}
 %%This is a macro to allow the use of centereps for eps files.
 %% See graphics in PCTeX32 Help
 
@@ -141,13 +144,13 @@
 \parindent=.35in
 
 \input Intro    % Introduction
-\input DNULatch      % Chapter 1
-\input PulseApprox     % Chapter 2  (Includes examples of using
-                     % graphics files
-\input Simulator     % Contains dvi and pdf versions of graphics commands
+\input Latch      % Chapter 1
+\input Approx     % Chapter 2 
+\input Simulator    % Contains dvi and pdf versions of graphics commands
 		     % Example of data file format (verbatim)
 %\bibliography{Bibfile.bib}   % Bibliography (References)
 \input Biblio
+\input appendix
 \input Vita     % Vita
 
 \end{document}

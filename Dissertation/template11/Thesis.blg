@@ -3,46 +3,44 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Thesis.aux
 The style file: plain.bst
 Database file #1: Bibfile.bib.bib
-Warning--I didn't find a database entry for "Anton"
-You've used 14 entries,
+You've used 24 entries,
             2118 wiz_defined-function locations,
-            602 strings with 6425 characters,
-and the built_in function-call counts, 5542 in all, are:
-= -- 539
-> -- 237
-< -- 5
-+ -- 93
-- -- 78
-* -- 413
-:= -- 864
-add.period$ -- 42
-call.type$ -- 14
-change.case$ -- 81
+            667 strings with 8290 characters,
+and the built_in function-call counts, 9972 in all, are:
+= -- 953
+> -- 476
+< -- 9
++ -- 187
+- -- 162
+* -- 773
+:= -- 1564
+add.period$ -- 72
+call.type$ -- 24
+change.case$ -- 153
 chr.to.int$ -- 0
-cite$ -- 14
-duplicate$ -- 219
-empty$ -- 448
-format.name$ -- 78
-if$ -- 1208
+cite$ -- 24
+duplicate$ -- 377
+empty$ -- 778
+format.name$ -- 162
+if$ -- 2154
 int.to.chr$ -- 0
-int.to.str$ -- 14
-missing$ -- 14
-newline$ -- 73
-num.names$ -- 28
-pop$ -- 78
+int.to.str$ -- 24
+missing$ -- 24
+newline$ -- 123
+num.names$ -- 48
+pop$ -- 150
 preamble$ -- 1
-purify$ -- 67
+purify$ -- 129
 quote$ -- 0
-skip$ -- 180
+skip$ -- 303
 stack$ -- 0
-substring$ -- 404
-swap$ -- 70
-text.length$ -- 5
+substring$ -- 704
+swap$ -- 120
+text.length$ -- 9
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 56
+type$ -- 96
 warning$ -- 0
-while$ -- 47
-width$ -- 16
-write$ -- 156
-(There was 1 warning)
+while$ -- 81
+width$ -- 26
+write$ -- 266

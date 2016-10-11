@@ -1,12 +1,30 @@
-\contentsline {figure}{\numberline {1}{\ignorespaces A energetic particle creating electron-hole pairs in a transistor.}}{1}
-\contentsline {figure}{\numberline {2}{\ignorespaces A particle striking two node concurrently causing a double node upset.}}{2}
-\contentsline {figure}{\numberline {3}{\ignorespaces An example of a radiation induced transient pulse.}}{4}
-\contentsline {figure}{\numberline {4}{\ignorespaces Two pulses arriving at a gate input.}}{4}
-\contentsline {figure}{\numberline {1.1}{\ignorespaces (a) no solution, (b) one solution, (c) infinitely many solutions}}{7}
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Inside and outside numbers of a matrix multiplication problem of $A \times B = AB$, showing how the inside dimensions are dropped and the dimensions of the product are the outside dimenions.}}{9}
-\contentsline {figure}{\numberline {2.1}{\ignorespaces (a) no solution, (b) one solution, (c) infinitely many solutions}}{12}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Inside and outside numbers of a matrix multiplication problem of $A \times B = AB$, showing how the inside dimensions are dropped and the dimensions of the product are the outside dimenions.}}{14}
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Two rows of graphics: (a)\nobreakspace {}Square \ (b)\nobreakspace {}Circle \ (c)\nobreakspace {}Rectangle }}{17}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Three rows of graphics: (a)--(c) Squares. \ (d)--(f)\nobreakspace {}Circles. \ (g)--(i)\nobreakspace {}Ovals.}}{18}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Use of verbatim environment}}{19}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Matrix Rotated 90 degrees.}}{20}
+\contentsline {figure}{\numberline {1}{\ignorespaces A energetic particle creating electron-hole pairs in a transistor.\relax }}{1}
+\contentsline {figure}{\numberline {2}{\ignorespaces A particle striking two node concurrently causing a double node upset.\relax }}{2}
+\contentsline {figure}{\numberline {3}{\ignorespaces An example of a radiation induced transient pulse.\relax }}{4}
+\contentsline {figure}{\numberline {4}{\ignorespaces Two pulses arriving at a gate input.\relax }}{4}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces HSMUF latch \cite {HSMUF} with a weak keeper on the output.\relax }}{9}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces DONUT latch as proposed in \cite {DONUT}.\relax }}{10}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Modified low-power DONUT latch.\relax }}{10}
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Basic data storage loop block.\relax }}{11}
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Schematic of the block-based latch.\relax }}{13}
+\contentsline {figure}{\numberline {1.6}{\ignorespaces Waveforms of the HRDNUT latch during normal operation.\relax }}{14}
+\contentsline {figure}{\numberline {1.7}{\ignorespaces Schematic of the HRDNUT latch.\relax }}{15}
+\contentsline {figure}{\numberline {1.8}{\ignorespaces The pulse filtering circuit provided in \cite {FERST}.\relax }}{20}
+\contentsline {figure}{\numberline {1.9}{\ignorespaces The enhanced pulse filtering circuit that can tolerate an error.\relax }}{21}
+\contentsline {figure}{\numberline {1.10}{\ignorespaces Block based latch that forms the basis for a TNU tolerant design.\relax }}{23}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces (a) no solution, (b) one solution, (c) infinitely many solutions\relax }}{26}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Inside and outside numbers of a matrix multiplication problem of $A \times B = AB$, showing how the inside dimensions are dropped and the dimensions of the product are the outside dimenions.\relax }}{28}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Two rows of graphics: (a)\nobreakspace {}Square \ (b)\nobreakspace {}Circle \ (c)\nobreakspace {}Rectangle \relax }}{31}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Three rows of graphics: (a)--(c) Squares. \ (d)--(f)\nobreakspace {}Circles. \ (g)--(i)\nobreakspace {}Ovals.\relax }}{32}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Use of verbatim environment\relax }}{33}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Matrix Rotated 90 degrees.\relax }}{34}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Waveforms for CLK and D.\relax }}{38}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Node pair n1 and n2 upset and recovery.\relax }}{38}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Node pair n2 and out upset and recovery.\relax }}{39}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Node pair n1 and n5 upset and recovery.\relax }}{39}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Node pair n3 and n4 upset and recovery.\relax }}{40}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Node pair n4 and out upset and recovery.\relax }}{40}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Node pair n1 and n3 upset and recovery.\relax }}{41}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Node pair n1 and n6 upset and recovery.\relax }}{41}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Node pair n5 and out upset and recovery.\relax }}{42}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Node pair n3 and out upset and recovery.\relax }}{42}
