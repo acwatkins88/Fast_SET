@@ -39,7 +39,7 @@
 #define MAX_VG 2.5
 
 // Define the Number of Steps
-#define NUM_STEPS 400
+#define NUM_STEPS 800
 
 // Initial Internal Node Voltage
 #define INT_NODE_VOLT 0
@@ -135,13 +135,15 @@
 #define MULT_TRANS 0
 #define INJ_RATIO 0.5
 #define W_MIN 1e-12     // Paramter for the minimum width
+#define MAX_VOLT 1.10   // Parameter to set the maximum clamping voltage
+#define MIN_VOLT -0.05
 
 /*
  * Flip Flop Values
  */
 #define SETUP_T 22.5e-12
-#define HOLD_T 7.25e-12
-#define CLK 1.5e9;
+#define HOLD_T -7.25e-12
+#define CLK 66e-9;
 
 /*
  * Temp Test Values

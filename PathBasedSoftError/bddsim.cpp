@@ -210,11 +210,10 @@ bool bdd_sim::sim_graph(gmap &graph)
                     //conv_check(git->first);
                 }
             }
+                        
+            for(p_it = graph[git->first].p_list.begin(); p_it != graph[git->first].p_list.end(); ++p_it)
+                cout<<"Node: "<<git->first<<" Event: "<<p_it->e_num<<" ID: "<<p_it->id<<" s_node: "<<p_it->s_node<<endl;
             
-            for(tpit = graph[git->first].p_list.begin(); tpit != graph[git->first].p_list.end(); ++tpit)
-            {
-                cout<<"Node: "<<git->first<<" Event: "<<tpit->e_num<<" ID: "<<tpit->id<< " Source Node: "<<tpit->s_node<<endl;
-            }
             //total_count = total_count + count_nodes(graph, git->first) - num_removed;
             //total_count = bdd_getnodenum();
             
@@ -302,25 +301,18 @@ bool bdd_sim::sim_graph(gmap &graph)
             // Load data by id number
             for (pit = graph[git->first].p_list.begin(); pit != graph[git->first].p_list.end(); ++pit)
             {
+                s_prob.solve_prob(pit->p_func);
+                latch_prob = (pit->width - (SETUP_T + HOLD_T))/CLK;
+                if(latch_prob < 0)
+                    latch_prob = 0;
+                
                 if (m_find(graph_m[git->first].r_map, pit->e_num))
                 {
-                    //cout<<"ID: "<<pit->id<<" Event: "<<pit->e_num<<" Number of BDD Nodes: "<<bdd_nodecount(pit->p_func)<<endl;
-                    s_prob.solve_prob(pit->p_func);
-                    //cout<<"Width: "<<pit->width<<endl;
-                    latch_prob = (pit->width - (SETUP_T + HOLD_T))/CLK;
                     graph_m[git->first].r_map[pit->e_num] = graph_m[git->first].r_map[pit->e_num]+(s_prob.true_prob * pit->t_prob * latch_prob);
-                    //graph_m[git->first].r_map[pit->e_num] = graph_m[git->first].r_map[pit->e_num]+(s_prob.true_prob);
-                    //cout<<"Width: "<<pit->width<<endl;
                 }
                 else
                 {
-                    //cout<<"ID: "<<pit->id<<" Event: "<<pit->e_num<<" Number of BDD Nodes: "<<bdd_nodecount(pit->p_func)<<endl;
-                    s_prob.solve_prob(pit->p_func);
-                    //cout<<"Width: "<<pit->width<<endl;
-                    latch_prob = (pit->width - (SETUP_T + HOLD_T))/CLK;
                     graph_m[git->first].r_map[pit->e_num] = (s_prob.true_prob * pit->t_prob * latch_prob);
-                    //graph_m[git->first].r_map[pit->e_num] = (s_prob.true_prob);
-                    //cout<<"Width: "<<pit->width<<endl;
                 }
                 if(PRINT_OUT == 1)
                 {
@@ -417,19 +409,22 @@ void bdd_sim::bdd_genp(int n_num)
     temp_r = gen_pulse(RISING, n_num, INJ_DELAY);
     temp_f = gen_pulse(FALLING, n_num, INJ_DELAY);
     
+    
     if((temp_r.width > W_MIN))
         graph[n_num].p_list.push_back(temp_r);
     
-    if((temp_f.width > W_MIN));
+    if((temp_f.width > W_MIN))
         graph[n_num].p_list.push_back(temp_f);
     
     val = rand() % 10 + 1;
+    //cout<<"Node: "<<n_num<<" Rand Val: "<<val<<" Rising: "<<temp_r.e_num<<" Falling: "<<temp_f.e_num<<endl;
     if((val >= floor(10*INJ_RATIO))&&(MULT_TRANS == 1))
     {
         //cout<<"Generating Extra Pulses: "<<n_num<<" Event Rising: "<<temp_r.e_num<<" Event Falling: "<<temp_f.e_num<<endl;
         git = graph.find(n_num);
         git++;
         temp_i = gen_pulse(RISING, git->first, INJ_DELAY);
+        //cout<<"Width: "<<temp_i.width<<endl;
         if(temp_i.width > W_MIN)
         {
             temp_i.e_num = temp_r.e_num;
@@ -437,6 +432,7 @@ void bdd_sim::bdd_genp(int n_num)
         }
         
         temp_i = gen_pulse(FALLING, git->first, INJ_DELAY);
+       //cout<<"Width: "<<temp_i.width<<endl;
         if(temp_i.width > W_MIN)
         {
             temp_i.e_num = temp_f.e_num;
