@@ -39,7 +39,7 @@
 #define MAX_VG 2.5
 
 // Define the Number of Steps
-#define NUM_STEPS 800
+#define NUM_STEPS 2400
 
 // Initial Internal Node Voltage
 #define INT_NODE_VOLT 0

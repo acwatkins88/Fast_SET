@@ -44,12 +44,13 @@ void bdd_sim::sim()
     // Set initial probabilities
     for(git = graph.begin(); git != graph.end(); ++git)
     {
+        //cout<<"Inj Node: "<<git->first<<" Type: "<<graph[git->first].type<<endl;
         if(graph[git->first].type == INPUT)
             graph[git->first].prob = T_PROB;
         else
-        {
             bdd_genp(git->first);
-        }
+        
+        //cout<<"Pulse Num: "<<graph[git->first].p_list.size()<<endl;
     }
 
     if (CONE_SIM == 1)
@@ -211,8 +212,8 @@ bool bdd_sim::sim_graph(gmap &graph)
                 }
             }
                         
-            for(p_it = graph[git->first].p_list.begin(); p_it != graph[git->first].p_list.end(); ++p_it)
-                cout<<"Node: "<<git->first<<" Event: "<<p_it->e_num<<" ID: "<<p_it->id<<" s_node: "<<p_it->s_node<<endl;
+            //for(p_it = graph[git->first].p_list.begin(); p_it != graph[git->first].p_list.end(); ++p_it)
+                //cout<<"Node: "<<git->first<<" Event: "<<p_it->e_num<<" ID: "<<p_it->id<<" s_node: "<<p_it->s_node<<endl;
             
             //total_count = total_count + count_nodes(graph, git->first) - num_removed;
             //total_count = bdd_getnodenum();
@@ -400,6 +401,9 @@ void bdd_sim::gen_sensf(int n_num)
 
 void bdd_sim::bdd_genp(int n_num)
 {
+    bool r_flag = false;
+    bool f_flag = false;
+    
     double val;
     transient temp_r;
     transient temp_f;
@@ -409,12 +413,15 @@ void bdd_sim::bdd_genp(int n_num)
     temp_r = gen_pulse(RISING, n_num, INJ_DELAY);
     temp_f = gen_pulse(FALLING, n_num, INJ_DELAY);
     
-    
     if((temp_r.width > W_MIN))
         graph[n_num].p_list.push_back(temp_r);
+    else
+        r_flag == true;
     
     if((temp_f.width > W_MIN))
         graph[n_num].p_list.push_back(temp_f);
+    else
+        f_flag = true;
     
     val = rand() % 10 + 1;
     //cout<<"Node: "<<n_num<<" Rand Val: "<<val<<" Rising: "<<temp_r.e_num<<" Falling: "<<temp_f.e_num<<endl;
@@ -424,16 +431,18 @@ void bdd_sim::bdd_genp(int n_num)
         git = graph.find(n_num);
         git++;
         temp_i = gen_pulse(RISING, git->first, INJ_DELAY);
-        //cout<<"Width: "<<temp_i.width<<endl;
-        if(temp_i.width > W_MIN)
+        //cout<<"Width: "<<temp_i.width<<" R Flag: "<<r_flag<<endl;
+        
+        if((temp_i.width > W_MIN)&&(r_flag == false))
         {
             temp_i.e_num = temp_r.e_num;
             graph[git->first].p_list.push_back(temp_i);
         }
         
         temp_i = gen_pulse(FALLING, git->first, INJ_DELAY);
-       //cout<<"Width: "<<temp_i.width<<endl;
-        if(temp_i.width > W_MIN)
+        //cout<<"Width: "<<temp_i.width<<" F Flag: "<<f_flag<<endl;
+        
+        if((temp_i.width > W_MIN)&&(f_flag == false))
         {
             temp_i.e_num = temp_f.e_num;
             graph[git->first].p_list.push_back(temp_i);
