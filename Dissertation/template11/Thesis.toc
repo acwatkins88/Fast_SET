@@ -11,11 +11,10 @@
 \contentsline {section}{\numberline {1.4}Filtering of Transients Arriving on the Latch Input}{20}
 \contentsline {section}{\numberline {1.5}Analysis of a Triple Node Upset Tolerant Latch}{21}
 \contentsline {section}{\numberline {1.6}Conclusion}{22}
-\contentsline {chapter}{\numberline {2}Systems of Linear Equations and Matrices}{25}
-\contentsline {section}{\numberline {2.1}Introductions to Systems of Linear Equations}{25}
-\contentsline {section}{\numberline {2.2}Gaussian Elimination}{27}
-\contentsline {section}{\numberline {2.3}Further Results on Systems of Equations}{28}
-\contentsline {subsection}{\numberline {2.3.1}Some Important Theorems}{28}
-\contentsline {chapter}{\numberline {3}Examples}{30}
-\contentsline {chapter}{Appendix}{37}
-\contentsline {chapter}{Vita}{44}
+\contentsline {chapter}{\numberline {2}An Analytical Pulse Approximation Algorithm for Multiple Event Transients}{25}
+\contentsline {section}{\numberline {2.1}Pulse Approximation Model}{26}
+\contentsline {section}{\numberline {2.2}Experimental Results}{32}
+\contentsline {section}{\numberline {2.3}Conclusion}{35}
+\contentsline {chapter}{\numberline {3}Examples}{38}
+\contentsline {chapter}{Appendix}{45}
+\contentsline {chapter}{Vita}{52}

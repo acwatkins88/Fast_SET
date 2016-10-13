@@ -19,11 +19,25 @@ N.~Eftaxiopoulos, N.~Axelos, and K.~Pekmestzi.
 \newblock In {\em 2015 IEEE Computer Society Annual Symposium on VLSI}, pages
   509--514, July 2015.
 
+\bibitem{TahooriMET}
+M.~Fazeli, S.~N. Ahmadian, S.~G. Miremadi, H.~Asadi, and M.~B. Tahoori.
+\newblock Soft error rate estimation of digital circuits in the presence of
+  multiple event transients (mets).
+\newblock In {\em 2011 Design, Automation Test in Europe}, pages 1--6, March
+  2011.
+
 \bibitem{FERST}
 M.~Fazeli, S.~G. Miremadi, A.~Ejlali, and A.~Patooghy.
 \newblock Low energy single event upset/single event transient-tolerant latch
   for deep submicron technologies.
 \newblock {\em IET Computers Digital Techniques}, 3(3):289--303, May 2009.
+
+\bibitem{Harada}
+R.~Harada, Y.~Mitsuyama, M.~Hashimoto, and T.~Onoye.
+\newblock Neutron induced single event multiple transients with voltage scaling
+  and body biasing.
+\newblock In {\em Reliability Physics Symposium (IRPS), 2011 IEEE
+  International}, pages 3C.4.1--3C.4.5, April 2011.
 
 \bibitem{Hazucha}
 P.~Hazucha, T.~Karnik, S.~Walstra, B.~Bloechel, J.~Tschanz, J.~Maiz,
@@ -117,6 +131,13 @@ F.~Wang and Y.~Xie.
   electrical masking model.
 \newblock {\em IEEE Transactions on Dependable and Secure Computing},
   8(1):137--146, Jan 2011.
+
+\bibitem{Weibull}
+A.~Watkins and S.~Tragoudas.
+\newblock Transient pulse propagation using the weibull distribution function.
+\newblock In {\em 2012 IEEE International Symposium on Defect and Fault
+  Tolerance in VLSI and Nanotechnology Systems (DFT)}, pages 109--114, Oct
+  2012.
 
 \bibitem{HSMUF}
 A.~Yan, H.~Liang, Z.~Huang, and C.~Jiang.
