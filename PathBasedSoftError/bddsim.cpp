@@ -159,11 +159,13 @@ bool bdd_sim::sim_graph(gmap &graph)
     int f_count = 0;
     bdd_prob s_prob;
     gmap::iterator git;
-    list<transient>::iterator p_it;
+    list<transient>::iterator nit;
+    map<int, list<transient> > tp_temp;
+    map<int, list<transient> >::iterator tmit;
 
     for (git = graph.begin(); git != graph.end(); ++git)
     {
-        cout<<"Starting: "<<git->first<<endl;
+        //cout<<"Starting: "<<git->first<<endl;
         
         if (graph[git->first].type == INPUT)
         {
@@ -185,11 +187,11 @@ bool bdd_sim::sim_graph(gmap &graph)
             gen_sensf(git->first);
             
             if (bdd_nodecount(*graph[git->first].g_func) > 1000)
-                bdd_reorder(BDD_REORDER_WIN2ITE);
-            
-            list<transient>::iterator tpit;
+                bdd_reorder(BDD_REORDER_WIN2ITE);            
+                 
             if(t_find(tp_map, git->first))
             {
+                list<transient>::iterator tpit;
                 for(tpit = tp_map[git->first].begin(); tpit != tp_map[git->first].end(); ++tpit)
                 {
                     graph[git->first].p_list.push_back(*tpit);
@@ -207,7 +209,7 @@ bool bdd_sim::sim_graph(gmap &graph)
             {
                 if(!graph[git->first].p_list.empty())
                 {
-                    //enhconv_check(git->first);
+                    enhconv_check(git->first);
                     //conv_check(git->first);
                 }
             }
@@ -279,7 +281,7 @@ bool bdd_sim::sim_graph(gmap &graph)
             }
         }
         cout << "Gate Processed: " << git->first << endl;
-        
+                
         bdd_optimize();
     }
     
@@ -323,7 +325,7 @@ bool bdd_sim::sim_graph(gmap &graph)
                     s.str(string());
                 }
             }
-            tp_map.clear();
+            //tp_map.clear();
         }
         else if ((graph[git->first].type != INPUT)&&((graph[git->first].fanout_num != graph_m[git->first].fanout_num) || (graph[git->first].fanout_num == 0)))
         {
@@ -335,11 +337,18 @@ bool bdd_sim::sim_graph(gmap &graph)
                 temp.p_func = bdd_true();
                 for (fit = graph_m[git->first].fanout.begin(); fit != graph_m[git->first].fanout.end(); ++fit)
                 {
-                    tp_map[*fit].push_back(temp);
+                    tp_temp[*fit].push_back(temp);
+                    //tp_map[*fit].push_back(temp);
                 }
             }
-
+            graph[git->first].p_list.clear();
+            list<transient>() = graph[git->first].p_list;
         }
+        
+        if(git->first == this->max_node)
+            for(tmit = tp_temp.begin(); tmit != tp_temp.end(); ++tmit)
+                for(nit = tp_temp[tmit->first].begin(); nit != tp_temp[tmit->first].end(); ++nit)
+                    tp_map[tmit->first].push_back(*nit);
     }
    
     return false;
@@ -700,14 +709,13 @@ void bdd_sim::bdd_optimize()
                 }
                 if(flag == 0)
                 {
-                    graph[git->first].p_list.clear();
-                    list<transient>() = graph[git->first].p_list;
+                    //graph[git->first].p_list.clear();
+                    //list<transient>() = graph[git->first].p_list;
                     graph[git->first].del_flag = 1;
                     *graph[git->first].g_func = bdd_true();
                     delete graph[git->first].g_func;
                     graph[git->first].func_del = true;
                     del_count++;
-                    //cout<<"Delete 3: "<<git->first<<endl;
                 } 
             }
         }

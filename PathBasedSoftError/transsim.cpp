@@ -713,7 +713,8 @@ transient gen_sim::calc_NAND(list<transient> inputs, int n_num)
         flag = false;
         for(lit = inputs.begin(); lit != inputs.end(); ++lit)
         {
-            //cout<<"Cur s_node: "<<lit->s_node<<" Ideal s_node: "<<*fit<<endl;
+            //if(n_num == 625)
+                //cout<<"Cur s_node: "<<lit->s_node<<" Ideal s_node: "<<*fit<<endl;
             if(lit->s_node == *fit)
             {
                 //cout<<"Source Node: "<<lit->s_node<<endl;
@@ -730,6 +731,7 @@ transient gen_sim::calc_NAND(list<transient> inputs, int n_num)
         {
             temp_v.push_back(0);
             ord_list.push_back(temp_v);
+            temp_v.clear();
         }  
     }
     
@@ -741,32 +743,28 @@ transient gen_sim::calc_NAND(list<transient> inputs, int n_num)
     temp_out.push_back(vd_init);
 
     vector<double> temp_vec;
+    
     // Initialize n_volt
+    temp_vec.push_back(0);
     for(i = 0; i < itr_num-1; i++)
     {
-        temp_vec.push_back(0);
         n_volt.push_back(temp_vec);
     }
-    double vg[10];
     
     for(int t = 1; t <= NUM_STEPS; t++)
     {
-        //cout<<"Node: "<<n_num<<" Iteration: "<<t<<endl;
         for(i = 0; i < itr_num; i++)
         {
             if(ord_list[i].size() != 1)
             {
                 vg_cur = ord_list[i][t];
                 del_inp.push_back(ord_list[i][t] - ord_list[i][t-1]);
-                vg[i] = vg_cur;
             }
             else
             {
                 vg_cur = VDD;
                 del_inp.push_back(0);
-                vg[i] = vg_cur;
             }
-            //cout<<"Input: "<<i<<" Vg: "<<vg_cur<<endl;
             
             res = ind_current(PMOS, temp_out[t-1], vg_cur);
             ip.push_back(res);
@@ -838,9 +836,9 @@ transient gen_sim::calc_NAND(list<transient> inputs, int n_num)
         pulse.width = abs(((w_val1 - w_val2)*adj_step)/st_ratio);
         temp_out.push_back(cur_out);  
         
-        if(n_num == 427)
-            cout<<"nvolt 0: "<<n_volt[0][t]<<" nvolt 1: "<<n_volt[1][t]<<" output: "<<cur_out<<" Vg0: "<<vg[0]<<" Vg1: "<<vg[1]<<" Vg2: "<<vg[2]<<endl;
-        //cout<<"nvolt 1: "<<n_volt[0][t]<<" output: "<<cur_out<<endl;
+        //cout<<"nvolt 0: "<<n_volt[0][t]<<" nvolt 1: "<<n_volt[1][t]<<" output: "<<cur_out<<" Vg0: "<<vg[0]<<" Vg1: "<<vg[1]<<" Vg2: "<<vg[2]<<endl;
+        //if(n_num == 625)
+            //cout<<"nvolt 1: "<<n_volt[0][t]<<" output: "<<cur_out<<endl;
         
         in.clear();
         ip.clear();
@@ -935,6 +933,7 @@ transient gen_sim::calc_NOR(list<transient> inputs, int n_num)
         {
             temp_v.push_back(0);
             ord_list.push_back(temp_v);
+            temp_v.clear();
         }  
     }
     
@@ -2321,6 +2320,7 @@ gmap gen_sim::extract_circuit(int part_num)
 gmap gen_sim::extract_tcir(int part_num)
 {
     int f_count = 0;
+    int temp_mnode = 0;
     gmap temp_graph;
     gmap::iterator git;
     list<int>::iterator lit;
@@ -2330,8 +2330,12 @@ gmap gen_sim::extract_tcir(int part_num)
         if(graph_m[git->first].static_part == part_num)
         {
             temp_graph[git->first] = graph_m[git->first];
+            if(git->first > temp_mnode)
+                temp_mnode = git->first;
+            //cout<<"Node : "<<git->first<<" Main Fanin_num: "<<graph_m[git->first].fanin_num<<" New Fanin_num: "<<temp_graph[git->first].fanin_num<<endl;
         }
     }
+    this->max_node = temp_mnode;
     
     for(git = temp_graph.begin(); git != temp_graph.end(); ++git)
     {
@@ -2364,11 +2368,13 @@ gmap gen_sim::extract_tcir(int part_num)
     
     for(git = temp_graph.begin(); git != temp_graph.end(); ++git)
     {
+        //cout<<"Node: "<<git->first<<" Inputs: "<<temp_graph[git->first].fanin_num<<endl;
         if((temp_graph[git->first].fanin_num != (graph_m[git->first].fanin_num))&&(temp_graph[git->first].type != INPUT))
         {   
             for(lit = graph_m[git->first].fanin.begin(); lit != graph_m[git->first].fanin.end(); ++ lit)
             {
-                if((graph_m[*lit].type != INPUT)&&(!l_find(temp_graph[git->first].fanin, *lit)))
+                //if((graph_m[*lit].type != INPUT)&&(!l_find(temp_graph[git->first].fanin, *lit)))
+                if(!l_find(temp_graph[git->first].fanin, *lit))
                 {
                     temp_graph[n_count].type = INPUT;
                     temp_graph[n_count].fanout.push_back(git->first);
@@ -2376,6 +2382,7 @@ gmap gen_sim::extract_tcir(int part_num)
                     temp_graph[n_count].prob = graph_m[*lit].prob;
                     temp_graph[n_count].static_part = graph_m[*lit].static_part;
                     temp_graph[git->first].fanin.push_back(n_count);
+                    //cout<<"Node: "<<git->first<<" Fanin_Size: "<<temp_graph[git->first].fanin.size()<<endl;
                     temp_graph[git->first].fanin_num++;
                     n_count--;
                 }

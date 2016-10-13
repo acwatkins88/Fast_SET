@@ -55,6 +55,8 @@ protected:
     int size_part1;
     int size_part2;
     
+    int max_node;
+    
     gmap::iterator over_it;
     
     // Data structures for partitioning

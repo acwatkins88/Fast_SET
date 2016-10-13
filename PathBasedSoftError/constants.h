@@ -160,7 +160,7 @@
 #define PART_RATIO 0.5
 
 // Maximum BDD node count
-#define MAX_BDD_NODES 5000000
+#define MAX_BDD_NODES 40
 
 // Set a Minimum Number of Gates
 #define MIN_GATE_NUM 10
