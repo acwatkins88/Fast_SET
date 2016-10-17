@@ -92,10 +92,22 @@ P(M) = \prod_{i=1}^{N-1} I_i
 
 In equation \ref{prop_eq} only $N-1$ inputs are considered since the input which contains the transient pulse is not included in the calculation. 
 
-For the consideration of METs, the above equations must be modified such that the joint probability of the error occurring is considered. In the case of pulse generation, it is assumed that a single radiation particle will strike two or more gates causing transient pulses. In the case of pulse generation, the equation for the number of possible ways a strike can produce a pulse ($P_{num}$) is given in equation \ref{num_eq} assuming a $N$ number of struck gates and $r$ as the number of gates that produce a transient pulse.
+For the consideration of METs, the above equations must be modified such that the joint probability of the error occurring is considered. In the case of pulse generation, it is assumed that a single radiation particle will strike two or more gates causing transient pulses. As stated previously, in order for a pulse with a specific polarity to be generated, the output of the gate must have a specific value. Based on this, the probability of pulses being generated ($P_{C_i}$) assuming strikes $N$ gates with sufficient energy is given in equation \ref{pul_gen} where $P(G_{i,p})$ is the probability that gate $G_i$ is capable of generating a pulse of polarity $p$. If the pulse generated is rising, $G_{i,p}$ pertains to the probability that the output of $G_{i,p}$ is "0". If the pulse is falling, $G_{i,p}$ is the probability of the output being "1".
 
-\begin{equation} \label{num_eq}
-P_{num} = \sum_{r=1}^{N} \frac{N!}{(N-r)!}
+\begin{equation} \label{pul_gen}
+P_{gen} = \prod_{i=1}^{N} P(G_{i, p})
 \end{equation}
 
-Equation \ref{num_eq} is derived based on the fact that multiple pulses can be masked before they arrive on the gate. More specifically, given that NAND gate in Fig. \ref{Prop_NAND}, it is possible for up to two pulse to arrive simultaneously. This arrives to 3 possible cases given in Fig. [ref]. Based off the three cases, the probability of MET occurring is given in equation [ref] where $P(A)$ is the probability of the pulse arriving on input $A$, $\bar{P(A)}$ is the probability of the pulse on input $A$ not arriving and $P(A_{NC})$ is the probability of input $B$ having a non-controlling value. The variables apply to input $B$ similarly.
+A particle hitting two transistors simultaneously allows for multiple cases since the input may be such that the struck gate is not blocking. Based on this, the total number of possible ways a strike can produce a pulse ($P_{num}$) is given in equation \ref{num_eq} assuming a $N$ number of struck gates and $r$ as the number of gates that produce a transient pulse.
+
+\begin{equation} \label{num_eq}
+P_{num} = 2*\sum_{r=1}^{N} \frac{N!}{(N-r)!}
+\end{equation}
+
+Equation \ref{num_eq} is based on the fact that multiple pulses are not always generated when a particle strikes both transistors. As stated previously, the polarity and existence of the pulse depends on the input patterns. If one assumes that the particle hits a $N$ number of gates, this creates a $P_{num}$ number of cases where $P(C_i)$ represents the probability of case $i$ calculated using equation \ref{pul_gen}. The total probability of a radiation strike generating a SET or MET $P_{err}$ is given below:
+
+\begin{equation} \label{err_eq}
+P_{err} = \sum_{i=1}^{P_{num}} P(C_i)
+\end{equation}
+
+

@@ -17,5 +17,5 @@
 \contentsline {section}{\numberline {2.3}Conclusion}{35}
 \contentsline {chapter}{\numberline {3}Accurate Soft Error Simulation Using Adaptive Partitioning}{38}
 \contentsline {section}{\numberline {3.1}Adaptive BDD Based Simulation}{41}
-\contentsline {chapter}{Appendix}{48}
-\contentsline {chapter}{Vita}{54}
+\contentsline {chapter}{Appendix}{49}
+\contentsline {chapter}{Vita}{55}
