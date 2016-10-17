@@ -1,0 +1,274 @@
+
+\chapter{Robust Designs for Multiple Node Upsets}
+
+
+
+
+\section{Introduction}
+
+
+%
+% --------------------------------------------------------------
+% Equation* typesets equation without an eqn number.
+% --------------------------------------------------------------
+%
+\begin{equation*}
+   a_1 x + a_2 y = b
+\end{equation*}
+%
+An equation of this kind is called a linear equation in the variables
+$x$ and $y$.  More generally, we define a linear equation in the $n$
+variables $x_1,\ldots,x_n$ to be one that can be expressed in the form
+%
+\begin{equation}
+   a_1 x_1 + a_2 x_2 + \cdots + a_n x_n = b 
+\end{equation}
+%
+where $a_1, a_2, \ldots a_n$ and $b$ are real constants.
+
+\begin{definition}
+A finite set of linear equations in the variables $x_1, x_2, \ldots,
+x_n$ is called a {\it system of linear equations}. 
+\end{definition}
+
+Not all systems of linear equations has solutions.  A system of
+equations that has no solution is said to be {\it inconsistent}.  If
+there is at least one solution, it is called {\it consistent}.  To
+illustrate the possibilities that can occur in solving systems of linear
+equations, consider a general system of two linear equations in the
+unknowns $x$ and~$y$:
+%
+% --------------------------------------------------------------
+% align* typesets series of equations without an eqn number.
+% --------------------------------------------------------------
+%
+\begin{align*}
+  & a_1 x + b_1 y = c_1  \\
+  & a_2 x + b_2 y = c_2
+\end{align*}
+%
+The graphs of these equations are lines; call them $l_1$ and $l_2$.
+Since a point $(x,y)$ lies on a line if and only if the numbers $x$ and
+$y$ satisfy the equation of the line, the solutions of the system of
+equations will correspond to points of intersection of $l_1$ and $l_2$.
+There are three possibilities:
+
+%
+% --------------------------------------------------------------
+% \begin{figure}...\end{figure} inserts a figure.  The "[h]"
+% indicates that the figure should be placed in the text where
+% defined.  By default, figures float to the top of the next
+% page.  Note that \caption{} and \label{} definitions at the
+% the end.  By using \label{} to assign a label name to a figure,
+% that figure number can be referenced within the paper.  This
+% allows us to add or delete figures without fixing all references.
+% --------------------------------------------------------------
+%
+\begin{figure}[h]
+\centering
+    \setlength{\unitlength}{.1in}
+    \begin{picture}(33,16)
+   %
+    \put(2,3){\line(-1,5){2}}
+    \put(4,3){\line(-1,5){2}}
+    \put(0.5,13){$l_1$}
+    \put(3.0,13){$l_2$}
+    \put(2.5,0){(a)}
+   %
+    \put(12,3){\line(1,1){10}}
+    \put(19,3){\line(-1,5){2}}
+    \put(17.7,13){$l_1$}
+    \put(23,13){$l_2$}
+    \put(16,0){(b)}
+   %
+    \put(30,3){\line(1,5){2}}
+    \put(33,13){$l_1,l_2$}
+    \put(31,0){(c)}
+    \end{picture}
+\caption{(a) no solution, (b) one solution, (c) infinitely many
+  solutions}
+\label{fig:intfig}  % defines a label (intfig) that can be refered to
+\end{figure}
+
+The three possiblities illustrated in Figure~\ref{fig:intfig} are as
+follows:
+
+
+%
+% --------------------------------------------------------------
+% \begin{enumerate} normally wants to typeset "1.", "2.", etc...
+% Here we define the counter (\theenumi) to be alphabetic (a,b,...)
+% and the label (\labelenumi) to be the counter in parentheses.
+% This gives us (a), (b), (c), ...
+% --------------------------------------------------------------
+%
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+%
+\begin{enumerate}
+\item
+$l_1$ and $l_2$ are parallel, in which case there is no intersection,
+and consequently no solution to the system.
+\item
+$l_1$ and $l_2$ intersect at only one point, in which case the system
+has exactly one solution.
+
+% --------------------------------------------------------------
+% Below we force a page break to avoid a widow line
+% at the top of a page.  
+% --------------------------------------------------------------
+
+
+\newpage
+\item
+$l_1$ and $l_2$ coincide, in which case there are infinitely many points
+of intersection, and consequently infinitely many solutions to the
+system.
+\end{enumerate}
+
+Although we have considered only two equations with two unknowns here,
+we will show later that this same result holds for arbitrary systems;
+that is, every system of linear equations has either no solutions,
+exactly one solution, or infinitely many solutions.
+
+
+\section{Gaussian Elimination}
+
+In this section we give a systematic procedure for solving systems of
+linear equations; it is based on the idea of reducing the augmented
+matrix to a form that is simple enough so that the system of equations
+can be solved by inspection.
+
+\begin{remark}
+It is not difficult to see that a matrix in row-echelon form must have
+zeros below each leading 1.  In contrast a matrix in reduced row-echelon
+form must have zeros above and below each leading 1.
+\end{remark}
+
+%
+% --------------------------------------------------------------
+% Here we refer back to the labeled figure one ("intfig") by
+% figure number (\ref) and by page number (\pageref).  The "~"
+% is a space that keeps the word "Figure" and the figure number
+% from being split across lines.
+% --------------------------------------------------------------
+%
+
+As a direct result of Figure~\ref{fig:intfig} on
+page~\pageref{fig:intfig} we have the following important theorem.
+
+\begin{theorem} 
+A homogenous system of linear equations with more unknowns than
+equations always has infinitely many solutions
+\end{theorem}
+
+The definition of matrix multiplication requires that the number of columns
+of the first factor $A$ be the same as the number of rows of the second
+factor $B$ in order to form the product $AB$.  If this condition is not
+satisfied, the product is undefined.  A convenient way to determine
+whether a product of two matrices is defined is to write down the size
+of the first factor and, to the right of it, write down the size of the
+second factor.  If, as in Figure~\ref{fig:figfact}, the inside numbers
+are the same, then the product is defined.  The outside numbers then
+give the size of the product.  
+
+\begin{figure}[h]
+\centering
+    \setlength{\unitlength}{.1in}
+    \begin{picture}(40,12)
+   %
+   \put(2,7){$m\quad \times \quad r$}
+   \put(5.4,9){$A$}
+   \put(18,7){$r\quad \times \quad n$}
+   \put(20.8,9){$B$}
+   \put(27,7){$\quad = \quad m\,\, \times \,\, n$}
+   \put(33.4,9){$AB$}
+   %
+   \put(3.2,0.5){\line(0,1){5.5}}
+   \put(3.2,0.5){\line(1,0){21.3}}
+   \put(24.5,0.5){\line(0,1){5.5}}
+   %
+   \put(9,3.0){\line(0,1){3.0}}
+   \put(9,3.0){\line(1,0){9.5}}
+   \put(18.5,3.0){\line(0,1){3.0}}
+   %
+   \put(11.25,1){outside}
+   \put(11.50,3.5){inside}
+   \end{picture}
+
+\caption{Inside and outside numbers of a matrix multiplication problem
+  of $A \times B = AB$, showing how the inside dimensions are dropped
+  and the dimensions of the product are the outside dimenions.}
+\label{fig:figfact}  % we will label this figure "figfact"
+\end{figure}
+
+
+Although the commutative law for multiplication is not valid in matrix
+arithmetic, many familiar laws of arithmetic are valid for matrices.
+Some of the most important ones and their names are summarized in the
+following proposition.
+
+\begin{proposition}
+Assuming that the sizes of the matrices are such that the indicated
+operations can be performed, the following rules of matrix arithmetic
+are valid.
+%
+\begin{alignat*}{2}
+ (a) \quad & A + B = B + A   &
+         \qquad & \text{(Commutative law for addition)} \\
+ (b) \quad & A+(B+C)=(A+B)+C &
+         \qquad & \text{(Associative law for addition)} \\
+ (c) \quad & A(BC)=(AB)C     &
+         \qquad & \text{(Associative law for multiplication)}
+\end{alignat*}
+\end{proposition}
+
+
+\section{Further Results on Systems of Equations}
+
+In this section we shall establish more results about systems of linear
+equations and invertibility of matrices.  Our work will lead to a method
+for solving $n$ equations in $n$ unknowns that is more efficient than
+Gaussian elimination for certain kinds of problems.
+
+
+\subsection{Some Important Theorems}
+
+\begin{theorem}
+If $A$ is an invertible $n\times n$ matrix, then for each $n\times 1$
+matrix $B$, the system of equations $AX=B$ has exactly one solution,
+namely, $X=A^{-1}B$.
+\end{theorem}
+
+\begin{proof}
+Since $A(A^{-1}B) = B$, $X=A^{-1}B$ is a solution of $AX=B$.  To show
+that this is the only solution, we will assume that $X_0$ is an
+arbitrary solution, and then show that $X_0$ must be the solution
+$A^{-1}B$.
+
+If $X_0$ is any solution, then $AX_0=B$.  Multiplying both sides by
+$A^{-1}$, we obtain $X_0=A^{-1}B$.
+\end{proof}
+
+\begin{theorem}
+Let $A$ be a square matrix.
+\begin{enumerate}
+\item
+ If $B$ is a square matrix satisfying $BA=I$,then $B=A^{-1}$.
+\item
+If $B$ is a square matrix satisfying $AB=I$, then $B=A^{-1}$.
+\end{enumerate}
+\label{thm:square}  % we can also assign labels to theorems
+                    % and reference them within the text.
+\end{theorem}
+
+In our later work the following fundamental problem will occur over and
+over again in various contexts.
+
+
+Let $A$ be fixed $m\times n$ matrix.  Find all $m\times 1$ matrices $B$
+such that the system of equations $AX=B$ is consistent.
+
+If $A$ is an invertible matrix, Theorem~\ref{thm:square} completely
+solves this problem by asserting that for every $m\times n$ matrix $B$,
+$AX=B$ has the unique solution $X=A^{-1}B$.

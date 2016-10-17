@@ -1,47 +1,46 @@
-This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2015/W32TeX)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Thesis.aux
-I found no \bibdata command---while reading file Thesis.aux
-I found no \bibstyle command---while reading file Thesis.aux
-You've used 1 entry,
-            0 wiz_defined-function locations,
-            85 strings with 496 characters,
-and the built_in function-call counts, 0 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 0
-:= -- 0
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
+The style file: plain.bst
+Database file #1: Bibfile.bib.bib
+You've used 33 entries,
+            2118 wiz_defined-function locations,
+            724 strings with 10020 characters,
+and the built_in function-call counts, 14334 in all, are:
+= -- 1376
+> -- 683
+< -- 16
++ -- 269
+- -- 234
+* -- 1084
+:= -- 2209
+add.period$ -- 100
+call.type$ -- 33
+change.case$ -- 216
 chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 0
-format.name$ -- 0
-if$ -- 0
+cite$ -- 33
+duplicate$ -- 560
+empty$ -- 1119
+format.name$ -- 234
+if$ -- 3131
 int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 0
-num.names$ -- 0
-pop$ -- 0
-preamble$ -- 0
-purify$ -- 0
+int.to.str$ -- 33
+missing$ -- 33
+newline$ -- 168
+num.names$ -- 66
+pop$ -- 227
+preamble$ -- 1
+purify$ -- 183
 quote$ -- 0
-skip$ -- 0
+skip$ -- 458
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 1002
+swap$ -- 198
+text.length$ -- 16
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
+type$ -- 132
 warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 0
-(There were 2 error messages)
+while$ -- 117
+width$ -- 35
+write$ -- 368

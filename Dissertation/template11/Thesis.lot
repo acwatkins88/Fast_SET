@@ -1,1 +1,4 @@
-\contentsline {table}{\numberline {2.1}{\ignorespaces An example table showing how centering works with extended captioning.}}{9}
+\contentsline {table}{\numberline {1.1}{\ignorespaces SPICE Simulations of Existing Latches using the 1.05V 32nm PTM library \relax }}{19}
+\contentsline {table}{\numberline {2.1}{\ignorespaces Proposed and \cite {Accurate_Masking} compared to HSPICE for 2400 points.\relax }}{35}
+\contentsline {table}{\numberline {2.2}{\ignorespaces Execution Time vs Accuracy ($x10^{-3}$)\relax }}{36}
+\contentsline {table}{\numberline {3.1}{\ignorespaces Functions for Transient Pulse Generation\relax }}{43}
