@@ -15,6 +15,7 @@
 \contentsline {section}{\numberline {2.1}Pulse Approximation Model}{26}
 \contentsline {section}{\numberline {2.2}Experimental Results}{32}
 \contentsline {section}{\numberline {2.3}Conclusion}{35}
-\contentsline {chapter}{\numberline {3}Examples}{38}
-\contentsline {chapter}{Appendix}{45}
-\contentsline {chapter}{Vita}{52}
+\contentsline {chapter}{\numberline {3}Accurate Soft Error Simulation Using Adaptive Partitioning}{38}
+\contentsline {section}{\numberline {3.1}Adaptive BDD Based Simulation}{41}
+\contentsline {chapter}{Appendix}{48}
+\contentsline {chapter}{Vita}{54}

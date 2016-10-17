@@ -13,13 +13,32 @@ T.~Calin, M.~Nicolaidis, and R.~Velazco.
 \newblock {\em IEEE Transactions on Nuclear Science}, 43(6):2874--2878, Dec
   1996.
 
+\bibitem{Chen2013}
+Liang Chen, Mojtaba Ebrahimi, and Mehdi~B. Tahoori.
+\newblock Cep: Correlated error propagation for hierarchical soft error
+  analysis.
+\newblock {\em Journal of Electronic Testing}, 29(2):143--158, 2013.
+
 \bibitem{DONUT}
 N.~Eftaxiopoulos, N.~Axelos, and K.~Pekmestzi.
 \newblock Donut: A double node upset tolerant latch.
 \newblock In {\em 2015 IEEE Computer Society Annual Symposium on VLSI}, pages
   509--514, July 2015.
 
+\bibitem{Ercolani1989}
+S.~Ercolani, M.~Favalli, M.~Damiani, P.~Olivo, and B.~Ricco.
+\newblock Estimate of signal probability in combinational logic networks.
+\newblock In {\em European Test Conference, 1989., Proceedings of the 1st},
+  pages 132--138, Apr 1989.
+
 \bibitem{TahooriMET}
+M.~Fazeli, S.~N. Ahmadian, S.~G. Miremadi, H.~Asadi, and M.~B. Tahoori.
+\newblock Soft error rate estimation of digital circuits in the presence of
+  multiple event transients (mets).
+\newblock In {\em 2011 Design, Automation Test in Europe}, pages 1--6, March
+  2011.
+
+\bibitem{Fazeli2011}
 M.~Fazeli, S.~N. Ahmadian, S.~G. Miremadi, H.~Asadi, and M.~B. Tahoori.
 \newblock Soft error rate estimation of digital circuits in the presence of
   multiple event transients (mets).
@@ -31,6 +50,12 @@ M.~Fazeli, S.~G. Miremadi, A.~Ejlali, and A.~Patooghy.
 \newblock Low energy single event upset/single event transient-tolerant latch
   for deep submicron technologies.
 \newblock {\em IET Computers Digital Techniques}, 3(3):289--303, May 2009.
+
+\bibitem{Han2014}
+J.~Han, H.~Chen, J.~Liang, P.~Zhu, Z.~Yang, and F.~Lombardi.
+\newblock A stochastic computational approach for accurate and efficient
+  reliability evaluation.
+\newblock {\em IEEE Transactions on Computers}, 63(6):1336--1350, June 2014.
 
 \bibitem{Harada}
 R.~Harada, Y.~Mitsuyama, M.~Hashimoto, and T.~Onoye.
@@ -59,6 +84,13 @@ K.~Katsarou and Y.~Tsiatouhas.
 \newblock Soft error interception latch: double node charge sharing seu
   tolerant design.
 \newblock {\em Electronics Letters}, 51(4):330--332, 2015.
+
+\bibitem{Li2016}
+Ji~Li and Jeffrey Draper.
+\newblock Accelerating soft-error-rate (ser) estimation in the presence of
+  single event transients.
+\newblock In {\em Proceedings of the 53rd Annual Design Automation Conference},
+  DAC '16, pages 55:1--55:6, New York, NY, USA, 2016. ACM.
 
 \bibitem{Multivdd}
 S.~Lin, H.~Yang, and R.~Luo.
@@ -124,6 +156,12 @@ R.~R. Rao, K.~Chopra, D.~T. Blaauw, and D.~M. Sylvester.
   parameterized descriptors.
 \newblock {\em IEEE Transactions on Computer-Aided Design of Integrated
   Circuits and Systems}, 26(3):468--479, March 2007.
+
+\bibitem{Rossi2005}
+D.~Rossi, M.~Omana, F.~Toma, and C.~Metra.
+\newblock Multiple transient faults in logic: an issue for next generation ics?
+\newblock In {\em 20th IEEE International Symposium on Defect and Fault
+  Tolerance in VLSI Systems (DFT'05)}, pages 352--360, Oct 2005.
 
 \bibitem{Accurate_Masking}
 F.~Wang and Y.~Xie.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.16)  12 OCT 2016 22:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.16)  16 OCT 2016 18:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -242,18 +242,18 @@ Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
  (./Thesis.aux)
 \openout1 = `Thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
 
 (e:/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -524,211 +524,31 @@ lotoutnand3903.png (PNG copy)>]
 CHAPTER 3.
 [38
 
-]
-Package epstopdf Info: Source file: <ch3-square.eps>
-(epstopdf)                    date: 2016-10-05 21:21:15
-(epstopdf)                    size: 14838 bytes
-(epstopdf)             Output file: <ch3-square-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-10-06 22:04:36
-(epstopdf)                    size: 2463 bytes
-(epstopdf)             Command: <repstopdf --outfile=ch3-square-eps-converted-t
-o.pdf ch3-square.eps>
-(epstopdf)             \includegraphics on input line 49.
-Package epstopdf Info: Output file is already uptodate.
- <ch3-square-eps-converted-to.pdf, id=282, 127.47626pt x 125.46875pt>
-File: ch3-square-eps-converted-to.pdf Graphic file (type pdf)
+] [39] [40] [41]
+<Figures/NAND_Strike.pdf, id=292, 246.9225pt x 247.67531pt>
+File: Figures/NAND_Strike.pdf Graphic file (type pdf)
 
-<use ch3-square-eps-converted-to.pdf>
-Package pdftex.def Info: ch3-square-eps-converted-to.pdf used on input line 49.
+<use Figures/NAND_Strike.pdf>
+Package pdftex.def Info: Figures/NAND_Strike.pdf used on input line 39.
+(pdftex.def)             Requested size: 254.39156pt x 255.1651pt.
 
-(pdftex.def)             Requested size: 72.26999pt x 71.13501pt.
-Package epstopdf Info: Source file: <ch3-circle.eps>
-(epstopdf)                    date: 2016-10-05 21:21:15
-(epstopdf)                    size: 14846 bytes
-(epstopdf)             Output file: <ch3-circle-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-10-06 22:04:39
-(epstopdf)                    size: 2527 bytes
-(epstopdf)             Command: <repstopdf --outfile=ch3-circle-eps-converted-t
-o.pdf ch3-circle.eps>
-(epstopdf)             \includegraphics on input line 51.
-Package epstopdf Info: Output file is already uptodate.
-
-<ch3-circle-eps-converted-to.pdf, id=283, 157.58875pt x 152.57pt>
-File: ch3-circle-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ch3-circle-eps-converted-to.pdf>
-Package pdftex.def Info: ch3-circle-eps-converted-to.pdf used on input line 51.
-
-(pdftex.def)             Requested size: 72.26999pt x 69.96887pt.
-Package epstopdf Info: Source file: <ch3-triangle.eps>
-(epstopdf)                    date: 2016-10-05 21:21:15
-(epstopdf)                    size: 14975 bytes
-(epstopdf)             Output file: <ch3-triangle-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-10-06 22:04:40
-(epstopdf)                    size: 2490 bytes
-(epstopdf)             Command: <repstopdf --outfile=ch3-triangle-eps-converted
--to.pdf ch3-triangle.eps>
-(epstopdf)             \includegraphics on input line 59.
-Package epstopdf Info: Output file is already uptodate.
-
-<ch3-triangle-eps-converted-to.pdf, id=284, 154.5775pt x 126.4725pt>
-File: ch3-triangle-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ch3-triangle-eps-converted-to.pdf>
-Package pdftex.def Info: ch3-triangle-eps-converted-to.pdf used on input line 5
-9.
-(pdftex.def)             Requested size: 72.26999pt x 59.13138pt.
- [39 <./ch3-square-eps-converted-to.pdf> <./ch3-circle-eps-converted-to.pdf> <.
-/ch3-triangle-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <ch3-square.eps>
-(epstopdf)                    date: 2016-10-05 21:21:15
-(epstopdf)                    size: 14838 bytes
-(epstopdf)             Output file: <ch3-square-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-10-06 22:04:36
-(epstopdf)                    size: 2463 bytes
-(epstopdf)             Command: <repstopdf --outfile=ch3-square-eps-converted-t
-o.pdf ch3-square.eps>
-(epstopdf)             \includegraphics on input line 98.
-Package epstopdf Info: Output file is already uptodate.
-File: ch3-square-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ch3-square-eps-converted-to.pdf>
-Package pdftex.def Info: ch3-square-eps-converted-to.pdf used on input line 98.
-
-(pdftex.def)             Requested size: 72.26999pt x 71.13501pt.
-Package epstopdf Info: Source file: <ch3-square.eps>
-(epstopdf)                    date: 2016-10-05 21:21:15
-(epstopdf)                    size: 14838 bytes
-(epstopdf)             Output file: <ch3-square-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-10-06 22:04:36
-(epstopdf)                    size: 2463 bytes
-(epstopdf)             Command: <repstopdf --outfile=ch3-square-eps-converted-t
-o.pdf ch3-square.eps>
-(epstopdf)             \includegraphics on input line 100.
-Package epstopdf Info: Output file is already uptodate.
-File: ch3-square-eps-converted-to.pdf Graphic file (type pdf)
- <use ch3-square-eps-converted-to.pdf>
-Package pdftex.def Info: ch3-square-eps-converted-to.pdf used on input line 100
-.
-(pdftex.def)             Requested size: 72.26999pt x 71.13501pt.
-Package epstopdf Info: Source file: <ch3-square.eps>
-(epstopdf)                    date: 2016-10-05 21:21:15
-(epstopdf)                    size: 14838 bytes
-(epstopdf)             Output file: <ch3-square-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-10-06 22:04:36
-(epstopdf)                    size: 2463 bytes
-(epstopdf)             Command: <repstopdf --outfile=ch3-square-eps-converted-t
-o.pdf ch3-square.eps>
-(epstopdf)             \includegraphics on input line 102.
-Package epstopdf Info: Output file is already uptodate.
-File: ch3-square-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ch3-square-eps-converted-to.pdf>
-Package pdftex.def Info: ch3-square-eps-converted-to.pdf used on input line 102
-.
-(pdftex.def)             Requested size: 72.26999pt x 71.13501pt.
-Package epstopdf Info: Source file: <ch3-circle.eps>
-(epstopdf)                    date: 2016-10-05 21:21:15
-(epstopdf)                    size: 14846 bytes
-(epstopdf)             Output file: <ch3-circle-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-10-06 22:04:39
-(epstopdf)                    size: 2527 bytes
-(epstopdf)             Command: <repstopdf --outfile=ch3-circle-eps-converted-t
-o.pdf ch3-circle.eps>
-(epstopdf)             \includegraphics on input line 113.
-Package epstopdf Info: Output file is already uptodate.
-File: ch3-circle-eps-converted-to.pdf Graphic file (type pdf)
- <use ch3-circle-eps-converted-to.pdf>
-Package pdftex.def Info: ch3-circle-eps-converted-to.pdf used on input line 113
-.
-(pdftex.def)             Requested size: 72.26999pt x 69.96887pt.
-Package epstopdf Info: Source file: <ch3-circle.eps>
-(epstopdf)                    date: 2016-10-05 21:21:15
-(epstopdf)                    size: 14846 bytes
-(epstopdf)             Output file: <ch3-circle-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-10-06 22:04:39
-(epstopdf)                    size: 2527 bytes
-(epstopdf)             Command: <repstopdf --outfile=ch3-circle-eps-converted-t
-o.pdf ch3-circle.eps>
-(epstopdf)             \includegraphics on input line 115.
-Package epstopdf Info: Output file is already uptodate.
-File: ch3-circle-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ch3-circle-eps-converted-to.pdf>
-Package pdftex.def Info: ch3-circle-eps-converted-to.pdf used on input line 115
-.
-(pdftex.def)             Requested size: 72.26999pt x 69.96887pt.
-Package epstopdf Info: Source file: <ch3-circle.eps>
-(epstopdf)                    date: 2016-10-05 21:21:15
-(epstopdf)                    size: 14846 bytes
-(epstopdf)             Output file: <ch3-circle-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-10-06 22:04:39
-(epstopdf)                    size: 2527 bytes
-(epstopdf)             Command: <repstopdf --outfile=ch3-circle-eps-converted-t
-o.pdf ch3-circle.eps>
-(epstopdf)             \includegraphics on input line 117.
-Package epstopdf Info: Output file is already uptodate.
-File: ch3-circle-eps-converted-to.pdf Graphic file (type pdf)
- <use ch3-circle-eps-converted-to.pdf>
-Package pdftex.def Info: ch3-circle-eps-converted-to.pdf used on input line 117
-.
-(pdftex.def)             Requested size: 72.26999pt x 69.96887pt.
-Package epstopdf Info: Source file: <ch3-triangle.eps>
-(epstopdf)                    date: 2016-10-05 21:21:15
-(epstopdf)                    size: 14975 bytes
-(epstopdf)             Output file: <ch3-triangle-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-10-06 22:04:40
-(epstopdf)                    size: 2490 bytes
-(epstopdf)             Command: <repstopdf --outfile=ch3-triangle-eps-converted
--to.pdf ch3-triangle.eps>
-(epstopdf)             \includegraphics on input line 128.
-Package epstopdf Info: Output file is already uptodate.
-File: ch3-triangle-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ch3-triangle-eps-converted-to.pdf>
-Package pdftex.def Info: ch3-triangle-eps-converted-to.pdf used on input line 1
-28.
-(pdftex.def)             Requested size: 72.26999pt x 59.13138pt.
-Package epstopdf Info: Source file: <ch3-triangle.eps>
-(epstopdf)                    date: 2016-10-05 21:21:15
-(epstopdf)                    size: 14975 bytes
-(epstopdf)             Output file: <ch3-triangle-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-10-06 22:04:40
-(epstopdf)                    size: 2490 bytes
-(epstopdf)             Command: <repstopdf --outfile=ch3-triangle-eps-converted
--to.pdf ch3-triangle.eps>
-(epstopdf)             \includegraphics on input line 130.
-Package epstopdf Info: Output file is already uptodate.
-File: ch3-triangle-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ch3-triangle-eps-converted-to.pdf>
-Package pdftex.def Info: ch3-triangle-eps-converted-to.pdf used on input line 1
-30.
-(pdftex.def)             Requested size: 72.26999pt x 59.13138pt.
-Package epstopdf Info: Source file: <ch3-triangle.eps>
-(epstopdf)                    date: 2016-10-05 21:21:15
-(epstopdf)                    size: 14975 bytes
-(epstopdf)             Output file: <ch3-triangle-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-10-06 22:04:40
-(epstopdf)                    size: 2490 bytes
-(epstopdf)             Command: <repstopdf --outfile=ch3-triangle-eps-converted
--to.pdf ch3-triangle.eps>
-(epstopdf)             \includegraphics on input line 132.
-Package epstopdf Info: Output file is already uptodate.
-File: ch3-triangle-eps-converted-to.pdf Graphic file (type pdf)
-
-<use ch3-triangle-eps-converted-to.pdf>
-Package pdftex.def Info: ch3-triangle-eps-converted-to.pdf used on input line 1
-32.
-(pdftex.def)             Requested size: 72.26999pt x 59.13138pt.
- [40]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) (./Biblio.tex (./Thesis.bbl [41] [42] [43
+<Figures/Prop_func.pdf, id=293, 298.11375pt x 247.67531pt>
+File: Figures/Prop_func.pdf Graphic file (type pdf)
 
-] [44])) (./appendix.tex [45]
-[45
+<use Figures/Prop_func.pdf>
+Package pdftex.def Info: Figures/Prop_func.pdf used on input line 79.
+(pdftex.def)             Requested size: 254.39156pt x 211.35265pt.
+ [42 <./Figures/NAND_Strike.pdf>]
+
+LaTeX Warning: Text page 43 contains only floats.
+
+[43 <./Figures/Prop_func.pdf>]) (./Biblio.tex (./Thesis.bbl [44] [45
+
+] [46]
+[47])) (./appendix.tex [48] [48
 
 ]
 Package epstopdf Info: Source file: <Figures/WavePlots/CLKD.eps>
@@ -743,7 +563,7 @@ f>
 (epstopdf)             \includegraphics on input line 32.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/CLKD-eps-converted-to.pdf, id=323, 540.0175pt x 405.515pt>
+<Figures/WavePlots/CLKD-eps-converted-to.pdf, id=334, 540.0175pt x 405.515pt>
 File: Figures/WavePlots/CLKD-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/CLKD-eps-converted-to.pdf>
@@ -762,7 +582,7 @@ f>
 (epstopdf)             \includegraphics on input line 42.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n1n2-eps-converted-to.pdf, id=324, 516.93124pt x 417.56pt>
+<Figures/WavePlots/n1n2-eps-converted-to.pdf, id=335, 516.93124pt x 417.56pt>
 File: Figures/WavePlots/n1n2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n1n2-eps-converted-to.pdf>
@@ -781,7 +601,7 @@ s-converted-to.pdf Figures/WavePlots/n2out.eps>
 (epstopdf)             \includegraphics on input line 49.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n2out-eps-converted-to.pdf, id=325, 516.93124pt x 417.56pt>
+<Figures/WavePlots/n2out-eps-converted-to.pdf, id=336, 516.93124pt x 417.56pt>
 File: Figures/WavePlots/n2out-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n2out-eps-converted-to.pdf>
@@ -800,7 +620,7 @@ f>
 (epstopdf)             \includegraphics on input line 56.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n1n5-eps-converted-to.pdf, id=326, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n1n5-eps-converted-to.pdf, id=337, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n1n5-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n1n5-eps-converted-to.pdf>
@@ -819,7 +639,7 @@ f>
 (epstopdf)             \includegraphics on input line 63.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n3n4-eps-converted-to.pdf, id=327, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n3n4-eps-converted-to.pdf, id=338, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n3n4-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n3n4-eps-converted-to.pdf>
@@ -838,7 +658,7 @@ s-converted-to.pdf Figures/WavePlots/n4out.eps>
 (epstopdf)             \includegraphics on input line 70.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n4out-eps-converted-to.pdf, id=328, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n4out-eps-converted-to.pdf, id=339, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n4out-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n4out-eps-converted-to.pdf>
@@ -857,7 +677,7 @@ f>
 (epstopdf)             \includegraphics on input line 77.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n1n3-eps-converted-to.pdf, id=329, 516.93124pt x 417.56pt>
+<Figures/WavePlots/n1n3-eps-converted-to.pdf, id=340, 516.93124pt x 417.56pt>
 File: Figures/WavePlots/n1n3-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n1n3-eps-converted-to.pdf>
@@ -876,7 +696,7 @@ f>
 (epstopdf)             \includegraphics on input line 84.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n1n6-eps-converted-to.pdf, id=330, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n1n6-eps-converted-to.pdf, id=341, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n1n6-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n1n6-eps-converted-to.pdf>
@@ -895,7 +715,7 @@ s-converted-to.pdf Figures/WavePlots/n5out.eps>
 (epstopdf)             \includegraphics on input line 91.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n5out-eps-converted-to.pdf, id=331, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n5out-eps-converted-to.pdf, id=342, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n5out-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n5out-eps-converted-to.pdf>
@@ -914,56 +734,49 @@ s-converted-to.pdf Figures/WavePlots/n3out.eps>
 (epstopdf)             \includegraphics on input line 98.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n3out-eps-converted-to.pdf, id=332, 516.93124pt x 417.56pt>
+<Figures/WavePlots/n3out-eps-converted-to.pdf, id=343, 516.93124pt x 417.56pt>
 File: Figures/WavePlots/n3out-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n3out-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/WavePlots/n3out-eps-converted-to.pdf used on i
 nput line 98.
 (pdftex.def)             Requested size: 231.26378pt x 186.80437pt.
- [46
+) (./Vita.tex [49
 
  <./Figures/WavePlots/CLKD-eps-converted-to.pdf> <./Figures/WavePlots/n1n2-eps-
-converted-to.pdf>]
-[47 <./Figures/WavePlots/n2out-eps-converted-to.pdf> <./Figures/WavePlots/n1n5-
-eps-converted-to.pdf>] [48 <./Figures/WavePlots/n3n4-eps-converted-to.pdf> <./F
-igures/WavePlots/n4out-eps-converted-to.pdf>] [49 <./Figures/WavePlots/n1n3-eps
--converted-to.pdf> <./Figures/WavePlots/n1n6-eps-converted-to.pdf>] [50 <./Figu
-res/WavePlots/n5out-eps-converted-to.pdf> <./Figures/WavePlots/n3out-eps-conver
-ted-to.pdf>]) (./Vita.tex [51
-
-]) [52
+converted-to.pdf>] [50 <./Figures/WavePlots/n2out-eps-converted-to.pdf> <./Figu
+res/WavePlots/n1n5-eps-converted-to.pdf>] [51 <./Figures/WavePlots/n3n4-eps-con
+verted-to.pdf> <./Figures/WavePlots/n4out-eps-converted-to.pdf>] [52 <./Figures
+/WavePlots/n1n3-eps-converted-to.pdf> <./Figures/WavePlots/n1n6-eps-converted-t
+o.pdf>]
+[53 <./Figures/WavePlots/n5out-eps-converted-to.pdf> <./Figures/WavePlots/n3out
+-eps-converted-to.pdf>]) [54
 
 ] (./Thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 4001 strings out of 493027
- 60029 string characters out of 6137684
+ 3997 strings out of 493027
+ 59808 string characters out of 6137684
  129468 words of memory out of 5000000
- 7400 multiletter control sequences out of 15000+600000
- 10485 words of font info for 43 fonts, out of 8000000 for 9000
+ 7401 multiletter control sequences out of 15000+600000
+ 9565 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,17n,39p,1660b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,11n,39p,1660b,333s stack positions out of 5000i,500n,10000p,200000b,80000s
 <e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 bx10.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 <e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><e:/texli
-ve/2015/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><e:/texlive/20
-15/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><e:/texlive/2015/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><e:/texlive/2015/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmmi6.pfb><e:/texlive/2015/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmmi8.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr12.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5
-.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><e:/te
-xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><e:/texlive/2015/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><e:/texlive/2015/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmsy5.pfb><e:/texlive/2015/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmsy6.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmsy8.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmti12.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12
-.pfb>
-Output written on Thesis.pdf (63 pages, 1248028 bytes).
+ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><e:/texlive/2015/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><e:/texlive/2015/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmmi8.pfb><e:/texlive/2015/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr12.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr6.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr8.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+<e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><e:/texliv
+e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><e:/texlive/2015/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on Thesis.pdf (65 pages, 1507402 bytes).
 PDF statistics:
- 475 PDF objects out of 1000 (max. 8388607)
- 334 compressed objects within 4 object streams
+ 468 PDF objects out of 1000 (max. 8388607)
+ 329 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
- 176 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 171 words of extra memory for PDF output out of 10000 (max. 10000000)
 
