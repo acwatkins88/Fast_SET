@@ -39,7 +39,7 @@
 #define MAX_VG 2.5
 
 // Define the Number of Steps
-#define NUM_STEPS 2400
+#define NUM_STEPS 1200
 
 // Initial Internal Node Voltage
 #define INT_NODE_VOLT 0
@@ -125,15 +125,15 @@
  * Test Values for Charge Injection
  */
 #define S_NODE 4
-#define CHARGE 15e-15
+#define CHARGE 12e-15
 #define ST_THRESH 0.25
 #define END_THRESH 0.25
 #define W_THRESH1 0.5
 #define W_THRESH2 0.5
 #define INJ_DELAY 20
 
-#define MULT_TRANS 0
-#define INJ_RATIO 0.5
+#define MULT_TRANS 1
+#define INJ_RATIO 0.1   // Ratio of Number of events that result in a MET 
 #define W_MIN 1e-12     // Paramter for the minimum width
 #define MAX_VOLT 1.10   // Parameter to set the maximum clamping voltage
 #define MIN_VOLT -0.05
@@ -160,7 +160,7 @@
 #define PART_RATIO 0.5
 
 // Maximum BDD node count
-#define MAX_BDD_NODES 40
+#define MAX_BDD_NODES 50000
 
 // Set a Minimum Number of Gates
 #define MIN_GATE_NUM 10

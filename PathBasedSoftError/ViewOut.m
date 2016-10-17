@@ -3,7 +3,7 @@ clc; clear all; close all;
 %addpath('/home/adam/Fast_SET/PathBasedSoftError');
 %addpath('/home/acwatkins/Fast_SET/PathBasedSoftError')
 
-inp_data1 = dlmread('OutputRes6_0_5.out');
+inp_data1 = dlmread('OutputRes22_0_1.out');
 %inp_data2 = dlmread('OutputRes8_1.out');
 %inp_data3 = dlmread('OutputRes8_2.out');
 %inp_data4 = dlmread('OutputRes8_3.out');

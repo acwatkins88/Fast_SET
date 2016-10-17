@@ -612,25 +612,22 @@ void gen_sim::prop_enhpulse(int n_num)
     {
         for(eit = graph[*lit].p_list.begin(); eit != graph[*lit].p_list.end(); ++eit)
         {
-            if(eit->s_node != n_num)
+            inputs.push_back(*eit);
+            out_pulse = det_pulse(inputs, n_num);
+            
+            if (out_pulse.width > W_MIN)
             {
-                inputs.push_back(*eit);
-                out_pulse = det_pulse(inputs, n_num);
+                out_pulse.e_num = eit->e_num;
+                out_pulse.id = this->id_n;
+                out_pulse.s_node = n_num;
+                this->id_n++;
 
-                if(out_pulse.width > W_MIN)
-                {   
-                    out_pulse.e_num = eit->e_num;
-                    out_pulse.id = this->id_n;
-                    out_pulse.s_node = n_num;
-                    this->id_n++;
-
-                    if(this->sim_type == BDD_SIM)
-                        set_propfunc(n_num, *lit, *eit, out_pulse);
-                    else
-                        graph[n_num].p_list.push_back(out_pulse);
-                }
-                inputs.clear();
+                if (this->sim_type == BDD_SIM)
+                    set_propfunc(n_num, *lit, *eit, out_pulse);
+                else
+                    graph[n_num].p_list.push_back(out_pulse);
             }
+            inputs.clear();
         }
     }
 }
@@ -639,9 +636,7 @@ void gen_sim::prop_enhpulse(int n_num)
  * Routine to choose the pulse propagation algorithm based on the gate type
  */
 transient gen_sim::det_pulse(list<transient> inputs, int n_num)
-{
-    list<transient> temp;
-    
+{   
     switch(graph[n_num].type)
     {
         case NAND:
@@ -837,7 +832,7 @@ transient gen_sim::calc_NAND(list<transient> inputs, int n_num)
         temp_out.push_back(cur_out);  
         
         //cout<<"nvolt 0: "<<n_volt[0][t]<<" nvolt 1: "<<n_volt[1][t]<<" output: "<<cur_out<<" Vg0: "<<vg[0]<<" Vg1: "<<vg[1]<<" Vg2: "<<vg[2]<<endl;
-        //if(n_num == 625)
+        //if(n_num == 23)
             //cout<<"nvolt 1: "<<n_volt[0][t]<<" output: "<<cur_out<<endl;
         
         in.clear();
@@ -2381,6 +2376,20 @@ gmap gen_sim::extract_tcir(int part_num)
                     temp_graph[n_count].fanout_num = 1;
                     temp_graph[n_count].prob = graph_m[*lit].prob;
                     temp_graph[n_count].static_part = graph_m[*lit].static_part;
+
+                    if (t_find(tp_map, *lit))
+                    {
+                        list<transient>::iterator tpit;
+                        stringstream s;
+                        for (tpit = tp_map[*lit].begin(); tpit != tp_map[*lit].end(); ++tpit)
+                        {
+                            tpit->s_node = n_count;
+                            temp_graph[n_count].p_list.push_back(*tpit);
+                        }
+                        tp_map.erase(git->first);
+                        //cout<<"Adding Node: "<<n_count<<" Source: "<<*lit<<" Num: "<<temp_graph[n_count].p_list.size()<<" Fanout: "<<git->first<<endl; 
+                    }
+                    
                     temp_graph[git->first].fanin.push_back(n_count);
                     //cout<<"Node: "<<git->first<<" Fanin_Size: "<<temp_graph[git->first].fanin.size()<<endl;
                     temp_graph[git->first].fanin_num++;

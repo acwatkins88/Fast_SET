@@ -48,6 +48,10 @@ public:
     virtual void end_sim() = 0;
 //private:
 protected:
+    
+    // Temporary map to store output pulses from subscircuits
+    map<int, list<transient> > tp_map;
+    
     // Maximum pin size
     int max_pins;
     int total_size;
@@ -211,8 +215,6 @@ public:
     ~bdd_sim(){};
     
 private:
-    // Temporary map to store output pulses from subscircuits
-    map<int, list<transient> > tp_map;
     
     void gen_sensf(int);
     void bdd_genp(int );

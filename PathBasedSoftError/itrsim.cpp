@@ -58,8 +58,10 @@ void itr_sim::sim()
             if(graph[g_it->first].type != INPUT)
             {
                 eval_gval(g_it->first);
-                gen_p(g_it->first);
-                proc_pulse(g_it->first);
+                //gen_p(g_it->first);
+                //proc_pulse(g_it->first);
+                
+                prop_enhpulse(g_it->first);
                 
                 // Process Convergence Cases
                 //conv_check(g_it->first);
