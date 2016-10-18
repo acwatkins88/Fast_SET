@@ -26,7 +26,7 @@ In addition to the adaptive partitioning approach, the proposed simulator has th
 
 There are a few existing methods that include the consideration of multiple event errors. The authors in \cite{METSys} consider the correlation of METs however their method uses BDDs which tend to blow up. While they do investigate the use of partitioning, their method is only tested for small circuits using only a few concurrent pulses. An additional simulation tool used for MET analysis found in \cite{Fazeli2011} uses probabilistic functions. This approach has shown to be fast and efficient but is not suited for the use of complicated electrical masking methods. The approach proposed in this section applies the pulse approximation method given in Chapter \ref{ch2} to a MET simulation methodology which allows for much more accurate soft error calculation.
 
-\section{Adaptive BDD Based Simulation} 
+\section{Preliminaries} 
 
 A crucial aspect in the estimation of the logical masking effects is accurate creation of the Boolean functions. To ensure full consideration of the logical masking effects, Boolean functions must be created to evaluate the circuit inputs for pulse generation and the off-inputs for pulse propagation. First the method to generate the functions for error pulse generation will be discussed. 
 
@@ -52,47 +52,27 @@ For example, in the 2 input NAND gate in Fig. \ref{NANDS}, if both inputs have a
 			\hline
 			Gate & Polarity & Generation Function ($F(G)$) \\ 
 			\hline
-			AND & Rising & $F(G) = 1 - \prod_{i=1}^{N} I_i$\\
+			AND & Rising & $F(G) =  \lnot (I_1 \land I_2 \land ... I_N)$ \\
 			\hline
-			AND & Falling & $F(G) = \prod_{i=1}^{N} I_i$\\
+			AND & Falling & $F(G) = I_1 \land I_2 \land ... I_N$ \\
 			\hline
-			NAND & Rising & $F(G) = \prod_{i=1}^{N} I_i$ \\
+			NAND & Rising & $F(G) = I_1 \land I_2 \land ... I_N$ \\
 			\hline
-			NAND & Falling & $F(G) = 1 - \prod_{i=1}^{N} I_i$ \\
+			NAND & Falling & $F(G) = \lnot (I_1 \land I_2 \land ... I_N)$ \\
 			\hline
-			OR & Rising & $F(G) = \prod_{i=1}^{N} \bar{I_i}$ \\
+			OR & Rising & $F(G) = \bar{I_1} \land \bar{I_2} \land ... \bar{I_N}$ \\
 			\hline
-			OR & Falling & $F(G) = 1 - \prod_{i=1}^{N} \bar{I_i}$ \\
+			OR & Falling & $F(G) = \lnot ( \bar{I_1} \land \bar{I_2} \land ... \bar{I_N})$ \\
 			\hline
-			NOR & Rising & $F(G) = 1 - \prod_{i=1}^{N} \bar{I_i}$ \\
+			NOR & Rising & $F(G) = \lnot ( \bar{I_1} \land \bar{I_2} \land ... \bar{I_N})$ \\
 			\hline
-			NOR & Falling & $F(G) = \prod_{i=1}^{N} \bar{I_i}$ \\
+			NOR & Falling & $F(G) = \bar{I_1} \land \bar{I_2} \land ... \bar{I_N}$ \\
 			\hline
 		\end{tabular}
 	\end{center}
 \end{table}
 
-When a pulse is propagated to the input of gate, the pulse will be masked if one of the off-inputs has a controlling value. Fig. \ref{Prop_NAND} gives a NAND gate with one of the inputs having a pulse and the other input having a controlling "0" value. In this case, the output will be a logical "1" value despite the pulse on the input.
-
-\begin{figure}[!htbp]
-	\centering
-	\includegraphics[width=0.55\linewidth]{Figures/Prop_func}
-	%where an .eps filename suffix will be assumed under latex, 
-	%and a .pdf suffix will be assumed for pdflatex; or what has been declared
-	%via \DeclareGraphicsExtensions.
-	\caption{A transient pulse being masking by a controlling value on the off-input.}
-	\label{Prop_NAND}
-\end{figure}
-
-To calculate the logical masking factor during pulse propagation, the functions of the off-inputs are calculated using the logical AND operation. Assume that $P(I_i)$ is the Boolean function of the input $I_i$ and there are a $N$ number of inputs, the function of the probability of the transient pulse being logically masked during propagation $P(M)$ is given below:
-
-\begin{equation} \label{prop_eq}
-P(M) = \prod_{i=1}^{N-1} I_i
-\end{equation}
-
-In equation \ref{prop_eq} only $N-1$ inputs are considered since the input which contains the transient pulse is not included in the calculation. 
-
-For the consideration of METs, the above equations must be modified such that the joint probability of the error occurring is considered. In the case of pulse generation, it is assumed that a single radiation particle will strike two or more gates causing transient pulses. As stated previously, in order for a pulse with a specific polarity to be generated, the output of the gate must have a specific value. Based on this, the probability of pulses being generated ($P_{C_i}$) assuming strikes $N$ gates with sufficient energy is given in equation \ref{pul_gen} where $P(G_{i,p})$ is the probability that gate $G_i$ is capable of generating a pulse of polarity $p$. If the pulse generated is rising, $G_{i,p}$ pertains to the probability that the output of $G_{i,p}$ is "0". If the pulse is falling, $G_{i,p}$ is the probability of the output being "1".
+For the consideration of the generation of METs, the above equations must be modified such that the joint probability of the error occurring is considered. In the case of pulse generation, it is assumed that a single radiation particle will strike two or more gates causing transient pulses. As stated previously, in order for a pulse with a specific polarity to be generated, the output of the gate must have a specific value. Based on this, the probability of pulses being generated ($P_{gen}$) assuming strikes $N$ gates with sufficient energy is given in equation \ref{pul_gen} where $P(G_{i,p})$ is the probability that gate $G_i$ is capable of generating a pulse of polarity $p$. If the pulse generated is rising, $G_{i,p}$ pertains to the probability that the output of $G_{i,p}$ is "0". If the pulse is falling, $G_{i,p}$ is the probability of the output being "1".
 
 \begin{equation} \label{pul_gen}
 P_{gen} = \prod_{i=1}^{N} P(G_{i, p})
@@ -104,10 +84,86 @@ A particle hitting two transistors simultaneously allows for multiple cases sinc
 P_{num} = 2*\sum_{r=1}^{N} \frac{N!}{(N-r)!}
 \end{equation}
 
-Equation \ref{num_eq} is based on the fact that multiple pulses are not always generated when a particle strikes both transistors. As stated previously, the polarity and existence of the pulse depends on the input patterns. If one assumes that the particle hits a $N$ number of gates, this creates a $P_{num}$ number of cases where $P(C_i)$ represents the probability of case $i$ calculated using equation \ref{pul_gen}. The total probability of a radiation strike generating a SET or MET $P_{err}$ is given below:
+Equation \ref{num_eq} is based on the fact that multiple pulses are not always generated when a particle strikes both transistors. As stated previously, the polarity and existence of the pulse depends on the input patterns. If one assumes that the particle hits a $N$ number of gates, this creates a $P_{num}$ number of cases where $P(C_i)$ represents the probability of case $i$ calculated using equation \ref{pul_gen}. The total probability of the inputs having the values to generate a SET or MET $P_{gen}$ is given below:
 
 \begin{equation} \label{err_eq}
-P_{err} = \sum_{i=1}^{P_{num}} P(C_i)
+P_{gen} = \sum_{i=1}^{P_{num}} P(C_i)
 \end{equation}
 
+In the case of a pulse being propagated to the input of gate, the pulse will be masked if one of the off-inputs has a controlling value. Fig. \ref{Prop_NAND} gives a NAND gate with one of the inputs having a pulse and the other input having a controlling "0" value. In this case, the output will be a logical "1" value despite the pulse on the input.
 
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.55\linewidth]{Figures/Prop_func}
+	%where an .eps filename suffix will be assumed under latex, 
+	%and a .pdf suffix will be assumed for pdflatex; or what has been declared
+	%via \DeclareGraphicsExtensions.
+	\caption{A transient pulse being masking by a controlling value on the off-input.}
+	\label{Prop_NAND}
+\end{figure}
+
+To calculate the logical masking factor during pulse propagation, the functions of the off-inputs are calculated using the logical AND operation. Assume that $F(OI_i)$ is the Boolean function of the off-input $OI_i$ representing the input patterns that allow a non-controlling value and there are a $N$ number of inputs, the function representing the case where the pulse is propagated $F(M)$ is given below:
+
+\begin{equation} \label{prop_eq}
+F(M) = F(OI_1) \land F(OI_2) \land ... F(OI_N)
+\end{equation}
+
+In equation \ref{prop_eq} only $N-1$ inputs are considered since the input which contains the transient pulse is not included in the calculation. 
+
+For the consideration of METs, two or more pulses may arrive at a gate. If the two pulse case is assumed, there are 3 possible ways that the pulses can be propagated: the pulse on $a$ is propagated and $b$ is masked, the pulse on $b$ is propagated and $a$ is masked and, lastly, the both pulses are propagated simultaneously providing an output pulse. Fig. \ref{Prop_MET} provides an illustration of the cases.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.80\linewidth]{Figures/Prop_MET}
+	%where an .eps filename suffix will be assumed under latex, 
+	%and a .pdf suffix will be assumed for pdflatex; or what has been declared
+	%via \DeclareGraphicsExtensions.
+	\caption{(a) A transient pulse arriving on input a and masked on b. (b) A pulse arriving on input b and masked on a. (c) Two pulses arriving on the inputs simultaneously.}
+	\label{Prop_MET}
+\end{figure}
+
+Table \ref{table:prop_table} gives the propagation functions $F(G)$ for each case with $F(a_p)$ and $F(b_p)$ being the functions representing the input values that allow for the pulse to be propagated to inputs a and b respectively. While this example is only for a two input gate, multiple input gates can be considered similarly.
+
+\begin{table}[h]
+	\begin{center}
+		\caption{Functions for Transient Pulse Generation}
+		\label{table:prop_table}
+		\begin{tabular}{|c|c|}
+			\hline
+			Case & Propagation Function ($F(G)$) \\ 
+			\hline
+			a & $F(G) = F(a_p) \land \lnot F(b_p)$ \\
+			\hline
+			b & $F(G) = \lnot F(a_p) \land F(b_p)$ \\
+			\hline
+			c & $F(G) = F(a_p) \land F(b_p)$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+Based off equation \ref{num_eq}, the total number of cases can be calculated as the number of combinations assuming $i = 1,2,...N$ simultaneous pulses. Assuming that $P_{num}$ is the number of possible cases and $r_i$ represents a $i$ number of concurrent pulses, the equation for the total number of propagation cases is given below:
+
+\begin{equation} \label{prop_num}
+P_{num} = \sum_{i=1}^{N} \frac{N!}{(N-r_i)!}
+\end{equation} 
+
+Based on equation \ref{prop_num}, the total probability of multiple convergent pulses at a gate $G$ ($P(G_{tot})$) with the assumption that $P(G_i)$ is the probability of case $i$ on gate $G$ is given below:
+
+\begin{equation} \label{tot_gate}
+P(G_{tot}) = \sum_{i}^{P_{num}} P(G_i)
+\end{equation}
+
+When a MET is generated in the simulator, it is represented as an event $E_k$ with $k$ being the number of events. For each event, the generated transients are propagated through gates to the primary outputs. Assuming that the pulses propagate through to a $M$ number of primary outputs with a probability of $P(g_q)$ where $g_q$ represents the $q$th output $g$, the probability of error for event $E_k$ is calculated as the following:  
+
+\begin{equation} \label{event_eq}
+P(E_k) = \sum_{q=1}^{M} P(g_q)
+\end{equation}
+
+To evaluate the error probability for all events, the mean error susceptibility (MES), defined in \cite{METsys} is used. The MES represents the average probability of error for all events combined. Assuming that there are a $n_E$ number of events, $n_d$ number of input probability distributions and that $K$ is the number of injected events, the MES is found using the following equation:
+
+\begin{equation} \label{MES}
+MES = \sum_{k=1}^{K} \frac{P(E_k)}{n_E n_d}
+\end{equation}
+
+\section{Adaptive BDD Simulation}
