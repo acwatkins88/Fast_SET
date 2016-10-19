@@ -6,9 +6,9 @@ using namespace std;
 void itr_sim::sim()
 {
     int i, max_itr, flag;
-    int* pattern = new int[circuit.inpnum+1];
-    
-    gmap::iterator g_it;
+    int* pattern = new int[circuit.inpnum];
+     
+    gmap::iterator git;
     list<int>::iterator l_it;
     map<int, double>::iterator m_it;
     
@@ -24,6 +24,22 @@ void itr_sim::sim()
         flag = 1;
     }
     
+    for(git = graph.begin(); git != graph.end(); ++git)
+    {
+        if(graph[git->first].type != INPUT)
+            gen_p(git->first);
+    }
+
+    graph_m = graph;
+
+    for (git = graph.begin(); git != graph.end(); ++git)
+    {
+        if (graph[git->first].type != INPUT)
+        {
+            graph[git->first].p_list.clear();
+        }
+    }
+    
     // Begin Simulation
     for(i = 0; i != max_itr; i++)
     {
@@ -34,12 +50,10 @@ void itr_sim::sim()
         
         if(flag == 0)
         {
-            // Function definition located in sigprob.h
             gen_itrpat(pattern, i);
         }
         else if(flag == 1)
         {
-            // Function definition located in sigprob.h
             gen_pat(pattern);
         }
         
@@ -53,45 +67,44 @@ void itr_sim::sim()
         // Apply Input Pattern
         apply_inpt(pattern);
     
-        for(g_it = graph.begin(); g_it != graph.end(); ++g_it)
+        for(git = graph.begin(); git != graph.end(); ++git)
         {
-            if(graph[g_it->first].type != INPUT)
+            if(graph[git->first].type != INPUT)
             {
-                eval_gval(g_it->first);
-                //gen_p(g_it->first);
-                //proc_pulse(g_it->first);
-                
-                prop_enhpulse(g_it->first);
+                eval_gval(git->first);
+                app_pulse(git->first);
+
+                prop_enhpulse(git->first);
                 
                 // Process Convergence Cases
                 //conv_check(g_it->first);
                 
                 // Store the result in r_map
-                if(out_find(g_it->first) == true)
+                if(out_find(git->first) == true)
                 {
-                    add_result(g_it->first);
+                    add_result(git->first);
                 }
             }
-            graph[g_it->first].prob += graph[g_it->first].val;
+            graph[git->first].prob += graph[git->first].val;
         }
         
-        for(g_it = graph.begin(); g_it != graph.end(); ++g_it)
+        for(git = graph.begin(); git != graph.end(); ++git)
         {
-            if(graph[g_it->first].type != INPUT)
+            if(graph[git->first].type != INPUT)
             {
-                graph[g_it->first].p_list.clear();
+                graph[git->first].p_list.clear();
             }
         }
     }
         
-    for(g_it = graph.begin(); g_it != graph.end(); ++g_it)
+    for(git = graph.begin(); git != graph.end(); ++git)
     {
-        graph[g_it->first].prob = graph[g_it->first].prob / max_itr;
+        graph[git->first].prob = graph[git->first].prob / max_itr;
     }
     for(l_it = circuit.outputs.begin(); l_it != circuit.outputs.end(); ++l_it)
     {
         for(m_it = graph[*l_it].r_map.begin(); m_it != graph[*l_it].r_map.end(); ++m_it)
-            graph[*l_it].r_map[m_it->first] = graph[*l_it].r_map[m_it->first] / max_itr;
+            graph[*l_it].r_map[m_it->first] = graph[*l_it].r_map[m_it->first] / (max_itr);
     }
     
     delete[] pattern;
@@ -152,11 +165,29 @@ void itr_sim::eval_gval(int n_num)
     }
 }
 
+void itr_sim::app_pulse(int n_num)
+{   
+    list<transient>::iterator pit;
+    
+    if(graph[n_num].val == 0)
+    {
+        for(pit = graph_m[n_num].p_list.begin(); pit != graph_m[n_num].p_list.end(); ++pit)
+            if(pit->type == RISING)
+                graph[n_num].p_list.push_back(*pit);
+    }
+    else if(graph[n_num].val == 1)
+    {   
+        for(pit = graph_m[n_num].p_list.begin(); pit != graph_m[n_num].p_list.end(); ++pit)
+            if(pit->type == FALLING)
+                graph[n_num].p_list.push_back(*pit);
+    }
+}
+
 /*
  * Need to be updated for new pulse generation algorithm
  */
 
-void itr_sim::gen_p(int n_num)
+/*void itr_sim::gen_p(int n_num)
 {   
     if(graph[n_num].val == 0)
     {
@@ -172,7 +203,7 @@ void itr_sim::gen_p(int n_num)
         // Increase event number since a rising pulse is not generated
         this->event_n++;
     }
-}
+}*/
 
 void itr_sim::set_propfunc(int n_num, int inp_node, transient p, transient temp)
 {
@@ -226,12 +257,20 @@ void itr_sim::add_result(int n_num)
 {
     list<transient>::iterator p_it;
     
+    double latch_prob;
     for(p_it = graph[n_num].p_list.begin(); p_it != graph[n_num].p_list.end(); ++p_it)
     {
+        latch_prob = (p_it->width - (SETUP_T + HOLD_T))/CLK;
         if(m_find(graph[n_num].r_map, p_it->e_num) == true)
-            graph[n_num].r_map[p_it->e_num]++;
+        {
+            graph[n_num].r_map[p_it->e_num] = graph[n_num].r_map[p_it->e_num] + latch_prob;
+            //graph[n_num].r_map[p_it->e_num]++;
+        }
         else
-            graph[n_num].r_map[p_it->e_num] = 1;
+        {
+            graph[n_num].r_map[p_it->e_num] = latch_prob;
+            //graph[n_num].r_map[p_it->e_num] = 1;
+        }
     }
 }
 

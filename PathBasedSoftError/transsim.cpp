@@ -9,6 +9,63 @@ gen_sim::gen_sim(int t)
     this->id_n = 0; 
 }
 
+
+/*
+ * Pulse Generation Algorithm Need Updated
+ */
+
+void gen_sim::gen_p(int n_num)
+{
+    bool r_flag = false;
+    bool f_flag = false;
+    
+    double val;
+    transient temp_r;
+    transient temp_f;
+    transient temp_i;
+    gmap::iterator git;
+    
+    temp_r = gen_pulse(RISING, n_num, INJ_DELAY);
+    temp_f = gen_pulse(FALLING, n_num, INJ_DELAY);
+    
+    if((temp_r.width > W_MIN))
+        graph[n_num].p_list.push_back(temp_r);
+    else
+        r_flag = true;
+    
+    if((temp_f.width > W_MIN))
+        graph[n_num].p_list.push_back(temp_f);
+    else
+        f_flag = true;
+    
+    //srand(10);
+    val = rand() % 100 + 1;
+    if((val >= 100*INJ_RATIO)&&(MULT_TRANS == 1))
+    {
+        git = graph.find(n_num);
+        git++;
+
+        if(graph[git->first].type != INPUT)
+        {
+            temp_i = gen_pulse(RISING, git->first, val);
+                    
+            if ((temp_i.width > W_MIN)&&(r_flag == false))
+            {
+                temp_i.e_num = temp_r.e_num;
+                graph[git->first].p_list.push_back(temp_i);
+            }
+
+            temp_i = gen_pulse(FALLING, git->first, val);
+
+            if ((temp_i.width > W_MIN)&&(f_flag == false))
+            {
+                temp_i.e_num = temp_f.e_num;
+                graph[git->first].p_list.push_back(temp_i);
+            }
+        }
+    }    
+}
+
 /*
  * Generate Transient Pulse
  * type - Rising Or Falling
@@ -91,6 +148,7 @@ transient gen_sim::inj_NAND(int n_num, double charge, int type, int delay)
     double w_val1 = 0;
     double w_val2 = 0;
     double eff_load;
+    double st_threshf, end_threshf;
     
     vector<double> ip;
     vector<double> in;
@@ -111,12 +169,14 @@ transient gen_sim::inj_NAND(int n_num, double charge, int type, int delay)
         vg_init = VDD;
         vd_init = VDD;
         temp_out.push_back(0);
+        temp_pul.type = RISING;
     }
     else 
     {
         vg_init = 0;
         vd_init = 0;
         temp_out.push_back(VDD);
+        temp_pul.type = FALLING;
     }
     
     vector<double> temp_vec;
@@ -166,7 +226,7 @@ transient gen_sim::inj_NAND(int n_num, double charge, int type, int delay)
         n_cur = avg_vector(in);
 
         for(i = 0; i < itr_num-1; i++)
-            n_volt[i].push_back((((-in[i] + in[i+1])*adj_step)/ST_NODE_CAP) + n_volt[i][t-1]);
+            n_volt[i].push_back((((-in[i] + in[i+1])*adj_step)/ST_NODE_CAP_P) + n_volt[i][t-1]);
         
         if(t > delay)
         {
@@ -205,6 +265,9 @@ transient gen_sim::inj_NAND(int n_num, double charge, int type, int delay)
         }
         else
         {
+            st_threshf = VDD-ST_THRESH;
+            end_threshf = VDD-END_THRESH;
+            
             eff_load = graph[n_num].fanout_num*ST_NODE_CAP;
             cur_out = (((p_cur + n_cur - inj_cur)*adj_step)/(eff_load + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
             
@@ -213,9 +276,9 @@ transient gen_sim::inj_NAND(int n_num, double charge, int type, int delay)
             if(cur_out < MIN_VOLT)
                 cur_out = MIN_VOLT;          
             
-            if((temp_out[t-1] > ST_THRESH) && (cur_out < ST_THRESH))
+            if((temp_out[t-1] > st_threshf) && (cur_out < st_threshf))
                 temp_pul.st_time = t;
-            else if((temp_out[t-1] < END_THRESH) && (cur_out > END_THRESH))
+            else if((temp_out[t-1] < end_threshf) && (cur_out > end_threshf))
                 temp_pul.end_time = t;
             if((temp_out[t-1] > W_THRESH1) && (cur_out < W_THRESH1))
                 w_val1 = t;
@@ -281,6 +344,7 @@ transient gen_sim::inj_NOR(int n_num, double charge, int type, int delay)
     double w_val1 = 0;
     double w_val2 = 0;
     double eff_load;
+    double st_threshf, end_threshf;
     
     vector<double> ip;
     vector<double> in;
@@ -301,12 +365,14 @@ transient gen_sim::inj_NOR(int n_num, double charge, int type, int delay)
         vg_init = VDD;
         vd_init = VDD;
         temp_out.push_back(0);
+        temp_pul.type = RISING;
     }
     else 
     {
         vg_init = 0;
         vd_init = 0;
         temp_out.push_back(VDD);
+        temp_pul.type = FALLING;
     }
     
     vector<double> temp_vec;
@@ -358,7 +424,7 @@ transient gen_sim::inj_NOR(int n_num, double charge, int type, int delay)
 
         for(i = 0; i < itr_num-1; i++)
         {
-            p_volt[i].push_back((((-ip[i] + ip[i+1])*adj_step)/ST_NODE_CAP) + p_volt[i][t-1]);
+            p_volt[i].push_back((((-ip[i] + ip[i+1])*adj_step)/ST_NODE_CAP_P) + p_volt[i][t-1]);
             //cout<<"Cur 1: "<<in[i]<<" Cur 2: "<<in[i+1]<<endl;
         }
         
@@ -400,6 +466,9 @@ transient gen_sim::inj_NOR(int n_num, double charge, int type, int delay)
         }
         else
         {
+            st_threshf = VDD-ST_THRESH;
+            end_threshf = VDD-END_THRESH;
+            
             eff_load = graph[n_num].fanout_num*ST_NODE_CAP;
             cur_out = (((p_cur + n_cur - inj_cur)*(adj_step))/(eff_load + sum_vector(cmn) + cmp[0])) + temp_out[t-1];
             
@@ -409,9 +478,9 @@ transient gen_sim::inj_NOR(int n_num, double charge, int type, int delay)
                 cur_out = MIN_VOLT;
             
             //cout<<"Voltage: "<<cur_out<<endl;
-            if((temp_out[t-1] > ST_THRESH) && (cur_out < ST_THRESH))
+            if((temp_out[t-1] > st_threshf) && (cur_out < st_threshf))
                 temp_pul.st_time = t;
-            else if((temp_out[t-1] < END_THRESH) && (cur_out > END_THRESH))
+            else if((temp_out[t-1] < end_threshf) && (cur_out > end_threshf))
                 temp_pul.end_time = t;
             if((temp_out[t-1] > W_THRESH1) && (cur_out < W_THRESH1))
                 w_val1 = t;
@@ -467,6 +536,7 @@ transient gen_sim::inj_NOT(int n_num, double charge, int type, int delay)
     double w_val1 = 0;
     double w_val2 = 0;
     double eff_load;
+    double st_threshf, end_threshf;
     
     double ip;
     double in;
@@ -486,12 +556,14 @@ transient gen_sim::inj_NOT(int n_num, double charge, int type, int delay)
         vg_init = VDD;
         vd_init = VDD;
         temp_out.push_back(0);
+        temp_pul.type = RISING;
     }
     else 
     {
         vg_init = 0;
         vd_init = 0;
         temp_out.push_back(VDD);
+        temp_pul.type = FALLING;
     }
     
     /*vector<double> temp_vec;
@@ -537,6 +609,8 @@ transient gen_sim::inj_NOT(int n_num, double charge, int type, int delay)
             
             if(cur_out > MAX_VOLT)
                 cur_out = MAX_VOLT;
+            if(cur_out < MIN_VOLT)
+                cur_out = MIN_VOLT;
             
             //cout<<"Voltage: "<<cur_out<<endl;
             if((temp_out[t-1] < ST_THRESH) && (cur_out > ST_THRESH))
@@ -550,16 +624,21 @@ transient gen_sim::inj_NOT(int n_num, double charge, int type, int delay)
         }
         else
         {
+            st_threshf = VDD-ST_THRESH;
+            end_threshf = VDD-END_THRESH;
+            
             eff_load = graph[n_num].fanout_num*ST_NODE_CAP;
             cur_out = (((ip + in - inj_cur)*(adj_step))/(eff_load + cmn + cmp)) + temp_out[t-1];
             
             if(cur_out > MAX_VOLT)
                 cur_out = MAX_VOLT;
+            if(cur_out < MIN_VOLT)
+                cur_out = MIN_VOLT;
             
             //cout<<"Voltage: "<<cur_out<<endl;
-            if((temp_out[t-1] > ST_THRESH) && (cur_out < ST_THRESH))
+            if((temp_out[t-1] > st_threshf) && (cur_out < st_threshf))
                 temp_pul.st_time = t;
-            else if((temp_out[t-1] < END_THRESH) && (cur_out > END_THRESH))
+            else if((temp_out[t-1] < end_threshf) && (cur_out > end_threshf))
                 temp_pul.end_time = t;
             if((temp_out[t-1] > W_THRESH1) && (cur_out < W_THRESH1))
                 w_val1 = t;
@@ -607,6 +686,8 @@ void gen_sim::prop_enhpulse(int n_num)
     list<int>::iterator lit;
     list<transient>::iterator eit;
     list<transient> inputs;
+    list<transient>::iterator itr_it;
+    bool test;
     
     for(lit = graph[n_num].fanin.begin(); lit != graph[n_num].fanin.end(); ++lit)
     {
@@ -622,10 +703,8 @@ void gen_sim::prop_enhpulse(int n_num)
                 out_pulse.s_node = n_num;
                 this->id_n++;
 
-                if (this->sim_type == BDD_SIM)
-                    set_propfunc(n_num, *lit, *eit, out_pulse);
-                else
-                    graph[n_num].p_list.push_back(out_pulse);
+                set_propfunc(n_num, *lit, *eit, out_pulse);
+
             }
             inputs.clear();
         }
@@ -662,7 +741,7 @@ transient gen_sim::det_pulse(list<transient> inputs, int n_num)
 transient gen_sim::calc_NAND(list<transient> inputs, int n_num)
 {
     //cout<<"Beginning NAND\n";
-    int i, type;
+    int i;
     int itr_num = graph[n_num].fanin_num;
     
     double temp_vg, temp_vd;
@@ -676,6 +755,7 @@ transient gen_sim::calc_NAND(list<transient> inputs, int n_num)
     double w_val1 = 0;
     double w_val2 = 0;
     double adj_step;
+    double st_threshf, end_threshf;
     
     bool flag;
     transient pulse;
@@ -731,9 +811,13 @@ transient gen_sim::calc_NAND(list<transient> inputs, int n_num)
     }
     
     if(vd_init != VDD)
-        type = FALLING;
+    {
+        pulse.type = RISING;
+    }
     else
-        type = RISING;
+    {
+        pulse.type = FALLING;
+    }
     
     temp_out.push_back(vd_init);
 
@@ -796,12 +880,18 @@ transient gen_sim::calc_NAND(list<transient> inputs, int n_num)
         n_cur = avg_vector(in);
 
         for(i = 0; i < itr_num-1; i++)
-            n_volt[i].push_back((((-in[i] + in[i+1])*adj_step)/ST_NODE_CAP) + n_volt[i][t-1]);
+            n_volt[i].push_back((((-in[i] + in[i+1])*adj_step)/ST_NODE_CAP_P) + n_volt[i][t-1]);
         
-        if(type == RISING)
+        if(pulse.type == RISING)
         {
             eff_load = graph[n_num].fanout_num*ST_NODE_CAP;
             cur_out = (((p_cur + n_cur)*adj_step + miller_factor)/(eff_load + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
+            
+            if(cur_out > MAX_VOLT)
+                cur_out = MAX_VOLT;
+            if(cur_out < MIN_VOLT)
+                cur_out = MIN_VOLT;
+            
             if((temp_out[t-1] < ST_THRESH) && (cur_out > ST_THRESH))
                 pulse.st_time = t;
             else if((temp_out[t-1] > END_THRESH) && (cur_out < END_THRESH))
@@ -815,11 +905,21 @@ transient gen_sim::calc_NAND(list<transient> inputs, int n_num)
         }
         else
         {
+            
+            st_threshf = VDD-ST_THRESH;
+            end_threshf = VDD-END_THRESH;
+            
             eff_load = graph[n_num].fanout_num*ST_NODE_CAP;
             cur_out = (((p_cur + n_cur)*adj_step + miller_factor)/(eff_load + sum_vector(cmp) + cmn[0])) + temp_out[t-1];
-            if((temp_out[t-1] > ST_THRESH) && (cur_out < ST_THRESH))
+            
+            if(cur_out > MAX_VOLT)
+                cur_out = MAX_VOLT;
+            if(cur_out < MIN_VOLT)
+                cur_out = MIN_VOLT;
+            
+            if((temp_out[t-1] > st_threshf) && (cur_out < st_threshf))
                 pulse.st_time = t;
-            else if((temp_out[t-1] < END_THRESH) && (cur_out > END_THRESH))
+            else if((temp_out[t-1] < end_threshf) && (cur_out > end_threshf))
                 pulse.end_time = t;
             if((temp_out[t-1] > W_THRESH1) && (cur_out < W_THRESH1))
                 w_val1 = t;
@@ -852,7 +952,7 @@ transient gen_sim::calc_AND(list<transient> inputs, int n_num)
     list<transient> inp; 
     
     temp = calc_NAND(inputs, n_num);
-    
+
     if(temp.width > W_MIN)
     {
         inp.push_back(temp);
@@ -867,7 +967,7 @@ transient gen_sim::calc_AND(list<transient> inputs, int n_num)
  */
 transient gen_sim::calc_NOR(list<transient> inputs, int n_num)
 {
-    int i, type;
+    int i;
     int itr_num = graph[n_num].fanin_num;
     
     double temp_vg, temp_vd;
@@ -881,6 +981,7 @@ transient gen_sim::calc_NOR(list<transient> inputs, int n_num)
     double w_val1 = 0;
     double w_val2 = 0;
     double adj_step;
+    double st_threshf, end_threshf;
     
     bool flag;
     transient pulse;
@@ -920,7 +1021,7 @@ transient gen_sim::calc_NOR(list<transient> inputs, int n_num)
                 p_inf.p_pulse = lit->id;
                 pulse.prev_pulse.push_back(p_inf);
                 flag = true;
-                if(lit->volt_pulse[0] > 0.95)
+                if(lit->volt_pulse[0] > 0.90)
                     vd_init =  0;
             }
         }
@@ -933,9 +1034,13 @@ transient gen_sim::calc_NOR(list<transient> inputs, int n_num)
     }
     
     if(vd_init != VDD)
-        type = FALLING;
+    {
+        pulse.type = RISING;
+    }
     else
-        type = RISING;
+    {
+        pulse.type = FALLING;
+    }
     
     temp_out.push_back(vd_init);
     
@@ -947,6 +1052,7 @@ transient gen_sim::calc_NOR(list<transient> inputs, int n_num)
         p_volt.push_back(temp_vec);
     }
     
+    double vg_arr[10];
     for(int t = 1; t <= NUM_STEPS; t++)
     {
         for(i = 0; i < itr_num; i++)
@@ -955,6 +1061,7 @@ transient gen_sim::calc_NOR(list<transient> inputs, int n_num)
             {
                 vg_cur = ord_list[i][t];
                 del_inp.push_back(ord_list[i][t] - ord_list[i][t-1]);
+                vg_arr[i] = vg_cur;
             }
             else
             {
@@ -999,18 +1106,24 @@ transient gen_sim::calc_NOR(list<transient> inputs, int n_num)
         p_cur = avg_vector(ip);
         n_cur = sum_vector(in);
         
-        //cout<<"Ip0: "<<ip[0]<<" Ip1: "<<ip[1]<<" In0: "<<in[0]<<" In1: "<<in[1]<<endl;
+        //if(n_num == 540)
+            //cout<<"Ip0: "<<ip[0]<<" Ip1: "<<ip[1]<<" In0: "<<in[0]<<" In1: "<<in[1]<<endl;
         
         for(i = 0; i < itr_num-1; i++)
         {
-            p_volt[i].push_back((((-ip[i] + ip[i+1])*adj_step)/ST_NODE_CAP) + p_volt[i][t-1]);
-            //cout<<"Cur 1: "<<in[i]<<" Cur 2: "<<in[i+1]<<endl;
+            p_volt[i].push_back((((-ip[i] + ip[i+1])*adj_step)/ST_NODE_CAP_P) + p_volt[i][t-1]);
         }
         
-        if(type == RISING)
+        if(pulse.type == RISING)
         {
             eff_load = graph[n_num].fanout_num*ST_NODE_CAP;
             cur_out = (((p_cur + n_cur)*adj_step + miller_factor)/(eff_load + sum_vector(cmn) + cmp[0])) + temp_out[t-1];
+            
+            if(cur_out > MAX_VOLT)
+                cur_out = MAX_VOLT;
+            if(cur_out < MIN_VOLT)
+                cur_out = MIN_VOLT;
+            
             if((temp_out[t-1] < ST_THRESH) && (cur_out > ST_THRESH))
                 pulse.st_time = t;
             else if((temp_out[t-1] > END_THRESH) && (cur_out < END_THRESH))
@@ -1024,11 +1137,20 @@ transient gen_sim::calc_NOR(list<transient> inputs, int n_num)
         }
         else
         {
+            st_threshf = VDD-ST_THRESH;
+            end_threshf = VDD-END_THRESH;
+            
             eff_load = graph[n_num].fanout_num*ST_NODE_CAP;
             cur_out = (((p_cur + n_cur)*adj_step + miller_factor)/(eff_load + sum_vector(cmn) + cmp[0])) + temp_out[t-1];
-            if((temp_out[t-1] > ST_THRESH) && (cur_out < ST_THRESH))
+            
+            if(cur_out > MAX_VOLT)
+                cur_out = MAX_VOLT;
+            if(cur_out < MIN_VOLT)
+                cur_out = MIN_VOLT;
+            
+            if((temp_out[t-1] > st_threshf) && (cur_out < st_threshf))
                 pulse.st_time = t;
-            else if((temp_out[t-1] < END_THRESH) && (cur_out > END_THRESH))
+            else if((temp_out[t-1] < end_threshf) && (cur_out > end_threshf))
                 pulse.end_time = t;
             if((temp_out[t-1] > W_THRESH1) && (cur_out < W_THRESH1))
                 w_val1 = t;
@@ -1041,7 +1163,8 @@ transient gen_sim::calc_NOR(list<transient> inputs, int n_num)
         temp_out.push_back(cur_out);  
         
         //cout<<"pvolt 1: "<<p_volt[0][t]<<" pvolt 2: "<<p_volt[1][t]<<" output: "<<cur_out<<endl;
-        //cout<<"pvolt 1: "<<p_volt[0][t]<<" output: "<<cur_out<<endl;
+        //if(n_num == 540)
+            //cout<<"Itr: "<<t<<" Vg1: "<<vg_arr[0]<<" Vg2: "<<vg_arr[1]<<" pvolt 1: "<<p_volt[0][t]<<" output: "<<cur_out<<endl;
         
         in.clear();
         ip.clear();
@@ -1071,9 +1194,7 @@ transient gen_sim::calc_OR(list<transient> inputs, int n_num)
 }
 
 transient gen_sim::calc_NOT(list<transient> inputs, int n_num)
-{
-    int type;
-    
+{  
     double vd_init, vg_cur;
     double cur_out;
     double eff_load;
@@ -1083,23 +1204,25 @@ transient gen_sim::calc_NOT(list<transient> inputs, int n_num)
     double w_val2 = 0;
     double ip, in, cmp, cmn, del_inp;
     double adj_step;
+    double st_threshf, end_threshf;
     
     transient pulse;
     transient temp_p;
     
     vector<double> temp_out;
-    
-    if(vd_init != VDD)
-        type = FALLING;
-    else
-        type = RISING;
      
     temp_p = inputs.front();
     
     if(temp_p.volt_pulse[0] > 0.95)
+    {
         vd_init = 0;
+        pulse.type = RISING;
+    }
     else
+    {
         vd_init = VDD;
+        pulse.type = FALLING;
+    }
     
     temp_out.push_back(vd_init);
     
@@ -1108,21 +1231,10 @@ transient gen_sim::calc_NOT(list<transient> inputs, int n_num)
 
     adj_step = STEP_GRAN*st_ratio;
     
-    /*if(n_num == 8)
-    {
-        stringstream s;
-        s <<"OutputRes"<<n_num<<"_"<<temp_p.id;
-        export_vec(temp_p.volt_pulse, s.str());
-        s.str(string());
-    }*/
-    
     for(int t = 1; t <= NUM_STEPS; t++)
     {
         vg_cur = temp_p.volt_pulse[t];
         del_inp = temp_p.volt_pulse[t] - temp_p.volt_pulse[t-1];
-        
-        //if(n_num == 8)
-            //cout<<"Gate: "<<vg_cur<<" Diff: "<<del_inp<<endl;
         
         in = ind_current(NMOS, temp_out[t-1], vg_cur);
         cmn = ind_miller(NMOS, temp_out[t-1], vg_cur);
@@ -1132,21 +1244,17 @@ transient gen_sim::calc_NOT(list<transient> inputs, int n_num)
             
         miller_factor = cmn*del_inp + cmp*del_inp;
         
-        if(n_num == 8)
-        {
-            //cout<<"Miller: "<<miller_factor<<endl;
-            miller_factor = 0;
-        }
-        
         //cout<<"Miller Factor: "<<miller_factor<<" N Cap: "<<cmn<<" P Cap: "<<cmp<<" Ip: "<<ip<<" In: "<<in<<endl;
         
-        //if(n_num == 6)
-            //cout<<"Ip: "<<ip<<" In: "<<in<<endl;
-        
-        if(type == RISING)
+        if(pulse.type == RISING)
         {
             eff_load = graph[n_num].fanout_num*ST_NODE_CAP + 1e-15;
             cur_out = (((ip + in)*adj_step + miller_factor)/(eff_load + cmn + cmp)) + temp_out[t-1];
+            
+            if(cur_out > MAX_VOLT)
+                cur_out = MAX_VOLT;
+            if(cur_out < MIN_VOLT)
+                cur_out = MIN_VOLT;
            
             if((temp_out[t-1] < ST_THRESH) && (cur_out > ST_THRESH))
                 pulse.st_time = t;
@@ -1159,12 +1267,20 @@ transient gen_sim::calc_NOT(list<transient> inputs, int n_num)
         }
         else
         {
+            st_threshf = VDD-ST_THRESH;
+            end_threshf = VDD-END_THRESH;
+            
             eff_load = graph[n_num].fanout_num*ST_NODE_CAP + 1e-15;
             cur_out = (((ip + in)*adj_step + miller_factor)/(eff_load + cmn + cmp)) + temp_out[t-1];
             
-            if((temp_out[t-1] > ST_THRESH) && (cur_out < ST_THRESH))
+            if(cur_out > MAX_VOLT)
+                cur_out = MAX_VOLT;
+            if(cur_out < MIN_VOLT)
+                cur_out = MIN_VOLT;
+            
+            if((temp_out[t-1] > st_threshf) && (cur_out < st_threshf))
                 pulse.st_time = t;
-            else if((temp_out[t-1] < END_THRESH) && (cur_out > END_THRESH))
+            else if((temp_out[t-1] < end_threshf) && (cur_out > end_threshf))
                 pulse.end_time = t;
             if((temp_out[t-1] > W_THRESH1) && (cur_out < W_THRESH1))
                 w_val1 = t;
@@ -1400,6 +1516,7 @@ void gen_sim::set_propfunc(int n_num, int inp_node, transient p, transient temp)
  */
 void gen_sim::enhconv_check(int n_num)
 {
+    int cur_size, max_size;
     transient cur_trans;
     transient n_pul;
     list<int>::iterator fit;
@@ -1420,28 +1537,48 @@ void gen_sim::enhconv_check(int n_num)
     for(hit = h_table.begin(); hit != h_table.end(); ++hit)
     {
         temp_l = h_table[hit->first];
-        cur_trans = temp_l.front();
-        inputs.push_back(cur_trans);
-        temp_l.pop_front();
+        //cout<<"Event: "<<hit->first<<" Size: "<<temp_l.size()<<" Width: "<<temp_l.front().width<<" Event: "<<temp_l.front().e_num<<" Id: "<<temp_l.front().id<<endl;
+        max_size = temp_l.size();
+        cur_size = 0;
         
-        for(pit = temp_l.begin(); pit != temp_l.end(); ++pit)
+        while(cur_size < max_size)
         {
-            if(is_overlap(cur_trans, *pit))
+            cur_trans = temp_l.front();
+            inputs.push_back(cur_trans);
+            temp_l.pop_front();
+            cur_size++;
+            
+            for (pit = temp_l.begin(); pit != temp_l.end(); ++pit)
             {
-                inputs.push_back(*pit);
-                n_pul = det_pulse(inputs, n_num);
-                
-                if(n_pul.volt_pulse.size() > 1)
+                if(cur_trans.s_node != pit->s_node)
                 {
-                    eval_convfunc(n_num, cur_trans, *pit, n_pul);
+                    if (is_overlap(cur_trans, *pit))
+                    {
+                        inputs.push_back(*pit);
 
-                    n_pul.e_num = hit->first;
-                    n_pul.id = this->id_n;
-                    n_pul.s_node = n_num;
-                    this->id_n++;
-                    graph[n_num].p_list.push_back(n_pul);
+                        n_pul = det_pulse(inputs, n_num);
+
+                        if (n_pul.width > W_MIN)
+                        {
+                            if (this->sim_type == BDD_SIM)
+                            {
+                                eval_convfunc(n_num, cur_trans, *pit, n_pul);
+
+                                if (n_pul.p_func != bdd_false())
+                                {
+                                    n_pul.e_num = hit->first;
+                                    n_pul.id = this->id_n;
+                                    n_pul.s_node = n_num;
+                                    this->id_n++;
+                                    graph[n_num].p_list.push_back(n_pul);
+                                }
+                            }
+                        }
+                        inputs.pop_back();
+                    }
                 }
             }
+            inputs.clear();
         }
     }
 }

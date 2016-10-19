@@ -39,7 +39,7 @@
 #define MAX_VG 2.5
 
 // Define the Number of Steps
-#define NUM_STEPS 1200
+#define NUM_STEPS 800
 
 // Initial Internal Node Voltage
 #define INT_NODE_VOLT 0
@@ -50,9 +50,8 @@
 #define STEP_GRAN 0.5e-12
 
 //#define C_LOAD 0.15e-15
-#define C_LOAD 0
-#define ST_NODE_CAP 0.25e-15
-#define ST_NODE_CAP_P 0.15e-15
+#define ST_NODE_CAP 0.5e-15
+#define ST_NODE_CAP_P 0.5e-15
 
 #define PI 3.14159265359
 
@@ -125,7 +124,7 @@
  * Test Values for Charge Injection
  */
 #define S_NODE 4
-#define CHARGE 12e-15
+#define CHARGE 15e-15
 #define ST_THRESH 0.25
 #define END_THRESH 0.25
 #define W_THRESH1 0.5
@@ -148,8 +147,8 @@
 /*
  * Temp Test Values
  */
-#define T_PROB .5
-#define F_PROB .5
+#define T_PROB 0.5
+#define F_PROB 0.5
 
 #define REORDER_TH 1000
 
@@ -160,7 +159,7 @@
 #define PART_RATIO 0.5
 
 // Maximum BDD node count
-#define MAX_BDD_NODES 50000
+#define MAX_BDD_NODES 500000000000
 
 // Set a Minimum Number of Gates
 #define MIN_GATE_NUM 10
@@ -181,8 +180,19 @@
  * 3 - CCM_SIM
  * 4 - INJ_SIM 
  */
-#define CUR_SIM 0
+#define CUR_SIM 2
 #define PRINT_OUT 0
+
+/*
+ * Partition Simulation Type
+ * 0 - Adaptive Partitioning
+ * 1 - Static Partitioning
+ */
+
+#define PART_SIM 0
+
+// Number of Partition for Static Partitioning
+#define NUM_OF_PARTS 2
 
 #endif /* CONSTANTS_H */
 

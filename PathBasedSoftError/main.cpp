@@ -148,9 +148,11 @@ int main(int argc, char** argv)
     
     if(CUR_SIM == BDD_SIM)
     {
+        int init_i;
         double avg = 0;
         int num_events = 0;
         map<int, double> e_map;
+        
         for(g_it = graph_m.begin(); g_it != graph_m.end(); ++g_it)
         {
             if(out_find(g_it->first))
@@ -173,12 +175,18 @@ int main(int argc, char** argv)
                         avg = avg + graph_m[g_it->first].r_map[r_it->first];
                         num_events++;
                     }
+                    
+                    if(check_map(e_map, r_it->first))
+                        e_map[r_it->first] = e_map[r_it->first] + graph_m[g_it->first].r_map[r_it->first];
+                    else
+                        e_map[r_it->first] = graph_m[g_it->first].r_map[r_it->first];
                 }
                 cout<<"Average: "<<avg/(double) num_events<<endl;
                 avg = 0;
-                num_events = 0;
+                num_events = 0;   
             }
         }
+        cout<<"MES: "<<avg_map(e_map)<<endl;
         cout<<"Allocs: "<<b_sim.alloc_count<<endl;
         cout<<"Deletes: "<<b_sim.del_count<<endl;
     }
@@ -186,29 +194,21 @@ int main(int argc, char** argv)
     {
         double avg = 0;
         int num_events = 0;
+        map<int, double> e_map;
+        
         for(g_it = graph.begin(); g_it != graph.end(); ++g_it)
         {
-            if((out_find(g_it->first) == true) && (graph[g_it->first].type == INPUT))
+            if(out_find(g_it->first))
             {
                 cout<<"Node: "<<g_it->first<<endl;
                 cout<<"Type: "<<graph[g_it->first].type<<endl;
-                cout<<"Average: "<<graph[g_it->first].prob<<endl;
-            }
-            else if((out_find(g_it->first) == true) && (graph[g_it->first].type != INPUT))
-            {
-                cout<<"Node: "<<g_it->first<<endl;
-                cout<<"Type: "<<graph[g_it->first].type<<endl;
-                /*cout<<"Pulses: "<<endl;;
+                //cout<<"Pulses: "<<endl;;
                 for(r_it = graph[g_it->first].r_map.begin(); r_it != graph[g_it->first].r_map.end(); ++r_it)
                 {
-                    cout<<"Event: "<<r_it->first<<endl;
-                    cout<<"Probability: "<<graph[g_it->first].r_map[r_it->first]<<endl;
-                }*/
-                for(r_it = graph[g_it->first].r_map.begin(); r_it != graph[g_it->first].r_map.end(); ++r_it)
-                {
-                    cout<<"Event: "<<r_it->first<<endl;
-                    cout<<"Probability: "<<graph_m[g_it->first].r_map[r_it->first]<<endl;
-                    if(graph_m[g_it->first].r_map[r_it->first] > 1)
+                    //cout<<"Event: "<<r_it->first<<endl;
+                    //cout<<"Probability: "<<graph[g_it->first].r_map[r_it->first]<<endl;
+                    
+                    if(graph[g_it->first].r_map[r_it->first] > 1)
                     {
                         avg = avg + 1;
                         num_events++;
@@ -218,12 +218,18 @@ int main(int argc, char** argv)
                         avg = avg + graph[g_it->first].r_map[r_it->first];
                         num_events++;
                     }
+                    
+                    if(check_map(e_map, r_it->first))
+                        e_map[r_it->first] = e_map[r_it->first] + graph[g_it->first].r_map[r_it->first];
+                    else
+                        e_map[r_it->first] = graph[g_it->first].r_map[r_it->first];
                 }
                 cout<<"Average: "<<avg/(double) num_events<<endl;
                 avg = 0;
-                num_events = 0;
+                num_events = 0;   
             }
         }
+        cout<<"MES: "<<avg_map(e_map)<<endl;
     }
     else if(CUR_SIM == CCM_SIM)
     {

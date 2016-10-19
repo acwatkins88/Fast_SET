@@ -28,6 +28,27 @@ extern vector<vector<double> > pmos_miller;
 void part_sim(gmap , circuitstruct );
 bool out_find(int );
 
+inline bool check_map(map<int, double> inp_m, int key)
+{
+    map<int, double>::iterator mit;
+    
+    for(mit = inp_m.begin(); mit != inp_m.end(); ++mit)
+        if(mit->first == key)
+            return true;
+    return false;
+}
+
+inline double avg_map(map<int, double> inp_m)
+{
+    double sum = 0;
+    map<int, double>::iterator mit;
+    
+    for(mit = inp_m.begin(); mit != inp_m.end(); ++mit)
+        sum = sum + inp_m[mit->first];
+    
+    return sum/inp_m.size();
+}
+
 class gen_sim
 {
 public:
@@ -159,7 +180,7 @@ protected:
     void print_pstruct();
     
     // Enhanced Pulse Methods
-    void gen_enhpulse(int , int );
+    void gen_p(int );
     
     // Attempt to Generalize the Algorithm
     //vector<double> inj_NAND(int , double , int , double &, double &, int );
@@ -217,7 +238,7 @@ public:
 private:
     
     void gen_sensf(int);
-    void bdd_genp(int );
+    //void bdd_genp(int );
     void bdd_genfunc(int , list<transient>& );
     bdd gen_bdd(int, transient);
     bdd prop_bdd(int, int , transient);
@@ -238,6 +259,9 @@ private:
     int count_nodes(gmap , int );
     void conv_partition(gmap & , int & , int );
     
+    void spart_graph(gmap g_i, int& , int );
+    gmap ext_spart(gmap , int );
+    
     void bdd_optimize();
 };
 
@@ -254,10 +278,12 @@ public:
 private:
     void apply_inpt(int* );
     void eval_gval(int );
-    void gen_p(int );
+    //void gen_p(int );
     void add_result(int );
     void gen_itrpat(int* , int);
     void gen_pat(int* );
+    
+    void app_pulse(int );
     
     // Declarations of Virtual Functions
     void set_propfunc(int, int, transient, transient );
