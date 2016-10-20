@@ -126,6 +126,7 @@ struct circuitstruct
     int inpnum;
     int outnum;
     int maxnodeid;
+    int node_count;
     std::list<int> inputs;
     std::list<int> outputs;
 };

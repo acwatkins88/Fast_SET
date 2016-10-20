@@ -77,7 +77,13 @@ void itr_sim::sim()
                 prop_enhpulse(git->first);
                 
                 // Process Convergence Cases
-                //conv_check(g_it->first);
+                if ((graph[git->first].type != NOT) && (graph[git->first].type != BUF))
+                {
+                    if(!graph[git->first].p_list.empty())
+                    {
+                        enhconv_check(git->first);
+                    }
+                }   
                 
                 // Store the result in r_map
                 if(out_find(git->first) == true)

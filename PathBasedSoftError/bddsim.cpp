@@ -26,7 +26,6 @@ void bdd_sim::pnode_sim()
             s_prob.solve_prob(*graph[git->first].g_func);
             graph[git->first].prob = s_prob.true_prob;
         }
-        cout<<"Node: "<<git->first<<" Prob: "<<graph[git->first].prob<<endl;
     }
 }
 
@@ -174,7 +173,7 @@ bool bdd_sim::sim_graph(gmap &graph)
     int num_removed = 0;
     stringstream s;
     int f_count = 0;
-    bdd_prob s_prob;
+    //bdd_prob s_prob;
     gmap::iterator git;
     gmap::iterator cit;
     list<transient>::iterator nit;
@@ -215,7 +214,7 @@ bool bdd_sim::sim_graph(gmap &graph)
             {
                 if(!graph[git->first].p_list.empty())
                 {
-                    //enhconv_check(git->first);
+                    enhconv_check(git->first);
                 }
             }
             
@@ -235,6 +234,7 @@ bool bdd_sim::sim_graph(gmap &graph)
                 over_it = git;
                 
                 tp_temp.clear();
+                s_prob.inp_map.clear();
                 
                 return true;
             }
@@ -313,6 +313,7 @@ bool bdd_sim::sim_graph(gmap &graph)
         }
         else if ((graph[git->first].type != INPUT)&&((graph[git->first].fanout_num != graph_m[git->first].fanout_num) || (graph[git->first].fanout_num == 0)))
         {
+            //cout<<"Calc Node: "<<git->first<<endl;
             for (pit = graph[git->first].p_list.begin(); pit != graph[git->first].p_list.end(); ++pit)
             {
                 s_prob.solve_prob(pit->p_func);
@@ -337,7 +338,7 @@ bool bdd_sim::sim_graph(gmap &graph)
             tp_temp.clear();
         }
     }
-   
+    
     return false;
 }
 

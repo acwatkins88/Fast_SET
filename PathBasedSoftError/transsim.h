@@ -81,6 +81,9 @@ protected:
     int size_part2;
     
     int max_node;
+    bdd_prob s_prob;
+    
+    double part_ratio;
     
     gmap::iterator over_it;
     

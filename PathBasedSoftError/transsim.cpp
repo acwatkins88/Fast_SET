@@ -7,6 +7,7 @@ gen_sim::gen_sim(int t)
     sim_type = t;
     this->event_n = 0;
     this->id_n = 0; 
+    this->part_ratio = 0.5;
 }
 
 
@@ -26,18 +27,18 @@ void gen_sim::gen_p(int n_num)
     gmap::iterator git;
     
     temp_r = gen_pulse(RISING, n_num, INJ_DELAY);
-    temp_f = gen_pulse(FALLING, n_num, INJ_DELAY);
+    //temp_f = gen_pulse(FALLING, n_num, INJ_DELAY);
     
     if((temp_r.width > W_MIN))
         graph[n_num].p_list.push_back(temp_r);
     else
         r_flag = true;
     
-    if((temp_f.width > W_MIN))
+    /*if((temp_f.width > W_MIN))
         graph[n_num].p_list.push_back(temp_f);
     else
         f_flag = true;
-    
+    */
     //srand(10);
     val = rand() % 100 + 1;
     if((val >= 100*INJ_RATIO)&&(MULT_TRANS == 1))
@@ -55,13 +56,14 @@ void gen_sim::gen_p(int n_num)
                 graph[git->first].p_list.push_back(temp_i);
             }
 
-            temp_i = gen_pulse(FALLING, git->first, val);
+            /*temp_i = gen_pulse(FALLING, git->first, val);
 
             if ((temp_i.width > W_MIN)&&(f_flag == false))
             {
                 temp_i.e_num = temp_f.e_num;
                 graph[git->first].p_list.push_back(temp_i);
             }
+            */
         }
     }    
 }
@@ -698,6 +700,7 @@ void gen_sim::prop_enhpulse(int n_num)
             
             if (out_pulse.width > W_MIN)
             {
+                out_pulse.t_prob = eit->t_prob;
                 out_pulse.e_num = eit->e_num;
                 out_pulse.id = this->id_n;
                 out_pulse.s_node = n_num;
@@ -1516,6 +1519,8 @@ void gen_sim::set_propfunc(int n_num, int inp_node, transient p, transient temp)
  */
 void gen_sim::enhconv_check(int n_num)
 {
+    double c_prob;
+    int pulse_count = 0;
     int cur_size, max_size;
     transient cur_trans;
     transient n_pul;
@@ -1537,7 +1542,7 @@ void gen_sim::enhconv_check(int n_num)
     for(hit = h_table.begin(); hit != h_table.end(); ++hit)
     {
         temp_l = h_table[hit->first];
-        //cout<<"Event: "<<hit->first<<" Size: "<<temp_l.size()<<" Width: "<<temp_l.front().width<<" Event: "<<temp_l.front().e_num<<" Id: "<<temp_l.front().id<<endl;
+        //cout<<"Event: "<<hit->first<<" Size: "<<temp_l.size()<<endl;
         max_size = temp_l.size();
         cur_size = 0;
         
@@ -1552,7 +1557,7 @@ void gen_sim::enhconv_check(int n_num)
             {
                 if(cur_trans.s_node != pit->s_node)
                 {
-                    if (is_overlap(cur_trans, *pit))
+                    if ((is_overlap(cur_trans, *pit)) && (cur_trans.type == pit->type))
                     {
                         inputs.push_back(*pit);
 
@@ -1563,8 +1568,57 @@ void gen_sim::enhconv_check(int n_num)
                             if (this->sim_type == BDD_SIM)
                             {
                                 eval_convfunc(n_num, cur_trans, *pit, n_pul);
-
-                                if (n_pul.p_func != bdd_false())
+                                
+                                //s_prob.solve_prob(n_pul.p_func); 
+                                //c_prob = cur_trans.t_prob * pit->t_prob * s_prob.true_prob;
+                                //cout<<"Calc: "<<c_prob<<" Prob: "<<s_prob.true_prob<<" t1: "<<cur_trans.t_prob<<" t2: "<<pit->t_prob<<endl;
+                                
+                                if ((n_pul.p_func != bdd_false()))
+                                {
+                                    s_prob.solve_prob(n_pul.p_func);
+                                    c_prob = cur_trans.t_prob * pit->t_prob * s_prob.true_prob;
+                                    //cout<<"Calc: "<<c_prob<<" Prob: "<<s_prob.true_prob<<" t1: "<<cur_trans.t_prob<<" t2: "<<pit->t_prob<<endl;
+                                    if(c_prob > MIN_CONV_PROB)
+                                    {
+                                        //cout<<"Calc: "<<c_prob<<" Prob: "<<s_prob.true_prob<<" t1: "<<cur_trans.t_prob<<" t2: "<<pit->t_prob<<endl;
+                                        //pulse_count++;
+                                        n_pul.t_prob = cur_trans.t_prob*pit->t_prob;
+                                        n_pul.e_num = hit->first;
+                                        n_pul.id = this->id_n;
+                                        n_pul.s_node = n_num;
+                                        this->id_n++;
+                                        graph[n_num].p_list.push_back(n_pul);
+                                    }
+                                }
+                            }
+                            else if(this->sim_type == ITR_SIM)
+                            {
+                                bool t_flag = false;
+                                if(graph[n_num].fanin_num > 2)
+                                {
+                                    for(fit = graph[n_num].fanin.begin(); fit != graph[n_num].fanin.end(); ++fit)
+                                    {
+                                        if((*fit != cur_trans.s_node)&&(*fit != pit->s_node))
+                                        {
+                                            switch(graph[n_num].type)
+                                            {
+                                                case AND:
+                                                case NAND:
+                                                    if(graph[*fit].val == 0)
+                                                        t_flag = true;
+                                                    break;
+                                                case OR:
+                                                case NOR:
+                                                    if(graph[*fit].val == 1)
+                                                        t_flag = true;
+                                                    break;
+                                                default:
+                                                    cout<<"Invalid Convergent Gate Type\n";
+                                            }
+                                        }
+                                    }
+                                }
+                                if (t_flag == false)
                                 {
                                     n_pul.e_num = hit->first;
                                     n_pul.id = this->id_n;
@@ -2517,7 +2571,6 @@ gmap gen_sim::extract_tcir(int part_num)
                     if (t_find(tp_map, *lit))
                     {
                         list<transient>::iterator tpit;
-                        stringstream s;
                         for (tpit = tp_map[*lit].begin(); tpit != tp_map[*lit].end(); ++tpit)
                         {
                             tpit->s_node = n_count;
@@ -2672,7 +2725,8 @@ void gen_sim::init_part()
     
     for(git = inp_g.begin(); git != inp_g.end(); ++git)
     {
-        if(cur_size < (total_size*PART_RATIO))
+        //if(cur_size < (total_size*PART_RATIO))
+        if(cur_size < (total_size*part_ratio))
         {
             inp_g[git->first].b_part_num = 1;
             cur_size = cur_size + inp_g[git->first].c_size;
@@ -2735,8 +2789,10 @@ void gen_sim::init_gain()
 bool gen_sim::check_balance(int cell_in)
 {
     int part = inp_g[cell_in].b_part_num;
-    int top_range = int(PART_RATIO*total_size) + max_size;
-    int bottom_range = int(PART_RATIO*total_size) - max_size;
+    //int top_range = int(PART_RATIO*total_size) + max_size;
+    //int bottom_range = int(PART_RATIO*total_size) - max_size;
+    int top_range = int(part_ratio*total_size) + max_size;
+    int bottom_range = int(part_ratio*total_size) - max_size;
     
     if((part == 1)&&((inp_g[cell_in].c_size + size_part2) <= top_range)&&((size_part1 - inp_g[cell_in].c_size) >= bottom_range))
         return true;

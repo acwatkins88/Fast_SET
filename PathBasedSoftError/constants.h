@@ -17,7 +17,7 @@
 /*
  * Monte Carlo Values
  */
-#define ITR_STEP 1000000
+#define ITR_STEP 10000
 #define MAX_INPT 20             //Max Iterative Inputs
 
 /*
@@ -39,7 +39,7 @@
 #define MAX_VG 2.5
 
 // Define the Number of Steps
-#define NUM_STEPS 800
+#define NUM_STEPS 600
 
 // Initial Internal Node Voltage
 #define INT_NODE_VOLT 0
@@ -131,12 +131,14 @@
 #define W_THRESH2 0.5
 #define INJ_DELAY 20
 
-#define MULT_TRANS 1
-#define INJ_RATIO 0.1   // Ratio of Number of events that result in a MET 
+#define MULT_TRANS 0
+#define INJ_RATIO 0.01   // Ratio of Number of events that result in a MET 
 #define W_MIN 1e-12     // Paramter for the minimum width
 #define MAX_VOLT 1.10   // Parameter to set the maximum clamping voltage
 #define MIN_VOLT -0.05
 
+
+#define MIN_CONV_PROB 0.02
 /*
  * Flip Flop Values
  */
@@ -156,10 +158,10 @@
 #define CONE_SIM 0
 
 // Set initial partition ratio
-#define PART_RATIO 0.5
+//#define PART_RATIO 0.5
 
 // Maximum BDD node count
-#define MAX_BDD_NODES 500000000000
+#define MAX_BDD_NODES 5000000
 
 // Set a Minimum Number of Gates
 #define MIN_GATE_NUM 10
@@ -180,7 +182,7 @@
  * 3 - CCM_SIM
  * 4 - INJ_SIM 
  */
-#define CUR_SIM 2
+#define CUR_SIM 0
 #define PRINT_OUT 0
 
 /*
