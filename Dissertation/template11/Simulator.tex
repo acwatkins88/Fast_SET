@@ -24,9 +24,9 @@ To alleviate the inherent blow up problem, the authors in \cite{FASER} propose t
 
 In addition to the adaptive partitioning approach, the proposed simulator has the capability of considering multiple concurrent pulse strikes commonly referred to as multiple event transients (METs). The consideration of multiple strikes has become of greater concern due to the small feature size, leading to a lower critical charge for upset, and the closer placement of transistors \cite{Rossi2005}. These type of events can occur in two forms: single event multiple transient (SEMT) and multiple event multiple transient (MEMT). A SEMT is defined as the case where a single radiation particle upsets multiple transistors causing multiple transients pulses. A MEMT is defined as when multiple particles hit different circuit components simultaneously. While the probability of the SEMT vs the MEMT depends strongly on the radiation environment, methods developed for one type of error can easily be modified to consider the other. 
 
-There are a few existing methods that include the consideration of multiple event errors. The authors in \cite{METSys} consider the correlation of METs however their method uses BDDs which tend to blow up. While they do investigate the use of partitioning, their method is only tested for small circuits using only a few concurrent pulses. An additional simulation tool used for MET analysis found in \cite{Fazeli2011} uses probabilistic functions. This approach has shown to be fast and efficient but is not suited for the use of complicated electrical masking methods. The approach proposed in this section applies the pulse approximation method given in Chapter \ref{ch2} to a MET simulation methodology which allows for much more accurate soft error calculation.
+There are a few existing methods that include the consideration of multiple event errors. The authors in \cite{METSys} consider the correlation of METs however their method uses BDDs which tend to blow up. While they do investigate the use of partitioning, their method is only tested for small circuits using only a few concurrent pulses. An additional simulation tool used for MET analysis found in \cite{Fazeli2011} uses probabilistic functions. This approach has shown to be fast and efficient but is not suited for the use of complicated electrical masking methods. To improve on the existing methods, the simulator FAST\_MET (Fast and Accurate Simulation Tool for Multiple Event Transients) which uses BDDs to calculate the logical maksing effect in conjunction with the accurate pulse approximation tool proposed in Chapter \ref{ch2}. FAST\_SET improves on the method in \cite{METSys} by allowing for the integration of accurate electrical masking models and through the extensive use and evaluation of partitioning to avoid BDD blow up.    
 
-\section{Preliminaries} 
+\section{Preliminaries} \label{ch3:prelim}
 
 A crucial aspect in the estimation of the logical masking effects is accurate creation of the Boolean functions. To ensure full consideration of the logical masking effects, Boolean functions must be created to evaluate the circuit inputs for pulse generation and the off-inputs for pulse propagation. First the method to generate the functions for error pulse generation will be discussed. 
 
@@ -154,16 +154,60 @@ Based on equation \ref{prop_num}, the total probability of multiple convergent p
 P(G_{tot}) = \sum_{i}^{P_{num}} P(G_i)
 \end{equation}
 
-When a MET is generated in the simulator, it is represented as an event $E_k$ with $k$ being the number of events. For each event, the generated transients are propagated through gates to the primary outputs. Assuming that the pulses propagate through to a $M$ number of primary outputs with a probability of $P(g_q)$ where $g_q$ represents the $q$th output $g$, the probability of error for event $E_k$ is calculated as the following:  
+When a MET is generated, it is represented as an event $E_k$ with $k$ being the event number. For each event, the generated transients are propagated through gates to the primary outputs. Once the pulse arrive at the gate output, the temporal masking probability can be considered. Based off the equation found in \cite{Omana_Trap}, let  $P_{L,i}$ is the probability of the pulse being latch on gate $i$, $W$ be the pulse width, $t_{setutp}$ and $t_{hold}$ being the setup and hold times respectively and $T_{clk}$ be the clock period, the probability of a pulse being latch on an output flip-flop is calculated in the below equation:
 
-\begin{equation} \label{event_eq}
-P(E_k) = \sum_{q=1}^{M} P(g_q)
+\begin{equation} \label{temp_eq}
+P_{L,i} = \frac{W - (t_{setup} + t_{hold})}{T_{clk}}
 \end{equation}
 
-To evaluate the error probability for all events, the mean error susceptibility (MES), defined in \cite{METsys} is used. The MES represents the average probability of error for all events combined. Assuming that there are a $n_E$ number of events, $n_d$ number of input probability distributions and that $K$ is the number of injected events, the MES is found using the following equation:
+Assuming that the pulses from event $E_k$ propagate to a $M$ number of primary outputs with each gate having a probability of $P_{L,i}$ calculated as in equation \ref{temp_eq}, the probability of error for event $E_k$ is calculated as the following:  
+
+\begin{equation} \label{event_eq}
+P(E_k) = \sum_{i=1}^{M} P_{L,i}
+\end{equation}
+
+To evaluate the error probability for all events, the mean error susceptibility (MES), defined in \cite{METSys} is used. The MES represents the average probability of error for all events combined. Assuming that there are a $n_E$ number of events, $n_d$ number of input probability distributions and that $K$ is the number of injected events, the MES is found using the following equation:
 
 \begin{equation} \label{MES}
 MES = \sum_{k=1}^{K} \frac{P(E_k)}{n_E n_d}
 \end{equation}
 
-\section{Adaptive BDD Simulation}
+Based off the MES, the soft error rate ($SER$) can be calculated as in below where $R_{eff}$ represents the effective concentration of particle in the given area, $P_{eff}$ is the probability of a particle hitting the sensitive region of a transistor and $A$ as the area of the sensitive volumes.
+
+\begin{equation} \label{SER}
+SER = MES*R_{eff}*P_{eff}*A 
+\end{equation}
+
+\section{Description of the FAST\_MET Simulator}
+
+FAST\_MET is a fast and accurate tool to estimate the soft error rate. The method aims to provide a good trade-off between simulation time and accurate SER calculation. To accurately determine the logical masking effects, BDDs are used. A BDD is a tree structure which can be used to represent a Boolean function. The first instance of the use of BDDs for function representation was proposed in \cite{Bryant1986} and has continued to be used regularly in circuit simulation and synthesis since. Fig. \ref{BDD_AND} gives the representation of a AND gate as BDD. Note that the structure consists of nodes which represent variables. For each node, there are two branches, one denoting a "true" value and the other a "false" value. The BDD graph also consists of multiple paths to two terminating nodes, one with a "true" value denoted by "1" and one with a "false" value denoted by "0".
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.65\linewidth]{Figures/BDDFunc}
+	%where an .eps filename suffix will be assumed under latex, 
+	%and a .pdf suffix will be assumed for pdflatex; or what has been declared
+	%via \DeclareGraphicsExtensions.
+	\caption{The truth table and corresponding BDD for an AND gate.}
+	\label{BDD_AND}
+\end{figure}
+
+	The main advantage of a BDD is that they provide an efficient canonical form to represent a Boolean function. Specifically, this means that Boolean operations (such as AND, NAND, OR ... etc) can be easily and quickly applied to the graph. In the case of the FAST\_MET simulator, BDD representation of the functions are used to both calculate the signal probability and the probability for pulse propagation.
+
+In FAST\_MET, the goal is to accurately and efficiently represent a sensitization function as a BDD. A sensitization function is defined as the Boolean function that allows for a generated transient pulse to propagate through a circuit. In other words, a sensitization is the function that represents all input patterns that sensitize the pulse to the output. 
+
+The FAST\_MET simulator operates in a topological order. This implies that the primary inputs will be visited first. Once a primary input is visited, it is represented as a variable for in a BDD. Once all inputs are visited, the simulator starts on the gates within the circuit. When a gate is visited, the sensitization function representing the gate output is calculated. The "1" terminal on this BDD represents the Boolean function that makes the output a "1" value. To increase efficiency, the FAST\_MET simulator generates a rising and falling pulse at each gate using the method proposed in Chapter \ref{ch2} for a specific energy.
+
+When a pulse is generated, the gate input functions are considered using the input sensitization functions. If the pulse is rising (starting from a low value then going high), the pulse is only generated when the output is low. To consider this, the BDD function is inverted such that a termination to "1" represents that case at which the pulse exists. Similarly, if the pulse is falling, the output must be a high value. Since the function already denotes a high value on the output, the sensitization function can be used directly. Additionally, as discussed in Section \ref{ch3:prelim}, in the case of a gate having multiple inputs, the output function must be considered according to Table \ref{table:gentable}. Using the table, the correct generation function can be found by applying the function for the gate specified. Fig. \ref{BDD_GEN} provides an example of the creation of the generation functions for a gate.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.65\linewidth]{Figures/gen_func}
+	%where an .eps filename suffix will be assumed under latex, 
+	%and a .pdf suffix will be assumed for pdflatex; or what has been declared
+	%via \DeclareGraphicsExtensions.
+	\caption{An example of the BDD creation for a rising and falling pulse,}
+	\label{BDD_GEN}
+\end{figure}
+
+To consider the MET case, multiple pulses are randomly inserted. As discussed in \cite{Ebrahimi2016}, layout information is important in accurately modeling the location of the MET for a real design. Gates that are near each other in a netlist may not necessarily be close in the layout. In this section, for the sake of simplicity, only 2 pulses are generated in gates that are close by in the net list. However, for the sake of simple comparison and analysis, using the netlist is not problematic. 

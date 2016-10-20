@@ -17,6 +17,6 @@
 \contentsline {section}{\numberline {2.3}Conclusion}{35}
 \contentsline {chapter}{\numberline {3}Accurate Soft Error Simulation Using Adaptive Partitioning}{38}
 \contentsline {section}{\numberline {3.1}Preliminaries}{41}
-\contentsline {section}{\numberline {3.2}Adaptive BDD Simulation}{47}
-\contentsline {chapter}{Appendix}{51}
-\contentsline {chapter}{Vita}{57}
+\contentsline {section}{\numberline {3.2}Description of the FAST\_MET Simulator}{48}
+\contentsline {chapter}{Appendix}{54}
+\contentsline {chapter}{Vita}{60}

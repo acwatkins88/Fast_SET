@@ -7,6 +7,11 @@ D.~R. Blum and J.~G. Delgado-Frias.
 \newblock {\em IEEE Transactions on Nuclear Science}, 53(3):1564--1573, June
   2006.
 
+\bibitem{Bryant1986}
+Randal~E. Bryant.
+\newblock Graph-based algorithms for boolean function manipulation.
+\newblock {\em IEEE Trans. Comput.}, 35(8):677--691, August 1986.
+
 \bibitem{DICE}
 T.~Calin, M.~Nicolaidis, and R.~Velazco.
 \newblock Upset hardened memory design for submicron cmos technology.
@@ -18,6 +23,12 @@ Liang Chen, Mojtaba Ebrahimi, and Mehdi~B. Tahoori.
 \newblock Cep: Correlated error propagation for hierarchical soft error
   analysis.
 \newblock {\em Journal of Electronic Testing}, 29(2):143--158, 2013.
+
+\bibitem{Ebrahimi2016}
+M.~Ebrahimi, H.~Asadi, R.~Bishnoi, and M.~B. Tahoori.
+\newblock Layout-based modeling and mitigation of multiple event transients.
+\newblock {\em IEEE Transactions on Computer-Aided Design of Integrated
+  Circuits and Systems}, 35(3):367--379, March 2016.
 
 \bibitem{DONUT}
 N.~Eftaxiopoulos, N.~Axelos, and K.~Pekmestzi.

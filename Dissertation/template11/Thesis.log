@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.16)  17 OCT 2016 23:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.16)  19 OCT 2016 23:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -542,21 +542,30 @@ File: Figures/Prop_func.pdf Graphic file (type pdf)
 <use Figures/Prop_func.pdf>
 Package pdftex.def Info: Figures/Prop_func.pdf used on input line 97.
 (pdftex.def)             Requested size: 254.39156pt x 211.35265pt.
- [44 <./Figures/Prop_func.pdf>]
-<Figures/Prop_MET.pdf, id=318, 449.42906pt x 261.22594pt>
+ [44]
+<Figures/Prop_MET.pdf, id=311, 449.42906pt x 261.22594pt>
 File: Figures/Prop_MET.pdf Graphic file (type pdf)
 
 <use Figures/Prop_MET.pdf>
 Package pdftex.def Info: Figures/Prop_MET.pdf used on input line 117.
 (pdftex.def)             Requested size: 370.02345pt x 215.07956pt.
- [45 <./Figures/Prop_MET.pdf>] [46]
+ [45 <./Figures/Prop_func.pdf>] [46 <./Figures/Prop_MET.pdf>] [47] <Figures/BDD
+Func.pdf, id=337, 257.46187pt x 167.12437pt>
+File: Figures/BDDFunc.pdf Graphic file (type pdf)
 
-LaTeX Warning: Citation `METsys' on page 47 undefined on input line 163.
+<use Figures/BDDFunc.pdf>
+Package pdftex.def Info: Figures/BDDFunc.pdf used on input line 187.
+(pdftex.def)             Requested size: 300.64008pt x 195.17004pt.
+ [48 <./Figures/BDDFunc.pdf>]
+<Figures/gen_func.pdf, id=347, 347.79938pt x 580.41844pt>
+File: Figures/gen_func.pdf Graphic file (type pdf)
 
-) (./Biblio.tex (./Thesis.bbl [47] [48
+<use Figures/gen_func.pdf>
+Package pdftex.def Info: Figures/gen_func.pdf used on input line 205.
+(pdftex.def)             Requested size: 300.64008pt x 501.73622pt.
+) (./Biblio.tex (./Thesis.bbl [49] [50 <./Figures/gen_func.pdf>] [51
 
-] [49] [50])) (./appendix.tex [51]
-[51
+] [52] [53])) (./appendix.tex [54] [54
 
 ]
 Package epstopdf Info: Source file: <Figures/WavePlots/CLKD.eps>
@@ -571,7 +580,7 @@ f>
 (epstopdf)             \includegraphics on input line 32.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/CLKD-eps-converted-to.pdf, id=353, 540.0175pt x 405.515pt>
+<Figures/WavePlots/CLKD-eps-converted-to.pdf, id=375, 540.0175pt x 405.515pt>
 File: Figures/WavePlots/CLKD-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/CLKD-eps-converted-to.pdf>
@@ -590,7 +599,7 @@ f>
 (epstopdf)             \includegraphics on input line 42.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n1n2-eps-converted-to.pdf, id=354, 516.93124pt x 417.56pt>
+<Figures/WavePlots/n1n2-eps-converted-to.pdf, id=376, 516.93124pt x 417.56pt>
 File: Figures/WavePlots/n1n2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n1n2-eps-converted-to.pdf>
@@ -609,7 +618,7 @@ s-converted-to.pdf Figures/WavePlots/n2out.eps>
 (epstopdf)             \includegraphics on input line 49.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n2out-eps-converted-to.pdf, id=355, 516.93124pt x 417.56pt>
+<Figures/WavePlots/n2out-eps-converted-to.pdf, id=377, 516.93124pt x 417.56pt>
 File: Figures/WavePlots/n2out-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n2out-eps-converted-to.pdf>
@@ -628,7 +637,7 @@ f>
 (epstopdf)             \includegraphics on input line 56.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n1n5-eps-converted-to.pdf, id=356, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n1n5-eps-converted-to.pdf, id=378, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n1n5-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n1n5-eps-converted-to.pdf>
@@ -647,7 +656,7 @@ f>
 (epstopdf)             \includegraphics on input line 63.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n3n4-eps-converted-to.pdf, id=357, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n3n4-eps-converted-to.pdf, id=379, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n3n4-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n3n4-eps-converted-to.pdf>
@@ -666,7 +675,7 @@ s-converted-to.pdf Figures/WavePlots/n4out.eps>
 (epstopdf)             \includegraphics on input line 70.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n4out-eps-converted-to.pdf, id=358, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n4out-eps-converted-to.pdf, id=380, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n4out-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n4out-eps-converted-to.pdf>
@@ -685,7 +694,7 @@ f>
 (epstopdf)             \includegraphics on input line 77.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n1n3-eps-converted-to.pdf, id=359, 516.93124pt x 417.56pt>
+<Figures/WavePlots/n1n3-eps-converted-to.pdf, id=381, 516.93124pt x 417.56pt>
 File: Figures/WavePlots/n1n3-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n1n3-eps-converted-to.pdf>
@@ -704,7 +713,7 @@ f>
 (epstopdf)             \includegraphics on input line 84.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n1n6-eps-converted-to.pdf, id=360, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n1n6-eps-converted-to.pdf, id=382, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n1n6-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n1n6-eps-converted-to.pdf>
@@ -723,7 +732,7 @@ s-converted-to.pdf Figures/WavePlots/n5out.eps>
 (epstopdf)             \includegraphics on input line 91.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n5out-eps-converted-to.pdf, id=361, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n5out-eps-converted-to.pdf, id=383, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n5out-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n5out-eps-converted-to.pdf>
@@ -742,53 +751,49 @@ s-converted-to.pdf Figures/WavePlots/n3out.eps>
 (epstopdf)             \includegraphics on input line 98.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n3out-eps-converted-to.pdf, id=362, 516.93124pt x 417.56pt>
+<Figures/WavePlots/n3out-eps-converted-to.pdf, id=384, 516.93124pt x 417.56pt>
 File: Figures/WavePlots/n3out-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n3out-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/WavePlots/n3out-eps-converted-to.pdf used on i
 nput line 98.
 (pdftex.def)             Requested size: 231.26378pt x 186.80437pt.
-) (./Vita.tex [52
+) (./Vita.tex [55
 
  <./Figures/WavePlots/CLKD-eps-converted-to.pdf> <./Figures/WavePlots/n1n2-eps-
-converted-to.pdf>] [53 <./Figures/WavePlots/n2out-eps-converted-to.pdf> <./Figu
-res/WavePlots/n1n5-eps-converted-to.pdf>] [54 <./Figures/WavePlots/n3n4-eps-con
-verted-to.pdf> <./Figures/WavePlots/n4out-eps-converted-to.pdf>] [55 <./Figures
+converted-to.pdf>] [56 <./Figures/WavePlots/n2out-eps-converted-to.pdf> <./Figu
+res/WavePlots/n1n5-eps-converted-to.pdf>] [57 <./Figures/WavePlots/n3n4-eps-con
+verted-to.pdf> <./Figures/WavePlots/n4out-eps-converted-to.pdf>] [58 <./Figures
 /WavePlots/n1n3-eps-converted-to.pdf> <./Figures/WavePlots/n1n6-eps-converted-t
 o.pdf>]
-[56 <./Figures/WavePlots/n5out-eps-converted-to.pdf> <./Figures/WavePlots/n3out
--eps-converted-to.pdf>]) [57
+[59 <./Figures/WavePlots/n5out-eps-converted-to.pdf> <./Figures/WavePlots/n3out
+-eps-converted-to.pdf>]) [60
 
-] (./Thesis.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+] (./Thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 4011 strings out of 493027
- 60007 string characters out of 6137684
+ 4028 strings out of 493027
+ 60304 string characters out of 6137684
  129468 words of memory out of 5000000
- 7414 multiletter control sequences out of 15000+600000
+ 7429 multiletter control sequences out of 15000+600000
  9565 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,11n,39p,1660b,333s stack positions out of 5000i,500n,10000p,200000b,80000s
-<e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><e:/tex
-live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><e:/texlive/2015
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><e:/texlive/2015/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmmi12.pfb><e:/texlive/2015/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmmi6.pfb><e:/texlive/2015/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmmi8.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr12.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.
-pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><e:/tex
-live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><e:/texlive/2015
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><e:/texlive/2015/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmsy8.pfb><e:/texlive/2015/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmti12.pfb>
-Output written on Thesis.pdf (68 pages, 1660480 bytes).
+<e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+bx10.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+<e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><e:/texli
+ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><e:/texlive/2015/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><e:/texlive/2015/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmmi8.pfb><e:/texlive/2015/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr12.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr6.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr8.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+<e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><e:/texliv
+e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><e:/texlive/2015/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on Thesis.pdf (71 pages, 1670953 bytes).
 PDF statistics:
- 487 PDF objects out of 1000 (max. 8388607)
- 343 compressed objects within 4 object streams
+ 509 PDF objects out of 1000 (max. 8388607)
+ 360 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
- 176 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 186 words of extra memory for PDF output out of 10000 (max. 10000000)
 
