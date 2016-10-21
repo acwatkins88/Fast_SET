@@ -96,7 +96,8 @@ void bdd_sim::sim()
         // Partition Circuit into two parts
         for (git = graph.begin(); git != graph.end(); ++git)
             graph[git->first].static_part = 0;
-
+        
+        g_count = 0;
         max_partn = 0;
         graph_m = graph;
 
@@ -109,10 +110,16 @@ void bdd_sim::sim()
 
             if (is_overflowed)
             {
+                g_count = 0;
                 part_circuit(graph);
-
+                
                 conv_tpart(graph_m, max_partn, i);
-
+                
+                /*list<int>::iterator lpit;
+                for(git = graph_m.begin(); git != graph_m.end(); ++git)
+                    cout<<"Node: "<<git->first<<" Part: "<<graph_m[git->first].static_part<<endl;
+                */
+                
                 i--;
 
                 gmap::iterator dit;
@@ -172,7 +179,7 @@ bool bdd_sim::sim_graph(gmap &graph)
     int total_count = 0;
     int num_removed = 0;
     stringstream s;
-    int f_count = 0;
+    int l_count = 0;
     //bdd_prob s_prob;
     gmap::iterator git;
     gmap::iterator cit;
@@ -182,6 +189,8 @@ bool bdd_sim::sim_graph(gmap &graph)
 
     for (git = graph.begin(); git != graph.end(); ++git)
     {
+        g_count++;
+        l_count++;
         //cout<<"Starting: "<<git->first<<endl;
         
         if (graph[git->first].type == INPUT)
@@ -235,7 +244,9 @@ bool bdd_sim::sim_graph(gmap &graph)
                 
                 tp_temp.clear();
                 s_prob.inp_map.clear();
-                
+                //g_count = g_count - l_count;
+                part_ratio = ((double)g_count - 1)/((double)circuit.node_count);
+                cout<<"part ratio: "<<part_ratio<<endl;
                 return true;
             }
             
@@ -306,7 +317,6 @@ bool bdd_sim::sim_graph(gmap &graph)
                 {
                     s <<"OutputRes"<<git->first<<"_"<<pit->e_num<<"_"<<pit->id;
                     export_vec(pit->volt_pulse, s.str());
-                    f_count++;
                     s.str(string());
                 }
             }

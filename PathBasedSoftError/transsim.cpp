@@ -34,11 +34,11 @@ void gen_sim::gen_p(int n_num)
     else
         r_flag = true;
     
-    /*if((temp_f.width > W_MIN))
+    if((temp_f.width > W_MIN))
         graph[n_num].p_list.push_back(temp_f);
     else
         f_flag = true;
-    */
+    
     //srand(10);
     val = rand() % 100 + 1;
     if((val >= 100*INJ_RATIO)&&(MULT_TRANS == 1))
@@ -56,14 +56,13 @@ void gen_sim::gen_p(int n_num)
                 graph[git->first].p_list.push_back(temp_i);
             }
 
-            /*temp_i = gen_pulse(FALLING, git->first, val);
+            temp_i = gen_pulse(FALLING, git->first, val);
 
             if ((temp_i.width > W_MIN)&&(f_flag == false))
             {
                 temp_i.e_num = temp_f.e_num;
                 graph[git->first].p_list.push_back(temp_i);
             }
-            */
         }
     }    
 }
@@ -2608,7 +2607,7 @@ void gen_sim::conv_tpart(gmap& g_main, int& max_part, int cur_partnum)
     
     for(git = inp_g.begin(); git != inp_g.end(); ++git)
     {
-        if((inp_g[git->first].b_part_num == 1) && (git->first >= 0))
+        if((inp_g[git->first].b_part_num == 2) && (git->first >= 0))
         {
             g_main[git->first].static_part++;
         }

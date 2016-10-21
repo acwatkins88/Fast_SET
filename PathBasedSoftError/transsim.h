@@ -232,6 +232,8 @@ public:
     void pnode_sim();
     void end_sim();
     
+    int g_count;
+    
     // Local graph - represented as a partition
     //gmap graphn;
     

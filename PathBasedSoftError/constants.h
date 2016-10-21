@@ -131,7 +131,7 @@
 #define W_THRESH2 0.5
 #define INJ_DELAY 20
 
-#define MULT_TRANS 0
+#define MULT_TRANS 1
 #define INJ_RATIO 0.01   // Ratio of Number of events that result in a MET 
 #define W_MIN 1e-12     // Paramter for the minimum width
 #define MAX_VOLT 1.10   // Parameter to set the maximum clamping voltage
