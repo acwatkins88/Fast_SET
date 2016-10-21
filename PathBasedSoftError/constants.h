@@ -161,7 +161,7 @@
 //#define PART_RATIO 0.5
 
 // Maximum BDD node count
-#define MAX_BDD_NODES 5000000
+#define MAX_BDD_NODES 500000
 
 // Set a Minimum Number of Gates
 #define MIN_GATE_NUM 10
@@ -182,7 +182,7 @@
  * 3 - CCM_SIM
  * 4 - INJ_SIM 
  */
-#define CUR_SIM 2
+#define CUR_SIM 0
 #define PRINT_OUT 0
 
 /*
@@ -191,10 +191,10 @@
  * 1 - Static Partitioning
  */
 
-#define PART_SIM 1
+#define PART_SIM 0
 
 // Number of Partition for Static Partitioning
-#define NUM_OF_PARTS 6
+#define NUM_OF_PARTS 4
 
 // Tolerance for MC Simulation
 #define MC_TOL 0.0001

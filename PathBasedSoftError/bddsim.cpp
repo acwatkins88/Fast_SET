@@ -160,8 +160,25 @@ void bdd_sim::sim()
         graph_m = graph;
         
         part_ratio = 0.5;
-        spart_graph(graph, max_partn, cur_pnum);               
-
+        spart_graph(graph_m, max_partn, cur_pnum);               
+        
+        map<int, double> pt_count;
+        for(git = graph_m.begin(); git != graph_m.end(); ++git)
+        {
+            if(check_map(pt_count, graph_m[git->first].static_part))
+            {
+                pt_count[graph_m[git->first].static_part]++;
+            }
+            else
+            {
+                pt_count[graph_m[git->first].static_part] = 0;
+            }
+        }
+        
+        map<int, double>::iterator tmit;
+        for(tmit = pt_count.begin(); tmit != pt_count.end(); ++tmit)
+            cout<<"Part: "<<tmit->first<<" Num: "<<pt_count[tmit->first]<<endl;
+            
         for (i = 0; i <= max_partn; ++i)
         {
             graph = extract_tcir(i);
@@ -247,7 +264,7 @@ bool bdd_sim::sim_graph(gmap &graph)
 
             //cout<<"Cur Count: "<<cur_ncount<<" After Count: "<<bdd_nodenum<<endl;
 
-            if ((cur_ncount > MAX_BDD_NODES)&&(git->first != this->max_node))
+            if ((cur_ncount > MAX_BDD_NODES)&&(git->first != this->max_node)&&(PART_SIM == 0))
             {
                 over_it = git;
 
