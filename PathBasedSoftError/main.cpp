@@ -71,6 +71,8 @@ int main(int argc, char** argv)
     
     graph_m = graph;
     
+    srand(1000);
+    
     unsigned t0=clock();
     
     if(CUR_SIM == BDD_SIM)

@@ -40,6 +40,11 @@ void itr_sim::sim()
         }
     }
     
+    
+    double prev_res;
+    bool term_flag;
+    int cur_tolnum = 0;
+    
     // Begin Simulation
     for(i = 0; i != max_itr; i++)
     {
@@ -101,18 +106,46 @@ void itr_sim::sim()
                 graph[git->first].p_list.clear();
             }
         }
+        if(circuit.inpnum > MAX_INPT)
+        {
+            term_flag = false;
+            for (l_it = circuit.outputs.begin(); l_it != circuit.outputs.end(); ++l_it)
+            {
+                for (m_it = graph[*l_it].r_map.begin(); m_it != graph[*l_it].r_map.end(); ++m_it)
+                {
+                    prev_res = graph[*l_it].r_map[m_it->first];
+                    graph[*l_it].r_map[m_it->first] = graph[*l_it].r_map[m_it->first] / (max_itr);
+
+                    if(abs(prev_res - graph[*l_it].r_map[m_it->first]) > MC_TOL)
+                        term_flag = true;
+                }
+            }
+            if(term_flag == false)
+            {
+                cur_tolnum++;
+
+                if(cur_tolnum >= NUM_TOL)
+                    return;
+            }
+            else
+                cur_tolnum = 0;
+        }
+ 
     }
         
     for(git = graph.begin(); git != graph.end(); ++git)
     {
         graph[git->first].prob = graph[git->first].prob / max_itr;
     }
-    for(l_it = circuit.outputs.begin(); l_it != circuit.outputs.end(); ++l_it)
+    if(circuit.inpnum < MAX_INPT)
     {
-        for(m_it = graph[*l_it].r_map.begin(); m_it != graph[*l_it].r_map.end(); ++m_it)
-            graph[*l_it].r_map[m_it->first] = graph[*l_it].r_map[m_it->first] / (max_itr);
+        for(l_it = circuit.outputs.begin(); l_it != circuit.outputs.end(); ++l_it)
+        {
+            for(m_it = graph[*l_it].r_map.begin(); m_it != graph[*l_it].r_map.end(); ++m_it)
+                graph[*l_it].r_map[m_it->first] = graph[*l_it].r_map[m_it->first] / (max_itr);
+        }
     }
-    
+
     delete[] pattern;
 }
 

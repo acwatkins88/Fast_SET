@@ -116,6 +116,9 @@ public:
     // CCM Variables
     int level;
     map<int, double> cor_coef; 
+    
+    // A Test 
+    int is_procd;
 };
 
 /*

@@ -17,7 +17,7 @@
 /*
  * Monte Carlo Values
  */
-#define ITR_STEP 10000
+#define ITR_STEP 10000000
 #define MAX_INPT 20             //Max Iterative Inputs
 
 /*
@@ -39,7 +39,7 @@
 #define MAX_VG 2.5
 
 // Define the Number of Steps
-#define NUM_STEPS 600
+#define NUM_STEPS 800
 
 // Initial Internal Node Voltage
 #define INT_NODE_VOLT 0
@@ -132,13 +132,13 @@
 #define INJ_DELAY 20
 
 #define MULT_TRANS 1
-#define INJ_RATIO 0.01   // Ratio of Number of events that result in a MET 
+#define INJ_RATIO 0.10   // Ratio of Number of events that result in a MET 
 #define W_MIN 1e-12     // Paramter for the minimum width
 #define MAX_VOLT 1.10   // Parameter to set the maximum clamping voltage
 #define MIN_VOLT -0.05
 
 
-#define MIN_CONV_PROB 0.02
+#define MIN_CONV_PROB 0.05
 /*
  * Flip Flop Values
  */
@@ -182,7 +182,7 @@
  * 3 - CCM_SIM
  * 4 - INJ_SIM 
  */
-#define CUR_SIM 0
+#define CUR_SIM 2
 #define PRINT_OUT 0
 
 /*
@@ -191,10 +191,14 @@
  * 1 - Static Partitioning
  */
 
-#define PART_SIM 0
+#define PART_SIM 1
 
 // Number of Partition for Static Partitioning
-#define NUM_OF_PARTS 2
+#define NUM_OF_PARTS 6
+
+// Tolerance for MC Simulation
+#define MC_TOL 0.0001
+#define NUM_TOL 5
 
 #endif /* CONSTANTS_H */
 

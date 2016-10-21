@@ -27,7 +27,7 @@ void gen_sim::gen_p(int n_num)
     gmap::iterator git;
     
     temp_r = gen_pulse(RISING, n_num, INJ_DELAY);
-    //temp_f = gen_pulse(FALLING, n_num, INJ_DELAY);
+    temp_f = gen_pulse(FALLING, n_num, INJ_DELAY);
     
     if((temp_r.width > W_MIN))
         graph[n_num].p_list.push_back(temp_r);
@@ -39,10 +39,10 @@ void gen_sim::gen_p(int n_num)
     else
         f_flag = true;
     
-    //srand(10);
     val = rand() % 100 + 1;
-    if((val >= 100*INJ_RATIO)&&(MULT_TRANS == 1))
+    if((val <= 100*INJ_RATIO)&&(MULT_TRANS == 1))
     {
+        //cout<<"Val: "<<val<<endl;
         git = graph.find(n_num);
         git++;
 
@@ -706,6 +706,10 @@ void gen_sim::prop_enhpulse(int n_num)
                 this->id_n++;
 
                 set_propfunc(n_num, *lit, *eit, out_pulse);
+                
+                if(this->sim_type == BDD_SIM)
+                    if(cur_ncount > MAX_BDD_NODES)
+                        return;
 
             }
             inputs.clear();
@@ -1587,6 +1591,10 @@ void gen_sim::enhconv_check(int n_num)
                                         n_pul.s_node = n_num;
                                         this->id_n++;
                                         graph[n_num].p_list.push_back(n_pul);
+                                        
+                                        cur_ncount = cur_ncount + bdd_nodecount(n_pul.p_func);
+                                        if (cur_ncount > MAX_BDD_NODES)
+                                            return;
                                     }
                                 }
                             }
@@ -2607,9 +2615,19 @@ void gen_sim::conv_tpart(gmap& g_main, int& max_part, int cur_partnum)
     
     for(git = inp_g.begin(); git != inp_g.end(); ++git)
     {
-        if((inp_g[git->first].b_part_num == 2) && (git->first >= 0))
+        if(PART_SIM == 0)
         {
-            g_main[git->first].static_part++;
+            if((inp_g[git->first].b_part_num == 2) && (git->first >= 0))
+            {
+                g_main[git->first].static_part++;
+            }
+        }
+        else if(PART_SIM == 1)
+        {
+             if((inp_g[git->first].b_part_num == 1) && (git->first >= 0))
+            {
+                g_main[git->first].static_part++;
+            }
         }
     }
 }
@@ -2978,6 +2996,7 @@ void gen_sim::update_inputs()
             for(lit = inp_g[git->first].fanout.begin(); lit != inp_g[git->first].fanout.end(); ++lit)
             {
                 if(part_num != inp_g[*lit].b_part_num)
+                //if(part_num == inp_g[*lit].b_part_num)
                 {
                     part_count++;
                 }
@@ -2985,6 +3004,7 @@ void gen_sim::update_inputs()
             fo_limit = 0.5*inp_g[git->first].fanout_num;
             
             if(part_count > fo_limit)
+            //if(part_count == 0)
             {
                 if(inp_g[git->first].b_part_num == 1)
                     inp_g[git->first].b_part_num =2;

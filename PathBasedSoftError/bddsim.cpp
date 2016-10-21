@@ -96,6 +96,7 @@ void bdd_sim::sim()
         // Partition Circuit into two parts
         for (git = graph.begin(); git != graph.end(); ++git)
             graph[git->first].static_part = 0;
+
         
         g_count = 0;
         max_partn = 0;
@@ -105,6 +106,13 @@ void bdd_sim::sim()
         {
             graph = extract_tcir(i);
 
+            tot_count = 0;
+            for(git = graph.begin(); git != graph.end(); ++git)
+            {
+                tot_count++;
+            }
+            //cout<<"Total: "<<tot_count<<" Node Num: "<<circuit.node_count<<endl;
+            
             is_overflowed = sim_graph(graph);
             cout << "Overflowed: " << is_overflowed << endl;
 
@@ -151,6 +159,7 @@ void bdd_sim::sim()
     
         graph_m = graph;
         
+        part_ratio = 0.5;
         spart_graph(graph, max_partn, cur_pnum);               
 
         for (i = 0; i <= max_partn; ++i)
@@ -175,105 +184,106 @@ void bdd_sim::sim()
 bool bdd_sim::sim_graph(gmap &graph)
 {
     int bdd_nodenum;
-    int largest_bdd = 0;
-    int total_count = 0;
-    int num_removed = 0;
     stringstream s;
-    int l_count = 0;
     //bdd_prob s_prob;
     gmap::iterator git;
-    gmap::iterator cit;
     list<transient>::iterator nit;
     map<int, list<transient> > tp_temp;
     map<int, list<transient> >::iterator tmit;
-
+    
     for (git = graph.begin(); git != graph.end(); ++git)
     {
-        g_count++;
-        l_count++;
+         g_count++;
         //cout<<"Starting: "<<git->first<<endl;
-        
+
         if (graph[git->first].type == INPUT)
         {
             graph[git->first].g_func = new bdd();
             *graph[git->first].g_func = new_var();
             alloc_count++;
             //cout<<"Adding 1: "<<git->first<<endl;
-            
-            //if(git->first < 0)
-            s_prob.inp_map[bdd_var(*graph[git->first].g_func)] = graph[git->first].prob;     
+
+            s_prob.inp_map[bdd_var(*graph[git->first].g_func)] = graph[git->first].prob;
         }
         else
-        { 
+        {
+            cur_ncount = 0;
             graph[git->first].proc_flag = 1;
-            
+
             // Generate Function for the Gate
             gen_sensf(git->first);
-            
+
             //if (bdd_nodecount(*graph[git->first].g_func) > 1000)
-                //bdd_reorder(BDD_REORDER_WIN2ITE);            
-       
+            //bdd_reorder(BDD_REORDER_WIN2ITE);            
+
             bdd_genfunc(git->first, graph[git->first].p_list);
-  
-            // Propagate Existing Pulses
-            prop_enhpulse(git->first);
-            
+
+            if (cur_ncount < MAX_BDD_NODES)
+            {
+                // Propagate Existing Pulses
+                prop_enhpulse(git->first);
+            }
+
             // Check for Convergence 
             if ((graph[git->first].type != NOT) && (graph[git->first].type != BUF))
             {
-                if(!graph[git->first].p_list.empty())
+                if ((!graph[git->first].p_list.empty())&&(cur_ncount < MAX_BDD_NODES))
                 {
                     enhconv_check(git->first);
                 }
             }
-            
+
             //cout<<"Node: "<<git->first<<" Convergence\n";
-            
+
             list<transient>::iterator pit;
-            bdd_nodenum = 0;
+            /*bdd_nodenum = 0;
             for(pit = graph[git->first].p_list.begin(); pit != graph[git->first].p_list.end(); ++pit)
             {
                 bdd_nodenum = bdd_nodenum + bdd_nodecount(pit->p_func);
                 //cout<<"Type: "<<pit->type<<" ID: "<<pit->id<<" Event: "<<pit->e_num<<" Start: "<<pit->st_time<<" End: "<<pit->end_time<<" Width: "<<pit->width<<" Node Num: "<<bdd_nodecount(pit->p_func)<<endl;
-            }
-            cout<<"Node: "<<git->first<<" Total Size: "<<bdd_nodenum<<" Number of Pulses: "<<graph[git->first].p_list.size()<<endl;
-            
-            if((bdd_nodenum > MAX_BDD_NODES)&&(git->first != this->max_node))
+            }*/
+            //cout<<"Node: "<<git->first<<" Total Size: "<<bdd_nodenum<<" Number of Pulses: "<<graph[git->first].p_list.size()<<endl;
+            cout << "Node: " << git->first << " Total Size: " << cur_ncount << " Number of Pulses: " << graph[git->first].p_list.size() << endl;
+
+            //cout<<"Cur Count: "<<cur_ncount<<" After Count: "<<bdd_nodenum<<endl;
+
+            if ((cur_ncount > MAX_BDD_NODES)&&(git->first != this->max_node))
             {
                 over_it = git;
-                
+
                 tp_temp.clear();
                 s_prob.inp_map.clear();
-                //g_count = g_count - l_count;
-                part_ratio = ((double)g_count - 1)/((double)circuit.node_count);
-                cout<<"part ratio: "<<part_ratio<<endl;
+                part_ratio = ((double) g_count) / ((double) tot_count);
+                part_ratio = part_ratio - 0.1 * part_ratio;
+                cout << "part ratio: " << part_ratio << endl;
                 return true;
             }
-            
-            // Load into Final Result Structure 
-            if(!out_find(git->first))
+        }
+
+        // Load into Final Result Structure 
+        if (!out_find(git->first))
+        {
+            //cout<<"Not An Output: "<<git->first<<endl;
+            if ((graph[git->first].fanout_num != graph_m[git->first].fanout_num) || (graph[git->first].fanout_num == 0))
             {
-                //cout<<"Not An Output: "<<git->first<<endl;
-                if((graph[git->first].fanout_num != graph_m[git->first].fanout_num)||(graph[git->first].fanout_num == 0))
+                s_prob.solve_prob(*graph[git->first].g_func);
+                graph[git->first].prob = s_prob.true_prob;
+                graph_m[git->first].prob = graph[git->first].prob;
+                if (graph[git->first].fanout_num == 0)
                 {
-                    s_prob.solve_prob(*graph[git->first].g_func);
-                    graph[git->first].prob = s_prob.true_prob;
-                    graph_m[git->first].prob = graph[git->first].prob;
-                    if(graph[git->first].fanout_num == 0)
-                    {
-                        delete graph[git->first].g_func;
-                        graph[git->first].func_del = true;
-                        del_count++;
-                    }
+                    delete graph[git->first].g_func;
+                    graph[git->first].func_del = true;
+                    del_count++;
                 }
             }
-            else
-            {
-                delete graph[git->first].g_func;
-                graph[git->first].func_del = true;
-                del_count++;
-            }
         }
+        else
+        {
+            delete graph[git->first].g_func;
+            graph[git->first].func_del = true;
+            del_count++;
+        }
+
         cout << "Gate Processed: " << git->first << endl;
                 
         bdd_optimize();
@@ -287,9 +297,9 @@ bool bdd_sim::sim_graph(gmap &graph)
     {
         if((graph[git->first].type == INPUT))
         {
-            delete graph[git->first].g_func;
-            graph[git->first].func_del = true;
-            del_count++;
+           // delete graph[git->first].g_func;
+            //graph[git->first].func_del = true;
+            //del_count++;
             //cout<<"Delete 2: "<<git->first<<endl;
         }
         
@@ -476,6 +486,46 @@ void bdd_sim::bdd_genfunc(int n_num, list<transient>& inp_list)
         {
             lit = inp_list.erase(lit);
         }
+        else
+        {
+            cur_ncount  =  cur_ncount + bdd_nodecount(lit->p_func);
+            if(cur_ncount > MAX_BDD_NODES)
+                return;
+        }
+    }
+    
+    map<int, list<transient> > h_table;
+    map<int, list<transient> >::iterator hit;
+    list<transient> temp_l;
+    transient cur_trans;
+    transient n_trans;
+    
+    for(lit = inp_list.begin(); lit != inp_list.end(); ++lit)
+        h_table[lit->e_num].push_back(*lit);
+    
+    for(hit = h_table.begin(); hit != h_table.end(); ++hit)
+    {
+        temp_l = h_table[hit->first];
+        while(temp_l.size() > 0)
+        {
+            cur_trans = temp_l.front();
+            temp_l.pop_front();
+
+            for(lit = temp_l.begin(); lit != temp_l.end(); ++lit)
+            {
+                n_trans = *lit;
+                n_trans.p_func = lit->p_func & cur_trans.p_func;
+                if(n_trans.p_func != const_f)
+                {
+                    n_trans.id = this->id_n;
+                    this->id_n++;
+                    inp_list.push_back(n_trans);
+                    cur_ncount  =  cur_ncount + bdd_nodecount(n_trans.p_func);
+                    if(cur_ncount > MAX_BDD_NODES)
+                        return;
+                }
+            }
+        }
     }
 }
 
@@ -495,7 +545,10 @@ void bdd_sim::set_propfunc(int n_num, int inp_node, transient p, transient temp)
     temp.p_func = prop_bdd(n_num, inp_node, p);
     
     if (temp.p_func != const_f)
+    {
         graph[n_num].p_list.push_back(temp);
+        cur_ncount  =  cur_ncount + bdd_nodecount(temp.p_func);
+    }
 }
 
 /*

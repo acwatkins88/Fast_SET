@@ -49,6 +49,16 @@ inline double avg_map(map<int, double> inp_m)
     return sum/inp_m.size();
 }
 
+inline bool g_find(gmap inp, int key)
+{
+    gmap::iterator git;
+    
+    for(git = inp.begin(); git != inp.end(); ++git)
+        if(git->first == key)
+            return true;
+    return false;
+}
+
 class gen_sim
 {
 public:
@@ -84,6 +94,7 @@ protected:
     bdd_prob s_prob;
     
     double part_ratio;
+    int cur_ncount;
     
     gmap::iterator over_it;
     
@@ -233,6 +244,7 @@ public:
     void end_sim();
     
     int g_count;
+    int tot_count;
     
     // Local graph - represented as a partition
     //gmap graphn;
