@@ -1,14 +1,14 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.16)  19 OCT 2016 23:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.28)  22 OCT 2016 16:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./Thesis.tex
+**Thesis.tex
 (./Thesis.tex
-LaTeX2e <2016/03/31>
-Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
+LaTeX2e <2016/02/01>
+Babel <3.9q> and hyphenation patterns for 3 language(s) loaded.
 (./siugrad51.cls
 Document Class: siugrad51 1999/01/07 v1.4a Standard LaTeX document class
-(e:/texlive/2015/texmf-dist/tex/latex/base/size12.clo
+(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
 File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -24,25 +24,25 @@ File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(e:/texlive/2015/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2016/03/10 v2.15b AMS math features
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2016/03/03 v2.15a AMS math features
 \@mathmargin=\skip43
 
 For additional information on amsmath, use the `?' option.
-(e:/texlive/2015/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
 
-(e:/texlive/2015/texmf-dist/tex/latex/amsmath/amsgen.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks14
 \ex@=\dimen103
 ))
-(e:/texlive/2015/texmf-dist/tex/latex/amsmath/amsbsy.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen104
 )
-(e:/texlive/2015/texmf-dist/tex/latex/amsmath/amsopn.sty
-Package: amsopn 2016/03/08 v2.02 operator names
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count88
 LaTeX Info: Redefining \frac on input line 199.
@@ -57,8 +57,8 @@ LaTeX Info: Redefining \cdots on input line 518.
 \Mathstrutbox@=\box26
 \strutbox@=\box27
 \big@size=\dimen105
-LaTeX Font Info:    Redeclaring font encoding OML on input line 634.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
+LaTeX Font Info:    Redeclaring font encoding OML on input line 630.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
 \macc@depth=\count93
 \c@MaxMatrixCols=\count94
 \dotsspace@=\muskip10
@@ -79,20 +79,20 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
 \multlinegap=\skip44
 \multlinetaggap=\skip45
 \mathdisplay@stack=\toks18
-LaTeX Info: Redefining \[ on input line 2739.
-LaTeX Info: Redefining \] on input line 2740.
+LaTeX Info: Redefining \[ on input line 2735.
+LaTeX Info: Redefining \] on input line 2736.
 )
-(e:/texlive/2015/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-(e:/texlive/2015/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(e:/texlive/2015/texmf-dist/tex/latex/amscls/amsthm.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2015/03/04 v2.20.2
 \thm@style=\toks19
 \thm@bodyfont=\toks20
@@ -104,37 +104,37 @@ Package: amsthm 2015/03/04 v2.20.2
 \thm@headsep=\skip48
 \dth@everypar=\toks24
 )
-(e:/texlive/2015/texmf-dist/tex/latex/base/latexsym.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/latexsym.sty
 Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
 \symlasy=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
 (Font)                  U/lasy/m/n --> U/lasy/b/n on input line 52.
 )
-(e:/texlive/2015/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
-(e:/texlive/2015/texmf-dist/tex/latex/graphics/keyval.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks25
 )
-(e:/texlive/2015/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2016/01/03 v1.0q Standard LaTeX Graphics (DPC,SPQR)
 
-(e:/texlive/2015/texmf-dist/tex/latex/graphics/trig.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-(e:/texlive/2015/texmf-dist/tex/latex/latexconfig/graphics.cfg
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
 File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
 Package graphics Info: Driver file: pdftex.def on input line 95.
 
-(e:/texlive/2015/texmf-dist/tex/latex/pdftex-def/pdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-(e:/texlive/2015/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
-(e:/texlive/2015/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count100
@@ -142,28 +142,28 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen112
 \Gin@req@width=\dimen113
 )
-(e:/texlive/2015/texmf-dist/tex/latex/oberdiek/epstopdf.sty
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf.sty
 Package: epstopdf 2010/02/09 v2.5 Conversion with epstopdf on the fly (HO)
 
-(e:/texlive/2015/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
-(e:/texlive/2015/texmf-dist/tex/latex/oberdiek/grfext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
 Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
 
-(e:/texlive/2015/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
 Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
 ))
-(e:/texlive/2015/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 
-(e:/texlive/2015/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
 Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
 
-(e:/texlive/2015/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
 Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
 
-(e:/texlive/2015/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
 Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
 )
@@ -172,11 +172,11 @@ Package etexcmds Info: Could not find \expanded.
 (etexcmds)             that some package has redefined \expanded.
 (etexcmds)             In the latter case, load this package earlier.
 )))
-(e:/texlive/2015/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
 
-(e:/texlive/2015/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
 Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
@@ -190,14 +190,14 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 452.
 
-(e:/texlive/2015/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 )))
-(e:/texlive/2015/texmf-dist/tex/latex/caption/caption.sty
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
 
-(e:/texlive/2015/texmf-dist/tex/latex/caption/caption3.sty
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 67.
 \captionmargin=\dimen114
@@ -221,15 +221,15 @@ uept \leftskip =0.7truein \rightskip =0.7truein {#1}. #2\par } \else \global \@
 minipagefalse \hb@xt@ \hsize {\hfil \box \@tempboxa \hfil }\fi \vskip \belowcap
 tionskip .
 \c@ContinuedFloat=\count101
-) (e:/texlive/2015/texmf-dist/tex/latex/caption/subcaption.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
 Package: subcaption 2016/02/20 v1.1-142 Sub-captions (AR)
 \c@subfigure=\count102
 \c@subtable=\count103
 )
-(e:/texlive/2015/texmf-dist/tex/latex/tools/hhline.sty
+(/usr/share/texlive/texmf-dist/tex/latex/tools/hhline.sty
 Package: hhline 2014/10/28 v2.03 Table rule package (DPC)
 )
-(e:/texlive/2015/texmf-dist/tex/latex/tools/array.sty
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
 \col@sep=\dimen121
 \extrarowheight=\dimen122
@@ -255,7 +255,7 @@ LaTeX Font Info:    ... okay on input line 93.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 93.
 LaTeX Font Info:    ... okay on input line 93.
 
-(e:/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count106
 \scratchdimen=\dimen123
@@ -273,29 +273,28 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
  (./Title.tex) (./Approval.tex [0
 
-{e:/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [1
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [1
 
 ]) (./Abstract.tex [2
 
 ] [3]) (./Dedication.tex [4
 
-])
-(./Acknow.tex [5
+]) (./Acknow.tex
+[5
 
 ]) (./Thesis.toc
 LaTeX Font Info:    Try loading font information for U+msa on input line 1.
-
-(e:/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 1.
 
-(e:/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Try loading font information for U+lasy on input line 1.
 
-(e:/texlive/2015/texmf-dist/tex/latex/base/ulasy.fd
+(/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 ))
 \tf@toc=\write3
@@ -372,8 +371,8 @@ Package pdftex.def Info: Figures/ModDONUT.pdf used on input line 43.
 (pdftex.def)             Requested size: 300.64008pt x 254.09302pt.
  [10 <./Figures/DONUT.pdf> <./Figures/ModDONUT.pdf
 
-pdfTeX warning: pdflatex.exe (file ./Figures/ModDONUT.pdf): PDF inclusion: mult
-iple pdfs with page group included in a single page
+pdfTeX warning: /usr/bin/pdflatex (file ./Figures/ModDONUT.pdf): PDF inclusion:
+ multiple pdfs with page group included in a single page
 >] <Figures/Block.pdf, id=105, 242.40562pt x 222.8325pt>
 File: Figures/Block.pdf Graphic file (type pdf)
 
@@ -389,11 +388,11 @@ Package pdftex.def Info: Figures/BLatch.pdf used on input line 69.
 (pdftex.def)             Requested size: 254.39156pt x 580.55693pt.
  [12] [13 <./Figures/BLatch.pdf>]
 Package epstopdf Info: Source file: <Figures/defaultoperation.eps>
-(epstopdf)                    date: 2016-07-24 12:01:23
-(epstopdf)                    size: 47893 bytes
+(epstopdf)                    date: 2016-10-22 16:03:01
+(epstopdf)                    size: 45321 bytes
 (epstopdf)             Output file: <Figures/defaultoperation-eps-converted-to.
 pdf>
-(epstopdf)                    date: 2016-07-24 12:02:40
+(epstopdf)                    date: 2016-10-22 16:03:01
 (epstopdf)                    size: 10623 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/defaultoperation-e
 ps-converted-to.pdf Figures/defaultoperation.eps>
@@ -569,11 +568,11 @@ Package pdftex.def Info: Figures/gen_func.pdf used on input line 205.
 
 ]
 Package epstopdf Info: Source file: <Figures/WavePlots/CLKD.eps>
-(epstopdf)                    date: 2016-07-24 11:10:25
-(epstopdf)                    size: 30988 bytes
+(epstopdf)                    date: 2016-10-22 16:03:01
+(epstopdf)                    size: 29516 bytes
 (epstopdf)             Output file: <Figures/WavePlots/CLKD-eps-converted-to.pd
 f>
-(epstopdf)                    date: 2016-07-24 11:12:51
+(epstopdf)                    date: 2016-10-22 16:03:01
 (epstopdf)                    size: 7292 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/CLKD-eps
 -converted-to.pdf Figures/WavePlots/CLKD.eps>
@@ -588,11 +587,11 @@ Package pdftex.def Info: Figures/WavePlots/CLKD-eps-converted-to.pdf used on in
 put line 32.
 (pdftex.def)             Requested size: 254.39156pt x 191.02519pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n1n2.eps>
-(epstopdf)                    date: 2016-07-24 11:10:26
-(epstopdf)                    size: 64819 bytes
+(epstopdf)                    date: 2016-10-22 16:03:01
+(epstopdf)                    size: 61386 bytes
 (epstopdf)             Output file: <Figures/WavePlots/n1n2-eps-converted-to.pd
 f>
-(epstopdf)                    date: 2016-07-24 11:12:52
+(epstopdf)                    date: 2016-10-22 16:03:01
 (epstopdf)                    size: 15275 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n1n2-eps
 -converted-to.pdf Figures/WavePlots/n1n2.eps>
@@ -607,11 +606,11 @@ Package pdftex.def Info: Figures/WavePlots/n1n2-eps-converted-to.pdf used on in
 put line 42.
 (pdftex.def)             Requested size: 231.26378pt x 186.80437pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n2out.eps>
-(epstopdf)                    date: 2016-07-24 11:10:29
-(epstopdf)                    size: 66468 bytes
+(epstopdf)                    date: 2016-10-22 16:03:01
+(epstopdf)                    size: 62957 bytes
 (epstopdf)             Output file: <Figures/WavePlots/n2out-eps-converted-to.p
 df>
-(epstopdf)                    date: 2016-07-24 11:12:53
+(epstopdf)                    date: 2016-10-22 16:03:01
 (epstopdf)                    size: 15678 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n2out-ep
 s-converted-to.pdf Figures/WavePlots/n2out.eps>
@@ -626,11 +625,11 @@ Package pdftex.def Info: Figures/WavePlots/n2out-eps-converted-to.pdf used on i
 nput line 49.
 (pdftex.def)             Requested size: 231.26378pt x 186.80437pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n1n5.eps>
-(epstopdf)                    date: 2016-07-24 11:10:28
-(epstopdf)                    size: 63207 bytes
+(epstopdf)                    date: 2016-10-22 16:03:01
+(epstopdf)                    size: 59865 bytes
 (epstopdf)             Output file: <Figures/WavePlots/n1n5-eps-converted-to.pd
 f>
-(epstopdf)                    date: 2016-07-24 11:12:54
+(epstopdf)                    date: 2016-10-22 16:03:01
 (epstopdf)                    size: 15035 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n1n5-eps
 -converted-to.pdf Figures/WavePlots/n1n5.eps>
@@ -645,11 +644,11 @@ Package pdftex.def Info: Figures/WavePlots/n1n5-eps-converted-to.pdf used on in
 put line 56.
 (pdftex.def)             Requested size: 231.26378pt x 187.16754pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n3n4.eps>
-(epstopdf)                    date: 2016-07-24 11:10:30
-(epstopdf)                    size: 65108 bytes
+(epstopdf)                    date: 2016-10-22 16:03:01
+(epstopdf)                    size: 61657 bytes
 (epstopdf)             Output file: <Figures/WavePlots/n3n4-eps-converted-to.pd
 f>
-(epstopdf)                    date: 2016-07-24 11:12:56
+(epstopdf)                    date: 2016-10-22 16:03:01
 (epstopdf)                    size: 15345 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n3n4-eps
 -converted-to.pdf Figures/WavePlots/n3n4.eps>
@@ -664,11 +663,11 @@ Package pdftex.def Info: Figures/WavePlots/n3n4-eps-converted-to.pdf used on in
 put line 63.
 (pdftex.def)             Requested size: 231.26378pt x 187.16754pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n4out.eps>
-(epstopdf)                    date: 2016-07-24 11:10:32
-(epstopdf)                    size: 64330 bytes
+(epstopdf)                    date: 2016-10-22 16:03:01
+(epstopdf)                    size: 60928 bytes
 (epstopdf)             Output file: <Figures/WavePlots/n4out-eps-converted-to.p
 df>
-(epstopdf)                    date: 2016-07-24 11:12:57
+(epstopdf)                    date: 2016-10-22 16:03:01
 (epstopdf)                    size: 15279 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n4out-ep
 s-converted-to.pdf Figures/WavePlots/n4out.eps>
@@ -683,11 +682,11 @@ Package pdftex.def Info: Figures/WavePlots/n4out-eps-converted-to.pdf used on i
 nput line 70.
 (pdftex.def)             Requested size: 231.26378pt x 187.16754pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n1n3.eps>
-(epstopdf)                    date: 2016-07-24 11:10:27
-(epstopdf)                    size: 65549 bytes
+(epstopdf)                    date: 2016-10-22 16:03:01
+(epstopdf)                    size: 62075 bytes
 (epstopdf)             Output file: <Figures/WavePlots/n1n3-eps-converted-to.pd
 f>
-(epstopdf)                    date: 2016-07-24 11:12:58
+(epstopdf)                    date: 2016-10-22 16:03:01
 (epstopdf)                    size: 15501 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n1n3-eps
 -converted-to.pdf Figures/WavePlots/n1n3.eps>
@@ -702,11 +701,11 @@ Package pdftex.def Info: Figures/WavePlots/n1n3-eps-converted-to.pdf used on in
 put line 77.
 (pdftex.def)             Requested size: 231.26378pt x 186.80437pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n1n6.eps>
-(epstopdf)                    date: 2016-07-24 11:10:28
-(epstopdf)                    size: 66046 bytes
+(epstopdf)                    date: 2016-10-22 16:03:01
+(epstopdf)                    size: 62548 bytes
 (epstopdf)             Output file: <Figures/WavePlots/n1n6-eps-converted-to.pd
 f>
-(epstopdf)                    date: 2016-07-24 11:12:59
+(epstopdf)                    date: 2016-10-22 16:03:01
 (epstopdf)                    size: 15522 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n1n6-eps
 -converted-to.pdf Figures/WavePlots/n1n6.eps>
@@ -721,11 +720,11 @@ Package pdftex.def Info: Figures/WavePlots/n1n6-eps-converted-to.pdf used on in
 put line 84.
 (pdftex.def)             Requested size: 231.26378pt x 187.16754pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n5out.eps>
-(epstopdf)                    date: 2016-07-24 11:10:33
-(epstopdf)                    size: 64436 bytes
+(epstopdf)                    date: 2016-10-22 16:03:01
+(epstopdf)                    size: 61041 bytes
 (epstopdf)             Output file: <Figures/WavePlots/n5out-eps-converted-to.p
 df>
-(epstopdf)                    date: 2016-07-24 11:13:00
+(epstopdf)                    date: 2016-10-22 16:03:01
 (epstopdf)                    size: 15305 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n5out-ep
 s-converted-to.pdf Figures/WavePlots/n5out.eps>
@@ -740,11 +739,11 @@ Package pdftex.def Info: Figures/WavePlots/n5out-eps-converted-to.pdf used on i
 nput line 91.
 (pdftex.def)             Requested size: 231.26378pt x 187.16754pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n3out.eps>
-(epstopdf)                    date: 2016-07-24 11:10:31
-(epstopdf)                    size: 64850 bytes
+(epstopdf)                    date: 2016-10-22 16:03:01
+(epstopdf)                    size: 61434 bytes
 (epstopdf)             Output file: <Figures/WavePlots/n3out-eps-converted-to.p
 df>
-(epstopdf)                    date: 2016-07-24 11:13:02
+(epstopdf)                    date: 2016-10-22 16:03:01
 (epstopdf)                    size: 15296 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n3out-ep
 s-converted-to.pdf Figures/WavePlots/n3out.eps>
@@ -771,25 +770,26 @@ o.pdf>]
 
 ] (./Thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 4028 strings out of 493027
- 60304 string characters out of 6137684
- 129468 words of memory out of 5000000
- 7429 multiletter control sequences out of 15000+600000
+ 4028 strings out of 494953
+ 60560 string characters out of 6180977
+ 124562 words of memory out of 5000000
+ 7172 multiletter control sequences out of 15000+600000
  9565 words of font info for 38 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 42i,11n,39p,1660b,333s stack positions out of 5000i,500n,10000p,200000b,80000s
-<e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-bx10.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-<e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><e:/texli
-ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><e:/texlive/2015/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><e:/texlive/2015/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmmi8.pfb><e:/texlive/2015/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr12.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr6.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmr8.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-<e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><e:/texliv
-e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><e:/texlive/2015/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+ 14 hyphenation exceptions out of 8191
+ 42i,11n,39p,1658b,333s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
+2.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mti12.pfb>
 Output written on Thesis.pdf (71 pages, 1670953 bytes).
 PDF statistics:
  509 PDF objects out of 1000 (max. 8388607)
