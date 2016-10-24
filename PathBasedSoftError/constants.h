@@ -39,7 +39,7 @@
 #define MAX_VG 2.5
 
 // Define the Number of Steps
-#define NUM_STEPS 800
+#define NUM_STEPS 1200
 
 // Initial Internal Node Voltage
 #define INT_NODE_VOLT 0
@@ -50,8 +50,8 @@
 #define STEP_GRAN 0.5e-12
 
 //#define C_LOAD 0.15e-15
-#define ST_NODE_CAP 0.5e-15
-#define ST_NODE_CAP_P 0.5e-15
+#define ST_NODE_CAP 2e-15
+#define ST_NODE_CAP_P 1e-15
 
 #define PI 3.14159265359
 
@@ -129,7 +129,7 @@
 #define END_THRESH 0.25
 #define W_THRESH1 0.5
 #define W_THRESH2 0.5
-#define INJ_DELAY 20
+#define INJ_DELAY 50e-12
 
 #define MULT_TRANS 1
 #define INJ_RATIO 0.10   // Ratio of Number of events that result in a MET 
@@ -137,8 +137,9 @@
 #define MAX_VOLT 1.10   // Parameter to set the maximum clamping voltage
 #define MIN_VOLT -0.05
 
+#define TOT_INJ 50
 
-#define MIN_CONV_PROB 0.05
+#define MIN_CONV_PROB 0.00
 /*
  * Flip Flop Values
  */
@@ -161,7 +162,7 @@
 //#define PART_RATIO 0.5
 
 // Maximum BDD node count
-#define MAX_BDD_NODES 500000
+#define MAX_BDD_NODES 50000000000000
 
 // Set a Minimum Number of Gates
 #define MIN_GATE_NUM 10
@@ -194,7 +195,7 @@
 #define PART_SIM 0
 
 // Number of Partition for Static Partitioning
-#define NUM_OF_PARTS 4
+#define NUM_OF_PARTS 2
 
 // Tolerance for MC Simulation
 #define MC_TOL 0.0001

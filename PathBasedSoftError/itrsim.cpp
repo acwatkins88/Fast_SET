@@ -41,7 +41,8 @@ void itr_sim::sim()
     }
     
     
-    double prev_res;
+    double prev_res = 0;
+    double cur_res;
     bool term_flag;
     int cur_tolnum = 0;
     
@@ -113,11 +114,12 @@ void itr_sim::sim()
             {
                 for (m_it = graph[*l_it].r_map.begin(); m_it != graph[*l_it].r_map.end(); ++m_it)
                 {
-                    prev_res = graph[*l_it].r_map[m_it->first];
-                    graph[*l_it].r_map[m_it->first] = graph[*l_it].r_map[m_it->first] / (max_itr);
-
-                    if(abs(prev_res - graph[*l_it].r_map[m_it->first]) > MC_TOL)
+                    cur_res = graph[*l_it].r_map[m_it->first] / i;
+                    
+                    if(abs(prev_res - cur_res) > MC_TOL)
                         term_flag = true;
+                    
+                    prev_res = graph[*l_it].r_map[m_it->first];
                 }
             }
             if(term_flag == false)
@@ -125,7 +127,12 @@ void itr_sim::sim()
                 cur_tolnum++;
 
                 if(cur_tolnum >= NUM_TOL)
+                {
+                    for (m_it = graph[*l_it].r_map.begin(); m_it != graph[*l_it].r_map.end(); ++m_it)
+                        graph[*l_it].r_map[m_it->first] = graph[*l_it].r_map[m_it->first] / i;
+                    
                     return;
+                }
             }
             else
                 cur_tolnum = 0;

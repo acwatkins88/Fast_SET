@@ -10,7 +10,6 @@ gen_sim::gen_sim(int t)
     this->part_ratio = 0.5;
 }
 
-
 /*
  * Pulse Generation Algorithm Need Updated
  */
@@ -21,10 +20,16 @@ void gen_sim::gen_p(int n_num)
     bool f_flag = false;
     
     double val;
+    double st_ratio, adj_step, adj_d;
     transient temp_r;
     transient temp_f;
     transient temp_i;
     gmap::iterator git;
+    
+    st_ratio = SIM_TIME/STEP_GRAN;
+    st_ratio = st_ratio/NUM_STEPS;
+    
+    adj_step = STEP_GRAN*st_ratio;
     
     temp_r = gen_pulse(RISING, n_num, INJ_DELAY);
     temp_f = gen_pulse(FALLING, n_num, INJ_DELAY);
@@ -48,6 +53,7 @@ void gen_sim::gen_p(int n_num)
 
         if(graph[git->first].type != INPUT)
         {
+            val = (val+INJ_DELAY)*adj_step;
             temp_i = gen_pulse(RISING, git->first, val);
                     
             if ((temp_i.width > W_MIN)&&(r_flag == false))
@@ -73,7 +79,7 @@ void gen_sim::gen_p(int n_num)
  * n_num - node to inject
  * Simple injection of 5 units
  */
-transient gen_sim::gen_pulse(int type, int n_num, int delay)
+transient gen_sim::gen_pulse(int type, int n_num, double delay)
 {
     transient temp_pul;
     //vector<double> test_result;
@@ -134,7 +140,7 @@ transient gen_sim::gen_pulse(int type, int n_num, int delay)
 /*
  * Attempt at Generalizing the enhanced injection model
  */
-transient gen_sim::inj_NAND(int n_num, double charge, int type, int delay)
+transient gen_sim::inj_NAND(int n_num, double charge, int type, double delay)
 {
     int i;
     int inj_t = 0;
@@ -144,7 +150,7 @@ transient gen_sim::inj_NAND(int n_num, double charge, int type, int delay)
     double vd_init, vg_init;
     double n_cur, p_cur;
     double inj_cur, cur_out;
-    double res, tau;
+    double res;
     double st_ratio, adj_step;
     double w_val1 = 0;
     double w_val2 = 0;
@@ -229,9 +235,9 @@ transient gen_sim::inj_NAND(int n_num, double charge, int type, int delay)
         for(i = 0; i < itr_num-1; i++)
             n_volt[i].push_back((((-in[i] + in[i+1])*adj_step)/ST_NODE_CAP_P) + n_volt[i][t-1]);
         
-        if(t > delay)
+        if((t*adj_step) > delay)
         {
-            time = STEP_GRAN*(st_ratio)*(inj_t);
+            time = adj_step*inj_t;
             inj_cur = ((2*charge)/(TAU*sqrt(PI)))*(sqrt(time/TAU))*(exp(-time/TAU));
             inj_t++;
         }
@@ -286,11 +292,15 @@ transient gen_sim::inj_NAND(int n_num, double charge, int type, int delay)
             else if((temp_out[t-1] < W_THRESH2) && (cur_out > W_THRESH2))
                 w_val2 = t;
         }
-      
-        temp_pul.width = abs(((w_val1 - w_val2)*adj_step)/st_ratio); 
+        if(abs(w_val1 - w_val2) > 1)
+            temp_pul.width = abs((w_val1 - w_val2)*adj_step); 
         temp_out.push_back(cur_out);
         
+        //cout<<"Node: "<<n_num<<" W pts: "<<w_val1-w_val2<<" W Calc: "<<temp_pul.width<<" Adj: "<<adj_step<<" output: "<<cur_out<<endl;
+        
         //cout<<"Iter: "<<t<<" nvolt 0: "<<n_volt[0][t]<<" nvolt 1: "<<n_volt[1][t]<<" nvolt 2: "<<n_volt[2][t]<<" output: "<<cur_out<<endl;
+        //cout<<" nvolt 0: "<<n_volt[0][t]<<" output: "<<cur_out<<endl;
+        
         
         in.clear();
         ip.clear();
@@ -429,7 +439,7 @@ transient gen_sim::inj_NOR(int n_num, double charge, int type, int delay)
             //cout<<"Cur 1: "<<in[i]<<" Cur 2: "<<in[i+1]<<endl;
         }
         
-        if(t > delay)
+        if((t*adj_step) > delay)
         {
             time = adj_step*(inj_t);
             inj_cur = ((2*charge)/(TAU*sqrt(PI)))*(sqrt(time/TAU))*(exp(-time/TAU));
@@ -488,8 +498,8 @@ transient gen_sim::inj_NOR(int n_num, double charge, int type, int delay)
             else if((temp_out[t-1] < W_THRESH2) && (cur_out > W_THRESH2))
                 w_val2 = t;
         }
-      
-        temp_pul.width = abs(((w_val1 - w_val2)*(adj_step))/st_ratio); 
+        if(abs((w_val1 - w_val2) > 1))
+            temp_pul.width = abs((w_val1 - w_val2)*(adj_step)); 
         temp_out.push_back(cur_out);
         
         //cout<<"nvolt 1: "<<n_volt[0][t]<<" nvolt 2: "<<n_volt[1][t]<<" output: "<<cur_out<<endl;
@@ -588,7 +598,7 @@ transient gen_sim::inj_NOT(int n_num, double charge, int type, int delay)
 
         adj_step = STEP_GRAN*st_ratio;
         
-        if(t > delay)
+        if((t*adj_step) > delay)
         {
             time = adj_step*(inj_t);
             inj_cur = ((2*charge)/(TAU*sqrt(PI)))*(sqrt(time/TAU))*(exp(-time/TAU));
@@ -646,8 +656,8 @@ transient gen_sim::inj_NOT(int n_num, double charge, int type, int delay)
             else if((temp_out[t-1] < W_THRESH2) && (cur_out > W_THRESH2))
                 w_val2 = t;
         }
-      
-        temp_pul.width = abs(((w_val1 - w_val2)*(adj_step))/st_ratio); 
+        if(abs((w_val1 - w_val2) > 1))
+            temp_pul.width = abs((w_val1 - w_val2)*(adj_step)); 
         temp_out.push_back(cur_out);
         
         //cout<<"Output: "<<cur_out<<endl;
@@ -696,21 +706,24 @@ void gen_sim::prop_enhpulse(int n_num)
         {
             inputs.push_back(*eit);
             out_pulse = det_pulse(inputs, n_num);
-            
+
             if (out_pulse.width > W_MIN)
             {
-                out_pulse.t_prob = eit->t_prob;
-                out_pulse.e_num = eit->e_num;
-                out_pulse.id = this->id_n;
-                out_pulse.s_node = n_num;
-                this->id_n++;
-
-                set_propfunc(n_num, *lit, *eit, out_pulse);
-                
-                if(this->sim_type == BDD_SIM)
-                    if(cur_ncount > MAX_BDD_NODES)
-                        return;
-
+                if(PART_SIM == 1)
+                    set_propfunc(n_num, *lit, *eit, out_pulse);
+                else                
+                {
+                    out_pulse.t_prob = eit->t_prob;
+                    out_pulse.e_num = eit->e_num;
+                    out_pulse.id = this->id_n;
+                    out_pulse.s_node = n_num;
+                    this->id_n++; 
+                    set_propfunc(n_num, *lit, *eit, out_pulse);
+                    
+                    if(this->sim_type == BDD_SIM)
+                        if(cur_ncount > MAX_BDD_NODES)
+                            return;
+                }
             }
             inputs.clear();
         }
@@ -1545,7 +1558,7 @@ void gen_sim::enhconv_check(int n_num)
     for(hit = h_table.begin(); hit != h_table.end(); ++hit)
     {
         temp_l = h_table[hit->first];
-        //cout<<"Event: "<<hit->first<<" Size: "<<temp_l.size()<<endl;
+        //cout<<"Node: "<<n_num<<" Event: "<<hit->first<<" Size: "<<temp_l.size()<<endl;
         max_size = temp_l.size();
         cur_size = 0;
         
@@ -1565,9 +1578,10 @@ void gen_sim::enhconv_check(int n_num)
                         inputs.push_back(*pit);
 
                         n_pul = det_pulse(inputs, n_num);
-
+                        
                         if (n_pul.width > W_MIN)
                         {
+                            //cout<<"Pulse Width: "<<n_pul.width<<endl;
                             if (this->sim_type == BDD_SIM)
                             {
                                 eval_convfunc(n_num, cur_trans, *pit, n_pul);
@@ -1578,11 +1592,13 @@ void gen_sim::enhconv_check(int n_num)
                                 
                                 if ((n_pul.p_func != bdd_false()))
                                 {
+                                    //cout<<"Node: "<<n_num<<" Prob: "<<c_prob<<" Count: "<<pulse_count<<endl;
                                     s_prob.solve_prob(n_pul.p_func);
                                     c_prob = cur_trans.t_prob * pit->t_prob * s_prob.true_prob;
                                     //cout<<"Calc: "<<c_prob<<" Prob: "<<s_prob.true_prob<<" t1: "<<cur_trans.t_prob<<" t2: "<<pit->t_prob<<endl;
                                     if(c_prob > MIN_CONV_PROB)
                                     {
+                                        //cout<<"Node: "<<n_num<<" Prob: "<<c_prob<<" Count: "<<pulse_count<<endl;
                                         //cout<<"Calc: "<<c_prob<<" Prob: "<<s_prob.true_prob<<" t1: "<<cur_trans.t_prob<<" t2: "<<pit->t_prob<<endl;
                                         //pulse_count++;
                                         n_pul.t_prob = cur_trans.t_prob*pit->t_prob;

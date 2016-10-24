@@ -37,9 +37,11 @@ void bdd_sim::sim()
     int max_partn;
     gmap::iterator git;
     double val;
+    int in_count;
 
     this->sim_type = BDD_SIM;
     
+    in_count = 0;
     // Set initial probabilities
     for(git = graph.begin(); git != graph.end(); ++git)
     {
@@ -47,8 +49,7 @@ void bdd_sim::sim()
         if(graph[git->first].type == INPUT)
             graph[git->first].prob = T_PROB;
         else
-            gen_p(git->first);
-            
+                gen_p(git->first);
         
         //cout<<"Pulse Num: "<<graph[git->first].p_list.size()<<endl;
     }
@@ -108,10 +109,9 @@ void bdd_sim::sim()
 
             tot_count = 0;
             for(git = graph.begin(); git != graph.end(); ++git)
-            {
                 tot_count++;
-            }
-            //cout<<"Total: "<<tot_count<<" Node Num: "<<circuit.node_count<<endl;
+
+            cout<<"Total: "<<tot_count<<" Node Num: "<<circuit.node_count<<endl;
             
             is_overflowed = sim_graph(graph);
             cout << "Overflowed: " << is_overflowed << endl;
@@ -151,7 +151,6 @@ void bdd_sim::sim()
     else if(PART_SIM == 1)
     {
         int i;
-        int cur_pnum = 0;
         max_partn = 0;
         
         for (git = graph.begin(); git != graph.end(); ++git)
@@ -160,18 +159,21 @@ void bdd_sim::sim()
         graph_m = graph;
         
         part_ratio = 0.5;
-        spart_graph(graph_m, max_partn, cur_pnum);               
+        spart_graph(graph_m, max_partn);               
         
         map<int, double> pt_count;
         for(git = graph_m.begin(); git != graph_m.end(); ++git)
         {
-            if(check_map(pt_count, graph_m[git->first].static_part))
+            if(graph[git->first].type != INPUT)
             {
-                pt_count[graph_m[git->first].static_part]++;
-            }
-            else
-            {
-                pt_count[graph_m[git->first].static_part] = 0;
+                if(check_map(pt_count, graph_m[git->first].static_part))
+                {
+                    pt_count[graph_m[git->first].static_part]++;
+                }
+                else
+                {
+                    pt_count[graph_m[git->first].static_part] = 1;
+                }
             }
         }
         
@@ -314,9 +316,9 @@ bool bdd_sim::sim_graph(gmap &graph)
     {
         if((graph[git->first].type == INPUT))
         {
-           // delete graph[git->first].g_func;
-            //graph[git->first].func_del = true;
-            //del_count++;
+            delete graph[git->first].g_func;
+            graph[git->first].func_del = true;
+            del_count++;
             //cout<<"Delete 2: "<<git->first<<endl;
         }
         
@@ -563,8 +565,24 @@ void bdd_sim::set_propfunc(int n_num, int inp_node, transient p, transient temp)
     
     if (temp.p_func != const_f)
     {
-        graph[n_num].p_list.push_back(temp);
-        cur_ncount  =  cur_ncount + bdd_nodecount(temp.p_func);
+        if(PART_SIM == 1)
+        {
+            s_prob.solve_prob(temp.p_func);
+            if(s_prob.true_prob > MIN_CONV_PROB)
+            {
+                temp.t_prob = p.t_prob;
+                temp.e_num = p.e_num;
+                temp.id = this->id_n;
+                temp.s_node = n_num;
+                this->id_n++; 
+                graph[n_num].p_list.push_back(temp);
+            }
+        }
+        else
+        {
+            graph[n_num].p_list.push_back(temp);
+            cur_ncount  =  cur_ncount + bdd_nodecount(temp.p_func);
+        }
     }
 }
 
@@ -757,31 +775,59 @@ void bdd_sim::eval_convfunc(int n_num, transient t1, transient t2, transient& cu
     cur_p.p_func = func;
 }
 
-void bdd_sim::spart_graph(gmap g_i, int& max_partn, int cur_pnum)
+void bdd_sim::spart_graph(gmap g_i, int& max_partn)
 {
-    int i;
-    int f = 1;
     gmap temp_g;
+    list<gmap> g_list;
+    map<int, gmap>::iterator it;
+    gmap::iterator lgit;
+    int cur_pnum = 1;
     
-    //part_circuit(g_i);
-    //conv_tpart(graph_m, max_partn, cur_pnum);  
+    g_list.push_back(graph_m);
     
-    while(max_partn < NUM_OF_PARTS-1)
+    while(cur_pnum < NUM_OF_PARTS)
     {
+        temp_g = g_list.front();
+        g_list.pop_front();
         
-        temp_g = ext_spart(graph_m, cur_pnum);
         part_circuit(temp_g);
-        conv_tpart(graph_m, max_partn, cur_pnum);  
+        conv_spart(max_partn);
         
-        if(((log2(max_partn)/floor(log2(max_partn))) == 1))
+        temp_g = ext_spart(temp_g, 1);
+        
+        g_list.push_back(ext_spart(temp_g, 1));
+        g_list.push_back(ext_spart(temp_g, 2));
+        cur_pnum++;
+    }
+}
+
+void bdd_sim::conv_spart(int &max_partn)
+{
+    gmap::iterator git;
+    int cur_part;
+    max_partn ++;
+    
+    for(git = graph_m.begin(); git != graph_m.end(); ++git)
+    {
+        //cout<<"Node: "<<git->first<<" T_part: "<<inp_g[git->first].b_part_num<<endl;
+        if(g_find(inp_g, git->first))
         {
-            if(max_partn >= 4)
-                f++;
-            
-            cur_pnum = 0;
+            cur_part = graph_m[git->first].static_part;
+            break;
         }
-        else
-            cur_pnum = f*(cur_pnum+1);
+        
+        //cout<<"Static Node: "<<git->first<<" Part: "<<graph_m[git->first].b_part_num<<endl;
+    }
+    
+    for(git = graph_m.begin(); git != graph_m.end(); ++git)
+    {
+        //cout<<"Node: "<<git->first<<" T_part: "<<inp_g[git->first].b_part_num<<endl;
+        if((inp_g[git->first].b_part_num == 1)||(graph_m[git->first].static_part > cur_part))
+        {
+            graph_m[git->first].static_part++;
+        }
+        
+        //cout<<"Static Node: "<<git->first<<" Part: "<<graph_m[git->first].b_part_num<<endl;
     }
 }
 
@@ -793,19 +839,19 @@ gmap bdd_sim::ext_spart(gmap i_g, int part_num)
     gmap::iterator git;
     list<int>::iterator lit;
     
-    for(git = i_g.begin(); git != i_g.end(); ++git)
+    for(git = inp_g.begin(); git != inp_g.end(); ++git)
     {
-        if(i_g[git->first].static_part == part_num)
-            temp_graph[git->first] = i_g[git->first];
+        if(inp_g[git->first].b_part_num == part_num)
+            temp_graph[git->first] = graph_m[git->first];
     }
     
-    for(git = temp_graph.begin(); git != temp_graph.end(); ++git)
+    /*for(git = temp_graph.begin(); git != temp_graph.end(); ++git)
     {
         temp_graph[git->first].fanin.clear();
         temp_graph[git->first].fanout.clear();
-        for(lit = i_g[git->first].fanin.begin(); lit != i_g[git->first].fanin.end(); ++lit)
+        for(lit = graph_m[git->first].fanin.begin(); lit != graph_m[git->first].fanin.end(); ++lit)
         {
-            if(i_g[*lit].static_part == part_num)
+            if(graph_m[*lit].static_part == part_num)
             {
                 temp_graph[git->first].fanin.push_back(*lit);
                 f_count++;
@@ -814,9 +860,9 @@ gmap bdd_sim::ext_spart(gmap i_g, int part_num)
         temp_graph[git->first].fanin_num = f_count;
         f_count = 0;
         
-        for(lit = i_g[git->first].fanout.begin(); lit != i_g[git->first].fanout.end(); ++lit)
+        for(lit = graph_m[git->first].fanout.begin(); lit != graph_m[git->first].fanout.end(); ++lit)
         {
-            if(i_g[*lit].static_part == part_num)
+            if(graph_m[*lit].static_part == part_num)
             {
                 temp_graph[git->first].fanout.push_back(*lit);
                 f_count++;
@@ -824,32 +870,7 @@ gmap bdd_sim::ext_spart(gmap i_g, int part_num)
         }
         temp_graph[git->first].fanout_num = f_count;
         f_count = 0;
-    }
-    
-    int n_count  = -1;
-    
-    for(git = temp_graph.begin(); git != temp_graph.end(); ++git)
-    {
-        //cout<<"Node: "<<git->first<<" Inputs: "<<temp_graph[git->first].fanin_num<<endl;
-        if((temp_graph[git->first].fanin_num != (i_g[git->first].fanin_num))&&(temp_graph[git->first].type != INPUT))
-        {   
-            for(lit = i_g[git->first].fanin.begin(); lit != i_g[git->first].fanin.end(); ++ lit)
-            {
-                //if((graph_m[*lit].type != INPUT)&&(!l_find(temp_graph[git->first].fanin, *lit)))
-                if(!l_find(temp_graph[git->first].fanin, *lit))
-                {
-                    temp_graph[n_count].type = INPUT;
-                    temp_graph[n_count].fanout.push_back(git->first);
-                    temp_graph[n_count].fanout_num = 1;
-                    temp_graph[n_count].static_part = i_g[*lit].static_part;
-                    temp_graph[git->first].fanin.push_back(n_count);
-                    //cout<<"Node: "<<git->first<<" Fanin_Size: "<<temp_graph[git->first].fanin.size()<<endl;
-                    temp_graph[git->first].fanin_num++;
-                    n_count--;
-                }
-            }
-        }
-    }
+    }*/
     
     return temp_graph;
 }

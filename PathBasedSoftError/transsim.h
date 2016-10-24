@@ -70,7 +70,7 @@ public:
     //gmap graph;
     //circuitstruct circuit;
     
-    transient gen_pulse(int , int , int );
+    transient gen_pulse(int , int , double );
     void prop_enhpulse(int );
     
     void export_vec(vector<double> , string );
@@ -201,7 +201,7 @@ protected:
     //void prop_enhpulse(int );
     
     /// Injection Functions
-    transient inj_NAND(int , double , int , int );
+    transient inj_NAND(int , double , int , double );
     transient inj_NOR(int , double , int , int );
     transient inj_NOT(int , double , int , int );
     transient inj_AND(int , double , int , int );
@@ -276,8 +276,10 @@ private:
     int count_nodes(gmap , int );
     void conv_partition(gmap & , int & , int );
     
-    void spart_graph(gmap g_i, int& , int );
+    void spart_graph(gmap , int& );
     gmap ext_spart(gmap , int );
+    
+    void conv_spart(int &max_partn);
     
     void bdd_optimize();
 };
