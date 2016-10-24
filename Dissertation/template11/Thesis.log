@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.16)  16 OCT 2016 22:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.16)  24 OCT 2016 00:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -237,39 +237,70 @@ Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
 \extratabsurround=\skip49
 \backup@length=\skip50
 )
-\c@theorem=\count104
-\c@example=\count105
+(e:/texlive/2015/texmf-dist/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+
+(e:/texlive/2015/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count104
+\float@exts=\toks27
+\float@box=\box28
+\@float@everytoks=\toks28
+\@floatcapt=\box29
+)
+(e:/texlive/2015/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\@float@every@algorithm=\toks29
+\c@algorithm=\count105
+)
+(e:/texlive/2015/texmf-dist/tex/latex/algorithms/algorithmic.sty
+Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
+\c@ALC@unique=\count106
+\c@ALC@line=\count107
+\c@ALC@rem=\count108
+\c@ALC@depth=\count109
+\ALC@tlm=\skip51
+\algorithmicindent=\skip52
+)
+(e:/texlive/2015/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2011/12/19 v6.7a set line spacing
+)
+\c@theorem=\count110
+\c@example=\count111
  (./Thesis.aux)
 \openout1 = `Thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
 
 (e:/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count106
+\scratchcounter=\count112
 \scratchdimen=\dimen123
-\scratchbox=\box28
-\nofMPsegments=\count107
-\nofMParguments=\count108
-\everyMPshowfont=\toks27
-\MPscratchCnt=\count109
+\scratchbox=\box30
+\nofMPsegments=\count113
+\nofMParguments=\count114
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count115
 \MPscratchDim=\dimen124
-\MPnumerator=\count110
-\makeMPintoPDFobject=\count111
-\everyMPtoPDFconversion=\toks28
+\MPnumerator=\count116
+\makeMPintoPDFobject=\count117
+\everyMPtoPDFconversion=\toks31
 )
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
  (./Title.tex) (./Approval.tex [0
 
@@ -413,34 +444,30 @@ File: Figures/HRDNUT.pdf Graphic file (type pdf)
 <use Figures/HRDNUT.pdf>
 Package pdftex.def Info: Figures/HRDNUT.pdf used on input line 95.
 (pdftex.def)             Requested size: 439.39977pt x 600.57794pt.
-
-
-LaTeX Warning: Float too large for page by 0.3754pt on input line 101.
-
-[14 <./Figures/defaultoperation-eps-converted-to.pdf>] [15 <./Figures/HRDNUT.pd
-f>] [16] [17] [18] [19]
+ [14 <./Figures/defaultoperation-eps-converted-to.pdf>] [15 <./Figures/HRDNUT.p
+df>] [16] [17] [18] [19]
 <Figures/PulseFilter.pdf, id=167, 666.99188pt x 312.41719pt>
 File: Figures/PulseFilter.pdf Graphic file (type pdf)
 
 <use Figures/PulseFilter.pdf>
 Package pdftex.def Info: Figures/PulseFilter.pdf used on input line 177.
 (pdftex.def)             Requested size: 300.64008pt x 140.82pt.
- [20 <./Figures/PulseFilter.pdf>]
-<Figures/PulseFilterEnh.pdf, id=178, 666.99188pt x 458.46281pt>
+
+<Figures/PulseFilterEnh.pdf, id=168, 666.99188pt x 458.46281pt>
 File: Figures/PulseFilterEnh.pdf Graphic file (type pdf)
 
 <use Figures/PulseFilterEnh.pdf>
 Package pdftex.def Info: Figures/PulseFilterEnh.pdf used on input line 189.
 (pdftex.def)             Requested size: 300.64008pt x 206.64914pt.
- [21 <./Figures/PulseFilterEnh.pdf>]
-<Figures/TNUBlatch.pdf, id=188, 399.74344pt x 1026.08344pt>
+ [20 <./Figures/PulseFilter.pdf>]
+<Figures/TNUBlatch.pdf, id=179, 399.74344pt x 1026.08344pt>
 File: Figures/TNUBlatch.pdf Graphic file (type pdf)
 
 <use Figures/TNUBlatch.pdf>
 Package pdftex.def Info: Figures/TNUBlatch.pdf used on input line 202.
 (pdftex.def)             Requested size: 231.26378pt x 593.62576pt.
-) (./Approx.tex [22] [23 <./Figures/TNUBlatch.pdf>]
-[24]
+ [21 <./Figures/PulseFilterEnh.pdf>] [22 <./Figures/TNUBlatch.pdf>]) (./Approx.
+tex [23]
 CHAPTER 2.
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
@@ -448,27 +475,27 @@ Missing character: There is no ™ in font cmr12!
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
-[25
+[24
 
 ]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
- [26] <Figures/TransistorModel.pdf, id=212, 262.73157pt x 157.33781pt>
+ [25] <Figures/TransistorModel.pdf, id=209, 262.73157pt x 157.33781pt>
 File: Figures/TransistorModel.pdf Graphic file (type pdf)
 
 <use Figures/TransistorModel.pdf>
 Package pdftex.def Info: Figures/TransistorModel.pdf used on input line 21.
 (pdftex.def)             Requested size: 231.26378pt x 138.4985pt.
- [27 <./Figures/TransistorModel.pdf>]
-<Figures/Conv_Mod.pdf, id=223, 313.9228pt x 163.3603pt>
+ [26 <./Figures/TransistorModel.pdf>]
+<Figures/Conv_Mod.pdf, id=219, 313.9228pt x 163.3603pt>
 File: Figures/Conv_Mod.pdf Graphic file (type pdf)
 
 <use Figures/Conv_Mod.pdf>
 Package pdftex.def Info: Figures/Conv_Mod.pdf used on input line 39.
 (pdftex.def)             Requested size: 393.15125pt x 204.5987pt.
- [28 <./Figures/Conv_Mod.pdf>]
-<Figures/GenModel.pdf, id=232, 237.88875pt x 137.01187pt>
+ [27 <./Figures/Conv_Mod.pdf>]
+<Figures/GenModel.pdf, id=229, 237.88875pt x 137.01187pt>
 File: Figures/GenModel.pdf Graphic file (type pdf)
 
 <use Figures/GenModel.pdf>
@@ -477,8 +504,8 @@ Package pdftex.def Info: Figures/GenModel.pdf used on input line 57.
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
- [29 <./Figures/GenModel.pdf>] [30] [31]
-<Figures/Stacked.pdf, id=250, 215.30438pt x 140.02313pt>
+ [28 <./Figures/GenModel.pdf>] [29] [30]
+<Figures/Stacked.pdf, id=247, 215.30438pt x 140.02313pt>
 File: Figures/Stacked.pdf Graphic file (type pdf)
 
 <use Figures/Stacked.pdf>
@@ -487,45 +514,45 @@ Package pdftex.def Info: Figures/Stacked.pdf used on input line 131.
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
- [32 <./Figures/Stacked.pdf>]
+ [31 <./Figures/Stacked.pdf>]
 Missing character: There is no Ï in font cmr12!
 Missing character: There is no „ in font cmr12!
- [33] [34]
-<Figures/plot300.png, id=266, 532.8708pt x 398.9304pt>
+ [32] [33]
+<Figures/plot300.png, id=263, 532.8708pt x 398.9304pt>
 File: Figures/plot300.png Graphic file (type png)
 
 <use Figures/plot300.png>
 Package pdftex.def Info: Figures/plot300.png used on input line 221.
 (pdftex.def)             Requested size: 208.13599pt x 155.81963pt.
 
-<Figures/plot960.png, id=267, 532.8708pt x 398.9304pt>
+<Figures/plot960.png, id=264, 532.8708pt x 398.9304pt>
 File: Figures/plot960.png Graphic file (type png)
 
 <use Figures/plot960.png>
 Package pdftex.def Info: Figures/plot960.png used on input line 223.
 (pdftex.def)             Requested size: 208.13599pt x 155.81963pt.
 
-<Figures/plotoutnand3300.png, id=268, 532.8708pt x 398.9304pt>
+<Figures/plotoutnand3300.png, id=265, 532.8708pt x 398.9304pt>
 File: Figures/plotoutnand3300.png Graphic file (type png)
 
 <use Figures/plotoutnand3300.png>
 Package pdftex.def Info: Figures/plotoutnand3300.png used on input line 232.
 (pdftex.def)             Requested size: 208.13599pt x 155.81963pt.
 
-<Figures/plotoutnand3903.png, id=269, 532.8708pt x 398.9304pt>
+<Figures/plotoutnand3903.png, id=266, 532.8708pt x 398.9304pt>
 File: Figures/plotoutnand3903.png Graphic file (type png)
 
 <use Figures/plotoutnand3903.png>
 Package pdftex.def Info: Figures/plotoutnand3903.png used on input line 234.
 (pdftex.def)             Requested size: 208.13599pt x 155.81963pt.
-) (./Simulator.tex [35] [36] [37 <./Figures/plot300.png (PNG copy)> <./Figures/
-plot960.png (PNG copy)> <./Figures/plotoutnand3300.png (PNG copy)> <./Figures/p
-lotoutnand3903.png (PNG copy)>]
+) (./Simulator.tex [34] [35 <./Figures/plot300.png (PNG copy)> <./Figures/plot9
+60.png (PNG copy)> <./Figures/plotoutnand3300.png (PNG copy)> <./Figures/plotou
+tnand3903.png (PNG copy)>] [36]
 CHAPTER 3.
-[38
+[37
 
-] [39] [40] [41]
-<Figures/NAND_Strike.pdf, id=292, 246.9225pt x 247.67531pt>
+] [38] [39] [40]
+<Figures/NAND_Strike.pdf, id=289, 246.9225pt x 247.67531pt>
 File: Figures/NAND_Strike.pdf Graphic file (type pdf)
 
 <use Figures/NAND_Strike.pdf>
@@ -535,20 +562,50 @@ Package pdftex.def Info: Figures/NAND_Strike.pdf used on input line 39.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Figures/Prop_func.pdf, id=293, 298.11375pt x 247.67531pt>
+[41 <./Figures/NAND_Strike.pdf>] [42]
+<Figures/Prop_func.pdf, id=304, 298.11375pt x 247.67531pt>
 File: Figures/Prop_func.pdf Graphic file (type pdf)
 
 <use Figures/Prop_func.pdf>
-Package pdftex.def Info: Figures/Prop_func.pdf used on input line 79.
+Package pdftex.def Info: Figures/Prop_func.pdf used on input line 97.
 (pdftex.def)             Requested size: 254.39156pt x 211.35265pt.
- [42 <./Figures/NAND_Strike.pdf>]
+ [43 <./Figures/Prop_func.pdf>]
+<Figures/Prop_MET.pdf, id=315, 449.42906pt x 261.22594pt>
+File: Figures/Prop_MET.pdf Graphic file (type pdf)
 
-LaTeX Warning: Text page 43 contains only floats.
+<use Figures/Prop_MET.pdf>
+Package pdftex.def Info: Figures/Prop_MET.pdf used on input line 117.
+(pdftex.def)             Requested size: 370.02345pt x 215.07956pt.
 
-[43 <./Figures/Prop_func.pdf>] [44]) (./Biblio.tex (./Thesis.bbl [45] [46
 
-]
-[47] [48])) (./appendix.tex [49] [49
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[44 <./Figures/Prop_MET.pdf>] [45] [46]
+<Figures/BDDFunc.pdf, id=334, 257.46187pt x 167.12437pt>
+File: Figures/BDDFunc.pdf Graphic file (type pdf)
+
+<use Figures/BDDFunc.pdf>
+Package pdftex.def Info: Figures/BDDFunc.pdf used on input line 187.
+(pdftex.def)             Requested size: 254.39156pt x 165.13486pt.
+ [47 <./Figures/BDDFunc.pdf>]
+<Figures/gen_func.pdf, id=344, 347.79938pt x 580.41844pt>
+File: Figures/gen_func.pdf Graphic file (type pdf)
+
+<use Figures/gen_func.pdf>
+Package pdftex.def Info: Figures/gen_func.pdf used on input line 205.
+(pdftex.def)             Requested size: 300.64008pt x 501.73622pt.
+ [48] [49 <./Figures/gen_func.pdf>] [50] [51]
+<Figures/PartProp.pdf, id=363, 715.17188pt x 554.82281pt>
+File: Figures/PartProp.pdf Graphic file (type pdf)
+
+<use Figures/PartProp.pdf>
+Package pdftex.def Info: Figures/PartProp.pdf used on input line 241.
+(pdftex.def)             Requested size: 462.52756pt x 358.82732pt.
+ [52] [53 <./Figures/PartProp.pdf>] [54] [55]
+[56]) (./Biblio.tex (./Thesis.bbl [57] [58
+
+] [59] [60] [61])) (./appendix.tex
+[62] [62
 
 ]
 Package epstopdf Info: Source file: <Figures/WavePlots/CLKD.eps>
@@ -563,7 +620,7 @@ f>
 (epstopdf)             \includegraphics on input line 32.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/CLKD-eps-converted-to.pdf, id=337, 540.0175pt x 405.515pt>
+<Figures/WavePlots/CLKD-eps-converted-to.pdf, id=425, 540.0175pt x 405.515pt>
 File: Figures/WavePlots/CLKD-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/CLKD-eps-converted-to.pdf>
@@ -582,7 +639,7 @@ f>
 (epstopdf)             \includegraphics on input line 42.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n1n2-eps-converted-to.pdf, id=338, 516.93124pt x 417.56pt>
+<Figures/WavePlots/n1n2-eps-converted-to.pdf, id=426, 516.93124pt x 417.56pt>
 File: Figures/WavePlots/n1n2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n1n2-eps-converted-to.pdf>
@@ -601,7 +658,7 @@ s-converted-to.pdf Figures/WavePlots/n2out.eps>
 (epstopdf)             \includegraphics on input line 49.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n2out-eps-converted-to.pdf, id=339, 516.93124pt x 417.56pt>
+<Figures/WavePlots/n2out-eps-converted-to.pdf, id=427, 516.93124pt x 417.56pt>
 File: Figures/WavePlots/n2out-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n2out-eps-converted-to.pdf>
@@ -620,7 +677,7 @@ f>
 (epstopdf)             \includegraphics on input line 56.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n1n5-eps-converted-to.pdf, id=340, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n1n5-eps-converted-to.pdf, id=428, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n1n5-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n1n5-eps-converted-to.pdf>
@@ -639,7 +696,7 @@ f>
 (epstopdf)             \includegraphics on input line 63.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n3n4-eps-converted-to.pdf, id=341, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n3n4-eps-converted-to.pdf, id=429, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n3n4-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n3n4-eps-converted-to.pdf>
@@ -658,7 +715,7 @@ s-converted-to.pdf Figures/WavePlots/n4out.eps>
 (epstopdf)             \includegraphics on input line 70.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n4out-eps-converted-to.pdf, id=342, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n4out-eps-converted-to.pdf, id=430, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n4out-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n4out-eps-converted-to.pdf>
@@ -677,7 +734,7 @@ f>
 (epstopdf)             \includegraphics on input line 77.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n1n3-eps-converted-to.pdf, id=343, 516.93124pt x 417.56pt>
+<Figures/WavePlots/n1n3-eps-converted-to.pdf, id=431, 516.93124pt x 417.56pt>
 File: Figures/WavePlots/n1n3-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n1n3-eps-converted-to.pdf>
@@ -696,7 +753,7 @@ f>
 (epstopdf)             \includegraphics on input line 84.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n1n6-eps-converted-to.pdf, id=344, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n1n6-eps-converted-to.pdf, id=432, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n1n6-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n1n6-eps-converted-to.pdf>
@@ -715,7 +772,7 @@ s-converted-to.pdf Figures/WavePlots/n5out.eps>
 (epstopdf)             \includegraphics on input line 91.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n5out-eps-converted-to.pdf, id=345, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n5out-eps-converted-to.pdf, id=433, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n5out-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n5out-eps-converted-to.pdf>
@@ -734,49 +791,50 @@ s-converted-to.pdf Figures/WavePlots/n3out.eps>
 (epstopdf)             \includegraphics on input line 98.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n3out-eps-converted-to.pdf, id=346, 516.93124pt x 417.56pt>
+<Figures/WavePlots/n3out-eps-converted-to.pdf, id=434, 516.93124pt x 417.56pt>
 File: Figures/WavePlots/n3out-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n3out-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/WavePlots/n3out-eps-converted-to.pdf used on i
 nput line 98.
 (pdftex.def)             Requested size: 231.26378pt x 186.80437pt.
-) (./Vita.tex [50
+) (./Vita.tex [63
 
  <./Figures/WavePlots/CLKD-eps-converted-to.pdf> <./Figures/WavePlots/n1n2-eps-
-converted-to.pdf>] [51 <./Figures/WavePlots/n2out-eps-converted-to.pdf> <./Figu
-res/WavePlots/n1n5-eps-converted-to.pdf>] [52 <./Figures/WavePlots/n3n4-eps-con
-verted-to.pdf> <./Figures/WavePlots/n4out-eps-converted-to.pdf>] [53 <./Figures
+converted-to.pdf>] [64 <./Figures/WavePlots/n2out-eps-converted-to.pdf> <./Figu
+res/WavePlots/n1n5-eps-converted-to.pdf>] [65 <./Figures/WavePlots/n3n4-eps-con
+verted-to.pdf> <./Figures/WavePlots/n4out-eps-converted-to.pdf>] [66 <./Figures
 /WavePlots/n1n3-eps-converted-to.pdf> <./Figures/WavePlots/n1n6-eps-converted-t
 o.pdf>]
-[54 <./Figures/WavePlots/n5out-eps-converted-to.pdf> <./Figures/WavePlots/n3out
--eps-converted-to.pdf>]) [55
+[67 <./Figures/WavePlots/n5out-eps-converted-to.pdf> <./Figures/WavePlots/n3out
+-eps-converted-to.pdf>]) [68
 
 ] (./Thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 3999 strings out of 493027
- 59825 string characters out of 6137684
- 129468 words of memory out of 5000000
- 7403 multiletter control sequences out of 15000+600000
+ 4346 strings out of 493027
+ 64436 string characters out of 6137684
+ 131871 words of memory out of 5000000
+ 7728 multiletter control sequences out of 15000+600000
  9565 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,11n,39p,1660b,333s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,11n,39p,1660b,651s stack positions out of 5000i,500n,10000p,200000b,80000s
 <e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 bx10.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 <e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><e:/texli
 ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><e:/texlive/2015/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><e:/texlive/2015/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmmi8.pfb><e:/texlive/2015/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr12.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr6.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmr8.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-<e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><e:/texliv
-e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><e:/texlive/2015/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Thesis.pdf (66 pages, 1509954 bytes).
+1/public/amsfonts/cm/cmr10.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr12.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr6.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><
+e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><e:/texliv
+e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><e:/texlive/2015/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><e:/texlive/2015/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on Thesis.pdf (79 pages, 1872536 bytes).
 PDF statistics:
- 471 PDF objects out of 1000 (max. 8388607)
- 331 compressed objects within 4 object streams
+ 563 PDF objects out of 1000 (max. 8388607)
+ 400 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
- 171 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 191 words of extra memory for PDF output out of 10000 (max. 10000000)
 
