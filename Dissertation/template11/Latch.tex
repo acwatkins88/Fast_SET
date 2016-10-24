@@ -210,6 +210,21 @@ An inevitable issue with the development of more complex latches to tolerate mul
 	\label{TNUB}
 \end{figure}
 
+To further estimate the power, delay and area overheads of a TNU latch, a design, provided in Fig. [REF], was created which shows promise of being TNU tolerant and robust. It is based on the ideas used for the HRDNUT and derived from the TNU block latch. Due to it being based on the HRDNUT, it can be assured that it is both SEU and DNU tolerant. However, it cannot be guaranteed that the design is totally TNU tolerant due to the complexity of testing all 165 possible cases. For the sake of discussion, three examples of how the latch tolerates a TNU are given below.  
+
+\begin{enumerate}
+	\item Consider a TNU on nodes \textit{n1}, \textit{n5} and \textit{n6}. The error at \textit{n5} will effect C-elements \textit{C1, C3, C4} and \textit{C10}. The transient at \textit{n6} will effect nodes \textit{C1, C2, C4} and \textit{C9}. Lastly, the error at \textit{out} will arrive at C-elements \textit{C5} and \textit{C6}. In this case, the output node will directly be driven back to the correct value due to no change on any of the inputs of C-element \textit{C11}. Since \textit{out} is driven back to the correct value, all of the inputs on C-elements \textit{C5} and \textit{C6} are returned back to the error free value. This will, in turn, drive nodes \textit{n5} and \textit{n6} back to the correct value thus fully recovering all nodes.
+	
+	\item Assume a TNU 
+\end{enumerate}
+
+The design was implemented in HSPICE using the 32nm PTM library with all transistors set to minimum width (PMOS=80nm, NMOS=40nm). The clock frequency was set to 1Ghz and $V_{dd}$ to 1.05V. The latch was first operated with no injected transient pulses to measure the average power. It was found that the TNU latch consumes x\% more power while have an UST area of [x] which is x\% higher than the HRDNUT. 
+
+Based on the design, there are few similarities that have been observed that can be used to design latches that tolerate 4 or more errors. The similarities are summed up in a list which is given below:
+
+\begin{enumerate}
+	
+\end{enumerate}
  
 
 \section{Conclusion} \label{sec:conc}

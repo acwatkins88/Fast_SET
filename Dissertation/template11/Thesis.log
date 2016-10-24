@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.6-1.40.14 (TeX Live 2014/dev) (format=pdflatex 2016.10.24)  24 OCT 2016 13:42
+This is pdfTeX, Version 3.1415926-2.6-1.40.14 (TeX Live 2014/dev) (format=pdflatex 2016.10.24)  24 OCT 2016 17:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -453,7 +453,7 @@ File: Figures/TNUBlatch.pdf Graphic file (type pdf)
 Package pdftex.def Info: Figures/TNUBlatch.pdf used on input line 205.
 (pdftex.def)             Requested size: 231.26378pt x 593.62576pt.
  [22] [23 <./Figures/TNUBlatch.pdf>]) (./Approx.tex
-[24]
+[24] [25]
 CHAPTER 2.
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
@@ -461,27 +461,27 @@ Missing character: There is no ™ in font cmr12!
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
-[25
+[26
 
 ]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
- [26] <Figures/TransistorModel.pdf, id=220, 262.73157pt x 157.33781pt>
+ [27] <Figures/TransistorModel.pdf, id=224, 262.73157pt x 157.33781pt>
 File: Figures/TransistorModel.pdf Graphic file (type pdf)
 
 <use Figures/TransistorModel.pdf>
 Package pdftex.def Info: Figures/TransistorModel.pdf used on input line 21.
 (pdftex.def)             Requested size: 231.26378pt x 138.4985pt.
- [27 <./Figures/TransistorModel.pdf>]
-<Figures/Conv_Mod.pdf, id=231, 313.9228pt x 163.3603pt>
+ [28 <./Figures/TransistorModel.pdf>]
+<Figures/Conv_Mod.pdf, id=234, 313.9228pt x 163.3603pt>
 File: Figures/Conv_Mod.pdf Graphic file (type pdf)
 
 <use Figures/Conv_Mod.pdf>
 Package pdftex.def Info: Figures/Conv_Mod.pdf used on input line 39.
 (pdftex.def)             Requested size: 393.15125pt x 204.5987pt.
- [28 <./Figures/Conv_Mod.pdf>]
-<Figures/GenModel.pdf, id=240, 237.88875pt x 137.01187pt>
+ [29 <./Figures/Conv_Mod.pdf>]
+<Figures/GenModel.pdf, id=243, 237.88875pt x 137.01187pt>
 File: Figures/GenModel.pdf Graphic file (type pdf)
 
 <use Figures/GenModel.pdf>
@@ -490,8 +490,8 @@ Package pdftex.def Info: Figures/GenModel.pdf used on input line 57.
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
- [29 <./Figures/GenModel.pdf>] [30] [31]
-<Figures/Stacked.pdf, id=258, 215.30438pt x 140.02313pt>
+ [30 <./Figures/GenModel.pdf>] [31] [32]
+<Figures/Stacked.pdf, id=261, 215.30438pt x 140.02313pt>
 File: Figures/Stacked.pdf Graphic file (type pdf)
 
 <use Figures/Stacked.pdf>
@@ -500,90 +500,90 @@ Package pdftex.def Info: Figures/Stacked.pdf used on input line 131.
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
- [32 <./Figures/Stacked.pdf>]
+ [33 <./Figures/Stacked.pdf>]
 Missing character: There is no Ï in font cmr12!
 Missing character: There is no „ in font cmr12!
- [33] [34]
-<Figures/plot300.png, id=274, 532.8708pt x 398.9304pt>
+ [34] [35]
+<Figures/plot300.png, id=277, 532.8708pt x 398.9304pt>
 File: Figures/plot300.png Graphic file (type png)
 
 <use Figures/plot300.png>
 Package pdftex.def Info: Figures/plot300.png used on input line 221.
 (pdftex.def)             Requested size: 208.13599pt x 155.81963pt.
 
-<Figures/plot960.png, id=275, 532.8708pt x 398.9304pt>
+<Figures/plot960.png, id=278, 532.8708pt x 398.9304pt>
 File: Figures/plot960.png Graphic file (type png)
 
 <use Figures/plot960.png>
 Package pdftex.def Info: Figures/plot960.png used on input line 223.
 (pdftex.def)             Requested size: 208.13599pt x 155.81963pt.
 
-<Figures/plotoutnand3300.png, id=276, 532.8708pt x 398.9304pt>
+<Figures/plotoutnand3300.png, id=279, 532.8708pt x 398.9304pt>
 File: Figures/plotoutnand3300.png Graphic file (type png)
 
 <use Figures/plotoutnand3300.png>
 Package pdftex.def Info: Figures/plotoutnand3300.png used on input line 232.
 (pdftex.def)             Requested size: 208.13599pt x 155.81963pt.
 
-<Figures/plotoutnand3903.png, id=277, 532.8708pt x 398.9304pt>
+<Figures/plotoutnand3903.png, id=280, 532.8708pt x 398.9304pt>
 File: Figures/plotoutnand3903.png Graphic file (type png)
 
 <use Figures/plotoutnand3903.png>
 Package pdftex.def Info: Figures/plotoutnand3903.png used on input line 234.
 (pdftex.def)             Requested size: 208.13599pt x 155.81963pt.
-) (./Simulator.tex [35] [36 <./Figures/plot300.png (PNG copy)> <./Figures/plot9
+) (./Simulator.tex [36] [37 <./Figures/plot300.png (PNG copy)> <./Figures/plot9
 60.png (PNG copy)> <./Figures/plotoutnand3300.png (PNG copy)> <./Figures/plotou
-tnand3903.png (PNG copy)>] [37]
+tnand3903.png (PNG copy)>] [38]
 CHAPTER 3.
-[38
+[39
 
-] [39] [40] [41]
-<Figures/NAND_Strike.pdf, id=300, 246.9225pt x 247.67531pt>
+] [40] [41] [42]
+<Figures/NAND_Strike.pdf, id=303, 246.9225pt x 247.67531pt>
 File: Figures/NAND_Strike.pdf Graphic file (type pdf)
 
 <use Figures/NAND_Strike.pdf>
 Package pdftex.def Info: Figures/NAND_Strike.pdf used on input line 39.
 (pdftex.def)             Requested size: 254.39156pt x 255.1651pt.
- [42 <./Figures/NAND_Strike.pdf>] [43]
-<Figures/Prop_func.pdf, id=316, 298.11375pt x 247.67531pt>
+ [43 <./Figures/NAND_Strike.pdf>] [44]
+<Figures/Prop_func.pdf, id=319, 298.11375pt x 247.67531pt>
 File: Figures/Prop_func.pdf Graphic file (type pdf)
 
 <use Figures/Prop_func.pdf>
 Package pdftex.def Info: Figures/Prop_func.pdf used on input line 97.
 (pdftex.def)             Requested size: 254.39156pt x 211.35265pt.
- [44 <./Figures/Prop_func.pdf>]
-<Figures/Prop_MET.pdf, id=326, 449.42906pt x 261.22594pt>
+ [45 <./Figures/Prop_func.pdf>]
+<Figures/Prop_MET.pdf, id=330, 449.42906pt x 261.22594pt>
 File: Figures/Prop_MET.pdf Graphic file (type pdf)
 
 <use Figures/Prop_MET.pdf>
 Package pdftex.def Info: Figures/Prop_MET.pdf used on input line 117.
 (pdftex.def)             Requested size: 370.02345pt x 215.07956pt.
- [45 <./Figures/Prop_MET.pdf>] [46] [47]
-<Figures/BDDFunc.pdf, id=345, 257.46187pt x 167.12437pt>
+ [46 <./Figures/Prop_MET.pdf>] [47] [48]
+<Figures/BDDFunc.pdf, id=348, 257.46187pt x 167.12437pt>
 File: Figures/BDDFunc.pdf Graphic file (type pdf)
 
 <use Figures/BDDFunc.pdf>
 Package pdftex.def Info: Figures/BDDFunc.pdf used on input line 187.
 (pdftex.def)             Requested size: 254.39156pt x 165.13486pt.
- [48 <./Figures/BDDFunc.pdf>]
-<Figures/gen_func.pdf, id=355, 347.79938pt x 580.41844pt>
+ [49 <./Figures/BDDFunc.pdf>]
+<Figures/gen_func.pdf, id=358, 347.79938pt x 580.41844pt>
 File: Figures/gen_func.pdf Graphic file (type pdf)
 
 <use Figures/gen_func.pdf>
 Package pdftex.def Info: Figures/gen_func.pdf used on input line 205.
 (pdftex.def)             Requested size: 300.64008pt x 501.73622pt.
- [49] [50 <./Figures/gen_func.pdf>] [51] [52]
-<Figures/PartProp.pdf, id=374, 715.17188pt x 554.82281pt>
+ [50] [51 <./Figures/gen_func.pdf>] [52] [53]
+<Figures/PartProp.pdf, id=377, 715.17188pt x 554.82281pt>
 File: Figures/PartProp.pdf Graphic file (type pdf)
 
 <use Figures/PartProp.pdf>
 Package pdftex.def Info: Figures/PartProp.pdf used on input line 241.
 (pdftex.def)             Requested size: 462.52756pt x 358.82732pt.
- [53] [54 <./Figures/PartProp.pdf>] [55] [56]
-[57]) (./Biblio.tex (./Thesis.bbl [58] [59
+ [54] [55 <./Figures/PartProp.pdf>] [56] [57]
+[58]) (./Biblio.tex (./Thesis.bbl [59] [60
 
-] [60] [61] [62])) (./appendix.tex
-[63] [63
+] [61] [62] [63])) (./appendix.tex
+[64] [64
 
 ]
 Package epstopdf Info: Source file: <Figures/WavePlots/CLKD.eps>
@@ -598,7 +598,7 @@ f>
 (epstopdf)             \includegraphics on input line 32.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/CLKD-eps-converted-to.pdf, id=436, 540.0175pt x 405.515pt>
+<Figures/WavePlots/CLKD-eps-converted-to.pdf, id=439, 540.0175pt x 405.515pt>
 File: Figures/WavePlots/CLKD-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/CLKD-eps-converted-to.pdf>
@@ -617,7 +617,7 @@ f>
 (epstopdf)             \includegraphics on input line 42.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n1n2-eps-converted-to.pdf, id=437, 516.93124pt x 417.56pt>
+<Figures/WavePlots/n1n2-eps-converted-to.pdf, id=440, 516.93124pt x 417.56pt>
 File: Figures/WavePlots/n1n2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n1n2-eps-converted-to.pdf>
@@ -636,7 +636,7 @@ s-converted-to.pdf Figures/WavePlots/n2out.eps>
 (epstopdf)             \includegraphics on input line 49.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n2out-eps-converted-to.pdf, id=438, 516.93124pt x 417.56pt>
+<Figures/WavePlots/n2out-eps-converted-to.pdf, id=441, 516.93124pt x 417.56pt>
 File: Figures/WavePlots/n2out-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n2out-eps-converted-to.pdf>
@@ -655,7 +655,7 @@ f>
 (epstopdf)             \includegraphics on input line 56.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n1n5-eps-converted-to.pdf, id=439, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n1n5-eps-converted-to.pdf, id=442, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n1n5-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n1n5-eps-converted-to.pdf>
@@ -674,7 +674,7 @@ f>
 (epstopdf)             \includegraphics on input line 63.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n3n4-eps-converted-to.pdf, id=440, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n3n4-eps-converted-to.pdf, id=443, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n3n4-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n3n4-eps-converted-to.pdf>
@@ -693,7 +693,7 @@ s-converted-to.pdf Figures/WavePlots/n4out.eps>
 (epstopdf)             \includegraphics on input line 70.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n4out-eps-converted-to.pdf, id=441, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n4out-eps-converted-to.pdf, id=444, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n4out-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n4out-eps-converted-to.pdf>
@@ -712,7 +712,7 @@ f>
 (epstopdf)             \includegraphics on input line 77.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n1n3-eps-converted-to.pdf, id=442, 516.93124pt x 417.56pt>
+<Figures/WavePlots/n1n3-eps-converted-to.pdf, id=445, 516.93124pt x 417.56pt>
 File: Figures/WavePlots/n1n3-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n1n3-eps-converted-to.pdf>
@@ -731,7 +731,7 @@ f>
 (epstopdf)             \includegraphics on input line 84.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n1n6-eps-converted-to.pdf, id=443, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n1n6-eps-converted-to.pdf, id=446, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n1n6-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n1n6-eps-converted-to.pdf>
@@ -750,7 +750,7 @@ s-converted-to.pdf Figures/WavePlots/n5out.eps>
 (epstopdf)             \includegraphics on input line 91.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n5out-eps-converted-to.pdf, id=444, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n5out-eps-converted-to.pdf, id=447, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n5out-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n5out-eps-converted-to.pdf>
@@ -769,25 +769,29 @@ s-converted-to.pdf Figures/WavePlots/n3out.eps>
 (epstopdf)             \includegraphics on input line 98.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n3out-eps-converted-to.pdf, id=445, 516.93124pt x 417.56pt>
+<Figures/WavePlots/n3out-eps-converted-to.pdf, id=448, 516.93124pt x 417.56pt>
 File: Figures/WavePlots/n3out-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n3out-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/WavePlots/n3out-eps-converted-to.pdf used on i
 nput line 98.
 (pdftex.def)             Requested size: 231.26378pt x 186.80437pt.
-) (./Vita.tex [64
+) (./Vita.tex [65
 
  <./Figures/WavePlots/CLKD-eps-converted-to.pdf> <./Figures/WavePlots/n1n2-eps-
-converted-to.pdf>] [65 <./Figures/WavePlots/n2out-eps-converted-to.pdf> <./Figu
-res/WavePlots/n1n5-eps-converted-to.pdf>] [66 <./Figures/WavePlots/n3n4-eps-con
-verted-to.pdf> <./Figures/WavePlots/n4out-eps-converted-to.pdf>] [67 <./Figures
+converted-to.pdf>] [66 <./Figures/WavePlots/n2out-eps-converted-to.pdf> <./Figu
+res/WavePlots/n1n5-eps-converted-to.pdf>] [67 <./Figures/WavePlots/n3n4-eps-con
+verted-to.pdf> <./Figures/WavePlots/n4out-eps-converted-to.pdf>] [68 <./Figures
 /WavePlots/n1n3-eps-converted-to.pdf> <./Figures/WavePlots/n1n6-eps-converted-t
 o.pdf>]
-[68 <./Figures/WavePlots/n5out-eps-converted-to.pdf> <./Figures/WavePlots/n3out
--eps-converted-to.pdf>]) [69
+[69 <./Figures/WavePlots/n5out-eps-converted-to.pdf> <./Figures/WavePlots/n3out
+-eps-converted-to.pdf>]) [70
 
-] (./Thesis.aux) ) 
+] (./Thesis.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
  3243 strings out of 495034
  44793 string characters out of 6181676
@@ -796,23 +800,22 @@ Here is how much of TeX's memory you used:
  9257 words of font info for 37 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  42i,11n,26p,1659b,562s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex1
-0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-ti12.pfb>
-Output written on Thesis.pdf (80 pages, 2016478 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on Thesis.pdf (81 pages, 2017082 bytes).
 PDF statistics:
- 572 PDF objects out of 1000 (max. 8388607)
- 407 compressed objects within 5 object streams
+ 575 PDF objects out of 1000 (max. 8388607)
+ 409 compressed objects within 5 object streams
  0 named destinations out of 1000 (max. 500000)
  191 words of extra memory for PDF output out of 10000 (max. 10000000)
 
