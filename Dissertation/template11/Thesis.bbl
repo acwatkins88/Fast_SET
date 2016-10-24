@@ -141,6 +141,11 @@ Natasa Miskov-Zivanov and Diana Marculescu.
   Electronic Design}, ISQED '07, pages 893--898, Washington, DC, USA, 2007.
   IEEE Computer Society.
 
+\bibitem{Muller1956}
+D.E. Muller and W.S. Bartky.
+\newblock {\em A Theory of Asynchronous Circuits}.
+\newblock Number v. 1 in Report: Digital Computer Laboratory. Univ., 1956.
+
 \bibitem{SEMM}
 P.~C. Murley and G.~R. Srinivasan.
 \newblock Soft-error monte carlo modeling program, semm.
