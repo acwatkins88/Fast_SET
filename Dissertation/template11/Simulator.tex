@@ -1,4 +1,4 @@
-\chapter{Accurate Soft Error Simulation Using Adaptive Partitioning} 
+\chapter{Accurate Soft Error Simulation Using Adaptive Partitioning} \label{ch3}
 
 As technology continues to the scale down, the likelihood of a radiation induced error increases. This trend provides a need for accurate and efficient methods to calculate the soft error rate of a given circuit. Since it is expensive and time consuming to design and circuit and test at a later time, efficient tools that can accurately determine the error rate for a given netlist before fabrication can significantly reduce the design time. However, it has proven to be very difficult to characterize combinational circuits due to three pulse masking factors. The masking factors are as follows:
 
@@ -44,7 +44,7 @@ For example, in the 2 input NAND gate in Fig. \ref{NANDS}, if both inputs have a
 	\label{NANDS}
 \end{figure}
 
-\begin{table}[h]
+\begin{table}[ht]
 	\begin{center}
 		\caption{Functions for Transient Pulse Generation}
 		\label{table:gentable}
@@ -124,7 +124,7 @@ For the consideration of METs, two or more pulses may arrive at a gate. If the t
 
 Table \ref{table:prop_table} gives the propagation functions $F(G)$ for each case with $F(a_p)$ and $F(b_p)$ being the functions representing the input values that allow for the pulse to be propagated to inputs a and b respectively. While this example is only for a two input gate, larger gates can be considered similarly.
 
-\begin{table}[h]
+\begin{table}[ht]
 	\begin{center}
 		\caption{Functions for a MET Arriving on the Inputs of a NAND Gate}
 		\label{table:prop_table}
@@ -295,7 +295,7 @@ Lastly, when the simulator processes a circuit or partition output, the BDD func
 			\FOR {Each Input Pulse $i$}
 				\STATE $F_{sens}$ = $F_{sens}$(i) $\land$ $F_{sens}$
 			\ENDFOR		
-			\IF{($F_{sens}$ != false) $\land$ (Solve BDD($F_{sens}$) > $P_{thr}$)}
+			\IF{($F_{sens}$ != false) $\land$ (Solve BDD($F_{sens}$) $>$ $P_{thr}$)}
 				\STATE Calculate Pulse Shape
 				\STATE Add To Pulse List
 			\ENDIF
@@ -310,7 +310,7 @@ Lastly, when the simulator processes a circuit or partition output, the BDD func
 			\STATE I = Check For Overlap
 			\IF {I == true}
 				\STATE F = Calculate Convergence Function
-				\IF {(F != false) $\land$ (Solve BDD(F) > $P_{thr}$)}
+				\IF {(F != false) $\land$ (Solve BDD(F) $>$ $P_{thr}$)}
 					\STATE Calculate Pulse Shape
 					\STATE Add To Pulse List
 				\ENDIF
@@ -325,7 +325,7 @@ The FAST\_MET simulator was test on the ISCAS 85 combinational benchmark circuit
 
 First, the accuracy of FAST\_MET without partitioning is compared to Monte Carlo simulation on c17 and c880 to ensure that the probablistic functions provided here exactly compute the logical masking effect. To ensure that both simulators use the same pulses, the pulse injection routine in FAST\_MET was moved to before the main simulation loop. Larger circuits were not tested since they lead to long simulations times and lead to the possibility of memory blow up for FAST\_MET without the use of partitioning. As can be observed in the Table \ref{table:MCvFAST}, FAST\_MET provides exact estimation of the output error with an over 5x speedup.
 
-\begin{table}[h]
+\begin{table}[ht]
 	\begin{center}
 		\caption{Comparision of FAST\_MET vs Monte Carlo}
 		\label{table:MCvFAST}
@@ -347,7 +347,7 @@ First, the accuracy of FAST\_MET without partitioning is compared to Monte Carlo
 
 The FAST\_MET simulator can provide an additional speedup through the use of partitioning. Table \ref{table:restable} provides the MES and the simulation time for various ISCAS circuits while changing the partition size. According to the results, it shows that partitioning can provide an upward of 20x reduction in simulation time at a cost of accuracy compared to not using partitioning. Based off the results, it is shown that increasing the number of partitions follows the law of diminishing returns. For example in c880, the use of 2 partitions reduces the simulation time by 13x while the use of 4 partitions reduces the simulation time by 18x. While this is still a large decrease in simulation time, the error is increased by 4x. Additionally, it can be seen that in c17 the use of partitioning actually increases the simulation time. This is due to the time to simulate the circuit is less than the overhead incurred by the partitioning algorithm. Based on this result, it is suggested that the partition size is carefully selected to ensure that the error is minimized.
 
-\begin{table}[h]
+\begin{table}[ht]
 	\begin{center}
 		\caption{FAST\_MET Performance vs Number of Partitions}
 		\label{table:restable}
