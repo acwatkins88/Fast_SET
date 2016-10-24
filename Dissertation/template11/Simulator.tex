@@ -122,11 +122,11 @@ For the consideration of METs, two or more pulses may arrive at a gate. If the t
 	\label{Prop_MET}
 \end{figure}
 
-Table \ref{table:prop_table} gives the propagation functions $F(G)$ for each case with $F(a_p)$ and $F(b_p)$ being the functions representing the input values that allow for the pulse to be propagated to inputs a and b respectively. While this example is only for a two input gate, multiple input gates can be considered similarly.
+Table \ref{table:prop_table} gives the propagation functions $F(G)$ for each case with $F(a_p)$ and $F(b_p)$ being the functions representing the input values that allow for the pulse to be propagated to inputs a and b respectively. While this example is only for a two input gate, larger gates can be considered similarly.
 
 \begin{table}[h]
 	\begin{center}
-		\caption{Functions for Transient Pulse Generation}
+		\caption{Functions for a MET Arriving on the Inputs of a NAND Gate}
 		\label{table:prop_table}
 		\begin{tabular}{|c|c|}
 			\hline
@@ -178,13 +178,13 @@ Based off the MES, the soft error rate ($SER$) can be calculated as in below whe
 SER = MES*R_{eff}*P_{eff}*A 
 \end{equation}
 
-\section{Description of the FAST\_MET Simulator}
+\section{Description of the FAST\_MET Simulator} \label{ch3:desc}
 
 FAST\_MET is a fast and accurate tool to estimate the soft error rate. The method aims to provide a good trade-off between simulation time and accurate SER calculation. To accurately determine the logical masking effects, BDDs are used. A BDD is a tree structure which can be used to represent a Boolean function. The first instance of the use of BDDs for function representation was proposed in \cite{Bryant1986} and has continued to be used regularly in circuit simulation and synthesis since. Fig. \ref{BDD_AND} gives the representation of a AND gate as BDD. Note that the structure consists of nodes which represent variables. For each node, there are two branches, one denoting a "true" value and the other a "false" value. The BDD graph also consists of multiple paths to two terminating nodes, one with a "true" value denoted by "1" and one with a "false" value denoted by "0".
 
 \begin{figure}[!htbp]
 	\centering
-	\includegraphics[width=0.65\linewidth]{Figures/BDDFunc}
+	\includegraphics[width=0.55\linewidth]{Figures/BDDFunc}
 	%where an .eps filename suffix will be assumed under latex, 
 	%and a .pdf suffix will be assumed for pdflatex; or what has been declared
 	%via \DeclareGraphicsExtensions.
@@ -192,7 +192,7 @@ FAST\_MET is a fast and accurate tool to estimate the soft error rate. The metho
 	\label{BDD_AND}
 \end{figure}
 
-	The main advantage of a BDD is that they provide an efficient canonical form to represent a Boolean function. Specifically, this means that Boolean operations (such as AND, NAND, OR ... etc) can be easily and quickly applied to the graph. In the case of the FAST\_MET simulator, BDD representation of the functions are used to both calculate the signal probability and the probability for pulse propagation.
+The main advantage of a BDD is that they provide an efficient canonical form to represent a Boolean function. Specifically, this means that Boolean operations (such as AND, NAND, OR ... etc) can be easily and quickly applied to the graph. In the case of the FAST\_MET simulator, BDD representation of the functions are used to both calculate the signal probability and the probability for pulse propagation.
 
 In FAST\_MET, the goal is to accurately and efficiently represent a sensitization function as a BDD. A sensitization function is defined as the Boolean function that allows for a generated transient pulse to propagate through a circuit. In other words, a sensitization is the function that represents all input patterns that sensitize the pulse to the output. 
 
@@ -206,8 +206,170 @@ When a pulse is generated, the gate input functions are considered using the inp
 	%where an .eps filename suffix will be assumed under latex, 
 	%and a .pdf suffix will be assumed for pdflatex; or what has been declared
 	%via \DeclareGraphicsExtensions.
-	\caption{An example of the BDD creation for a rising and falling pulse,}
+	\caption{An example of the BDD creation for a rising and falling pulse.}
 	\label{BDD_GEN}
 \end{figure}
 
-To consider the MET case, the location and correlation between the pulses must be considered. As discussed in \cite{Ebrahimi2016}, layout information is important in accurately modeling the location of the MET for a real design. Gates that are near each other in a netlist may not necessarily be close in the layout. In this section, for the sake of simplicity, METs are generated using close proximity nodes from the netlist. However, for the sake of simple comparison and analysis, using the netlist is not problematic. 
+To consider the MET case, the location and correlation between the pulses must be considered. As discussed in \cite{Ebrahimi2016}, layout information is important in accurately modeling the location of the MET for a real design since gates that are near each other in a netlist may not necessarily be close in the layout. In this section, for the sake of simplicity, METs are generated using close proximity nodes from the netlist. For the sake of simple comparison and analysis, using the netlist is not problematic. 
+
+To determine the logical masking effects of a MET, the correlation between the inputs of both struck gates are found by using the logical AND operation between the generation functions derived as in Table \ref{table:gentable}. The logic behind this operation is that all pulses must be logically sensitized concurrently. Since the functions may share common inputs, they may have dependencies that must be considered. 
+
+In the case of pulse propagation, the sensitization functions are represented as BDDs. As discussed in Section \ref{ch3:prelim}, a pulse will propagate through a gate if all off-inputs have a non-controlling value. As can be observed in equation \ref{prop_eq}, the functions representing the case at which the off-input has a non-controlling value are logically AND'd together. The basis behind this idea is that all off-inputs must be non-controlling in order for the pulse to be propagated. 
+
+To consider pulse propagation in the FAST\_MET simulator, the logic functions are first represented in a BDD. A logic function is the Boolean function which provides the variable states that allow a "1" and a "0" value. The sensitization function for the gate is then determined by using the logical AND operation on each off-input BDD. If the non-controlling value for the gate is a "0", such as in a OR gate, the BDDs are inverted so that the "1" terminal represents the case at which the pulse propagates. If the non-controlling value is a "1" the BDDs are left unchanged. The result of this operation is a single BDD in which the paths that lead to the "1" terminal represent all of the input patterns that allow the pulse to propagated while the paths that lead to the "0" terminal represent the patterns the will mask the pulse.
+
+In the case of multiple pulses arriving at a gate simultaneously referred to a convergent pulses, the off-inputs are considered as discussed previously. As shown in Table \ref{table:prop_table}, a MET can result in multiple output cases which must be considered. The first case is where only one pulse will propagate which is calculated as previously discussed. All remaining cases include the circumstances where multiple pulses will arrive at the gate input simultaneously. In these cases, the logic function is determined by using the AND operation on the input function which have a pulse. The resulting function from this operation is then AND'd with the non-controlling off-input logic functions. The basis behind this idea is that the pulse sensitization functions give the cases where a pulse will arrive at the gate input. If two pulses arrive simultaneously, both pulses must be sensitized concurrently. The logical AND states that both functions must evaluate to true while all off-inputs must be non-controlling for the pulse to be propagated.
+
+\section{FAST\_MET Simulation Flow}
+
+The goal of the FAST\_MET simulator is to calculate the SER of a circuit. To do this, the simulator must inject pulses in each gate. The main difficulty for this type of simulation is that for even relatively small circuits, it may take an intractable amount of simulation time and memory to consider all pulses. The FAST\_MET simulator provides a good trade off compared to existing methods since it uses the pulse approximation method in Chapter \ref{ch2} in conjunction with BDDs to accurately and quickly determine the SER.
+
+The first step for the FAST\_MET simulator is to partition the circuit. As shown in \cite{FASER,METSys}, the use of BDD functions can lead to memory blow up. To alleviate this issue, the FAST\_MET partitions the circuit into a user defined number of parts. It is shown in Section \ref{ch3:results} that the use of partitioning can substantially reduce the simulation time at a cost of accuracy in the SER estimation. For this work, the circuits were partitioned using the Fiduccia and Mattheyses (FM) algorithm \cite{Fiduccia1982} which allows for a circuit to be partitioned into two parts in linear time. To achieve a $k$ part partition, the FM algorithm can be applied recursively a k-1 number of times. This algorithm was chosen based off its linear time complexity and relatively easy integration into the FAST\_MET tool. Through proper integration, one can also use other partitioning tools such as hMetis \cite{hMetis}. Partitioning the circuit improves the performance by reducing the size of the logic and pulse sensitization BDDs. For moderately large circuits or larger, partitioning must be used since the BDD functions are too large and complex for realistic simulation.
+
+After partitioning, the FAST\_MET simulator processes the primary inputs of the circuit. At each input node, the signal probability is set and the BDD variables are initialized such that each input is a variable. In this work, it is assumed that there are not pulses on the inputs, however, especially if the method is used for the consideration of sequential circuits such as in \cite{MiskovZivanov2007}, pulses can be injected on the inputs. This is due to the inputs being connected to the output of a flip-flop which drives the circuit.
+
+After the inputs are processed, the internal nodes are visited in a topological order. At each node, at least one pulse is injected for a given charge. The particle effect is modeled as a current pulse using equation \ref{qeq}. A current source is placed on the output of the gate to simulate the particle effect and the resulting pulse shape is determined using the method discussed in Chapter \ref{ch2}. Multiple pulses can be injected concurrently in a gate, however, the simulation time and memory resources increase substantially as more pulses are injected.
+
+Additionally, FAST\_MET is able to simulate the effects of a MET. To accommodate this, each injected pulse or MET is given an event number $k$ to create an event $E_k$. This is important since FAST\_MET injects pulses at each gate concurrently to speed up the SER characterization. Thus, when an MET is generated, a pulse is created on two or more gates which all have the same event number.
+
+Once the pulses are injected and the corresponding BDD function are determined, FAST\_MET propagates all pulses found on the gate inputs. Each fanin gate is checked individually for pulses. If a pulse is found the propagation function is determined as in Section \ref{ch3:desc}. If the function does not evaluate to a false value, implying that there are no input patterns that allow the pulse to be propagated, the pulse is not considered further. However, if the function is not false, the output pulse shape is calculated. This operation continues for each pulse found on the inputs. 
+
+When a node is on the edge of a partition circuit, the effects of the previous partition must be considered. To do this, each node on the output edge of a partition is evaluated to determine their probability. This value is stored with the pulse which is propagated between the partitions. Since a partition may be separated from the primary inputs that drive it, virtual inputs are created which contain all pulses and their probabilities and the probabilities from the logic functions of the gate that was connected to input on the previous partition. Using these values, the probabilities are multiplied by the evaluated probability of the function to determine the overall probability. This is demonstrated in Fig. \ref{PART_PROP}.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=\linewidth]{Figures/PartProp}
+	%where an .eps filename suffix will be assumed under latex, 
+	%and a .pdf suffix will be assumed for pdflatex; or what has been declared
+	%via \DeclareGraphicsExtensions.
+	\caption{An example on c17 showing how the pulses are propagated between partitions.}
+	\label{PART_PROP}
+\end{figure}
+
+An issue that was found through numerous simulations using this method is that the functions will not evaluate to a false value even if the pulse does not propagate since a single partition does not consider the whole circuit. This, in effect, substantially reduces the number of pulses that are attenuated which can offset any improvement increases gained through partitioning. To solve this issue, it was found that setting a minimum probability threshold ($P_{thr}$) in which only pulses with a probability greater than this number are considered substantially saved simulation time with a slight increase in estimation error.
+
+Once each individual pulse is propagated, a routine searches the inputs pulses and organizes them into a has table based on their event number. For each event $E_k$, the pulses are checked for overlap. If the pulses do overlap, they are treated as convergent pulses and are considered as previously discussed. Once issue that arises during this step is that there may be many possible cases in which the pulses overlap. For example, there may be 2, 3 or more concurrent overlapping pulses. In this work, to reduce the simulation time, only two pulses are considered. While the electrical masking model can accurately consider the effects of 3 or more convergent pulses, it is assumed that the likelihood of the pulses propagating is low.
+
+Lastly, when the simulator processes a circuit or partition output, the BDD functions for each pulse are solved to determine the probability. Using the probability the MES is determined as discussed in \ref{ch3:prelim}. An overview of the whole simulation flow is given in Algorithm \ref{alg:fastmet}.
+
+\begin{algorithm}
+	\caption{FAST\_MET} \label{alg:fastmet}
+	\begin{algorithmic} [1]
+		\STATE Set Process Parameters
+		\STATE Parse Netlist
+		\STATE Organize Circuit Topologically
+		\STATE Parse Circuit Into $k$ Parts
+		\FOR{Each Partition}
+			\STATE Extract Partition
+			\STATE Set Virtual Inputs
+			\FOR{Each Gate} 	
+				\STATE Generate Pulse
+				\STATE Generate Sensitization Function
+				\STATE Propagate Pulse
+				\STATE Calculate Convergence
+				\IF{Primary Output}
+					\STATE Calculate $P_{L,i}$
+				\ELSIF{Edge of Partition}
+					\STATE Solve BDD Probability
+				\ENDIF
+			\ENDFOR
+		\ENDFOR		
+	\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+	\caption{Generate Pulse} 
+	\begin{algorithmic} [1]
+		\STATE F = Calculate Generation Function
+		\IF{F != false}
+			\STATE Calculate Pulse Shape
+			\STATE Add To Pulse List
+		\ENDIF		
+	\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+	\caption{Propagate Pulse} 
+	\begin{algorithmic} [1]
+			\STATE $F_{sens}$ = Sensitization Function
+			\FOR {Each Input Pulse $i$}
+				\STATE $F_{sens}$ = $F_{sens}$(i) $\land$ $F_{sens}$
+			\ENDFOR		
+			\IF{($F_{sens}$ != false) $\land$ (Solve BDD($F_{sens}$) > $P_{thr}$)}
+				\STATE Calculate Pulse Shape
+				\STATE Add To Pulse List
+			\ENDIF
+	\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+	\caption{Calculate Convergence} 
+	\begin{algorithmic} [1]
+		\STATE Load Hash Table For Each Event
+		\FOR {Each Event}
+			\STATE I = Check For Overlap
+			\IF {I == true}
+				\STATE F = Calculate Convergence Function
+				\IF {(F != false) $\land$ (Solve BDD(F) > $P_{thr}$)}
+					\STATE Calculate Pulse Shape
+					\STATE Add To Pulse List
+				\ENDIF
+			\ENDIF
+		\ENDFOR	
+	\end{algorithmic}
+\end{algorithm}
+	
+\section{Results} \label{ch3:results}
+
+The FAST\_MET simulator was test on the ISCAS 85 combinational benchmark circuits. FAST\_MET was implemented in C++ on a machine with a quad core i7 with superscaling and 16GB of RAM. The transistor look-up tables were characterized in HSPICE using the 32nm Predictive Technology Model (PTM) \cite{PTM} where $V_{dd}$ was set to 1.05V. The unit gate capacitance was set to a constant capacitance of 2 fF to simulate the loading effects of the gates and interconnects. To calculate the MES, a single pulse with an energy of 15 fC was applied to each gate using equation \ref{qeq} with $\tau$ being set to $32x10^{-15}$. It was assumed that each output is connected to a flip-flop implemented in the same process library with a setup time ($t_{setup}$) of 22 ps and a hold time ($t_{hold}$) of -7 ps in accordance to \cite{Nunes2013}. For all simulations, the probability of MET was set to 10\% and the error threshold for simulation $P_{thr}$ was set to 0.025 when partitioning was used. When an MET occured, it was injected to a neighboring gate based on the netlist.
+
+First, the accuracy of FAST\_MET without partitioning is compared to Monte Carlo simulation on c17 and c880 to ensure that the probablistic functions provided here exactly compute the logical masking effect. To ensure that both simulators use the same pulses, the pulse injection routine in FAST\_MET was moved to before the main simulation loop. Larger circuits were not tested since they lead to long simulations times and lead to the possibility of memory blow up for FAST\_MET without the use of partitioning. As can be observed in the Table \ref{table:MCvFAST}, FAST\_MET provides exact estimation of the output error with an over 5x speedup.
+
+\begin{table}[h]
+	\begin{center}
+		\caption{Comparision of FAST\_MET vs Monte Carlo}
+		\label{table:MCvFAST}
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			Circuit& Simulator & MES & Run Time\\ 
+			\hline
+			c17 & Monte Carlo & $3.92x10^{-4}$ & 0.429\\
+			\hline
+			c880 & Monte Carlo & $4.15x10^{-4}$ & 9110.35\\
+			\hline
+			c17 & FAST\_MET & $3.92x10^{-4}$ & 0.0974\\
+			\hline
+			c880 & FAST\_MET & $4.15x10^{-4}$ & 1909.37\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+The FAST\_MET simulator can provide an additional speedup through the use of partitioning. Table \ref{table:restable} provides the MES and the simulation time for various ISCAS circuits while changing the partition size. According to the results, it shows that partitioning can provide an upward of 20x reduction in simulation time at a cost of accuracy compared to not using partitioning. Based off the results, it is shown that increasing the number of partitions follows the law of diminishing returns. For example in c880, the use of 2 partitions reduces the simulation time by 13x while the use of 4 partitions reduces the simulation time by 18x. While this is still a large decrease in simulation time, the error is increased by 4x. Additionally, it can be seen that in c17 the use of partitioning actually increases the simulation time. This is due to the time to simulate the circuit is less than the overhead incurred by the partitioning algorithm. Based on this result, it is suggested that the partition size is carefully selected to ensure that the error is minimized.
+
+\begin{table}[h]
+	\begin{center}
+		\caption{FAST\_MET Performance vs Number of Partitions}
+		\label{table:restable}
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			Circuit& Parts & MES & Run Time\\ 
+			\hline
+			c17 & 2 & $3.83x10^{-4}$ & 0.1377\\
+			\hline
+			c880 & 2 & $3.13x10^{-4}$ & 139.54\\
+			\hline
+			c880 & 4 & $8.37x10^{-4}$ & 107.72\\
+			\hline
+			c1355 & 2 & $1.96x10^{-4}$ & 459.00\\
+			\hline
+			c1355 & 4 & $2.85x10^{-4}$ & 242.60\\
+			\hline
+			c1355 & 8 & $3.67x10^{-4}$ & 167.961\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+\section{Conclusion}
+In this chapter, the FAST\_MET simulator is proposed. First, probabilistic equations were provided which allow for accurate consideration of all propagation effects. These equations were then represented as BDDs and used to determine the logical masking effect. In the results it was shown that the tool provides a good trade-off between simulation time and accuracy due to the use of partitioning and an accurate masking model. Additionally, it is shown that the number of partitions reduces the simulation time up 18x compared to not using partitioning and 90x compared to Monte Carlo simulation.

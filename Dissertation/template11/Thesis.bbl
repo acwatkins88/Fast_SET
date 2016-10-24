@@ -62,6 +62,12 @@ M.~Fazeli, S.~G. Miremadi, A.~Ejlali, and A.~Patooghy.
   for deep submicron technologies.
 \newblock {\em IET Computers Digital Techniques}, 3(3):289--303, May 2009.
 
+\bibitem{Fiduccia1982}
+C.~M. Fiduccia and R.~M. Mattheyses.
+\newblock A linear-time heuristic for improving network partitions.
+\newblock In {\em Proceedings of the 19th Design Automation Conference}, DAC
+  '82, pages 175--181, Piscataway, NJ, USA, 1982. IEEE Press.
+
 \bibitem{Han2014}
 J.~Han, H.~Chen, J.~Liang, P.~Zhu, Z.~Yang, and F.~Lombardi.
 \newblock A stochastic computational approach for accurate and efficient
@@ -110,6 +116,10 @@ S.~Lin, H.~Yang, and R.~Luo.
 \newblock In {\em IEEE Computer Society Annual Symposium on VLSI (ISVLSI '07)},
   pages 273--278, March 2007.
 
+\bibitem{hMetis}
+Pekka Miettinen, Mikko Honkala, and Janne Roos.
+\newblock Using metis and hmetis algorithms in circuit partitioning.
+
 \bibitem{MARS_C}
 N.~Miskov-Zivanov and D.~Marculescu.
 \newblock Mars-c: modeling and reduction of soft errors in combinational
@@ -124,6 +134,13 @@ N.~Miskov-Zivanov and D.~Marculescu.
 \newblock {\em IEEE Transactions on Computer-Aided Design of Integrated
   Circuits and Systems}, 29(10):1614--1627, Oct 2010.
 
+\bibitem{MiskovZivanov2007}
+Natasa Miskov-Zivanov and Diana Marculescu.
+\newblock Mars-s: Modeling and reduction of soft errors in sequential circuits.
+\newblock In {\em Proceedings of the 8th International Symposium on Quality
+  Electronic Design}, ISQED '07, pages 893--898, Washington, DC, USA, 2007.
+  IEEE Computer Society.
+
 \bibitem{SEMM}
 P.~C. Murley and G.~R. Srinivasan.
 \newblock Soft-error monte carlo modeling program, semm.
@@ -135,6 +152,12 @@ M.~Nicolaidis, R.~Perez, and D.~Alexandrescu.
   transistors.
 \newblock In {\em 26th IEEE VLSI Test Symposium (vts 2008)}, pages 371--376,
   April 2008.
+
+\bibitem{Nunes2013}
+C.~Nunes, P.~F. Butzen, A.~I. Reis, and R.~P. Ribas.
+\newblock A methodology to evaluate the aging impact on flip-flops performance.
+\newblock In {\em Integrated Circuits and Systems Design (SBCCI), 2013 26th
+  Symposium on}, pages 1--6, Sept 2013.
 
 \bibitem{Omana_Trap}
 M.~Omana, G.~Papasso, D.~Rossi, and C.~Metra.
