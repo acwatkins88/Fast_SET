@@ -169,7 +169,7 @@ To provide a fair comparison, the propagation delay, average power consumption a
 According to Table \ref{table:rtable} the only DNU robust designs are the two DONUT latch implementations and the HRDNUT. Compared to the modified DONUT latch, the HRDNUT provides DNU robustness while reducing the power consumption and the number of transistors by 11.3\% and 8.33\% respectively while also reducing the delay by 72.5\%. For the above reasons, the HRDNUT is the best design for clock gating applications due to its high robustness, even after a DNU occurs, and lower power, delay and area overheads.
 
 \section{Filtering of Transients Arriving on the Latch Input}
-In addition to radiation particles hitting the internal nodes in a latch, transient voltage pulses may arrive on the inputs. In a typical digital system design, combinational logic is placed between two sets of flip-flops, one set driving the input and the other being driven by the output of the combinational circuit. While there are masking factors in these types of circuits, it may still be likely that a pulse will arrive at the output of the circuit. A method to filter incoming pulses was proposed in \cite{FERST}. Their design consisted of routing a single primary output through two paths, one with no delay and one will sufficient delay that the two pulses will not overlap. The general design is given below.
+In addition to radiation particles hitting the internal nodes in a latch, transient voltage pulses may arrive on the inputs of a combinational circuit. In a typical digital system design, combinational logic is placed between two sets of flip-flops, one set driving the input and the other being driven by the output of the combinational circuit. While there are masking factors in combinational circuits, they may still allow a pulse to arrive on the input of a flip flop. A novel circuit to filter incoming pulses was proposed in \cite{FERST} and is given in \ref{P_filter}. Their design consisted of routing the pulse through two paths, one with no delay and one with sufficient delay that the two pulses will not overlap. The general design is given below.
 
 \begin{figure}[!htbp]
 	\centering
@@ -181,7 +181,7 @@ In addition to radiation particles hitting the internal nodes in a latch, transi
 	\label{P_filter}
 \end{figure}
 
-An issue with the approach in Fig. \ref{P_filter} is that in a high radiation environment, a high energy particle can hit the delay element causing a voltage pulse on the node. If this occurs while a pulse being propagated through the circuit, it could delay the pulse at the delay element causing the erroneous value to be latched in the flip flop. A simple way to mitigate this effect is to add an additional delay element with twice the delay. This, in effect, will allow the device to function properly even if an error occurs during the filtering stage. The design of the device is given in Fig. \ref{Enh_filter}. Due to the use of three outputs, the device can be used with the HRDNUT latch without modification.
+An issue with the approach in Fig. \ref{P_filter} is that in a radioactive environment, a high energy particle can hit the delay element causing a voltage pulse on the node. If this occurs while a pulse is being propagated through the circuit, it could create a secondary pulse at the delay element causing an erroneous value to be latched in the flip flop. A simple way to mitigate this effect is to add an additional delay element with twice the delay. This, in effect, will allow the device to function properly even if an error occurs during the filtering stage. The design of the device is given in Fig. \ref{Enh_filter}. Due to the use of three outputs, the device can be used with the HRDNUT latch without modification.
 
 \begin{figure}[!htbp]
 	\centering
@@ -193,7 +193,7 @@ An issue with the approach in Fig. \ref{P_filter} is that in a high radiation en
 	\label{Enh_filter}
 \end{figure} 
 
-Next the filtering circuit is evaluated. If a pulse arrives on node $In$, it is propagated to the three delay elements. The pulse arriving on $OUT1$ will propagate to the latch with no increased delay. The pulse on $OUT2$ will arrive at the latch with delay of one unit and the pulse on $OUT3$ will arrive with a delay of 2 units. If an error occurs on the buffer at $OUT3$ while a pulse a being propagated, an additional pulse will be generated at the buffer causing two node to simultaneously have the same data value. However, since node $OUT2$ is error free during this stage, the circuit will still filter the pulse allowing the correct data to be latched. This analysis can be applied similarly to the case where a strike occurs on the buffer connected to $OUT2$.
+Next the filtering circuit is evaluated. If a pulse arrives on node $In$, it is propagated to the three delay elements. The pulse arriving on $OUT1$ will propagate to the latch with no increased delay. The pulse on $OUT2$ will arrive at the latch with a delay of one unit and the pulse on $OUT3$ will arrive with a delay of 2 units. If an error occurs on the buffer at $OUT3$ while a pulse is being propagated, an additional pulse will be generated at the buffer causing two node to simultaneously have the same data value. However, since node $OUT2$ is error free during this stage, the circuit will still filter the pulse allowing the correct data to be latched. This analysis can be applied similarly to the case where a strike occurs on the buffer connected to $OUT2$.
 
 To determine the power overhead of the filtering circuit, the device was implemented in the 32nm PTM library and operated at 1Ghz. The circuit was designed to filter pulses with a width of 20ps. This was accomplished using a chain of 4 buffers for the short delay and 8 buffers for the long delay which had a 5ps propagation delay each. Simulations were completed in HSPICE which show that the addition of the filtering circuit doubles the power consumption and has a minimum delay of 40ps.
 
@@ -222,7 +222,7 @@ To further estimate the power, delay and area overheads of a TNU latch, a design
 
 \begin{figure}[!htbp]
 	\centering
-	\includegraphics[width=0.75\linewidth]{Figures/TNULatch2}
+	\includegraphics[width=0.90\linewidth]{Figures/TNULatch2}
 	%where an .eps filename suffix will be assumed under latex, 
 	%and a .pdf suffix will be assumed for pdflatex; or what has been declared
 	%via \DeclareGraphicsExtensions.

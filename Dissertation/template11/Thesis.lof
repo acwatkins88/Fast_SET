@@ -25,13 +25,13 @@
 \contentsline {figure}{\numberline {3.4}{\ignorespaces The truth table and corresponding BDD for an AND gate.}}{51}
 \contentsline {figure}{\numberline {3.5}{\ignorespaces An example of the BDD creation for a rising and falling pulse.}}{53}
 \contentsline {figure}{\numberline {3.6}{\ignorespaces An example on c17 showing how the pulses are propagated between partitions.}}{57}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Waveforms for CLK and D.}}{67}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Node pair n1 and n2 upset and recovery.}}{67}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Node pair n2 and out upset and recovery.}}{68}
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Node pair n1 and n5 upset and recovery.}}{68}
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Node pair n3 and n4 upset and recovery.}}{69}
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Node pair n4 and out upset and recovery.}}{69}
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Node pair n1 and n3 upset and recovery.}}{70}
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Node pair n1 and n6 upset and recovery.}}{70}
-\contentsline {figure}{\numberline {3.15}{\ignorespaces Node pair n5 and out upset and recovery.}}{71}
-\contentsline {figure}{\numberline {3.16}{\ignorespaces Node pair n3 and out upset and recovery.}}{71}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Waveforms for CLK and D.}}{68}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Node pair n1 and n2 upset and recovery.}}{68}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Node pair n2 and out upset and recovery.}}{69}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Node pair n1 and n5 upset and recovery.}}{69}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Node pair n3 and n4 upset and recovery.}}{70}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Node pair n4 and out upset and recovery.}}{70}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Node pair n1 and n3 upset and recovery.}}{71}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Node pair n1 and n6 upset and recovery.}}{71}
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Node pair n5 and out upset and recovery.}}{72}
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Node pair n3 and out upset and recovery.}}{72}

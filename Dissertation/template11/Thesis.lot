@@ -2,6 +2,6 @@
 \contentsline {table}{\numberline {2.1}{\ignorespaces Proposed and \cite {Accurate_Masking} compared to HSPICE for 2400 points.}}{38}
 \contentsline {table}{\numberline {2.2}{\ignorespaces Execution Time vs Accuracy ($x10^{-3}$)}}{38}
 \contentsline {table}{\numberline {3.1}{\ignorespaces Functions for Transient Pulse Generation}}{46}
-\contentsline {table}{\numberline {3.2}{\ignorespaces Functions for a MET Arriving on the Inputs of a NAND Gate}}{49}
+\contentsline {table}{\numberline {3.2}{\ignorespaces Functions for a MET Arriving on the Inputs of a NAND Gate}}{48}
 \contentsline {table}{\numberline {3.3}{\ignorespaces Comparision of FAST\_MET vs Monte Carlo}}{60}
 \contentsline {table}{\numberline {3.4}{\ignorespaces FAST\_MET Performance vs Number of Partitions}}{61}
