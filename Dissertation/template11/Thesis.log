@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.9.29)  31 OCT 2016 12:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.9.29)  1 NOV 2016 00:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -472,21 +472,21 @@ Missing character: There is no ™ in font cmr12!
 File: Figures/TransistorModel.pdf Graphic file (type pdf)
 
 <use Figures/TransistorModel.pdf>
-Package pdftex.def Info: Figures/TransistorModel.pdf used on input line 21.
+Package pdftex.def Info: Figures/TransistorModel.pdf used on input line 43.
 (pdftex.def)             Requested size: 231.26378pt x 138.4985pt.
  [30 <./Figures/TransistorModel.pdf>]
 <Figures/Conv_Mod.pdf, id=248, 313.9228pt x 163.3603pt>
 File: Figures/Conv_Mod.pdf Graphic file (type pdf)
 
 <use Figures/Conv_Mod.pdf>
-Package pdftex.def Info: Figures/Conv_Mod.pdf used on input line 39.
+Package pdftex.def Info: Figures/Conv_Mod.pdf used on input line 61.
 (pdftex.def)             Requested size: 393.15125pt x 204.5987pt.
  [31 <./Figures/Conv_Mod.pdf>]
 <Figures/GenModel.pdf, id=257, 237.88875pt x 137.01187pt>
 File: Figures/GenModel.pdf Graphic file (type pdf)
 
 <use Figures/GenModel.pdf>
-Package pdftex.def Info: Figures/GenModel.pdf used on input line 57.
+Package pdftex.def Info: Figures/GenModel.pdf used on input line 79.
 (pdftex.def)             Requested size: 346.89566pt x 199.8036pt.
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
@@ -496,7 +496,7 @@ Missing character: There is no ™ in font cmr12!
 File: Figures/Stacked.pdf Graphic file (type pdf)
 
 <use Figures/Stacked.pdf>
-Package pdftex.def Info: Figures/Stacked.pdf used on input line 131.
+Package pdftex.def Info: Figures/Stacked.pdf used on input line 153.
 (pdftex.def)             Requested size: 323.76787pt x 210.58327pt.
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
@@ -509,28 +509,28 @@ Missing character: There is no „ in font cmr12!
 File: Figures/plot300.png Graphic file (type png)
 
 <use Figures/plot300.png>
-Package pdftex.def Info: Figures/plot300.png used on input line 221.
+Package pdftex.def Info: Figures/plot300.png used on input line 243.
 (pdftex.def)             Requested size: 208.13599pt x 155.81963pt.
 
 <Figures/plot960.png, id=292, 532.8708pt x 398.9304pt>
 File: Figures/plot960.png Graphic file (type png)
 
 <use Figures/plot960.png>
-Package pdftex.def Info: Figures/plot960.png used on input line 223.
+Package pdftex.def Info: Figures/plot960.png used on input line 245.
 (pdftex.def)             Requested size: 208.13599pt x 155.81963pt.
 
 <Figures/plotoutnand3300.png, id=293, 532.8708pt x 398.9304pt>
 File: Figures/plotoutnand3300.png Graphic file (type png)
 
 <use Figures/plotoutnand3300.png>
-Package pdftex.def Info: Figures/plotoutnand3300.png used on input line 232.
+Package pdftex.def Info: Figures/plotoutnand3300.png used on input line 254.
 (pdftex.def)             Requested size: 208.13599pt x 155.81963pt.
 
 <Figures/plotoutnand3903.png, id=294, 532.8708pt x 398.9304pt>
 File: Figures/plotoutnand3903.png Graphic file (type png)
 
 <use Figures/plotoutnand3903.png>
-Package pdftex.def Info: Figures/plotoutnand3903.png used on input line 234.
+Package pdftex.def Info: Figures/plotoutnand3903.png used on input line 256.
 (pdftex.def)             Requested size: 208.13599pt x 155.81963pt.
 ) (./Simulator.tex [38] [39 <./Figures/plot300.png (PNG copy)> <./Figures/plot9
 60.png (PNG copy)> <./Figures/plotoutnand3300.png (PNG copy)> <./Figures/plotou
@@ -809,7 +809,7 @@ mr8.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
 c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive
 /2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2016/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Thesis.pdf (84 pages, 2045825 bytes).
+Output written on Thesis.pdf (84 pages, 2045404 bytes).
 PDF statistics:
  597 PDF objects out of 1000 (max. 8388607)
  427 compressed objects within 5 object streams

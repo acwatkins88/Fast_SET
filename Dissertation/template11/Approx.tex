@@ -3,7 +3,29 @@
 
 As the transistor size has continued to decrease, the probability of a SEU occurring has continued to greatly increase. This, in effect, has created a need for accurate and efficient SEU simulators. The SEU problem has been investigated deeply. \cite{MARS_C,SERA,FASER} However, due to the close proximity of transistors and the increase in transistor error sensitivity, the probability of a single or multiple radiation strikes producing multiple voltage pulses has become a concern. The authors in \cite{Harada} investigated a 65 nm 3x3 inverter matrix and found that 40\% of all single radiation strikes resulted in the generation multiple significant voltage pulses. Considering the possibility that a modern circuit is also vulnerable to multiple simultaneous strike, there is a significant concern for multiple transients. This creates the need for either the enhancement of existing SEU tools or the development of new tools which can consider the single event multiple transient (SEMT) and multiple event multiple transient (MEMT) effect.
 
-Previous work in SEU’s have shown that combinational circuits are vulnerable to 3 types of error masking effects: logical masking, electrical masking and temporal masking. Accurate estimation of the soft error rate requires consideration of all masking factors for not only SEU’s but also the SEMT and MEMT cases. In this paper, the focus is on the consideration of the electrical masking effect. There have been many approaches to the electrical masking problem for the SEU case. \cite{Omana_Trap,Accurate_Masking,Weibull} However, a major drawback with these approaches is that they do not accurately consider the effect of multiple pulses occurring on the gate input (referred to as convergent pulses). Since, in the SEMT and MEMT cases, there are many pulses generated, the occurrence of convergent pulses is much higher. To model these cases, an accurate electrical masking model must consider convergent pulses. 
+Previous work in SEU’s have shown that combinational circuits are vulnerable to 3 types of error masking effects: logical masking, electrical masking and temporal masking. Accurate estimation of the soft error rate requires consideration of all masking factors for not only SEU’s but also the SEMT and MEMT cases. In this paper, the focus is on the consideration of the electrical masking effect. There have been many approaches to the electrical masking problem for the SEU case \cite{Omana_Trap,Accurate_Masking,Weibull}. However, a major drawback with these approaches is that they do not accurately consider the effect of multiple pulses occurring on the gate input (referred to as convergent pulses). Since, in the SEMT and MEMT cases, there are many pulses generated, the occurrence of convergent pulses is much higher. To model these cases, an accurate electrical masking model must consider convergent pulses. 
+%
+%\begin{algorithm}
+%	\caption{Determine Output} 
+%	\begin{algorithmic} [1]
+%		\STATE Initialize output with truth table
+%		\FOR {each time $i$}
+%			\FOR {each transistor $j$}
+%				\STATE Get $I_{m_{i,j}}$ from LUT using $i-1$ values
+%			\ENDFOR
+%			\FOR {each intermediate node $V_n$}
+%				\STATE $I_m = \frac{C_{m1}(V_{n_i} - V_{n_{i-1}})}{t_{step}}$
+%				\STATE $V_{n_i} = \frac{(I_{D1} - I_{D2})t_{step}}{C_{m1}} + V_{n_{i-1}}$
+%			\ENDFOR
+%			\IF {$j$ part of transistor stack}
+%				\STATE $I_p = avg(I_{m_{i,j}})$
+%			\ELSE
+%				\STATE $I_p = \sum I_{m_{i,j}}$
+%			\ENDIF
+%			\STATE $\Delta V_{out} = \frac{(I_{pu}-I_{pd})t_{step} + \sum_{i-1}^{N_u} \Delta V_{G_i}C_{mu_i} + \sum_{i=1}^{N_d} \Delta V_{G_i}C_{md_i}}{C_L + \sum_{i=1}^{N_u}C_{mu_i} + \sum_{i=1}^{N_d}C_{md_i}}$
+%		\ENDFOR		
+%	\end{algorithmic}
+%\end{algorithm}
 
 There has been a few attempts at modeling the effect multiple transient pules, however all approaches suffer from inaccurate estimation of electrical masking. The authors in \cite{METSys,TahooriMET} both proposed a simulation tool to determine the soft error rate (SER) of a combinational circuit in the presence of multiple transients, however, they calculate the output transient of a gate with a convergent input through the simple superposition of the pulse widths. As stated in \cite{Accurate_Masking}, this is insufficient since accurate electrical masking modeling requires the inclusion of the pulse amplitude and non-linear portions of the glitch.
 

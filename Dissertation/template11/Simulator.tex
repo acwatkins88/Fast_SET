@@ -166,10 +166,10 @@ Assuming that the pulses from event $E_k$ propagate to a $M$ number of primary o
 P(E_k) = \sum_{i=1}^{M} P_{L,i}
 \end{equation}
 
-To evaluate the error probability for all events, the mean error susceptibility (MES), defined in \cite{METSys} is used. The MES represents the average probability of error for all events combined. Assuming that there are a $n_E$ number of events, $n_d$ number of input probability distributions and that $K$ is the number of injected events, the MES is found using the following equation:
+To evaluate the error probability for all events, the mean error susceptibility (MES), defined in \cite{METSys} is used. The MES represents the average probability of error for all events combined. Assuming that there are a $n_E$ number of events and $n_d$ number of input probability distributions, the MES is found using the following equation:
 
 \begin{equation} \label{MES}
-MES = \sum_{k=1}^{K} \frac{P(E_k)}{n_E n_d}
+MES = \sum_{k=1}^{n_E} \frac{P(E_k)}{n_E n_d}
 \end{equation}
 
 Based off the MES, the soft error rate ($SER$) can be calculated as in below where $R_{eff}$ represents the effective concentration of particle in the given area, $P_{eff}$ is the probability of a particle hitting the sensitive region of a transistor and $A$ as the area of the sensitive volumes.
