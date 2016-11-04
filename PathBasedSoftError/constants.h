@@ -139,7 +139,7 @@
 
 #define TOT_INJ 50
 
-#define MIN_CONV_PROB 0.00
+#define MIN_CONV_PROB 0.05
 /*
  * Flip Flop Values
  */
@@ -192,10 +192,10 @@
  * 1 - Static Partitioning
  */
 
-#define PART_SIM 0
+#define PART_SIM 1
 
 // Number of Partition for Static Partitioning
-#define NUM_OF_PARTS 2
+#define NUM_OF_PARTS 1
 
 // Tolerance for MC Simulation
 #define MC_TOL 0.0001

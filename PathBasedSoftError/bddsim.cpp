@@ -162,6 +162,7 @@ void bdd_sim::sim()
         spart_graph(graph_m, max_partn);               
         
         map<int, double> pt_count;
+        map<int, double> psize_count;
         for(git = graph_m.begin(); git != graph_m.end(); ++git)
         {
             if(graph[git->first].type != INPUT)
@@ -169,10 +170,12 @@ void bdd_sim::sim()
                 if(check_map(pt_count, graph_m[git->first].static_part))
                 {
                     pt_count[graph_m[git->first].static_part]++;
+                    psize_count[graph_m[git->first].static_part] += graph_m[git->first].fanin_num;
                 }
                 else
                 {
                     pt_count[graph_m[git->first].static_part] = 1;
+                    psize_count[graph_m[git->first].static_part] = graph_m[git->first].fanin_num;
                 }
             }
         }
@@ -180,7 +183,10 @@ void bdd_sim::sim()
         map<int, double>::iterator tmit;
         for(tmit = pt_count.begin(); tmit != pt_count.end(); ++tmit)
             cout<<"Part: "<<tmit->first<<" Num: "<<pt_count[tmit->first]<<endl;
-            
+        
+        for(tmit = psize_count.begin(); tmit != psize_count.end(); ++tmit)
+            cout<<"Part: "<<tmit->first<<" Size Part: "<<psize_count[tmit->first]<<endl;
+        
         for (i = 0; i <= max_partn; ++i)
         {
             graph = extract_tcir(i);
