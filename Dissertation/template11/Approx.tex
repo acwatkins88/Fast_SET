@@ -4,28 +4,6 @@
 As the transistor size has continued to decrease, the probability of a SEU occurring has continued to greatly increase. This, in effect, has created a need for accurate and efficient SEU simulators. The SEU problem has been investigated deeply. \cite{MARS_C,SERA,FASER} However, due to the close proximity of transistors and the increase in transistor error sensitivity, the probability of a single or multiple radiation strikes producing multiple voltage pulses has become a concern. The authors in \cite{Harada} investigated a 65 nm 3x3 inverter matrix and found that 40\% of all single radiation strikes resulted in the generation multiple significant voltage pulses. Considering the possibility that a modern circuit is also vulnerable to multiple simultaneous strike, there is a significant concern for multiple transients. This creates the need for either the enhancement of existing SEU tools or the development of new tools which can consider the single event multiple transient (SEMT) and multiple event multiple transient (MEMT) effect.
 
 Previous work in SEU’s have shown that combinational circuits are vulnerable to 3 types of error masking effects: logical masking, electrical masking and temporal masking. Accurate estimation of the soft error rate requires consideration of all masking factors for not only SEU’s but also the SEMT and MEMT cases. In this paper, the focus is on the consideration of the electrical masking effect. There have been many approaches to the electrical masking problem for the SEU case \cite{Omana_Trap,Accurate_Masking,Weibull}. However, a major drawback with these approaches is that they do not accurately consider the effect of multiple pulses occurring on the gate input (referred to as convergent pulses). Since, in the SEMT and MEMT cases, there are many pulses generated, the occurrence of convergent pulses is much higher. To model these cases, an accurate electrical masking model must consider convergent pulses. 
-%
-%\begin{algorithm}
-%	\caption{Determine Output} 
-%	\begin{algorithmic} [1]
-%		\STATE Initialize output with truth table
-%		\FOR {each time $i$}
-%			\FOR {each transistor $j$}
-%				\STATE Get $I_{m_{i,j}}$ from LUT using $i-1$ values
-%			\ENDFOR
-%			\FOR {each intermediate node $V_n$}
-%				\STATE $I_m = \frac{C_{m1}(V_{n_i} - V_{n_{i-1}})}{t_{step}}$
-%				\STATE $V_{n_i} = \frac{(I_{D1} - I_{D2})t_{step}}{C_{m1}} + V_{n_{i-1}}$
-%			\ENDFOR
-%			\IF {$j$ part of transistor stack}
-%				\STATE $I_p = avg(I_{m_{i,j}})$
-%			\ELSE
-%				\STATE $I_p = \sum I_{m_{i,j}}$
-%			\ENDIF
-%			\STATE $\Delta V_{out} = \frac{(I_{pu}-I_{pd})t_{step} + \sum_{i-1}^{N_u} \Delta V_{G_i}C_{mu_i} + \sum_{i=1}^{N_d} \Delta V_{G_i}C_{md_i}}{C_L + \sum_{i=1}^{N_u}C_{mu_i} + \sum_{i=1}^{N_d}C_{md_i}}$
-%		\ENDFOR		
-%	\end{algorithmic}
-%\end{algorithm}
 
 There has been a few attempts at modeling the effect multiple transient pules, however all approaches suffer from inaccurate estimation of electrical masking. The authors in \cite{METSys,TahooriMET} both proposed a simulation tool to determine the soft error rate (SER) of a combinational circuit in the presence of multiple transients, however, they calculate the output transient of a gate with a convergent input through the simple superposition of the pulse widths. As stated in \cite{Accurate_Masking}, this is insufficient since accurate electrical masking modeling requires the inclusion of the pulse amplitude and non-linear portions of the glitch.
 
@@ -36,7 +14,7 @@ Based on the above discussion, there is a lack of accurate and fast methods to c
 \section{Pulse Approximation Model}
 As in \cite{Accurate_Masking}, an important aspect of the proposed model is the accurate approximation of the transistor drain to source current (IDS). To consider the $I_{DS}$ current, a look-up table for each transistor is created by sweeping both the gate-source voltage (VGS) and the drain-source voltage ($V_{DS}$).
  
-Additionally, as in \cite{Accurate_Masking}, the effects of pulse overshoot and undershoot are considered through the use of a Miller capacitor. In contrast to \cite{Accurate_Masking}, however, we consider the MOS parasitic effects on each individual transistor through the inclusion of a Miller capacitance between the gate and drain terminals. Fig. \ref{TModel} demonstrates the proposed model for a NMOS and a PMOS transistor. 
+Additionally, as in \cite{Accurate_Masking}, the effects of pulse overshoot and undershoot are considered through the use of a Miller capacitor. In contrast to \cite{Accurate_Masking}, however, we consider the MOS parasitic effects on each individual transistor through the inclusion of a Miller capacitance between the gate and drain terminals. While in practice there may be a capacitance between the gate and source, it was found through numerous simulations that this effect was negligible Fig. \ref{TModel} demonstrates the proposed model for a NMOS and a PMOS transistor. 
 
 \begin{figure}[!htbp]
 	\centering
@@ -90,7 +68,7 @@ To derive the output equation for the node $V_{out}$ in Fig. \ref{Gmod}, we firs
 I_{pu} = I_{pd} + I_L + \sum_{i=1}^{N}I_{mu_i} + \sum_{i=1}^{N}I_{md_i}
 \end{equation}
 
-For our model, we discretize the time into time steps with the variable $t_step$. Additionally, we represent each variable in the current time instant with the subscript $i$ and each variable in the previous time instant with the subscript $i-1$. Lastly, we represent the change in a value between two time instances using $\Delta$ (i.e. $V_i-V_{i-1}=\Delta V$). 
+For our model, we discretized the time into time steps with the variable $t_step$. Additionally, we represent each variable in the current time instant with the subscript $i$ and each variable in the previous time instant with the subscript $i-1$. Lastly, we represent the change in a value between two time instances using $\Delta$ (i.e. $V_i-V_{i-1}=\Delta V$). 
 
 According to the charge conservation law, we get equation \ref{miller} for each Miller capacitor $C_{m_i}$ connected between $V_{out}$ and the input voltage $V_{G_i}$.
 
@@ -160,11 +138,11 @@ In cases where there are more than 2 stacked transistors, the described model is
 
 \section{Experimental Results}
 
-The proposed algorithm was implemented in Matlab and characterized using the 32 nm and 45 nm PTM library \cite{PTM} and the 65 nm IBM library. To test the proposed model, 3 benchmark circuits for each process library were created to test two convergent pulses on a 2 and 3 input NAND gate and a 2 input NOR gate. The first two benchmark circuits denoted by NAND2R and NAND2F in column 1 of Table \ref{table:pt}, consists of two NAND gate chains with each off-input held to a non-controlling value. The chains contain two gates and the R and F in the benchmark names represent either a rising (R) or falling (F) pulse on the convergent gate’s inputs. Each chain is then connected to an input of the NAND gate. The benchmark circuits NOR2R and NOR2F are constructed similarly but the chains consist of NOR gates and are connected to the input of a 2 input NOR gate. The last benchmark circuits constructed, NAND3R and NAND3F, were created with 2 2 gate chains connected to the first and second input of the 3-input NAND gate. The remaining off-input was held to a non-controlling value. 
+The proposed algorithm was implemented in Matlab and characterized using the 32 nm and 45 nm PTM library \cite{PTM} and the 65 nm IBM library. To test the proposed model, three benchmark circuits for each process library were created to test two convergent pulses on a 2 and 3 input NAND gate and a 2 input NOR gate. The first two benchmark circuits denoted by NAND2R and NAND2F in column 1 of Table \ref{table:pt}, consists of two NAND gate chains with each off-input held to a non-controlling value. The chains contain two gates and the R and F in the benchmark names represent either a rising (R) or falling (F) pulse on the convergent gate’s inputs. Each chain is then connected to an input of the NAND gate. The benchmark circuits NOR2R and NOR2F are constructed similarly but the chains consist of NOR gates and are connected to the input of a 2-input NOR gate. The last benchmark circuits constructed, NAND3R and NAND3F, were created with two, 2-gate chains connected to the first and second input of the 3-input NAND gate. The remaining off-input was held to a non-controlling value. 
 
 Next, to accurately model the injected pulse shape, the injection current is represented as a current source located at the output of the first gate in the chain. We then used the function for the pulse shape given in \cite{injeq} to relate the strike current to a given charge. Equation \ref{qeq} was used to model the current generated by a pulse strike.
 
-Using equation \ref{qeq}, $Q_o$ was varied over a range of charge values that results in an observable error. For our test cases, we found that a charge ranging from 3-16 fC for a τ of 90x10-12 provided an observable output shape for all processes tested. We then propagated the pulses through the gate chains to gate of interest and compared the generated outputs using the proposed model and the model in \cite{Accurate_Masking} to HSPICE. Table \ref{table:pt} details the average error for 30 cases per gate and transition type for the 32, 45 and 65 nm processes using 2400 data points over a range of 0 to 1.2 pico-seconds. The first column gives the benchmark name. All subsequent columns provide the MSE error for each test case for the proposed method and the method in \cite{Accurate_Masking}. Assuming that $N$ represents the number of calculated points, $V_i^H$ represents the pulse voltage at point $i$ on the signal from HSPICE and $V_i^C$ is the voltage calculated by the proposed model, the MSE was calculated using the following equation:
+Using equation \ref{qeq}, $Q_o$ was varied over a range of charge values that results in an observable error. For our test cases, we found that a charge ranging from 3-16 fC for a τ of $90x10^{-12}$ provided an observable output shape for all processes tested. We then propagated the pulses through the gate chains to gate of interest and compared the generated outputs using the proposed model and the model in \cite{Accurate_Masking} to HSPICE. Table \ref{table:pt} details the average error for 30 cases per gate and transition type for the 32, 45 and 65 nm processes using 2400 data points over a range of 0 to 1.2 pico-seconds. While the variable $t_{step}$ could adaptively change with the pulse shape, $t_{step}$ was set to a fixed value since simulation time was minimized by limiting the number of points to the expected maximum pulse width. This ensured that the vector storing the pulse shape contained the pulse information and did not have extra unnecessary values. The first column gives the benchmark name. All subsequent columns provide the MSE error for each test case for the proposed method and the method in \cite{Accurate_Masking}. Assuming that $N$ represents the number of calculated points, $V_i^H$ represents the pulse voltage at point $i$ on the signal from HSPICE and $V_i^C$ is the voltage calculated by the proposed model, the MSE was calculated using the following equation:
 
 \begin{equation}
 MSE = \frac{\sum_{i=0}^{N} (V_i^H - V_i^C)^2}{N}
@@ -261,4 +239,4 @@ In Fig. 6a and 6b, we provide the output waveforms for the NAND3F simulation for
 \end{figure}
 
 \section{Conclusion}
-In this section, a model was proposed that improves SEMT and MEMT error simulation by calculating the output pulse shape in the presence of convergence with an MSE of less than 7.40x10-3 for 2-input gates and 13x10-3 for 3-input gates  using 900 points and a speed-up of 15X and 12X respectively compared to HSPICE. Future work with our model includes the study of the number of points effect the simulation result on large benchmarks and the study of SEMT and MEMT on large standard benchmark circuits using the proposed model. 
+In this section, a model was proposed that improves SEMT and MEMT error simulation by calculating the output pulse shape in the presence of convergence with an MSE of less than $7.40x10^{-3}$ for 2-input gates and 13x10-3 for 3-input gates  using 900 points and a speed-up of 15X and 12X respectively compared to HSPICE. Future work with our model includes the study of the number of points effect the simulation result on large benchmarks and the study of SEMT and MEMT on large standard benchmark circuits using the proposed model. 

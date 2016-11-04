@@ -20,7 +20,7 @@ Another common approach found in \cite{Chen2013,Li2016} uses the correlation coe
 
 The last approach discussed in this section, which is of most concern in this paper, is the use of binary decision diagrams (BDDs). BDDs provide a very accurate way to determine the logical masking effects since they are a condensed canonical form of a Boolean function. The main problem with BDDs however, is that they scale exponentially with circuit size thus leading to the possibility of blow up on medium to large circuits. Despite this problem, there have been many proposed simulators that use BDDs \cite{FASER,MARS_C,METSys}. The main advantage to the use of BDDs is that all input patterns can be considered concurrently thus allowing for exact calculation of logical masking probabilities.
 
-To alleviate the inherent blow up problem, the authors in \cite{FASER} propose the use of partitioning. In their work, they show that the use of partitioning allows for much faster calculation of the soft error with no threat of blow up at a cost of accuracy. The authors in \cite{METSys} also investigate partitioning but do not give an in depth study on how partitioning effects the output error. In both approaches, the circuit is partitioned before simulation with each partition size being set to a predetermined value. In this section, a new tool is proposed that uses partitioning to reduce the simulation time. Compared to existing approaches, the new tool allows for the integration of an accurate electrical masking model that can calculate the output pulse shape for any input pulse.
+To alleviate the inherent blow up problem, the authors in \cite{FASER} propose the use of partitioning. In their work, they show that the use of partitioning allows for much faster calculation of the soft error with no threat of blow up at a cost of accuracy. The authors in \cite{METSys} also investigate partitioning but do not give an in depth study on how partitioning effects the output error. In both approaches, the circuit is partitioned before simulation with each partition size being set to a predetermined value. In this section, a new tool is proposed that uses partitioning to reduce the simulation time. Compared to existing approaches, the new tool allows for the integration of an accurate electrical masking model that can calculate the output pulse shape for any input pulse. Specifically, compared to \ref{METSys} and \ref{FASER}, the proposed method formulates the BDD functions so that the "1" terminal represents all inputs patterns that allow for pulse propagation. \ref{METSys} and \ref{FASER}, on the other hand, use algebraic decision diagrams or multi-terminal BDDs which have branches to lead to a terminal that has the pulse width. Since the accurate masking model only implicitly considers the width due to its iterative nature, the use of specialized structure are not suitable.
 
 In addition to the partitioning approach, the proposed simulator has the capability of considering multiple concurrent pulse strikes commonly referred to as multiple event transients (METs). The consideration of multiple strikes has become of greater concern due to smaller feature sizes, leading to a lower critical charge for upset, and the closer placement of transistors \cite{Rossi2005}. These type of events can occur in two forms: single event multiple transient (SEMT) and multiple event multiple transient (MEMT). A SEMT is defined as the case where a single radiation particle upsets multiple transistors causing multiple transients pulses. A MEMT is defined as when multiple particles hit different circuit components simultaneously. While the probability of the SEMT vs the MEMT depends strongly on the radiation environment, methods developed for one type of error can easily be modified to consider the other. 
 
@@ -264,7 +264,7 @@ Lastly, when the simulator processes a primary or partition output, the BDD func
 			\STATE Set Virtual Inputs
 			\FOR{Each Gate} 	
 				\STATE Generate Pulse
-				\STATE Generate Sensitization Function
+				\STATE Generate Logic Function
 				\STATE Propagate Pulse
 				\STATE Calculate Convergence
 				\IF{Primary Output}
@@ -291,9 +291,10 @@ Lastly, when the simulator processes a primary or partition output, the BDD func
 \begin{algorithm}
 	\caption{Propagate Pulse} 
 	\begin{algorithmic} [1]
+			\STATE $F_{log}$ = Logic Function
 			\STATE $F_{sens}$ = Sensitization Function
-			\FOR {Each Input Pulse $i$}
-				\STATE $F_{sens}$ = $F_{sens}$(i) $\land$ $F_{sens}$
+			\FOR {Each Input $i$}
+				\STATE $F_{sens}$ = $F_{log}$(i) $\land$ $F_{sens}$
 			\ENDFOR		
 			\IF{($F_{sens}$ != false) $\land$ (Solve BDD($F_{sens}$) $>$ $P_{thr}$)}
 				\STATE Calculate Pulse Shape
@@ -360,6 +361,8 @@ The FAST\_MET simulator can provide an additional speedup through the use of par
 			c880 & 2 & $3.13x10^{-4}$ & 139.54\\
 			\hline
 			c880 & 4 & $8.37x10^{-4}$ & 107.72\\
+			\hline
+			c1355 & 1 & $2.38x10^{-4}$ & 3685.00\\
 			\hline
 			c1355 & 2 & $1.96x10^{-4}$ & 459.00\\
 			\hline
