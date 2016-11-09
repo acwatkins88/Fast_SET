@@ -10,16 +10,16 @@
 \contentsline {section}{\numberline {2.3}Simulation Results}{18}
 \contentsline {section}{\numberline {2.4}Filtering of Transients Arriving on the Latch Input}{20}
 \contentsline {section}{\numberline {2.5}Towards the Design of a Triple Node Upset Tolerant Latch}{22}
-\contentsline {section}{\numberline {2.6}Conclusion}{26}
+\contentsline {section}{\numberline {2.6}Conclusion}{27}
 \contentsline {chapter}{\numberline {3}An Analytical Pulse Approximation Algorithm for Multiple Event Transients}{28}
 \contentsline {section}{\numberline {3.1}Pulse Approximation Model}{29}
 \contentsline {section}{\numberline {3.2}Experimental Results}{36}
-\contentsline {section}{\numberline {3.3}Conclusion}{38}
+\contentsline {section}{\numberline {3.3}Conclusion}{40}
 \contentsline {chapter}{\numberline {4}Accurate Soft Error Simulation Using Partitioning}{41}
 \contentsline {section}{\numberline {4.1}Preliminaries}{45}
 \contentsline {section}{\numberline {4.2}Description of the FAST\_MET Simulator}{51}
 \contentsline {section}{\numberline {4.3}FAST\_MET Simulation Flow}{55}
-\contentsline {section}{\numberline {4.4}Results}{58}
-\contentsline {section}{\numberline {4.5}Conclusion}{61}
-\contentsline {chapter}{Appendix}{67}
-\contentsline {chapter}{Vita}{73}
+\contentsline {section}{\numberline {4.4}Results}{61}
+\contentsline {section}{\numberline {4.5}Conclusion}{62}
+\contentsline {chapter}{Appendix}{68}
+\contentsline {chapter}{Vita}{74}

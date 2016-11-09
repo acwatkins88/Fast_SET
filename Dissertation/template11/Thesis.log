@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.9.29)  4 NOV 2016 15:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.9.29)  7 NOV 2016 22:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -239,52 +239,96 @@ Package: setspace 2011/12/19 v6.7a set line spacing
 (c:/texlive/2016/texmf-dist/tex/latex/natbib/bibentry.sty
 Package: bibentry 2007/10/30 1.5 (PWD)
 )
-\c@theorem=\count107
-\c@example=\count108
+(c:/texlive/2016/texmf-dist/tex/latex/ms/ragged2e.sty
+Package: ragged2e 2009/05/21 v2.1 ragged2e Package (MS)
+
+
+LaTeX Warning: Command \@arrayparboxrestore  has changed.
+               Check if current package is valid.
+
+(c:/texlive/2016/texmf-dist/tex/latex/ms/everysel.sty
+Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
+)
+(c:/texlive/2016/texmf-dist/tex/latex/footmisc/footmisc.sty
+Package: footmisc 2011/06/06 v5.5b a miscellany of footnote facilities
+\FN@temptoken=\toks30
+\footnotemargin=\dimen116
+\c@pp@next@reset=\count107
+Package footmisc Info: Declaring symbol style bringhurst on input line 855.
+Package footmisc Info: Declaring symbol style chicago on input line 863.
+Package footmisc Info: Declaring symbol style wiley on input line 872.
+Package footmisc Info: Declaring symbol style lamport-robust on input line 883.
+
+Package footmisc Info: Declaring symbol style lamport* on input line 903.
+Package footmisc Info: Declaring symbol style lamport*-robust on input line 924
+.
+)
+\CenteringLeftskip=\skip53
+\RaggedLeftLeftskip=\skip54
+\RaggedRightLeftskip=\skip55
+\CenteringRightskip=\skip56
+\RaggedLeftRightskip=\skip57
+\RaggedRightRightskip=\skip58
+\CenteringParfillskip=\skip59
+\RaggedLeftParfillskip=\skip60
+\RaggedRightParfillskip=\skip61
+\JustifyingParfillskip=\skip62
+\CenteringParindent=\skip63
+\RaggedLeftParindent=\skip64
+\RaggedRightParindent=\skip65
+\JustifyingParindent=\skip66
+)
+\c@theorem=\count108
+\c@example=\count109
  (./Thesis.aux)
 \openout1 = `Thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 97.
-LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
 
 (c:/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count109
-\scratchdimen=\dimen116
+\scratchcounter=\count110
+\scratchdimen=\dimen117
 \scratchbox=\box30
-\nofMPsegments=\count110
-\nofMParguments=\count111
-\everyMPshowfont=\toks30
-\MPscratchCnt=\count112
-\MPscratchDim=\dimen117
-\MPnumerator=\count113
-\makeMPintoPDFobject=\count114
-\everyMPtoPDFconversion=\toks31
-) (./Title.tex) (./Approval.tex [0
+\nofMPsegments=\count111
+\nofMParguments=\count112
+\everyMPshowfont=\toks31
+\MPscratchCnt=\count113
+\MPscratchDim=\dimen118
+\MPnumerator=\count114
+\makeMPintoPDFobject=\count115
+\everyMPtoPDFconversion=\toks32
+)
+Package ragged2e Info: ABD: executing \RaggedRight on input line 98.
+ ABD: EverySelectfont initializing macros
+LaTeX Info: Redefining \selectfont on input line 98.
+ (./Title.tex) (./Approval.tex
+[0
 
 {c:/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [1
 
-]) (./Abstract.tex [2
+])
+(./Abstract.tex [2
 
 ] [3]) (./Dedication.tex [4
 
+]) (./Acknow.tex [5
+
 ])
-(./Acknow.tex [5
-
-]) (./Thesis.toc
+(./Thesis.toc
 LaTeX Font Info:    Try loading font information for U+msa on input line 1.
-
-(c:/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (c:/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 1.
@@ -357,13 +401,13 @@ File: Figures/HSMUF.pdf Graphic file (type pdf)
 <use Figures/HSMUF.pdf>
 Package pdftex.def Info: Figures/HSMUF.pdf used on input line 19.
 (pdftex.def)             Requested size: 462.52756pt x 257.14664pt.
- <Figures/DONUT.pdf, id=83, 325.96782pt x 262.73157pt>
+ [9]
+<Figures/DONUT.pdf, id=87, 325.96782pt x 262.73157pt>
 File: Figures/DONUT.pdf Graphic file (type pdf)
-
-<use Figures/DONUT.pdf>
+ <use Figures/DONUT.pdf>
 Package pdftex.def Info: Figures/DONUT.pdf used on input line 31.
 (pdftex.def)             Requested size: 300.64008pt x 242.33734pt.
- [9]
+
 <Figures/ModDONUT.pdf, id=88, 340.27126pt x 287.57437pt>
 File: Figures/ModDONUT.pdf Graphic file (type pdf)
 
@@ -392,11 +436,11 @@ Package pdftex.def Info: Figures/BLatch.pdf used on input line 68.
 (pdftex.def)             Requested size: 254.39156pt x 580.55693pt.
  [12 <./Figures/Block.pdf>] [13 <./Figures/BLatch.pdf>]
 Package epstopdf Info: Source file: <Figures/defaultoperation.eps>
-(epstopdf)                    date: 2016-10-25 23:24:48
+(epstopdf)                    date: 2016-10-25 22:24:48
 (epstopdf)                    size: 47893 bytes
 (epstopdf)             Output file: <Figures/defaultoperation-eps-converted-to.
 pdf>
-(epstopdf)                    date: 2016-10-25 23:24:48
+(epstopdf)                    date: 2016-10-25 22:24:48
 (epstopdf)                    size: 10623 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/defaultoperation-e
 ps-converted-to.pdf Figures/defaultoperation.eps>
@@ -438,14 +482,14 @@ Package pdftex.def Info: Figures/PulseFilterEnh.pdf used on input line 188.
 
 pdfTeX warning: pdflatex.exe (file ./Figures/PulseFilterEnh.pdf): PDF inclusion
 : multiple pdfs with page group included in a single page
->] <Figures/TNUBlatch.pdf, id=199, 399.74344pt x 1026.08344pt>
+>] [22] <Figures/TNUBlatch.pdf, id=202, 399.74344pt x 1026.08344pt>
 File: Figures/TNUBlatch.pdf Graphic file (type pdf)
 
 <use Figures/TNUBlatch.pdf>
 Package pdftex.def Info: Figures/TNUBlatch.pdf used on input line 205.
 (pdftex.def)             Requested size: 231.26378pt x 593.62576pt.
- [22] [23 <./Figures/TNUBlatch.pdf>]
-<Figures/TNULatch2.pdf, id=212, 691.83469pt x 1026.83624pt>
+ [23] [24 <./Figures/TNUBlatch.pdf>]
+<Figures/TNULatch2.pdf, id=215, 691.83469pt x 1026.83624pt>
 File: Figures/TNULatch2.pdf Graphic file (type pdf)
 
 <use Figures/TNULatch2.pdf>
@@ -455,7 +499,7 @@ Package pdftex.def Info: Figures/TNULatch2.pdf used on input line 225.
 
 LaTeX Warning: Float too large for page by 5.47644pt on input line 231.
 
-[24] [25 <./Figures/TNULatch2.pdf>] [26]) (./Approx.tex [27]
+[25] [26 <./Figures/TNULatch2.pdf>]) (./Approx.tex [27]
 CHAPTER 3.
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
@@ -581,26 +625,26 @@ File: Figures/PartProp.pdf Graphic file (type pdf)
 <use Figures/PartProp.pdf>
 Package pdftex.def Info: Figures/PartProp.pdf used on input line 243.
 (pdftex.def)             Requested size: 462.52756pt x 358.82732pt.
- [57 <./Figures/PartProp.pdf>] [58] [59] [60]
-[61]) (./Biblio.tex (./Thesis.bbl [62] [63
+ [57] [58 <./Figures/PartProp.pdf>] [59] [60]
+[61] [62]) (./Biblio.tex (./Thesis.bbl [63] [64
 
-] [64] [65] [66])) (./appendix.tex
-[67] [67
+] [65] [66] [67]))
+(./appendix.tex [68] [68
 
 ]
 Package epstopdf Info: Source file: <Figures/WavePlots/CLKD.eps>
-(epstopdf)                    date: 2016-10-25 23:24:48
+(epstopdf)                    date: 2016-10-25 22:24:48
 (epstopdf)                    size: 30988 bytes
 (epstopdf)             Output file: <Figures/WavePlots/CLKD-eps-converted-to.pd
 f>
-(epstopdf)                    date: 2016-10-25 23:24:48
+(epstopdf)                    date: 2016-10-25 22:24:48
 (epstopdf)                    size: 7292 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/CLKD-eps
 -converted-to.pdf Figures/WavePlots/CLKD.eps>
 (epstopdf)             \includegraphics on input line 32.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/CLKD-eps-converted-to.pdf, id=462, 540.0175pt x 405.515pt>
+<Figures/WavePlots/CLKD-eps-converted-to.pdf, id=466, 540.0175pt x 405.515pt>
 File: Figures/WavePlots/CLKD-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/CLKD-eps-converted-to.pdf>
@@ -608,18 +652,18 @@ Package pdftex.def Info: Figures/WavePlots/CLKD-eps-converted-to.pdf used on in
 put line 32.
 (pdftex.def)             Requested size: 254.39156pt x 191.02519pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n1n2.eps>
-(epstopdf)                    date: 2016-10-25 23:24:48
+(epstopdf)                    date: 2016-10-25 22:24:48
 (epstopdf)                    size: 64819 bytes
 (epstopdf)             Output file: <Figures/WavePlots/n1n2-eps-converted-to.pd
 f>
-(epstopdf)                    date: 2016-10-25 23:24:48
+(epstopdf)                    date: 2016-10-25 22:24:48
 (epstopdf)                    size: 15275 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n1n2-eps
 -converted-to.pdf Figures/WavePlots/n1n2.eps>
 (epstopdf)             \includegraphics on input line 42.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n1n2-eps-converted-to.pdf, id=463, 516.93124pt x 417.56pt>
+<Figures/WavePlots/n1n2-eps-converted-to.pdf, id=467, 516.93124pt x 417.56pt>
 File: Figures/WavePlots/n1n2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n1n2-eps-converted-to.pdf>
@@ -627,18 +671,18 @@ Package pdftex.def Info: Figures/WavePlots/n1n2-eps-converted-to.pdf used on in
 put line 42.
 (pdftex.def)             Requested size: 231.26378pt x 186.80437pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n2out.eps>
-(epstopdf)                    date: 2016-10-25 23:24:48
+(epstopdf)                    date: 2016-10-25 22:24:48
 (epstopdf)                    size: 66468 bytes
 (epstopdf)             Output file: <Figures/WavePlots/n2out-eps-converted-to.p
 df>
-(epstopdf)                    date: 2016-10-25 23:24:48
+(epstopdf)                    date: 2016-10-25 22:24:48
 (epstopdf)                    size: 15678 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n2out-ep
 s-converted-to.pdf Figures/WavePlots/n2out.eps>
 (epstopdf)             \includegraphics on input line 49.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n2out-eps-converted-to.pdf, id=464, 516.93124pt x 417.56pt>
+<Figures/WavePlots/n2out-eps-converted-to.pdf, id=468, 516.93124pt x 417.56pt>
 File: Figures/WavePlots/n2out-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n2out-eps-converted-to.pdf>
@@ -646,18 +690,18 @@ Package pdftex.def Info: Figures/WavePlots/n2out-eps-converted-to.pdf used on i
 nput line 49.
 (pdftex.def)             Requested size: 231.26378pt x 186.80437pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n1n5.eps>
-(epstopdf)                    date: 2016-10-25 23:24:48
+(epstopdf)                    date: 2016-10-25 22:24:48
 (epstopdf)                    size: 63207 bytes
 (epstopdf)             Output file: <Figures/WavePlots/n1n5-eps-converted-to.pd
 f>
-(epstopdf)                    date: 2016-10-25 23:24:48
+(epstopdf)                    date: 2016-10-25 22:24:48
 (epstopdf)                    size: 15035 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n1n5-eps
 -converted-to.pdf Figures/WavePlots/n1n5.eps>
 (epstopdf)             \includegraphics on input line 56.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n1n5-eps-converted-to.pdf, id=465, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n1n5-eps-converted-to.pdf, id=469, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n1n5-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n1n5-eps-converted-to.pdf>
@@ -665,18 +709,18 @@ Package pdftex.def Info: Figures/WavePlots/n1n5-eps-converted-to.pdf used on in
 put line 56.
 (pdftex.def)             Requested size: 231.26378pt x 187.16754pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n3n4.eps>
-(epstopdf)                    date: 2016-10-25 23:24:48
+(epstopdf)                    date: 2016-10-25 22:24:48
 (epstopdf)                    size: 65108 bytes
 (epstopdf)             Output file: <Figures/WavePlots/n3n4-eps-converted-to.pd
 f>
-(epstopdf)                    date: 2016-10-25 23:24:48
+(epstopdf)                    date: 2016-10-25 22:24:48
 (epstopdf)                    size: 15345 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n3n4-eps
 -converted-to.pdf Figures/WavePlots/n3n4.eps>
 (epstopdf)             \includegraphics on input line 63.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n3n4-eps-converted-to.pdf, id=466, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n3n4-eps-converted-to.pdf, id=470, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n3n4-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n3n4-eps-converted-to.pdf>
@@ -684,18 +728,18 @@ Package pdftex.def Info: Figures/WavePlots/n3n4-eps-converted-to.pdf used on in
 put line 63.
 (pdftex.def)             Requested size: 231.26378pt x 187.16754pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n4out.eps>
-(epstopdf)                    date: 2016-10-25 23:24:48
+(epstopdf)                    date: 2016-10-25 22:24:48
 (epstopdf)                    size: 64330 bytes
 (epstopdf)             Output file: <Figures/WavePlots/n4out-eps-converted-to.p
 df>
-(epstopdf)                    date: 2016-10-25 23:24:48
+(epstopdf)                    date: 2016-10-25 22:24:48
 (epstopdf)                    size: 15279 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n4out-ep
 s-converted-to.pdf Figures/WavePlots/n4out.eps>
 (epstopdf)             \includegraphics on input line 70.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n4out-eps-converted-to.pdf, id=467, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n4out-eps-converted-to.pdf, id=471, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n4out-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n4out-eps-converted-to.pdf>
@@ -703,18 +747,18 @@ Package pdftex.def Info: Figures/WavePlots/n4out-eps-converted-to.pdf used on i
 nput line 70.
 (pdftex.def)             Requested size: 231.26378pt x 187.16754pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n1n3.eps>
-(epstopdf)                    date: 2016-10-25 23:24:48
+(epstopdf)                    date: 2016-10-25 22:24:48
 (epstopdf)                    size: 65549 bytes
 (epstopdf)             Output file: <Figures/WavePlots/n1n3-eps-converted-to.pd
 f>
-(epstopdf)                    date: 2016-10-25 23:24:48
+(epstopdf)                    date: 2016-10-25 22:24:48
 (epstopdf)                    size: 15501 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n1n3-eps
 -converted-to.pdf Figures/WavePlots/n1n3.eps>
 (epstopdf)             \includegraphics on input line 77.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n1n3-eps-converted-to.pdf, id=468, 516.93124pt x 417.56pt>
+<Figures/WavePlots/n1n3-eps-converted-to.pdf, id=472, 516.93124pt x 417.56pt>
 File: Figures/WavePlots/n1n3-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n1n3-eps-converted-to.pdf>
@@ -722,18 +766,18 @@ Package pdftex.def Info: Figures/WavePlots/n1n3-eps-converted-to.pdf used on in
 put line 77.
 (pdftex.def)             Requested size: 231.26378pt x 186.80437pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n1n6.eps>
-(epstopdf)                    date: 2016-10-25 23:24:48
+(epstopdf)                    date: 2016-10-25 22:24:48
 (epstopdf)                    size: 66046 bytes
 (epstopdf)             Output file: <Figures/WavePlots/n1n6-eps-converted-to.pd
 f>
-(epstopdf)                    date: 2016-10-25 23:24:48
+(epstopdf)                    date: 2016-10-25 22:24:48
 (epstopdf)                    size: 15522 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n1n6-eps
 -converted-to.pdf Figures/WavePlots/n1n6.eps>
 (epstopdf)             \includegraphics on input line 84.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n1n6-eps-converted-to.pdf, id=469, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n1n6-eps-converted-to.pdf, id=473, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n1n6-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n1n6-eps-converted-to.pdf>
@@ -741,18 +785,18 @@ Package pdftex.def Info: Figures/WavePlots/n1n6-eps-converted-to.pdf used on in
 put line 84.
 (pdftex.def)             Requested size: 231.26378pt x 187.16754pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n5out.eps>
-(epstopdf)                    date: 2016-10-25 23:24:48
+(epstopdf)                    date: 2016-10-25 22:24:48
 (epstopdf)                    size: 64436 bytes
 (epstopdf)             Output file: <Figures/WavePlots/n5out-eps-converted-to.p
 df>
-(epstopdf)                    date: 2016-10-25 23:24:48
+(epstopdf)                    date: 2016-10-25 22:24:48
 (epstopdf)                    size: 15305 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n5out-ep
 s-converted-to.pdf Figures/WavePlots/n5out.eps>
 (epstopdf)             \includegraphics on input line 91.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n5out-eps-converted-to.pdf, id=470, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n5out-eps-converted-to.pdf, id=474, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n5out-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n5out-eps-converted-to.pdf>
@@ -760,44 +804,44 @@ Package pdftex.def Info: Figures/WavePlots/n5out-eps-converted-to.pdf used on i
 nput line 91.
 (pdftex.def)             Requested size: 231.26378pt x 187.16754pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n3out.eps>
-(epstopdf)                    date: 2016-10-25 23:24:48
+(epstopdf)                    date: 2016-10-25 22:24:48
 (epstopdf)                    size: 64850 bytes
 (epstopdf)             Output file: <Figures/WavePlots/n3out-eps-converted-to.p
 df>
-(epstopdf)                    date: 2016-10-25 23:24:48
+(epstopdf)                    date: 2016-10-25 22:24:48
 (epstopdf)                    size: 15296 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n3out-ep
 s-converted-to.pdf Figures/WavePlots/n3out.eps>
 (epstopdf)             \includegraphics on input line 98.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n3out-eps-converted-to.pdf, id=471, 516.93124pt x 417.56pt>
+<Figures/WavePlots/n3out-eps-converted-to.pdf, id=475, 516.93124pt x 417.56pt>
 File: Figures/WavePlots/n3out-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n3out-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/WavePlots/n3out-eps-converted-to.pdf used on i
 nput line 98.
 (pdftex.def)             Requested size: 231.26378pt x 186.80437pt.
-) (./Vita.tex [68
+) (./Vita.tex [69
 
  <./Figures/WavePlots/CLKD-eps-converted-to.pdf> <./Figures/WavePlots/n1n2-eps-
-converted-to.pdf>] [69 <./Figures/WavePlots/n2out-eps-converted-to.pdf> <./Figu
-res/WavePlots/n1n5-eps-converted-to.pdf>] [70 <./Figures/WavePlots/n3n4-eps-con
-verted-to.pdf> <./Figures/WavePlots/n4out-eps-converted-to.pdf>] [71 <./Figures
+converted-to.pdf>] [70 <./Figures/WavePlots/n2out-eps-converted-to.pdf> <./Figu
+res/WavePlots/n1n5-eps-converted-to.pdf>] [71 <./Figures/WavePlots/n3n4-eps-con
+verted-to.pdf> <./Figures/WavePlots/n4out-eps-converted-to.pdf>] [72 <./Figures
 /WavePlots/n1n3-eps-converted-to.pdf> <./Figures/WavePlots/n1n6-eps-converted-t
 o.pdf>]
-[72 <./Figures/WavePlots/n5out-eps-converted-to.pdf> <./Figures/WavePlots/n3out
--eps-converted-to.pdf>]) [73
+[73 <./Figures/WavePlots/n5out-eps-converted-to.pdf> <./Figures/WavePlots/n3out
+-eps-converted-to.pdf>]) [74
 
 ] (./Thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 3289 strings out of 493013
- 45290 string characters out of 6136993
- 112627 words of memory out of 5000000
- 6676 multiletter control sequences out of 15000+600000
+ 3466 strings out of 493013
+ 48463 string characters out of 6136993
+ 115982 words of memory out of 5000000
+ 6842 multiletter control sequences out of 15000+600000
  9257 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,11n,26p,1738b,562s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,11n,26p,1738b,560s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 bx12.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
 <c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texli
@@ -810,10 +854,10 @@ mr8.pfb><c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
 c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive
 /2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2016/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Thesis.pdf (84 pages, 2050850 bytes).
+Output written on Thesis.pdf (85 pages, 2036209 bytes).
 PDF statistics:
- 597 PDF objects out of 1000 (max. 8388607)
- 427 compressed objects within 5 object streams
+ 601 PDF objects out of 1000 (max. 8388607)
+ 430 compressed objects within 5 object streams
  0 named destinations out of 1000 (max. 500000)
  196 words of extra memory for PDF output out of 10000 (max. 10000000)
 
