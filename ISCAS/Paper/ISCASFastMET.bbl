@@ -1,0 +1,145 @@
+\begin{thebibliography}{10}
+
+\bibitem{Bryant1986}
+Randal~E. Bryant.
+\newblock Graph-based algorithms for boolean function manipulation.
+\newblock {\em IEEE Trans. Comput.}, 35(8):677--691, August 1986.
+
+\bibitem{Chen2013}
+Liang Chen, Mojtaba Ebrahimi, and Mehdi~B. Tahoori.
+\newblock Cep: Correlated error propagation for hierarchical soft error
+  analysis.
+\newblock {\em Journal of Electronic Testing}, 29(2):143--158, 2013.
+
+\bibitem{Ebrahimi2016}
+M.~Ebrahimi, H.~Asadi, R.~Bishnoi, and M.~B. Tahoori.
+\newblock Layout-based modeling and mitigation of multiple event transients.
+\newblock {\em IEEE Transactions on Computer-Aided Design of Integrated
+  Circuits and Systems}, 35(3):367--379, March 2016.
+
+\bibitem{Ercolani1989}
+S.~Ercolani, M.~Favalli, M.~Damiani, P.~Olivo, and B.~Ricco.
+\newblock Estimate of signal probability in combinational logic networks.
+\newblock In {\em European Test Conference, 1989., Proceedings of the 1st},
+  pages 132--138, Apr 1989.
+
+\bibitem{Fazeli2011}
+M.~Fazeli, S.~N. Ahmadian, S.~G. Miremadi, H.~Asadi, and M.~B. Tahoori.
+\newblock Soft error rate estimation of digital circuits in the presence of
+  multiple event transients (mets).
+\newblock In {\em 2011 Design, Automation Test in Europe}, pages 1--6, March
+  2011.
+
+\bibitem{Fiduccia1982}
+C.~M. Fiduccia and R.~M. Mattheyses.
+\newblock A linear-time heuristic for improving network partitions.
+\newblock In {\em Proceedings of the 19th Design Automation Conference}, DAC
+  '82, pages 175--181, Piscataway, NJ, USA, 1982. IEEE Press.
+
+\bibitem{Han2014}
+J.~Han, H.~Chen, J.~Liang, P.~Zhu, Z.~Yang, and F.~Lombardi.
+\newblock A stochastic computational approach for accurate and efficient
+  reliability evaluation.
+\newblock {\em IEEE Transactions on Computers}, 63(6):1336--1350, June 2014.
+
+\bibitem{Li2016}
+Ji~Li and Jeffrey Draper.
+\newblock Accelerating soft-error-rate (ser) estimation in the presence of
+  single event transients.
+\newblock In {\em Proceedings of the 53rd Annual Design Automation Conference},
+  DAC '16, pages 55:1--55:6, New York, NY, USA, 2016. ACM.
+
+\bibitem{hMetis}
+Pekka Miettinen, Mikko Honkala, and Janne Roos.
+\newblock Using metis and hmetis algorithms in circuit partitioning.
+
+\bibitem{MARS_C}
+N.~Miskov-Zivanov and D.~Marculescu.
+\newblock Mars-c: modeling and reduction of soft errors in combinational
+  circuits.
+\newblock In {\em 2006 43rd ACM/IEEE Design Automation Conference}, pages
+  767--772, July 2006.
+
+\bibitem{METSys}
+N.~Miskov-Zivanov and D.~Marculescu.
+\newblock Multiple transient faults in combinational and sequential circuits: A
+  systematic approach.
+\newblock {\em IEEE Transactions on Computer-Aided Design of Integrated
+  Circuits and Systems}, 29(10):1614--1627, Oct 2010.
+
+\bibitem{MiskovZivanov2007}
+Natasa Miskov-Zivanov and Diana Marculescu.
+\newblock Mars-s: Modeling and reduction of soft errors in sequential circuits.
+\newblock In {\em Proceedings of the 8th International Symposium on Quality
+  Electronic Design}, ISQED '07, pages 893--898, Washington, DC, USA, 2007.
+  IEEE Computer Society.
+
+\bibitem{SEMM}
+P.~C. Murley and G.~R. Srinivasan.
+\newblock Soft-error monte carlo modeling program, semm.
+\newblock {\em IBM J. Res. Dev.}, 40(1):109--118, January 1996.
+
+\bibitem{Nunes2013}
+C.~Nunes, P.~F. Butzen, A.~I. Reis, and R.~P. Ribas.
+\newblock A methodology to evaluate the aging impact on flip-flops performance.
+\newblock In {\em Integrated Circuits and Systems Design (SBCCI), 2013 26th
+  Symposium on}, pages 1--6, Sept 2013.
+
+\bibitem{Omana_Trap}
+M.~Omana, G.~Papasso, D.~Rossi, and C.~Metra.
+\newblock A model for transient fault propagation in combinatorial logic.
+\newblock In {\em On-Line Testing Symposium, 2003. IOLTS 2003. 9th IEEE}, pages
+  111--115, July 2003.
+
+\bibitem{SETA_LA}
+R.~Rajaraman, J.~S. Kim, N.~Vijaykrishnan, Y.~Xie, and M.~J. Irwin.
+\newblock Seat-la: a soft error analysis tool for combinational logic.
+\newblock In {\em 19th International Conference on VLSI Design held jointly
+  with 5th International Conference on Embedded Systems Design (VLSID'06)},
+  pages 4 pp.--, Jan 2006.
+
+\bibitem{PARAM_DESC}
+R.~R. Rao, K.~Chopra, D.~T. Blaauw, and D.~M. Sylvester.
+\newblock Computing the soft error rate of a combinational logic circuit using
+  parameterized descriptors.
+\newblock {\em IEEE Transactions on Computer-Aided Design of Integrated
+  Circuits and Systems}, 26(3):468--479, March 2007.
+
+\bibitem{Rossi2005}
+D.~Rossi, M.~Omana, F.~Toma, and C.~Metra.
+\newblock Multiple transient faults in logic: an issue for next generation ics?
+\newblock In {\em 20th IEEE International Symposium on Defect and Fault
+  Tolerance in VLSI Systems (DFT'05)}, pages 352--360, Oct 2005.
+
+\bibitem{Accurate_Masking}
+F.~Wang and Y.~Xie.
+\newblock Soft error rate analysis for combinational logic using an accurate
+  electrical masking model.
+\newblock {\em IEEE Transactions on Dependable and Secure Computing},
+  8(1):137--146, Jan 2011.
+
+\bibitem{FASER}
+Bin Zhang, Wei-Shen Wang, and M.~Orshansky.
+\newblock Faser: fast analysis of soft error susceptibility for cell-based
+  designs.
+\newblock In {\em 7th International Symposium on Quality Electronic Design
+  (ISQED'06)}, pages 6 pp.--760, March 2006.
+
+\bibitem{SERA}
+M.~Zhang and N.~R. Shanbhag.
+\newblock Soft-error-rate-analysis (sera) methodology.
+\newblock {\em IEEE Transactions on Computer-Aided Design of Integrated
+  Circuits and Systems}, 25(10):2140--2155, Oct 2006.
+
+\bibitem{PTM}
+Wei Zhao and Yu~Cao.
+\newblock Predictive technology model for nano-cmos design exploration.
+\newblock {\em J. Emerg. Technol. Comput. Syst.}, 3(1), April 2007.
+
+\bibitem{injeq}
+J.~F. Ziegler.
+\newblock Terrestrial cosmic rays.
+\newblock {\em IBM Journal of Research and Development}, 40(1):19--39, Jan
+  1996.
+
+\end{thebibliography}
