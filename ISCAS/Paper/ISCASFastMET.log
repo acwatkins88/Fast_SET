@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.16)  12 NOV 2016 22:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.16)  13 NOV 2016 20:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -266,76 +266,14 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  [1{e:/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
-]
-
-LaTeX Warning: Reference `ch2' on page 2 undefined on input line 190.
-
-<Figures/NAND_Strike.pdf, id=12, 246.9225pt x 247.67531pt>
-File: Figures/NAND_Strike.pdf Graphic file (type pdf)
-
-<use Figures/NAND_Strike.pdf>
-Package pdftex.def Info: Figures/NAND_Strike.pdf used on input line 202.
-(pdftex.def)             Requested size: 139.17819pt x 139.60045pt.
- [2 <./Figures/NAND_Strike.pdf>]
-<Figures/Prop_func.pdf, id=27, 298.11375pt x 247.67531pt>
-File: Figures/Prop_func.pdf Graphic file (type pdf)
-
-<use Figures/Prop_func.pdf>
-Package pdftex.def Info: Figures/Prop_func.pdf used on input line 260.
-(pdftex.def)             Requested size: 139.17819pt x 115.62889pt.
-
-<Figures/Prop_MET.pdf, id=28, 449.42906pt x 261.22594pt>
-File: Figures/Prop_MET.pdf Graphic file (type pdf)
-
-<use Figures/Prop_MET.pdf>
-Package pdftex.def Info: Figures/Prop_MET.pdf used on input line 280.
-(pdftex.def)             Requested size: 202.44066pt x 117.66617pt.
- [3 <./Figures/Prop_func.pdf> <./Figures/Prop_MET.pdf
-
-pdfTeX warning: pdflatex.exe (file ./Figures/Prop_MET.pdf): PDF inclusion: mult
-iple pdfs with page group included in a single page
->] <Figures/BDDFunc.pdf, id=47, 257.46187pt x 167.12437pt>
-File: Figures/BDDFunc.pdf Graphic file (type pdf)
-
-<use Figures/BDDFunc.pdf>
-Package pdftex.def Info: Figures/BDDFunc.pdf used on input line 350.
-(pdftex.def)             Requested size: 139.17819pt x 90.34526pt.
-
-
-LaTeX Warning: Reference `ch2' on page 4 undefined on input line 362.
-
-<Figures/gen_func.pdf, id=48, 347.79938pt x 580.41844pt>
-File: Figures/gen_func.pdf Graphic file (type pdf)
-
-<use Figures/gen_func.pdf>
-Package pdftex.def Info: Figures/gen_func.pdf used on input line 368.
-(pdftex.def)             Requested size: 164.48087pt x 274.48828pt.
- [4 <./Figures/BDDFunc.pdf>]
-
-LaTeX Warning: Reference `ch2' on page 5 undefined on input line 388.
-
-[5 <./Figures/gen_func.pdf>]
-
-LaTeX Warning: Reference `qeq' on page 6 undefined on input line 394.
-
-
-LaTeX Warning: Reference `ch2' on page 6 undefined on input line 394.
-
-<Figures/PartProp.pdf, id=66, 715.17188pt x 554.82281pt>
+] [2]
+<Figures/PartProp.pdf, id=20, 715.17188pt x 554.82281pt>
 File: Figures/PartProp.pdf Graphic file (type pdf)
 
 <use Figures/PartProp.pdf>
-Package pdftex.def Info: Figures/PartProp.pdf used on input line 404.
+Package pdftex.def Info: Figures/PartProp.pdf used on input line 250.
 (pdftex.def)             Requested size: 253.04987pt x 196.31583pt.
-
-Underfull \hbox (badness 1688) in paragraph at lines 414--415
-[]\OT1/ptm/m/n/10 Once each in-di-vid-ual pulse is prop-a-gated, a rou-tine
- []
-
-
-LaTeX Warning: Reference `qeq' on page 6 undefined on input line 487.
-
-[6 <./Figures/PartProp.pdf>] (./ISCASFastMET.bbl [7])
+ [3 <./Figures/PartProp.pdf>] (./ISCASFastMET.bbl)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -347,37 +285,31 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[8
-
-] (./ISCASFastMET.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+[4] (./ISCASFastMET.aux) ) 
 Here is how much of TeX's memory you used:
- 2683 strings out of 493027
- 41393 string characters out of 6137684
- 114152 words of memory out of 5000000
- 6183 multiletter control sequences out of 15000+600000
+ 2638 strings out of 493027
+ 40613 string characters out of 6137684
+ 112049 words of memory out of 5000000
+ 6143 multiletter control sequences out of 15000+600000
  39084 words of font info for 75 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 42i,22n,24p,1223b,523s stack positions out of 5000i,500n,10000p,200000b,80000s
-{e:/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}<e:/texlive/2015/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><e:/texlive/2015/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmmi10.pfb><e:/texlive/2015/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmmi5.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmmi7.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmr10.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><
-e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><e:/texliv
-e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><e:/texlive/2015/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><e:/texlive/2015/texmf-dist/fo
-nts/type1/urw/times/utmb8a.pfb><e:/texlive/2015/texmf-dist/fonts/type1/urw/time
-s/utmbi8a.pfb><e:/texlive/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><e:/
-texlive/2015/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on ISCASFastMET.pdf (8 pages, 784015 bytes).
+ 42i,22n,24p,1157b,523s stack positions out of 5000i,500n,10000p,200000b,80000s
+{e:/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.e
+nc}<e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><e:/te
+xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><e:/texlive/201
+5/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><e:/texlive/2015/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr10.pfb><e:/texlive/2015/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr7.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmsy10.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsy7.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.
+pfb><e:/texlive/2015/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><e:/texlive/20
+15/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><e:/texlive/2015/texmf-dist/fon
+ts/type1/urw/times/utmr8a.pfb><e:/texlive/2015/texmf-dist/fonts/type1/urw/times
+/utmri8a.pfb>
+Output written on ISCASFastMET.pdf (4 pages, 322332 bytes).
 PDF statistics:
- 145 PDF objects out of 1000 (max. 8388607)
- 107 compressed objects within 2 object streams
+ 89 PDF objects out of 1000 (max. 8388607)
+ 65 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
