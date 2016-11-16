@@ -68,6 +68,12 @@ C.~M. Fiduccia and R.~M. Mattheyses.
 \newblock In {\em Proceedings of the 19th Design Automation Conference}, DAC
   '82, pages 175--181, Piscataway, NJ, USA, 1982. IEEE Press.
 
+\bibitem{Gangadhar2008}
+S.~Gangadhar, M.~Skoufis, and S.~Tragoudas.
+\newblock Propagation of transients along sensitizable paths.
+\newblock In {\em 2008 14th IEEE International On-Line Testing Symposium},
+  pages 129--134, July 2008.
+
 \bibitem{Han2014}
 J.~Han, H.~Chen, J.~Liang, P.~Zhu, Z.~Yang, and F.~Lombardi.
 \newblock A stochastic computational approach for accurate and efficient
