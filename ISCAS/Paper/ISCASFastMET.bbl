@@ -1,17 +1,15 @@
 \begin{thebibliography}{10}
 
-\bibitem{Fazeli2011}
-M.~Fazeli, S.~N. Ahmadian, S.~G. Miremadi, H.~Asadi, and M.~B. Tahoori.
-\newblock Soft error rate estimation of digital circuits in the presence of
-  multiple event transients (mets).
-\newblock In {\em 2011 Design, Automation Test in Europe}, pages 1--6, March
-  2011.
-
 \bibitem{Fiduccia1982}
 C.~M. Fiduccia and R.~M. Mattheyses.
 \newblock A linear-time heuristic for improving network partitions.
 \newblock In {\em Proceedings of the 19th Design Automation Conference}, DAC
   '82, pages 175--181, Piscataway, NJ, USA, 1982. IEEE Press.
+
+\bibitem{Gangadhar2011}
+S.~Gangadhar and S.~Tragoudas.
+\newblock An analytical method for estimating {SET} propagation.
+\newblock In {\em 29th VLSI Test Symposium}, pages 197--202, May 2011.
 
 \bibitem{MARS_C}
 N.~Miskov-Zivanov and D.~Marculescu.
@@ -52,19 +50,6 @@ A.~Watkins and S.~Tragoudas.
   transients.
 \newblock In {\em 2016 International Great Lakes Symposium on VLSI (GLSVLSI)},
   pages 369--372, May 2016.
-
-\bibitem{FASER}
-Bin Zhang, Wei-Shen Wang, and M.~Orshansky.
-\newblock Faser: fast analysis of soft error susceptibility for cell-based
-  designs.
-\newblock In {\em 7th International Symposium on Quality Electronic Design
-  (ISQED'06)}, pages 6 pp.--760, March 2006.
-
-\bibitem{SERA}
-M.~Zhang and N.~R. Shanbhag.
-\newblock Soft-error-rate-analysis (sera) methodology.
-\newblock {\em IEEE Transactions on Computer-Aided Design of Integrated
-  Circuits and Systems}, 25(10):2140--2155, Oct 2006.
 
 \bibitem{PTM}
 Wei Zhao and Yu~Cao.
