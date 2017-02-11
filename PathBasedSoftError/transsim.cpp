@@ -51,7 +51,7 @@ void gen_sim::gen_p(int n_num)
         git = graph.find(n_num);
         git++;
 
-        if(graph[git->first].type != INPUT)
+        if((graph[git->first].type != INPUT)&&(graph[git->first].fanout_num != 0))
         {
             val = (val+INJ_DELAY)*adj_step;
             temp_i = gen_pulse(RISING, git->first, val);

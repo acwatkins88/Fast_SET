@@ -92,9 +92,9 @@ void bdd_sim::sim()
             bdd_gbc();
         }           
     }*/
+    // Single Partition
     if(PART_SIM == 0)
     {
-        // Partition Circuit into two parts
         for (git = graph.begin(); git != graph.end(); ++git)
             graph[git->first].static_part = 0;
 
@@ -148,6 +148,7 @@ void bdd_sim::sim()
         }
         
     }
+    // Multiple Partitions
     else if(PART_SIM == 1)
     {
         int i;
@@ -181,11 +182,18 @@ void bdd_sim::sim()
         }
         
         map<int, double>::iterator tmit;
-        for(tmit = pt_count.begin(); tmit != pt_count.end(); ++tmit)
-            cout<<"Part: "<<tmit->first<<" Num: "<<pt_count[tmit->first]<<endl;
+        /*for(tmit = pt_count.begin(); tmit != pt_count.end(); ++tmit)
+            cout<<"Part: "<<tmit->first<<" Num: "<<pt_count[tmit->first]<<endl;*/
         
+        double c_num = 0;
         for(tmit = psize_count.begin(); tmit != psize_count.end(); ++tmit)
+        {
             cout<<"Part: "<<tmit->first<<" Size Part: "<<psize_count[tmit->first]<<endl;
+            c_num = c_num + psize_count[tmit->first];
+        }
+        
+        c_num = c_num / NUM_OF_PARTS;
+        cout<<"Average Part Size: "<<c_num<<endl;
         
         for (i = 0; i <= max_partn; ++i)
         {
@@ -242,7 +250,8 @@ bool bdd_sim::sim_graph(gmap &graph)
             //bdd_reorder(BDD_REORDER_WIN2ITE);            
 
             bdd_genfunc(git->first, graph[git->first].p_list);
-
+                        
+            
             if (cur_ncount < MAX_BDD_NODES)
             {
                 // Propagate Existing Pulses
@@ -311,7 +320,7 @@ bool bdd_sim::sim_graph(gmap &graph)
 
         cout << "Gate Processed: " << git->first << endl;
                 
-        bdd_optimize();
+        //bdd_optimize();
     }
     
     list<transient>::iterator pit;

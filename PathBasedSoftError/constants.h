@@ -195,7 +195,7 @@
 #define PART_SIM 1
 
 // Number of Partition for Static Partitioning
-#define NUM_OF_PARTS 1
+#define NUM_OF_PARTS 8
 
 // Tolerance for MC Simulation
 #define MC_TOL 0.0001
