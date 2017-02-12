@@ -128,12 +128,12 @@
 % *** GRAPHICS RELATED PACKAGES ***
 %
 \ifCLASSINFOpdf
-  % \usepackage[pdftex]{graphicx}
-  % declare the path(s) where your graphic files are
-  % \graphicspath{{../pdf/}{../jpeg/}}
-  % and their extensions so you won't have to specify these with
-  % every instance of \includegraphics
-  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+  \usepackage[pdftex]{graphicx}
+  \usepackage{epstopdf}
+  %\usepackage[demo]{graphicx}
+  \usepackage{caption}
+  \usepackage{subcaption}
+  \usepackage{hhline}
 \else
   % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
   % will default to the driver specified in the system graphics.cfg if no
@@ -471,7 +471,8 @@ E-mail: spyros@siu.edu}% <-this % stops an unwanted space
 % in the abstract or keywords.
 \IEEEtitleabstractindextext{%
 \begin{abstract}
-Due to technology scaling, radiation induced errors have become more common in data storage elements. This trend has led to the development of latches that are capable of tolerating the double node upset (DNU). Future scaling may also lead to the possibility of a triple node upset (TNU). While there is no existing work on TNU designs, current work on DNU tolerant designs either suffer from high area and performance overhead or are vulnerable to an error after a DNU thus making them unsuitable for clock gating. A novel latch design is proposed in which all internal and external nodes are capable of recovering the previous value after a single or double node upset. The proposed latch offers higher speed, lower power consumption and lower area requirements compared to all existing DNU tolerant latches capable of recovering all nodes. Additionally, a TNU tolerant latch and a pulse filtering circuit are proposed.
+As the process feature size continues to scale down, the susceptiblity of logic circuits to radiation induced error has increased. This trend has led to the increase in sensitivity of circuits to multi-node upsets. In these circuits, the memory elements are the most vulnerable to error since data is held within the element. Previously, work has been done to harden latches against single event upsets (SEU). Currently, there has been a concerted effort to design latches that are tolerant to double node upsets (DNU). Future process technologies may lead to the likelihood of the a triple node upset (TNU). Base on this trend, a novel DNU tolerant design and TNU tolerant design are proposed. In addition to this, the DNU is designed to be robust for use in clock gating. This design is used as a basis for the TNU tolerant design. Through experimentation, it is shown that the DNU design is more efficient than all other DNU robust designs. The TNU tolerant latch is shown to have an overhead of (PUT NUMBERS HERE).
+
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
@@ -508,6 +509,9 @@ Soft Errors,  Radiation Hardened Latch, Transient Pulses, Single Event Upset, Do
 \IEEEpeerreviewmaketitle
 
 \input Introduction 
+\input existinglatch
+\input DNURobust
+\input Results
 
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
