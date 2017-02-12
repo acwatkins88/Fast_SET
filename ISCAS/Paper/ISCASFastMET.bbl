@@ -1,0 +1,65 @@
+\begin{thebibliography}{10}
+
+\bibitem{Fiduccia1982}
+C.~M. Fiduccia and R.~M. Mattheyses.
+\newblock A linear-time heuristic for improving network partitions.
+\newblock In {\em Proceedings of the 19th Design Automation Conference}, DAC
+  '82, pages 175--181, Piscataway, NJ, USA, 1982. IEEE Press.
+
+\bibitem{Gangadhar2011}
+S.~Gangadhar and S.~Tragoudas.
+\newblock An analytical method for estimating {SET} propagation.
+\newblock In {\em 29th VLSI Test Symposium}, pages 197--202, May 2011.
+
+\bibitem{MARS_C}
+N.~Miskov-Zivanov and D.~Marculescu.
+\newblock Mars-c: modeling and reduction of soft errors in combinational
+  circuits.
+\newblock In {\em 2006 43rd ACM/IEEE Design Automation Conference}, pages
+  767--772, July 2006.
+
+\bibitem{METSys}
+N.~Miskov-Zivanov and D.~Marculescu.
+\newblock Multiple transient faults in combinational and sequential circuits: A
+  systematic approach.
+\newblock {\em IEEE Transactions on Computer-Aided Design of Integrated
+  Circuits and Systems}, 29(10):1614--1627, Oct 2010.
+
+\bibitem{Nunes2013}
+C.~Nunes, P.~F. Butzen, A.~I. Reis, and R.~P. Ribas.
+\newblock A methodology to evaluate the aging impact on flip-flops performance.
+\newblock In {\em Integrated Circuits and Systems Design (SBCCI), 2013 26th
+  Symposium on}, pages 1--6, Sept 2013.
+
+\bibitem{Omana_Trap}
+M.~Omana, G.~Papasso, D.~Rossi, and C.~Metra.
+\newblock A model for transient fault propagation in combinatorial logic.
+\newblock In {\em On-Line Testing Symposium, 2003. IOLTS 2003. 9th IEEE}, pages
+  111--115, July 2003.
+
+\bibitem{Accurate_Masking}
+F.~Wang and Y.~Xie.
+\newblock Soft error rate analysis for combinational logic using an accurate
+  electrical masking model.
+\newblock {\em IEEE Transactions on Dependable and Secure Computing},
+  8(1):137--146, Jan 2011.
+
+\bibitem{Watkins2016}
+A.~Watkins and S.~Tragoudas.
+\newblock An enhanced analytical electrical masking model for multiple event
+  transients.
+\newblock In {\em 2016 International Great Lakes Symposium on VLSI (GLSVLSI)},
+  pages 369--372, May 2016.
+
+\bibitem{PTM}
+Wei Zhao and Yu~Cao.
+\newblock Predictive technology model for nano-cmos design exploration.
+\newblock {\em J. Emerg. Technol. Comput. Syst.}, 3(1), April 2007.
+
+\bibitem{Ziegler1996}
+J.~F. Ziegler.
+\newblock Terrestrial cosmic rays.
+\newblock {\em IBM Journal of Research and Development}, 40(1):19--39, Jan
+  1996.
+
+\end{thebibliography}
