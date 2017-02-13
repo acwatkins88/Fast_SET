@@ -116,6 +116,9 @@ public:
     // CCM Variables
     int level;
     map<int, double> cor_coef; 
+    
+    // A Test 
+    int is_procd;
 };
 
 /*
@@ -126,6 +129,7 @@ struct circuitstruct
     int inpnum;
     int outnum;
     int maxnodeid;
+    int node_count;
     std::list<int> inputs;
     std::list<int> outputs;
 };

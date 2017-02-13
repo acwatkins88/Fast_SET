@@ -341,7 +341,11 @@
 
 
 % default to US letter paper, 10pt, twocolumn, one sided, final, journal
+<<<<<<< HEAD
 \ExecuteOptions{letterpaper,10pt,twocolumn,oneside,final,journal}
+=======
+\ExecuteOptions{letterpaper,10pt,twocolumn,oneside,final,conference}
+>>>>>>> e178267bc26ffcdfb614d0f4e6e4e4713bb5e861
 % overrride these defaults per user requests
 \ProcessOptions
 

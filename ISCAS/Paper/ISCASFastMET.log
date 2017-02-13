@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.16)  13 NOV 2016 20:29
+=======
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.16)  29 NOV 2016 19:14
+>>>>>>> e178267bc26ffcdfb614d0f4e6e4e4713bb5e861
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -222,6 +226,7 @@ Package: bibentry 2007/10/30 1.5 (PWD)
 ) (./ISCASFastMET.aux)
 \openout1 = `ISCASFastMET.aux'.
 
+<<<<<<< HEAD
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 84.
 LaTeX Font Info:    ... okay on input line 84.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 84.
@@ -234,6 +239,20 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 84.
 LaTeX Font Info:    ... okay on input line 84.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 84.
 LaTeX Font Info:    ... okay on input line 84.
+=======
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+>>>>>>> e178267bc26ffcdfb614d0f4e6e4e4713bb5e861
 (e:/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count98
@@ -248,6 +267,7 @@ LaTeX Font Info:    ... okay on input line 84.
 \makeMPintoPDFobject=\count103
 \everyMPtoPDFconversion=\toks21
 )
+<<<<<<< HEAD
 LaTeX Font Info:    Calculating math sizes for size <11> on input line 107.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <11> on input line 107.
@@ -272,6 +292,35 @@ File: Figures/PartProp.pdf Graphic file (type pdf)
 
 <use Figures/PartProp.pdf>
 Package pdftex.def Info: Figures/PartProp.pdf used on input line 250.
+=======
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 106.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <11> on input line 106.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7.69997> on input line 106.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5.5> on input line 106.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 106.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 106.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 106.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 106.
+ [1{e:/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+
+
+]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 180.
+ [2]
+<Figures/PartProp.pdf, id=24, 715.17188pt x 554.82281pt>
+File: Figures/PartProp.pdf Graphic file (type pdf)
+
+<use Figures/PartProp.pdf>
+Package pdftex.def Info: Figures/PartProp.pdf used on input line 267.
+>>>>>>> e178267bc26ffcdfb614d0f4e6e4e4713bb5e861
 (pdftex.def)             Requested size: 253.04987pt x 196.31583pt.
  [3 <./Figures/PartProp.pdf>] (./ISCASFastMET.bbl)
 
@@ -287,6 +336,7 @@ Before submitting the final camera ready copy, remember to:
 
 [4] (./ISCASFastMET.aux) ) 
 Here is how much of TeX's memory you used:
+<<<<<<< HEAD
  2638 strings out of 493027
  40613 string characters out of 6137684
  112049 words of memory out of 5000000
@@ -310,6 +360,36 @@ Output written on ISCASFastMET.pdf (4 pages, 322332 bytes).
 PDF statistics:
  89 PDF objects out of 1000 (max. 8388607)
  65 compressed objects within 1 object stream
+=======
+ 2643 strings out of 493027
+ 40656 string characters out of 6137684
+ 112041 words of memory out of 5000000
+ 6144 multiletter control sequences out of 15000+600000
+ 41074 words of font info for 79 fonts, out of 8000000 for 9000
+ 1144 hyphenation exceptions out of 8191
+ 42i,22n,24p,1295b,523s stack positions out of 5000i,500n,10000p,200000b,80000s
+{e:/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.e
+nc}<e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><e:/te
+xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><e:/texlive/201
+5/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><e:/texlive/2015/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi7.pfb><e:/texlive/2015/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmmi9.pfb><e:/texlive/2015/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr10.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr6.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pf
+b><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><e:/texli
+ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><e:/texlive/2015/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><e:/texlive/2015/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy7.pfb><e:/texlive/2015/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy8.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmsy9.pfb><e:/texlive/2015/texmf-dist/fonts/type1/urw/times/utmb8a.p
+fb><e:/texlive/2015/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><e:/texlive/20
+15/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><e:/texlive/2015/texmf-dist/font
+s/type1/urw/times/utmri8a.pfb>
+Output written on ISCASFastMET.pdf (4 pages, 371462 bytes).
+PDF statistics:
+ 113 PDF objects out of 1000 (max. 8388607)
+ 83 compressed objects within 1 object stream
+>>>>>>> e178267bc26ffcdfb614d0f4e6e4e4713bb5e861
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

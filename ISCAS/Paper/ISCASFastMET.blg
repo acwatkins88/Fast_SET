@@ -3,6 +3,7 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: ISCASFastMET.aux
 The style file: plain.bst
 Database file #1: Bibfile.bib
+<<<<<<< HEAD
 You've used 12 entries,
             2118 wiz_defined-function locations,
             586 strings with 6153 characters,
@@ -44,3 +45,46 @@ warning$ -- 0
 while$ -- 43
 width$ -- 14
 write$ -- 137
+=======
+You've used 10 entries,
+            2118 wiz_defined-function locations,
+            575 strings with 5767 characters,
+and the built_in function-call counts, 3953 in all, are:
+= -- 389
+> -- 144
+< -- 6
++ -- 61
+- -- 46
+* -- 263
+:= -- 597
+add.period$ -- 31
+call.type$ -- 10
+change.case$ -- 53
+chr.to.int$ -- 0
+cite$ -- 10
+duplicate$ -- 177
+empty$ -- 338
+format.name$ -- 46
+if$ -- 889
+int.to.chr$ -- 0
+int.to.str$ -- 10
+missing$ -- 10
+newline$ -- 53
+num.names$ -- 20
+pop$ -- 60
+preamble$ -- 1
+purify$ -- 43
+quote$ -- 0
+skip$ -- 148
+stack$ -- 0
+substring$ -- 274
+swap$ -- 65
+text.length$ -- 6
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 40
+warning$ -- 0
+while$ -- 36
+width$ -- 12
+write$ -- 115
+>>>>>>> e178267bc26ffcdfb614d0f4e6e4e4713bb5e861

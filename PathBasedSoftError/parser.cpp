@@ -21,6 +21,7 @@ void parser::build_graph(char* filename)
     
     // Find Maximum node id
     maxnodeid = 0;
+    circuit.node_count = 0;
     if (graphfile.is_open())
     {
         while (graphfile.good())
@@ -105,6 +106,7 @@ void parser::build_graph(char* filename)
                     {
                         cout << "Node type could not be found\n";
                     }
+                    circuit.node_count++;
                 }
             }
         }

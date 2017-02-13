@@ -17,7 +17,7 @@
 /*
  * Monte Carlo Values
  */
-#define ITR_STEP 1000000
+#define ITR_STEP 10000000
 #define MAX_INPT 20             //Max Iterative Inputs
 
 /*
@@ -39,7 +39,7 @@
 #define MAX_VG 2.5
 
 // Define the Number of Steps
-#define NUM_STEPS 400
+#define NUM_STEPS 1200
 
 // Initial Internal Node Voltage
 #define INT_NODE_VOLT 0
@@ -50,9 +50,8 @@
 #define STEP_GRAN 0.5e-12
 
 //#define C_LOAD 0.15e-15
-#define C_LOAD 0
-#define ST_NODE_CAP 0.25e-15
-#define ST_NODE_CAP_P 0.15e-15
+#define ST_NODE_CAP 2e-15
+#define ST_NODE_CAP_P 1e-15
 
 #define PI 3.14159265359
 
@@ -130,24 +129,29 @@
 #define END_THRESH 0.25
 #define W_THRESH1 0.5
 #define W_THRESH2 0.5
-#define INJ_DELAY 20
+#define INJ_DELAY 50e-12
 
-#define MULT_TRANS 0
-#define INJ_RATIO 0.5
+#define MULT_TRANS 1
+#define INJ_RATIO 0.10   // Ratio of Number of events that result in a MET 
 #define W_MIN 1e-12     // Paramter for the minimum width
+#define MAX_VOLT 1.10   // Parameter to set the maximum clamping voltage
+#define MIN_VOLT -0.05
 
+#define TOT_INJ 50
+
+#define MIN_CONV_PROB 0.05
 /*
  * Flip Flop Values
  */
 #define SETUP_T 22.5e-12
-#define HOLD_T 7.25e-12
-#define CLK 1.5e9;
+#define HOLD_T -7.25e-12
+#define CLK 66e-9;
 
 /*
  * Temp Test Values
  */
-#define T_PROB .5
-#define F_PROB .5
+#define T_PROB 0.5
+#define F_PROB 0.5
 
 #define REORDER_TH 1000
 
@@ -155,10 +159,10 @@
 #define CONE_SIM 0
 
 // Set initial partition ratio
-#define PART_RATIO 0.5
+//#define PART_RATIO 0.5
 
 // Maximum BDD node count
-#define MAX_BDD_NODES 5000000
+#define MAX_BDD_NODES 50000000000000
 
 // Set a Minimum Number of Gates
 #define MIN_GATE_NUM 10
@@ -181,6 +185,21 @@
  */
 #define CUR_SIM 0
 #define PRINT_OUT 0
+
+/*
+ * Partition Simulation Type
+ * 0 - Adaptive Partitioning
+ * 1 - Static Partitioning
+ */
+
+#define PART_SIM 1
+
+// Number of Partition for Static Partitioning
+#define NUM_OF_PARTS 8
+
+// Tolerance for MC Simulation
+#define MC_TOL 0.0001
+#define NUM_TOL 5
 
 #endif /* CONSTANTS_H */
 

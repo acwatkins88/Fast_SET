@@ -28,6 +28,37 @@ extern vector<vector<double> > pmos_miller;
 void part_sim(gmap , circuitstruct );
 bool out_find(int );
 
+inline bool check_map(map<int, double> inp_m, int key)
+{
+    map<int, double>::iterator mit;
+    
+    for(mit = inp_m.begin(); mit != inp_m.end(); ++mit)
+        if(mit->first == key)
+            return true;
+    return false;
+}
+
+inline double avg_map(map<int, double> inp_m)
+{
+    double sum = 0;
+    map<int, double>::iterator mit;
+    
+    for(mit = inp_m.begin(); mit != inp_m.end(); ++mit)
+        sum = sum + inp_m[mit->first];
+    
+    return sum/inp_m.size();
+}
+
+inline bool g_find(gmap inp, int key)
+{
+    gmap::iterator git;
+    
+    for(git = inp.begin(); git != inp.end(); ++git)
+        if(git->first == key)
+            return true;
+    return false;
+}
+
 class gen_sim
 {
 public:
@@ -39,7 +70,7 @@ public:
     //gmap graph;
     //circuitstruct circuit;
     
-    transient gen_pulse(int , int , int );
+    transient gen_pulse(int , int , double );
     void prop_enhpulse(int );
     
     void export_vec(vector<double> , string );
@@ -48,12 +79,22 @@ public:
     virtual void end_sim() = 0;
 //private:
 protected:
+    
+    // Temporary map to store output pulses from subscircuits
+    map<int, list<transient> > tp_map;
+    
     // Maximum pin size
     int max_pins;
     int total_size;
     int max_size;
     int size_part1;
     int size_part2;
+    
+    int max_node;
+    bdd_prob s_prob;
+    
+    double part_ratio;
+    int cur_ncount;
     
     gmap::iterator over_it;
     
@@ -153,14 +194,14 @@ protected:
     void print_pstruct();
     
     // Enhanced Pulse Methods
-    void gen_enhpulse(int , int );
+    void gen_p(int );
     
     // Attempt to Generalize the Algorithm
     //vector<double> inj_NAND(int , double , int , double &, double &, int );
     //void prop_enhpulse(int );
     
     /// Injection Functions
-    transient inj_NAND(int , double , int , int );
+    transient inj_NAND(int , double , int , double );
     transient inj_NOR(int , double , int , int );
     transient inj_NOT(int , double , int , int );
     transient inj_AND(int , double , int , int );
@@ -202,6 +243,9 @@ public:
     void pnode_sim();
     void end_sim();
     
+    int g_count;
+    int tot_count;
+    
     // Local graph - represented as a partition
     //gmap graphn;
     
@@ -209,11 +253,9 @@ public:
     ~bdd_sim(){};
     
 private:
-    // Temporary map to store output pulses from subscircuits
-    map<int, list<transient> > tp_map;
     
     void gen_sensf(int);
-    void bdd_genp(int );
+    //void bdd_genp(int );
     void bdd_genfunc(int , list<transient>& );
     bdd gen_bdd(int, transient);
     bdd prop_bdd(int, int , transient);
@@ -234,6 +276,11 @@ private:
     int count_nodes(gmap , int );
     void conv_partition(gmap & , int & , int );
     
+    void spart_graph(gmap , int& );
+    gmap ext_spart(gmap , int );
+    
+    void conv_spart(int &max_partn);
+    
     void bdd_optimize();
 };
 
@@ -250,10 +297,12 @@ public:
 private:
     void apply_inpt(int* );
     void eval_gval(int );
-    void gen_p(int );
+    //void gen_p(int );
     void add_result(int );
     void gen_itrpat(int* , int);
     void gen_pat(int* );
+    
+    void app_pulse(int );
     
     // Declarations of Virtual Functions
     void set_propfunc(int, int, transient, transient );

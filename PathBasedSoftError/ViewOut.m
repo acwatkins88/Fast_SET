@@ -3,11 +3,12 @@ clc; clear all; close all;
 %addpath('/home/adam/Fast_SET/PathBasedSoftError');
 %addpath('/home/acwatkins/Fast_SET/PathBasedSoftError')
 
-inp_data1 = dlmread('OutputRes0.out');
-inp_data2 = dlmread('OutputRes1.out');
-inp_data3 = dlmread('OutputRes2.out');
-inp_data4 = dlmread('OutputRes3.out');
-inp_data5 = dlmread('OutputRes4.out');
+inp_data1 = dlmread('OutputRes_4_12644.out');
+inp_data2 = dlmread('OutputRes_4_12617.out');
+%inp_data3 = dlmread('OutputRes8_2.out');
+%inp_data4 = dlmread('OutputRes8_3.out');
+%inp_data5 = dlmread('OutputRes8_17.out');
+%inp_data6 = dlmread('OutputRes8_5.out');
 %res_data2 = dlmread('OutputRes3.out');
 %cur_data = dlmread('CurOut.out');
 
@@ -15,9 +16,10 @@ figure;
 hold on
 plot(inp_data1, 'b');
 plot(inp_data2, 'r');
-plot(inp_data3, 'g');
-plot(inp_data4, 'k');
-plot(inp_data5, 'm');
+%plot(inp_data3, 'g');
+%plot(inp_data4, 'k');
+%plot(inp_data5, 'm');
+%plot(inp_data6, 'y');
 hold off
 
 %figure;

@@ -1,0 +1,806 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.28)  11 FEB 2017 23:51
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**Latch_Main.tex
+(./Latch_Main.tex
+LaTeX2e <2016/02/01>
+Babel <3.9q> and hyphenation patterns for 3 language(s) loaded.
+(./IEEEtran.cls
+Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
+-- See the "IEEEtran_HOWTO" manual for usage information.
+-- http://www.michaelshell.org/tex/ieeetran/
+\@IEEEtrantmpdimenA=\dimen102
+\@IEEEtrantmpdimenB=\dimen103
+\@IEEEtrantmpdimenC=\dimen104
+\@IEEEtrantmpcountA=\count79
+\@IEEEtrantmpcountB=\count80
+\@IEEEtrantmpcountC=\count81
+\@IEEEtrantmptoksA=\toks14
+LaTeX Font Info:    Try loading font information for OT1+ppl on input line 503.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ppl.fd
+File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
+)
+-- Using IEEE Computer Society mode.
+-- Using 8.5in x 11in (letter) paper.
+-- Using PDF output.
+\@IEEEnormalsizeunitybaselineskip=\dimen105
+-- This is a 10 point document.
+\CLASSINFOnormalsizebaselineskip=\dimen106
+\CLASSINFOnormalsizeunitybaselineskip=\dimen107
+\IEEEnormaljot=\dimen108
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <5.01874> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <5.01874> not available
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <7.02625> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <7.02625> not available
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <8.03> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <8.03> not available
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <9.03374> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <9.03374> not available
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <9.53561> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <9.53561> not available
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <11.04124> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <11.04124> not available
+
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <12.045> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <12.045> not available
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <17.06374> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <17.06374> not available
+
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <20.075> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <20.075> not available
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <24.09> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <24.09> not available
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 1090.
+
+\IEEEquantizedlength=\dimen109
+\IEEEquantizedlengthdiff=\dimen110
+\IEEEquantizedtextheightdiff=\dimen111
+\IEEEilabelindentA=\dimen112
+\IEEEilabelindentB=\dimen113
+\IEEEilabelindent=\dimen114
+\IEEEelabelindent=\dimen115
+\IEEEdlabelindent=\dimen116
+\IEEElabelindent=\dimen117
+\IEEEiednormlabelsep=\dimen118
+\IEEEiedmathlabelsep=\dimen119
+\IEEEiedtopsep=\skip41
+\c@section=\count82
+\c@subsection=\count83
+\c@subsubsection=\count84
+\c@paragraph=\count85
+\c@IEEEsubequation=\count86
+\abovecaptionskip=\skip42
+\belowcaptionskip=\skip43
+\c@figure=\count87
+\c@table=\count88
+\@IEEEeqnnumcols=\count89
+\@IEEEeqncolcnt=\count90
+\@IEEEsubeqnnumrollback=\count91
+\@IEEEquantizeheightA=\dimen120
+\@IEEEquantizeheightB=\dimen121
+\@IEEEquantizeheightC=\dimen122
+\@IEEEquantizeprevdepth=\dimen123
+\@IEEEquantizemultiple=\count92
+\@IEEEquantizeboxA=\box26
+\@IEEEtmpitemindent=\dimen124
+\IEEEPARstartletwidth=\dimen125
+\c@IEEEbiography=\count93
+\@IEEEtranrubishbin=\box27
+) (/usr/share/texlive/texmf-dist/tex/latex/cite/cite.sty
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 332.
+Package: cite 2015/02/27  v 5.5
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks15
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2016/01/03 v1.0q Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 95.
+
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count94
+))
+\Gin@req@height=\dimen126
+\Gin@req@width=\dimen127
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf.sty
+Package: epstopdf 2010/02/09 v2.5 Conversion with epstopdf on the fly (HO)
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+)))
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen128
+\captionmargin@=\dimen129
+\captionwidth=\dimen130
+\caption@tempdima=\dimen131
+\caption@indent=\dimen132
+\caption@parindent=\dimen133
+\caption@hangindent=\dimen134
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+)
+
+Package caption Warning: Unsupported document class (or package) detected,
+(caption)                usage of the caption package is not recommended.
+See the caption package documentation for explanation.
+
+Package caption Info: \@makecaption = \long macro:#1#2->\ifx \@captype \@IEEEta
+blestring \footnotesize \bgroup \par \centering \@IEEEtabletopskipstrut {\norma
+lfont \sffamily \footnotesize #1}\\{\normalfont \sffamily \footnotesize #2}\par
+ \addvspace {0.5\baselineskip }\egroup \@IEEEtablecaptionsepspace \else \@IEEEf
+igurecaptionsepspace \setbox \@tempboxa \hbox {\normalfont \sffamily \footnotes
+ize {#1.}\nobreakspace #2}\ifdim \wd \@tempboxa >\hsize \setbox \@tempboxa \hbo
+x {\normalfont \sffamily \footnotesize {#1.}\nobreakspace }\parbox [t]{\hsize }
+{\normalfont \sffamily \footnotesize \noindent \unhbox \@tempboxa #2}\else \hbo
+x to\hsize {\normalfont \sffamily \footnotesize \box \@tempboxa \hfil }\fi \fi 
+.
+\c@ContinuedFloat=\count95
+) (/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2016/02/20 v1.1-142 Sub-captions (AR)
+\c@subfigure=\count96
+\c@subtable=\count97
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/hhline.sty
+Package: hhline 2014/10/28 v2.03 Table rule package (DPC)
+) (./Latch_Main.aux)
+\openout1 = `Latch_Main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 370.
+LaTeX Font Info:    ... okay on input line 370.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 370.
+LaTeX Font Info:    ... okay on input line 370.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 370.
+LaTeX Font Info:    ... okay on input line 370.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 370.
+LaTeX Font Info:    ... okay on input line 370.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 370.
+LaTeX Font Info:    ... okay on input line 370.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 370.
+LaTeX Font Info:    ... okay on input line 370.
+
+-- Lines per column: 61 (exact).
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count98
+\scratchdimen=\dimen135
+\scratchbox=\box28
+\nofMPsegments=\count99
+\nofMParguments=\count100
+\everyMPshowfont=\toks16
+\MPscratchCnt=\count101
+\MPscratchDim=\dimen136
+\MPnumerator=\count102
+\makeMPintoPDFobject=\count103
+\everyMPtoPDFconversion=\toks17
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 485.
+
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
+File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
+)
+LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <11.04124> not available
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 485.
+LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <8.03> not available
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 485.
+LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 48
+5.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <11.04124> on input line 485.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7.72884> on input line 485.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5.52061> on input line 485.
+LaTeX Font Info:    Try loading font information for U+pzd on input line 485.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/upzd.fd
+File: upzd.fd 2001/06/04 font definitions for U/pzd.
+)
+LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 485.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8.03> on input line 485.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5.62097> on input line 485.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <4.015> on input line 485.
+ (./Introduction.tex
+LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <11.04124> not available
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `OT1/phv/bx/sc' in size <11.04124> not available
+
+(Font)              Font shape `OT1/phv/b/sc' tried instead on input line 1.
+
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+
+]) (./existinglatch.tex
+<Figures/HSMUF.pdf, id=13, 450.9347pt x 250.68657pt>
+File: Figures/HSMUF.pdf Graphic file (type pdf)
+ <use Figures/HSMUF.pdf>
+Package pdftex.def Info: Figures/HSMUF.pdf used on input line 11.
+(pdftex.def)             Requested size: 252.94499pt x 140.62067pt.
+
+[2] <Figures/DONUT.pdf, id=17, 325.96782pt x 262.73157pt>
+File: Figures/DONUT.pdf Graphic file (type pdf)
+
+<use Figures/DONUT.pdf>
+Package pdftex.def Info: Figures/DONUT.pdf used on input line 23.
+(pdftex.def)             Requested size: 252.94499pt x 203.88344pt.
+
+<Figures/ModDONUT.pdf, id=18, 340.27126pt x 287.57437pt>
+File: Figures/ModDONUT.pdf Graphic file (type pdf)
+
+<use Figures/ModDONUT.pdf>
+Package pdftex.def Info: Figures/ModDONUT.pdf used on input line 33.
+(pdftex.def)             Requested size: 252.94499pt x 213.77145pt.
+) (./DNURobust.tex
+<Figures/Block.pdf, id=19, 242.40562pt x 222.8325pt>
+File: Figures/Block.pdf Graphic file (type pdf)
+ <use Figures/Block.pdf>
+Package pdftex.def Info: Figures/Block.pdf used on input line 6.
+(pdftex.def)             Requested size: 126.47249pt x 116.26118pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Figures/BLatch.pdf, id=20, 269.50688pt x 615.0478pt>
+File: Figures/BLatch.pdf Graphic file (type pdf)
+ <use Figures/BLatch.pdf>
+Package pdftex.def Info: Figures/BLatch.pdf used on input line 20.
+(pdftex.def)             Requested size: 139.12051pt x 317.48987pt.
+
+[3 <./Figures/HSMUF.pdf> <./Figures/DONUT.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Figures/DONUT.pdf): PDF inclusion: mu
+ltiple pdfs with page group included in a single page
+> <./Figures/ModDONUT.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Figures/ModDONUT.pdf): PDF inclusion:
+ multiple pdfs with page group included in a single page
+> <./Figures/Block.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Figures/Block.pdf): PDF inclusion: mu
+ltiple pdfs with page group included in a single page
+>]
+Package epstopdf Info: Source file: <Figures/defaultoperation.eps>
+(epstopdf)                    date: 2016-07-24 12:01:23
+(epstopdf)                    size: 47893 bytes
+(epstopdf)             Output file: <Figures/defaultoperation-eps-converted-to.
+pdf>
+(epstopdf)                    date: 2016-07-24 12:02:40
+(epstopdf)                    size: 10623 bytes
+(epstopdf)             Command: <repstopdf --outfile=Figures/defaultoperation-e
+ps-converted-to.pdf Figures/defaultoperation.eps>
+(epstopdf)             \includegraphics on input line 34.
+Package epstopdf Info: Output file is already uptodate.
+
+<Figures/defaultoperation-eps-converted-to.pdf, id=51, 903.375pt x 861.2175pt>
+File: Figures/defaultoperation-eps-converted-to.pdf Graphic file (type pdf)
+
+<use Figures/defaultoperation-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/defaultoperation-eps-converted-to.pdf used on 
+input line 34.
+(pdftex.def)             Requested size: 202.35675pt x 192.91139pt.
+
+<Figures/HRDNUT.pdf, id=52, 449.88077pt x 614.89723pt>
+File: Figures/HRDNUT.pdf Graphic file (type pdf)
+
+<use Figures/HRDNUT.pdf>
+Package pdftex.def Info: Figures/HRDNUT.pdf used on input line 46.
+(pdftex.def)             Requested size: 252.94499pt x 345.72873pt.
+ [4 <./Figures/BLatch.pdf> <./Figures/defaultoperation-eps-converted-to.pdf> <.
+/Figures/HRDNUT.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Figures/HRDNUT.pdf): PDF inclusion: m
+ultiple pdfs with page group included in a single page
+>]) (./Results.tex
+LaTeX Font Info:    Calculating math sizes for size <9.53561> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9.53561> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6.6749> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <4.7678> on input line 2.
+
+! Undefined control sequence.
+l.8 ...times10^{-12}$ and $Q_o$ was set to $5\text
+                                                  {fC}$. In all simulations,...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Package epstopdf Info: Source file: <Figures/WavePlots/CLKD.eps>
+(epstopdf)                    date: 2016-07-24 11:10:25
+(epstopdf)                    size: 30988 bytes
+(epstopdf)             Output file: <Figures/WavePlots/CLKD-eps-converted-to.pd
+f>
+(epstopdf)                    date: 2016-07-24 11:12:51
+(epstopdf)                    size: 7292 bytes
+(epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/CLKD-eps
+-converted-to.pdf Figures/WavePlots/CLKD.eps>
+(epstopdf)             \includegraphics on input line 15.
+Package epstopdf Info: Output file is already uptodate.
+<Figures/WavePlots/CLKD-eps-converted-to.pdf, id=75, 540.0175pt x 405.515pt>
+File: Figures/WavePlots/CLKD-eps-converted-to.pdf Graphic file (type pdf)
+
+<use Figures/WavePlots/CLKD-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/WavePlots/CLKD-eps-converted-to.pdf used on in
+put line 15.
+(pdftex.def)             Requested size: 130.88197pt x 98.27847pt.
+
+Overfull \hbox (17.07095pt too wide) in paragraph at lines 15--15
+[][] 
+ []
+
+Package epstopdf Info: Source file: <Figures/WavePlots/n1n2.eps>
+(epstopdf)                    date: 2016-07-24 11:10:26
+(epstopdf)                    size: 64819 bytes
+(epstopdf)             Output file: <Figures/WavePlots/n1n2-eps-converted-to.pd
+f>
+(epstopdf)                    date: 2016-07-24 11:12:52
+(epstopdf)                    size: 15275 bytes
+(epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n1n2-eps
+-converted-to.pdf Figures/WavePlots/n1n2.eps>
+(epstopdf)             \includegraphics on input line 18.
+Package epstopdf Info: Output file is already uptodate.
+<Figures/WavePlots/n1n2-eps-converted-to.pdf, id=76, 516.93124pt x 417.56pt>
+File: Figures/WavePlots/n1n2-eps-converted-to.pdf Graphic file (type pdf)
+
+<use Figures/WavePlots/n1n2-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/WavePlots/n1n2-eps-converted-to.pdf used on in
+put line 18.
+(pdftex.def)             Requested size: 113.81102pt x 91.92719pt.
+Package epstopdf Info: Source file: <Figures/WavePlots/n2out.eps>
+(epstopdf)                    date: 2016-07-24 11:10:29
+(epstopdf)                    size: 66468 bytes
+(epstopdf)             Output file: <Figures/WavePlots/n2out-eps-converted-to.p
+df>
+(epstopdf)                    date: 2016-07-24 11:12:53
+(epstopdf)                    size: 15678 bytes
+(epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n2out-ep
+s-converted-to.pdf Figures/WavePlots/n2out.eps>
+(epstopdf)             \includegraphics on input line 29.
+Package epstopdf Info: Output file is already uptodate.
+
+<Figures/WavePlots/n2out-eps-converted-to.pdf, id=77, 516.93124pt x 417.56pt>
+File: Figures/WavePlots/n2out-eps-converted-to.pdf Graphic file (type pdf)
+
+<use Figures/WavePlots/n2out-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/WavePlots/n2out-eps-converted-to.pdf used on i
+nput line 29.
+(pdftex.def)             Requested size: 113.81102pt x 91.92719pt.
+Package epstopdf Info: Source file: <Figures/WavePlots/n1n5.eps>
+(epstopdf)                    date: 2016-07-24 11:10:28
+(epstopdf)                    size: 63207 bytes
+(epstopdf)             Output file: <Figures/WavePlots/n1n5-eps-converted-to.pd
+f>
+(epstopdf)                    date: 2016-07-24 11:12:54
+(epstopdf)                    size: 15035 bytes
+(epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n1n5-eps
+-converted-to.pdf Figures/WavePlots/n1n5.eps>
+(epstopdf)             \includegraphics on input line 32.
+Package epstopdf Info: Output file is already uptodate.
+
+<Figures/WavePlots/n1n5-eps-converted-to.pdf, id=78, 515.9275pt x 417.56pt>
+File: Figures/WavePlots/n1n5-eps-converted-to.pdf Graphic file (type pdf)
+
+<use Figures/WavePlots/n1n5-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/WavePlots/n1n5-eps-converted-to.pdf used on in
+put line 32.
+(pdftex.def)             Requested size: 113.81102pt x 92.11195pt.
+Package epstopdf Info: Source file: <Figures/WavePlots/n3n4.eps>
+(epstopdf)                    date: 2016-07-24 11:10:30
+(epstopdf)                    size: 65108 bytes
+(epstopdf)             Output file: <Figures/WavePlots/n3n4-eps-converted-to.pd
+f>
+(epstopdf)                    date: 2016-07-24 11:12:56
+(epstopdf)                    size: 15345 bytes
+(epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n3n4-eps
+-converted-to.pdf Figures/WavePlots/n3n4.eps>
+(epstopdf)             \includegraphics on input line 43.
+Package epstopdf Info: Output file is already uptodate.
+
+<Figures/WavePlots/n3n4-eps-converted-to.pdf, id=79, 515.9275pt x 417.56pt>
+File: Figures/WavePlots/n3n4-eps-converted-to.pdf Graphic file (type pdf)
+
+<use Figures/WavePlots/n3n4-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/WavePlots/n3n4-eps-converted-to.pdf used on in
+put line 43.
+(pdftex.def)             Requested size: 113.81102pt x 92.11195pt.
+Package epstopdf Info: Source file: <Figures/WavePlots/n4out.eps>
+(epstopdf)                    date: 2016-07-24 11:10:32
+(epstopdf)                    size: 64330 bytes
+(epstopdf)             Output file: <Figures/WavePlots/n4out-eps-converted-to.p
+df>
+(epstopdf)                    date: 2016-07-24 11:12:57
+(epstopdf)                    size: 15279 bytes
+(epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n4out-ep
+s-converted-to.pdf Figures/WavePlots/n4out.eps>
+(epstopdf)             \includegraphics on input line 46.
+Package epstopdf Info: Output file is already uptodate.
+
+<Figures/WavePlots/n4out-eps-converted-to.pdf, id=80, 515.9275pt x 417.56pt>
+File: Figures/WavePlots/n4out-eps-converted-to.pdf Graphic file (type pdf)
+
+<use Figures/WavePlots/n4out-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/WavePlots/n4out-eps-converted-to.pdf used on i
+nput line 46.
+(pdftex.def)             Requested size: 113.81102pt x 92.11195pt.
+Package epstopdf Info: Source file: <Figures/WavePlots/n1n3.eps>
+(epstopdf)                    date: 2016-07-24 11:10:27
+(epstopdf)                    size: 65549 bytes
+(epstopdf)             Output file: <Figures/WavePlots/n1n3-eps-converted-to.pd
+f>
+(epstopdf)                    date: 2016-07-24 11:12:58
+(epstopdf)                    size: 15501 bytes
+(epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n1n3-eps
+-converted-to.pdf Figures/WavePlots/n1n3.eps>
+(epstopdf)             \includegraphics on input line 57.
+Package epstopdf Info: Output file is already uptodate.
+
+<Figures/WavePlots/n1n3-eps-converted-to.pdf, id=81, 516.93124pt x 417.56pt>
+File: Figures/WavePlots/n1n3-eps-converted-to.pdf Graphic file (type pdf)
+
+<use Figures/WavePlots/n1n3-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/WavePlots/n1n3-eps-converted-to.pdf used on in
+put line 57.
+(pdftex.def)             Requested size: 113.81102pt x 91.92719pt.
+Package epstopdf Info: Source file: <Figures/WavePlots/n1n6.eps>
+(epstopdf)                    date: 2016-07-24 11:10:28
+(epstopdf)                    size: 66046 bytes
+(epstopdf)             Output file: <Figures/WavePlots/n1n6-eps-converted-to.pd
+f>
+(epstopdf)                    date: 2016-07-24 11:12:59
+(epstopdf)                    size: 15522 bytes
+(epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n1n6-eps
+-converted-to.pdf Figures/WavePlots/n1n6.eps>
+(epstopdf)             \includegraphics on input line 60.
+Package epstopdf Info: Output file is already uptodate.
+
+<Figures/WavePlots/n1n6-eps-converted-to.pdf, id=82, 515.9275pt x 417.56pt>
+File: Figures/WavePlots/n1n6-eps-converted-to.pdf Graphic file (type pdf)
+
+<use Figures/WavePlots/n1n6-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/WavePlots/n1n6-eps-converted-to.pdf used on in
+put line 60.
+(pdftex.def)             Requested size: 113.81102pt x 92.11195pt.
+Package epstopdf Info: Source file: <Figures/WavePlots/n5out.eps>
+(epstopdf)                    date: 2016-07-24 11:10:33
+(epstopdf)                    size: 64436 bytes
+(epstopdf)             Output file: <Figures/WavePlots/n5out-eps-converted-to.p
+df>
+(epstopdf)                    date: 2016-07-24 11:13:00
+(epstopdf)                    size: 15305 bytes
+(epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n5out-ep
+s-converted-to.pdf Figures/WavePlots/n5out.eps>
+(epstopdf)             \includegraphics on input line 71.
+Package epstopdf Info: Output file is already uptodate.
+
+<Figures/WavePlots/n5out-eps-converted-to.pdf, id=83, 515.9275pt x 417.56pt>
+File: Figures/WavePlots/n5out-eps-converted-to.pdf Graphic file (type pdf)
+
+<use Figures/WavePlots/n5out-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/WavePlots/n5out-eps-converted-to.pdf used on i
+nput line 71.
+(pdftex.def)             Requested size: 113.81102pt x 92.11195pt.
+Package epstopdf Info: Source file: <Figures/WavePlots/n3out.eps>
+(epstopdf)                    date: 2016-07-24 11:10:31
+(epstopdf)                    size: 64850 bytes
+(epstopdf)             Output file: <Figures/WavePlots/n3out-eps-converted-to.p
+df>
+(epstopdf)                    date: 2016-07-24 11:13:02
+(epstopdf)                    size: 15296 bytes
+(epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n3out-ep
+s-converted-to.pdf Figures/WavePlots/n3out.eps>
+(epstopdf)             \includegraphics on input line 74.
+Package epstopdf Info: Output file is already uptodate.
+
+<Figures/WavePlots/n3out-eps-converted-to.pdf, id=84, 516.93124pt x 417.56pt>
+File: Figures/WavePlots/n3out-eps-converted-to.pdf Graphic file (type pdf)
+
+<use Figures/WavePlots/n3out-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/WavePlots/n3out-eps-converted-to.pdf used on i
+nput line 74.
+(pdftex.def)             Requested size: 113.81102pt x 91.92719pt.
+ [5 <./Figures/WavePlots/CLKD-eps-converted-to.pdf> <./Figures/WavePlots/n1n2-e
+ps-converted-to.pdf>]
+
+! LaTeX Error: Illegal character in array arg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.88 ...em}|m{3.5em}|m{3em}|m{3em}|m{3em}|m{3em}|}
+                                                  
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Illegal character in array arg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.88 ...em}|m{3.5em}|m{3em}|m{3em}|m{3em}|m{3em}|}
+                                                  
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Illegal character in array arg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.88 ...em}|m{3.5em}|m{3em}|m{3em}|m{3em}|m{3em}|}
+                                                  
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Illegal character in array arg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.88 ...em}|m{3.5em}|m{3em}|m{3em}|m{3em}|m{3em}|}
+                                                  
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Illegal character in array arg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.88 ...em}|m{3.5em}|m{3em}|m{3em}|m{3em}|m{3em}|}
+                                                  
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Illegal character in array arg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.88 ...em}|m{3.5em}|m{3em}|m{3em}|m{3em}|m{3em}|}
+                                                  
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Illegal character in array arg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.88 ...em}|m{3.5em}|m{3em}|m{3em}|m{3em}|m{3em}|}
+                                                  
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Illegal character in array arg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.88 ...em}|m{3.5em}|m{3em}|m{3em}|m{3em}|m{3em}|}
+                                                  
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Illegal character in array arg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.88 ...em}|m{3.5em}|m{3em}|m{3em}|m{3em}|m{3em}|}
+                                                  
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Illegal character in array arg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.88 ...em}|m{3.5em}|m{3em}|m{3em}|m{3em}|m{3em}|}
+                                                  
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Illegal character in array arg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.88 ...em}|m{3.5em}|m{3em}|m{3em}|m{3em}|m{3em}|}
+                                                  
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Illegal character in array arg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.88 ...em}|m{3.5em}|m{3em}|m{3em}|m{3em}|m{3em}|}
+                                                  
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (117.33264pt too wide) in paragraph at lines 88--113
+ [] 
+ []
+
+) (./Latch_Main.bbl
+Overfull \hbox (20.28777pt too wide) in paragraph at lines 54--60
+\OT1/ppl/m/n/8.03 http://www.worldscientific.com/doi/abs/10.1142/S0218126615500
+073 
+ []
+
+[6 <./Figures/WavePlots/n2out-eps-converted-to.pdf> <./Figures/WavePlots/n1n5-e
+ps-converted-to.pdf> <./Figures/WavePlots/n3n4-eps-converted-to.pdf> <./Figures
+/WavePlots/n4out-eps-converted-to.pdf> <./Figures/WavePlots/n1n3-eps-converted-
+to.pdf> <./Figures/WavePlots/n1n6-eps-converted-to.pdf> <./Figures/WavePlots/n5
+out-eps-converted-to.pdf> <./Figures/WavePlots/n3out-eps-converted-to.pdf>])
+[7
+
+] (./Latch_Main.aux) ) 
+Here is how much of TeX's memory you used:
+ 3809 strings out of 494953
+ 65253 string characters out of 6180977
+ 133158 words of memory out of 5000000
+ 7024 multiletter control sequences out of 15000+600000
+ 43915 words of font info for 92 fonts, out of 8000000 for 9000
+ 17 hyphenation exceptions out of 8191
+ 42i,8n,46p,1204b,298s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.en
+c}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/urw/palatino/uplri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/zapfd
+ing/uzdr.pfb>
+Output written on Latch_Main.pdf (7 pages, 911209 bytes).
+PDF statistics:
+ 221 PDF objects out of 1000 (max. 8388607)
+ 159 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 86 words of extra memory for PDF output out of 10000 (max. 10000000)
+

@@ -1,5 +1,6 @@
 \begin{thebibliography}{10}
 
+<<<<<<< HEAD
 \bibitem{Fazeli2011}
 M.~Fazeli, S.~N. Ahmadian, S.~G. Miremadi, H.~Asadi, and M.~B. Tahoori.
 \newblock Soft error rate estimation of digital circuits in the presence of
@@ -7,12 +8,22 @@ M.~Fazeli, S.~N. Ahmadian, S.~G. Miremadi, H.~Asadi, and M.~B. Tahoori.
 \newblock In {\em 2011 Design, Automation Test in Europe}, pages 1--6, March
   2011.
 
+=======
+>>>>>>> e178267bc26ffcdfb614d0f4e6e4e4713bb5e861
 \bibitem{Fiduccia1982}
 C.~M. Fiduccia and R.~M. Mattheyses.
 \newblock A linear-time heuristic for improving network partitions.
 \newblock In {\em Proceedings of the 19th Design Automation Conference}, DAC
   '82, pages 175--181, Piscataway, NJ, USA, 1982. IEEE Press.
 
+<<<<<<< HEAD
+=======
+\bibitem{Gangadhar2011}
+S.~Gangadhar and S.~Tragoudas.
+\newblock An analytical method for estimating {SET} propagation.
+\newblock In {\em 29th VLSI Test Symposium}, pages 197--202, May 2011.
+
+>>>>>>> e178267bc26ffcdfb614d0f4e6e4e4713bb5e861
 \bibitem{MARS_C}
 N.~Miskov-Zivanov and D.~Marculescu.
 \newblock Mars-c: modeling and reduction of soft errors in combinational
@@ -53,6 +64,7 @@ A.~Watkins and S.~Tragoudas.
 \newblock In {\em 2016 International Great Lakes Symposium on VLSI (GLSVLSI)},
   pages 369--372, May 2016.
 
+<<<<<<< HEAD
 \bibitem{FASER}
 Bin Zhang, Wei-Shen Wang, and M.~Orshansky.
 \newblock Faser: fast analysis of soft error susceptibility for cell-based
@@ -66,6 +78,8 @@ M.~Zhang and N.~R. Shanbhag.
 \newblock {\em IEEE Transactions on Computer-Aided Design of Integrated
   Circuits and Systems}, 25(10):2140--2155, Oct 2006.
 
+=======
+>>>>>>> e178267bc26ffcdfb614d0f4e6e4e4713bb5e861
 \bibitem{PTM}
 Wei Zhao and Yu~Cao.
 \newblock Predictive technology model for nano-cmos design exploration.
