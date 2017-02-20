@@ -172,7 +172,7 @@
 
 % *** MATH PACKAGES ***
 %
-%\usepackage{amsmath}
+\usepackage{amsmath}
 % A popular package from the American Mathematical Society that provides
 % many useful and powerful commands for dealing with mathematics.
 %
@@ -210,7 +210,7 @@
 
 % *** ALIGNMENT PACKAGES ***
 %
-%\usepackage{array}
+\usepackage{array}
 % Frank Mittelbach's and David Carlisle's array.sty patches and improves
 % the standard LaTeX2e array and tabular environments to provide better
 % appearance and additional user controls. As the default LaTeX2e table
@@ -511,6 +511,7 @@ Soft Errors,  Radiation Hardened Latch, Transient Pulses, Single Event Upset, Do
 \input Introduction 
 \input existinglatch
 \input DNURobust
+\input TNULatch
 \input Results
 
 % An example of a floating figure using the graphicx package.
@@ -627,24 +628,24 @@ Soft Errors,  Radiation Hardened Latch, Transient Pulses, Single Event Upset, Do
 %
 
 
-% use section* for acknowledgment
-\ifCLASSOPTIONcompsoc
-  % The Computer Society usually uses the plural form
-  \section*{Acknowledgments}
-\else
-  % regular IEEE prefers the singular form
-  \section*{Acknowledgment}
-\fi
-
-
-The authors would like to thank...
-
-
-% Can use something like this to put references on a page
-% by themselves when using endfloat and the captionsoff option.
-\ifCLASSOPTIONcaptionsoff
-  \newpage
-\fi
+%% use section* for acknowledgment
+%\ifCLASSOPTIONcompsoc
+%  % The Computer Society usually uses the plural form
+%  \section*{Acknowledgments}
+%\else
+%  % regular IEEE prefers the singular form
+%  \section*{Acknowledgment}
+%\fi
+%
+%
+%The authors would like to thank...
+%
+%
+%% Can use something like this to put references on a page
+%% by themselves when using endfloat and the captionsoff option.
+%\ifCLASSOPTIONcaptionsoff
+%  \newpage
+%\fi
 
 
 
@@ -684,22 +685,18 @@ The authors would like to thank...
 %\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
 % or if you just want to reserve a space for a photo:
 
-\begin{IEEEbiography}{Michael Shell}
+\begin{IEEEbiography}{Adam Watkins}
 Biography text here.
 \end{IEEEbiography}
 
 % if you will not have a photo at all:
-\begin{IEEEbiographynophoto}{John Doe}
+\begin{IEEEbiography}{Spyros Tragoudas}
 Biography text here.
-\end{IEEEbiographynophoto}
+\end{IEEEbiography}
 
 % insert where needed to balance the two columns on the last page with
 % biographies
 %\newpage
-
-\begin{IEEEbiographynophoto}{Jane Doe}
-Biography text here.
-\end{IEEEbiographynophoto}
 
 % You can push biographies down or up by placing
 % a \vfill before or after them. The appropriate

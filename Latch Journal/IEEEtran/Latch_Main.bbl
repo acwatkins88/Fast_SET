@@ -26,10 +26,22 @@ K.~M. Zick and J.~P. Hayes, ``High-level vulnerability over space and time to
   insidious soft errors,'' in \emph{2008 IEEE International High Level Design
   Validation and Test Workshop}, Nov 2008, pp. 161--168.
 
+\bibitem{Schwank2013}
+J.~R. Schwank, M.~R. Shaneyfelt, and P.~E. Dodd, ``Radiation hardness assurance
+  testing of microelectronic devices and integrated circuits: Radiation
+  environments, physical mechanisms, and foundations for hardness assurance,''
+  \emph{IEEE Transactions on Nuclear Science}, vol.~60, no.~3, pp. 2074--2100,
+  June 2013.
+
 \bibitem{DICE}
 T.~Calin, M.~Nicolaidis, and R.~Velazco, ``Upset hardened memory design for
   submicron cmos technology,'' \emph{IEEE Transactions on Nuclear Science},
   vol.~43, no.~6, pp. 2874--2878, Dec 1996.
+
+\bibitem{NicoFeedback}
+M.~Nicolaidis, R.~Perez, and D.~Alexandrescu, ``Low-cost highly-robust hardened
+  cells using blocking feedback transistors,'' in \emph{26th IEEE VLSI Test
+  Symposium (vts 2008)}, April 2008, pp. 371--376.
 
 \bibitem{HIPER}
 M.~Omana, D.~Rossi, and C.~Metra, ``High-performance robust latches,''
@@ -59,9 +71,8 @@ R.~Rajaei, M.~Tabandeh, and M.~Fazeli, ``Single event multiple upset (semu)
 \BIBentrySTDinterwordspacing
 
 \bibitem{Multivdd}
-S.~Lin, H.~Yang, and R.~Luo, ``High speed soft-error-tolerant latch and
-  flip-flop design for multiple vdd circuit,'' in \emph{IEEE Computer Society
-  Annual Symposium on VLSI (ISVLSI '07)}, March 2007, pp. 273--278.
+S.~Lin, H.~Yang, and R.~Luo, ``types o,'' in \emph{IEEE Computer Society Annual
+  Symposium on VLSI (ISVLSI '07)}, March 2007, pp. 273--278.
 
 \bibitem{BISER}
 M.~Zhang, S.~Mitra, T.~M. Mak, N.~Seifert, N.~J. Wang, Q.~Shi, K.~S. Kim, N.~R.
@@ -69,10 +80,10 @@ M.~Zhang, S.~Mitra, T.~M. Mak, N.~Seifert, N.~J. Wang, Q.~Shi, K.~S. Kim, N.~R.
   error resilience,'' \emph{IEEE Transactions on Very Large Scale Integration
   (VLSI) Systems}, vol.~14, no.~12, pp. 1368--1378, Dec 2006.
 
-\bibitem{NicoFeedback}
-M.~Nicolaidis, R.~Perez, and D.~Alexandrescu, ``Low-cost highly-robust hardened
-  cells using blocking feedback transistors,'' in \emph{26th IEEE VLSI Test
-  Symposium (vts 2008)}, April 2008, pp. 371--376.
+\bibitem{DONUT}
+N.~Eftaxiopoulos, N.~Axelos, and K.~Pekmestzi, ``Donut: A double node upset
+  tolerant latch,'' in \emph{2015 IEEE Computer Society Annual Symposium on
+  VLSI}, July 2015, pp. 509--514.
 
 \bibitem{DNCS}
 K.~Katsarou and Y.~Tsiatouhas, ``Soft error interception latch: double node
@@ -94,10 +105,15 @@ D.~R. Blum and J.~G. Delgado-Frias, ``Schemes for eliminating transient-width
   clock overhead from set-tolerant memory-based systems,'' \emph{IEEE
   Transactions on Nuclear Science}, vol.~53, no.~3, pp. 1564--1573, June 2006.
 
-\bibitem{DONUT}
-N.~Eftaxiopoulos, N.~Axelos, and K.~Pekmestzi, ``Donut: A double node upset
-  tolerant latch,'' in \emph{2015 IEEE Computer Society Annual Symposium on
-  VLSI}, July 2015, pp. 509--514.
+\bibitem{Blum2007}
+------, ``Hardened by design techniques for implementing multiple-bit upset
+  tolerant static memories,'' in \emph{2007 IEEE International Symposium on
+  Circuits and Systems}, May 2007, pp. 2786--2789.
+
+\bibitem{Watkins2016}
+A.~Watkins and S.~Tragouodas, ``A highly robust double node upset tolerant
+  latch,'' in \emph{2016 IEEE International Symposium on Defect and Fault
+  Tolerance in VLSI and Nanotechnology Systems (DFT)}, Sept 2016, pp. 15--20.
 
 \bibitem{PTM}
 \BIBentryALTinterwordspacing
