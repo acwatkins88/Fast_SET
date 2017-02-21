@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.9.29)  20 FEB 2017 14:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.9.29)  20 FEB 2017 21:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -378,13 +378,13 @@ File: Figures/C_ele.pdf Graphic file (type pdf)
 <use Figures/C_ele.pdf>
 Package pdftex.def Info: Figures/C_ele.pdf used on input line 9.
 (pdftex.def)             Requested size: 189.70874pt x 182.49605pt.
- [2 <./Figures/C_ele.pdf>]
-<Figures/HSMUF.pdf, id=23, 450.9347pt x 250.68657pt>
+ <Figures/HSMUF.pdf, id=14, 450.9347pt x 250.68657pt>
 File: Figures/HSMUF.pdf Graphic file (type pdf)
- <use Figures/HSMUF.pdf>
+
+<use Figures/HSMUF.pdf>
 Package pdftex.def Info: Figures/HSMUF.pdf used on input line 21.
 (pdftex.def)             Requested size: 252.94499pt x 140.62067pt.
-
+ [2 <./Figures/C_ele.pdf>]
 <Figures/DONUT.pdf, id=24, 325.96782pt x 262.73157pt>
 File: Figures/DONUT.pdf Graphic file (type pdf)
  <use Figures/DONUT.pdf>
@@ -398,19 +398,13 @@ File: Figures/ModDONUT.pdf Graphic file (type pdf)
 Package pdftex.def Info: Figures/ModDONUT.pdf used on input line 43.
 (pdftex.def)             Requested size: 252.94499pt x 213.77145pt.
 ) (./DNURobust.tex
-LaTeX Font Info:    Calculating math sizes for size <9.53561> on input line 2.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
+LaTeX Font Info:    Calculating math sizes for size <9.53561> on input line 3.
 
 <Figures/Block.pdf, id=26, 242.40562pt x 222.8325pt>
 File: Figures/Block.pdf Graphic file (type pdf)
  <use Figures/Block.pdf>
-Package pdftex.def Info: Figures/Block.pdf used on input line 6.
+Package pdftex.def Info: Figures/Block.pdf used on input line 7.
 (pdftex.def)             Requested size: 126.47249pt x 116.26118pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
 
 [3 <./Figures/HSMUF.pdf> <./Figures/DONUT.pdf
 
@@ -420,11 +414,15 @@ e pdfs with page group included in a single page
 
 pdfTeX warning: pdflatex.exe (file ./Figures/ModDONUT.pdf): PDF inclusion: mult
 iple pdfs with page group included in a single page
->] <Figures/BLatch.pdf, id=51, 269.50688pt x 615.0478pt>
+> <./Figures/Block.pdf
+
+pdfTeX warning: pdflatex.exe (file ./Figures/Block.pdf): PDF inclusion: multipl
+e pdfs with page group included in a single page
+>] <Figures/BLatch.pdf, id=58, 269.50688pt x 615.0478pt>
 File: Figures/BLatch.pdf Graphic file (type pdf)
 
 <use Figures/BLatch.pdf>
-Package pdftex.def Info: Figures/BLatch.pdf used on input line 22.
+Package pdftex.def Info: Figures/BLatch.pdf used on input line 23.
 (pdftex.def)             Requested size: 139.12051pt x 317.48987pt.
 Package epstopdf Info: Source file: <Figures/defaultoperation.eps>
 (epstopdf)                    date: 2017-02-12 17:04:54
@@ -435,28 +433,24 @@ pdf>
 (epstopdf)                    size: 10623 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/defaultoperation-e
 ps-converted-to.pdf Figures/defaultoperation.eps>
-(epstopdf)             \includegraphics on input line 36.
+(epstopdf)             \includegraphics on input line 37.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/defaultoperation-eps-converted-to.pdf, id=52, 903.375pt x 861.2175pt>
+<Figures/defaultoperation-eps-converted-to.pdf, id=59, 903.375pt x 861.2175pt>
 File: Figures/defaultoperation-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/defaultoperation-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/defaultoperation-eps-converted-to.pdf used on 
-input line 36.
+input line 37.
 (pdftex.def)             Requested size: 202.35675pt x 192.91139pt.
 
-<Figures/HRDNUT.pdf, id=53, 449.88077pt x 614.89723pt>
+<Figures/HRDNUT.pdf, id=60, 449.88077pt x 614.89723pt>
 File: Figures/HRDNUT.pdf Graphic file (type pdf)
 
 <use Figures/HRDNUT.pdf>
-Package pdftex.def Info: Figures/HRDNUT.pdf used on input line 48.
+Package pdftex.def Info: Figures/HRDNUT.pdf used on input line 49.
 (pdftex.def)             Requested size: 252.94499pt x 345.72873pt.
- [4 <./Figures/Block.pdf> <./Figures/BLatch.pdf
-
-pdfTeX warning: pdflatex.exe (file ./Figures/BLatch.pdf): PDF inclusion: multip
-le pdfs with page group included in a single page
->] [5 <./Figures/defaultoperation-eps-converted-to.pdf> <./Figures/HRDNUT.pdf>]
+ [4 <./Figures/BLatch.pdf> <./Figures/defaultoperation-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <Figures/WavePlots/CLKD.eps>
 (epstopdf)                    date: 2017-02-12 17:04:54
 (epstopdf)                    size: 30988 bytes
@@ -466,17 +460,18 @@ f>
 (epstopdf)                    size: 7292 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/CLKD-eps
 -converted-to.pdf Figures/WavePlots/CLKD.eps>
-(epstopdf)             \includegraphics on input line 89.
+(epstopdf)             \includegraphics on input line 90.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/WavePlots/CLKD-eps-converted-to.pdf, id=87, 540.0175pt x 405.515pt>
+
+<Figures/WavePlots/CLKD-eps-converted-to.pdf, id=76, 540.0175pt x 405.515pt>
 File: Figures/WavePlots/CLKD-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/CLKD-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/WavePlots/CLKD-eps-converted-to.pdf used on in
-put line 89.
+put line 90.
 (pdftex.def)             Requested size: 130.88197pt x 98.27847pt.
 
-Overfull \hbox (17.07095pt too wide) in paragraph at lines 89--89
+Overfull \hbox (17.07095pt too wide) in paragraph at lines 90--90
 [][] 
  []
 
@@ -489,15 +484,16 @@ f>
 (epstopdf)                    size: 15275 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n1n2-eps
 -converted-to.pdf Figures/WavePlots/n1n2.eps>
-(epstopdf)             \includegraphics on input line 92.
+(epstopdf)             \includegraphics on input line 93.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/WavePlots/n1n2-eps-converted-to.pdf, id=88, 516.93124pt x 417.56pt>
+<Figures/WavePlots/n1n2-eps-converted-to.pdf, id=77, 516.93124pt x 417.56pt>
 File: Figures/WavePlots/n1n2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n1n2-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/WavePlots/n1n2-eps-converted-to.pdf used on in
-put line 92.
+put line 93.
 (pdftex.def)             Requested size: 113.81102pt x 91.92719pt.
+ [5 <./Figures/HRDNUT.pdf>]
 Package epstopdf Info: Source file: <Figures/WavePlots/n2out.eps>
 (epstopdf)                    date: 2017-02-12 17:04:54
 (epstopdf)                    size: 66468 bytes
@@ -507,15 +503,15 @@ df>
 (epstopdf)                    size: 15678 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n2out-ep
 s-converted-to.pdf Figures/WavePlots/n2out.eps>
-(epstopdf)             \includegraphics on input line 103.
+(epstopdf)             \includegraphics on input line 104.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n2out-eps-converted-to.pdf, id=89, 516.93124pt x 417.56pt>
+<Figures/WavePlots/n2out-eps-converted-to.pdf, id=97, 516.93124pt x 417.56pt>
 File: Figures/WavePlots/n2out-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n2out-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/WavePlots/n2out-eps-converted-to.pdf used on i
-nput line 103.
+nput line 104.
 (pdftex.def)             Requested size: 113.81102pt x 91.92719pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n1n5.eps>
 (epstopdf)                    date: 2017-02-12 17:04:54
@@ -526,15 +522,15 @@ f>
 (epstopdf)                    size: 15035 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n1n5-eps
 -converted-to.pdf Figures/WavePlots/n1n5.eps>
-(epstopdf)             \includegraphics on input line 106.
+(epstopdf)             \includegraphics on input line 107.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n1n5-eps-converted-to.pdf, id=90, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n1n5-eps-converted-to.pdf, id=98, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n1n5-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n1n5-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/WavePlots/n1n5-eps-converted-to.pdf used on in
-put line 106.
+put line 107.
 (pdftex.def)             Requested size: 113.81102pt x 92.11195pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n3n4.eps>
 (epstopdf)                    date: 2017-02-12 17:04:54
@@ -545,15 +541,15 @@ f>
 (epstopdf)                    size: 15345 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n3n4-eps
 -converted-to.pdf Figures/WavePlots/n3n4.eps>
-(epstopdf)             \includegraphics on input line 117.
+(epstopdf)             \includegraphics on input line 118.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n3n4-eps-converted-to.pdf, id=91, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n3n4-eps-converted-to.pdf, id=99, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n3n4-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n3n4-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/WavePlots/n3n4-eps-converted-to.pdf used on in
-put line 117.
+put line 118.
 (pdftex.def)             Requested size: 113.81102pt x 92.11195pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n4out.eps>
 (epstopdf)                    date: 2017-02-12 17:04:54
@@ -564,15 +560,15 @@ df>
 (epstopdf)                    size: 15279 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n4out-ep
 s-converted-to.pdf Figures/WavePlots/n4out.eps>
-(epstopdf)             \includegraphics on input line 120.
+(epstopdf)             \includegraphics on input line 121.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n4out-eps-converted-to.pdf, id=92, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n4out-eps-converted-to.pdf, id=100, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n4out-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n4out-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/WavePlots/n4out-eps-converted-to.pdf used on i
-nput line 120.
+nput line 121.
 (pdftex.def)             Requested size: 113.81102pt x 92.11195pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n1n3.eps>
 (epstopdf)                    date: 2017-02-12 17:04:54
@@ -583,15 +579,15 @@ f>
 (epstopdf)                    size: 15501 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n1n3-eps
 -converted-to.pdf Figures/WavePlots/n1n3.eps>
-(epstopdf)             \includegraphics on input line 131.
+(epstopdf)             \includegraphics on input line 132.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n1n3-eps-converted-to.pdf, id=93, 516.93124pt x 417.56pt>
+<Figures/WavePlots/n1n3-eps-converted-to.pdf, id=101, 516.93124pt x 417.56pt>
 File: Figures/WavePlots/n1n3-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n1n3-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/WavePlots/n1n3-eps-converted-to.pdf used on in
-put line 131.
+put line 132.
 (pdftex.def)             Requested size: 113.81102pt x 91.92719pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n1n6.eps>
 (epstopdf)                    date: 2017-02-12 17:04:54
@@ -602,15 +598,15 @@ f>
 (epstopdf)                    size: 15522 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n1n6-eps
 -converted-to.pdf Figures/WavePlots/n1n6.eps>
-(epstopdf)             \includegraphics on input line 134.
+(epstopdf)             \includegraphics on input line 135.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n1n6-eps-converted-to.pdf, id=94, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n1n6-eps-converted-to.pdf, id=102, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n1n6-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n1n6-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/WavePlots/n1n6-eps-converted-to.pdf used on in
-put line 134.
+put line 135.
 (pdftex.def)             Requested size: 113.81102pt x 92.11195pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n5out.eps>
 (epstopdf)                    date: 2017-02-12 17:04:54
@@ -621,15 +617,15 @@ df>
 (epstopdf)                    size: 15305 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n5out-ep
 s-converted-to.pdf Figures/WavePlots/n5out.eps>
-(epstopdf)             \includegraphics on input line 145.
+(epstopdf)             \includegraphics on input line 146.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n5out-eps-converted-to.pdf, id=95, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n5out-eps-converted-to.pdf, id=103, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n5out-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n5out-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/WavePlots/n5out-eps-converted-to.pdf used on i
-nput line 145.
+nput line 146.
 (pdftex.def)             Requested size: 113.81102pt x 92.11195pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n3out.eps>
 (epstopdf)                    date: 2017-02-12 17:04:54
@@ -640,55 +636,236 @@ df>
 (epstopdf)                    size: 15296 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n3out-ep
 s-converted-to.pdf Figures/WavePlots/n3out.eps>
-(epstopdf)             \includegraphics on input line 148.
+(epstopdf)             \includegraphics on input line 149.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n3out-eps-converted-to.pdf, id=96, 516.93124pt x 417.56pt>
+<Figures/WavePlots/n3out-eps-converted-to.pdf, id=104, 516.93124pt x 417.56pt>
 File: Figures/WavePlots/n3out-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n3out-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/WavePlots/n3out-eps-converted-to.pdf used on i
-nput line 148.
+nput line 149.
 (pdftex.def)             Requested size: 113.81102pt x 91.92719pt.
-) (./TNULatch.tex [6 <./Figures/WavePlots/CLKD-eps-converted-to.pdf> <./Figures
-/WavePlots/n1n2-eps-converted-to.pdf> <./Figures/WavePlots/n2out-eps-converted-
-to.pdf> <./Figures/WavePlots/n1n5-eps-converted-to.pdf> <./Figures/WavePlots/n3
-n4-eps-converted-to.pdf> <./Figures/WavePlots/n4out-eps-converted-to.pdf> <./Fi
-gures/WavePlots/n1n3-eps-converted-to.pdf> <./Figures/WavePlots/n1n6-eps-conver
-ted-to.pdf> <./Figures/WavePlots/n5out-eps-converted-to.pdf> <./Figures/WavePlo
-ts/n3out-eps-converted-to.pdf>]) (./Results.tex [7]
-Underfull \hbox (badness 10000) in paragraph at lines 13--13
-[]|\OT1/ppl/m/n/8.03 DNU
+) (./TNULatch.tex
+<Figures/TNULatch.pdf, id=105, 584.1825pt x 1218.05063pt>
+File: Figures/TNULatch.pdf Graphic file (type pdf)
+
+<use Figures/TNULatch.pdf>
+Package pdftex.def Info: Figures/TNULatch.pdf used on input line 9.
+(pdftex.def)             Requested size: 252.94499pt x 527.39441pt.
+ [6 <./Figures/WavePlots/CLKD-eps-converted-to.pdf> <./Figures/WavePlots/n1n2-e
+ps-converted-to.pdf> <./Figures/WavePlots/n2out-eps-converted-to.pdf> <./Figure
+s/WavePlots/n1n5-eps-converted-to.pdf> <./Figures/WavePlots/n3n4-eps-converted-
+to.pdf> <./Figures/WavePlots/n4out-eps-converted-to.pdf> <./Figures/WavePlots/n
+1n3-eps-converted-to.pdf> <./Figures/WavePlots/n1n6-eps-converted-to.pdf> <./Fi
+gures/WavePlots/n5out-eps-converted-to.pdf> <./Figures/WavePlots/n3out-eps-conv
+erted-to.pdf>]
+Package epstopdf Info: Source file: <Figures/TNUPlots/case1.eps>
+(epstopdf)                    date: 2017-02-20 16:10:34
+(epstopdf)                    size: 205821 bytes
+(epstopdf)             Output file: <Figures/TNUPlots/case1-eps-converted-to.pd
+f>
+(epstopdf)                    date: 2017-02-20 16:47:30
+(epstopdf)                    size: 30608 bytes
+(epstopdf)             Command: <repstopdf --outfile=Figures/TNUPlots/case1-eps
+-converted-to.pdf Figures/TNUPlots/case1.eps>
+(epstopdf)             \includegraphics on input line 43.
+Package epstopdf Info: Output file is already uptodate.
+
+<Figures/TNUPlots/case1-eps-converted-to.pdf, id=170, 476.78125pt x 575.14874pt
+>
+File: Figures/TNUPlots/case1-eps-converted-to.pdf Graphic file (type pdf)
+ <use Figures/TNUPlots/case1-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/TNUPlots/case1-eps-converted-to.pdf used on in
+put line 43.
+(pdftex.def)             Requested size: 130.88197pt x 157.88116pt.
+
+Overfull \hbox (17.07095pt too wide) in paragraph at lines 43--43
+[][] 
+ []
+
+Package epstopdf Info: Source file: <Figures/TNUPlots/case2.eps>
+(epstopdf)                    date: 2017-02-20 16:23:15
+(epstopdf)                    size: 172941 bytes
+(epstopdf)             Output file: <Figures/TNUPlots/case2-eps-converted-to.pd
+f>
+(epstopdf)                    date: 2017-02-20 16:47:32
+(epstopdf)                    size: 27154 bytes
+(epstopdf)             Command: <repstopdf --outfile=Figures/TNUPlots/case2-eps
+-converted-to.pdf Figures/TNUPlots/case2.eps>
+(epstopdf)             \includegraphics on input line 46.
+Package epstopdf Info: Output file is already uptodate.
+<Figures/TNUPlots/case2-eps-converted-to.pdf, id=171, 449.68pt x 507.8975pt>
+File: Figures/TNUPlots/case2-eps-converted-to.pdf Graphic file (type pdf)
+
+<use Figures/TNUPlots/case2-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/TNUPlots/case2-eps-converted-to.pdf used on in
+put line 46.
+(pdftex.def)             Requested size: 113.81102pt x 128.54729pt.
+Package epstopdf Info: Source file: <Figures/TNUPlots/case3.eps>
+(epstopdf)                    date: 2017-02-20 16:25:57
+(epstopdf)                    size: 205800 bytes
+(epstopdf)             Output file: <Figures/TNUPlots/case3-eps-converted-to.pd
+f>
+(epstopdf)                    date: 2017-02-20 16:47:33
+(epstopdf)                    size: 30837 bytes
+(epstopdf)             Command: <repstopdf --outfile=Figures/TNUPlots/case3-eps
+-converted-to.pdf Figures/TNUPlots/case3.eps>
+(epstopdf)             \includegraphics on input line 57.
+Package epstopdf Info: Output file is already uptodate.
+
+<Figures/TNUPlots/case3-eps-converted-to.pdf, id=172, 476.78125pt x 575.14874pt
+>
+File: Figures/TNUPlots/case3-eps-converted-to.pdf Graphic file (type pdf)
+ <use Figures/TNUPlots/case3-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/TNUPlots/case3-eps-converted-to.pdf used on in
+put line 57.
+(pdftex.def)             Requested size: 113.81102pt x 137.29254pt.
+Package epstopdf Info: Source file: <Figures/TNUPlots/case4.eps>
+(epstopdf)                    date: 2017-02-20 16:27:28
+(epstopdf)                    size: 205758 bytes
+(epstopdf)             Output file: <Figures/TNUPlots/case4-eps-converted-to.pd
+f>
+(epstopdf)                    date: 2017-02-20 16:47:35
+(epstopdf)                    size: 33474 bytes
+(epstopdf)             Command: <repstopdf --outfile=Figures/TNUPlots/case4-eps
+-converted-to.pdf Figures/TNUPlots/case4.eps>
+(epstopdf)             \includegraphics on input line 60.
+Package epstopdf Info: Output file is already uptodate.
+
+<Figures/TNUPlots/case4-eps-converted-to.pdf, id=173, 476.78125pt x 575.14874pt
+>
+File: Figures/TNUPlots/case4-eps-converted-to.pdf Graphic file (type pdf)
+ <use Figures/TNUPlots/case4-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/TNUPlots/case4-eps-converted-to.pdf used on in
+put line 60.
+(pdftex.def)             Requested size: 113.81102pt x 137.29254pt.
+Package epstopdf Info: Source file: <Figures/TNUPlots/case5.eps>
+(epstopdf)                    date: 2017-02-20 16:28:38
+(epstopdf)                    size: 173051 bytes
+(epstopdf)             Output file: <Figures/TNUPlots/case5-eps-converted-to.pd
+f>
+(epstopdf)                    date: 2017-02-20 16:47:37
+(epstopdf)                    size: 26443 bytes
+(epstopdf)             Command: <repstopdf --outfile=Figures/TNUPlots/case5-eps
+-converted-to.pdf Figures/TNUPlots/case5.eps>
+(epstopdf)             \includegraphics on input line 71.
+Package epstopdf Info: Output file is already uptodate.
+
+<Figures/TNUPlots/case5-eps-converted-to.pdf, id=174, 449.68pt x 507.8975pt>
+File: Figures/TNUPlots/case5-eps-converted-to.pdf Graphic file (type pdf)
+
+<use Figures/TNUPlots/case5-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/TNUPlots/case5-eps-converted-to.pdf used on in
+put line 71.
+(pdftex.def)             Requested size: 113.81102pt x 128.54729pt.
+Package epstopdf Info: Source file: <Figures/TNUPlots/case6.eps>
+(epstopdf)                    date: 2017-02-20 16:29:19
+(epstopdf)                    size: 173046 bytes
+(epstopdf)             Output file: <Figures/TNUPlots/case6-eps-converted-to.pd
+f>
+(epstopdf)                    date: 2017-02-20 16:47:38
+(epstopdf)                    size: 26067 bytes
+(epstopdf)             Command: <repstopdf --outfile=Figures/TNUPlots/case6-eps
+-converted-to.pdf Figures/TNUPlots/case6.eps>
+(epstopdf)             \includegraphics on input line 74.
+Package epstopdf Info: Output file is already uptodate.
+
+<Figures/TNUPlots/case6-eps-converted-to.pdf, id=175, 449.68pt x 507.8975pt>
+File: Figures/TNUPlots/case6-eps-converted-to.pdf Graphic file (type pdf)
+
+<use Figures/TNUPlots/case6-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/TNUPlots/case6-eps-converted-to.pdf used on in
+put line 74.
+(pdftex.def)             Requested size: 113.81102pt x 128.54729pt.
+) (./Results.tex [7 <./Figures/TNULatch.pdf>]
+Overfull \hbox (2.14369pt too wide) in paragraph at lines 13--13
+\OT1/ppl/m/n/8.03 Immune| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13--13
-\OT1/ppl/m/n/8.03 Im-
+Overfull \hbox (0.9632pt too wide) in paragraph at lines 13--13
+\OT1/ppl/m/n/8.03 Robust| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13--13
-[]|\OT1/ppl/m/n/8.03 DNU
+Overfull \hbox (2.14369pt too wide) in paragraph at lines 13--13
+\OT1/ppl/m/n/8.03 Immune| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13--13
-\OT1/ppl/m/n/8.03 Ro-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 13--13
+Overfull \hbox (6.88948pt too wide) in paragraph at lines 13--13
 []|\OT1/ppl/m/n/8.03 Power
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13--13
+Overfull \hbox (2.43138pt too wide) in paragraph at lines 13--13
+\OT1/ppl/m/n/8.03 ($\OML/cmm/m/it/8 ^^V$\OT1/ppl/m/n/8.03 W)| 
+ []
+
+
+Overfull \hbox (0.8028pt too wide) in paragraph at lines 13--13
 []|\OT1/ppl/m/n/8.03 Delay
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13--14
+Overfull \hbox (1.07587pt too wide) in paragraph at lines 13--14
 []|\OT1/ppl/m/n/8.03 Area
+ []
+
+
+Overfull \hbox (4.67319pt too wide) in paragraph at lines 13--14
+\OT1/ppl/m/n/8.03 (UST)| 
+ []
+
+
+Overfull \hbox (2.00749pt too wide) in paragraph at lines 15--15
+[]|\OT1/ppl/m/n/8.03 1.332| 
+ []
+
+
+Overfull \hbox (2.00749pt too wide) in paragraph at lines 17--17
+[]|\OT1/ppl/m/n/8.03 3.178| 
+ []
+
+
+Overfull \hbox (2.00749pt too wide) in paragraph at lines 17--17
+[]|\OT1/ppl/m/n/8.03 31.648| 
+ []
+
+
+Overfull \hbox (2.00749pt too wide) in paragraph at lines 19--19
+[]|\OT1/ppl/m/n/8.03 1.292| 
+ []
+
+
+Overfull \hbox (2.00749pt too wide) in paragraph at lines 21--21
+[]|\OT1/ppl/m/n/8.03 4.948| 
+ []
+
+
+Overfull \hbox (2.00749pt too wide) in paragraph at lines 21--21
+[]|\OT1/ppl/m/n/8.03 22.486| 
+ []
+
+
+Overfull \hbox (2.00749pt too wide) in paragraph at lines 23--23
+[]|\OT1/ppl/m/n/8.03 5.606| 
+ []
+
+
+Overfull \hbox (2.00749pt too wide) in paragraph at lines 23--23
+[]|\OT1/ppl/m/n/8.03 79.168| 
+ []
+
+
+Overfull \hbox (2.00749pt too wide) in paragraph at lines 25--25
+[]|\OT1/ppl/m/n/8.03 1.871| 
+ []
+
+
+Overfull \hbox (2.00749pt too wide) in paragraph at lines 25--25
+[]|\OT1/ppl/m/n/8.03 1.0626| 
  []
 
 
@@ -697,8 +874,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 27--27
  []
 
 
+Overfull \hbox (2.00749pt too wide) in paragraph at lines 27--27
+[]|\OT1/ppl/m/n/8.03 3.787| 
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 29--29
 []|\OT1/ppl/m/n/8.03 DONUT
+ []
+
+
+Overfull \hbox (2.00749pt too wide) in paragraph at lines 29--29
+[]|\OT1/ppl/m/n/8.03 4.021| 
+ []
+
+
+Overfull \hbox (2.00749pt too wide) in paragraph at lines 29--29
+[]|\OT1/ppl/m/n/8.03 14.722| 
  []
 
 
@@ -707,8 +899,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 31--31
  []
 
 
+Overfull \hbox (2.00749pt too wide) in paragraph at lines 31--31
+[]|\OT1/ppl/m/n/8.03 2.760| 
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 33--33
 []|\OT1/ppl/m/n/8.03 HRDNUT
+ []
+
+
+Overfull \hbox (2.00749pt too wide) in paragraph at lines 33--33
+[]|\OT1/ppl/m/n/8.03 2.450| 
  []
 
 
@@ -716,21 +918,35 @@ Underfull \hbox (badness 10000) in paragraph at lines 35--35
 []|\OT1/ppl/m/n/8.03 TNU-
  []
 
-) (./Latch_Main.bbl
+
+Overfull \hbox (2.00749pt too wide) in paragraph at lines 35--35
+[]|\OT1/ppl/m/n/8.03 3.899| 
+ []
+
+
+Overfull \hbox (6.89993pt too wide) in paragraph at lines 11--38
+ [] 
+ []
+
+) (./Conclusion.tex [8 <./Figures/TNUPlots/case1-eps-converted-to.pdf> <./Figur
+es/TNUPlots/case2-eps-converted-to.pdf> <./Figures/TNUPlots/case3-eps-converted
+-to.pdf> <./Figures/TNUPlots/case4-eps-converted-to.pdf> <./Figures/TNUPlots/ca
+se5-eps-converted-to.pdf> <./Figures/TNUPlots/case6-eps-converted-to.pdf>])
+(./Latch_Main.bbl
 Overfull \hbox (20.28777pt too wide) in paragraph at lines 66--72
 \OT1/ppl/m/n/8.03 http://www.worldscientific.com/doi/abs/10.1142/S0218126615500
 073 
  []
 
-) [8] (./Latch_Main.aux) ) 
+) [9] (./Latch_Main.aux) ) 
 Here is how much of TeX's memory you used:
- 4477 strings out of 493013
- 72800 string characters out of 6136993
- 158758 words of memory out of 5000000
- 7926 multiletter control sequences out of 15000+600000
+ 4523 strings out of 493013
+ 74245 string characters out of 6136993
+ 150829 words of memory out of 5000000
+ 7962 multiletter control sequences out of 15000+600000
  46578 words of font info for 102 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 42i,11n,46p,1421b,303s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,11n,46p,1277b,303s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.e
 nc}<c:/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/te
 xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/201
@@ -747,10 +963,10 @@ rw/helvetic/uhvr8a.pfb><c:/texlive/2016/texmf-dist/fonts/type1/urw/helvetic/uhv
 ro8a.pfb><c:/texlive/2016/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb><c:/te
 xlive/2016/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb><c:/texlive/2016/tex
 mf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on Latch_Main.pdf (8 pages, 1068517 bytes).
+Output written on Latch_Main.pdf (9 pages, 1394728 bytes).
 PDF statistics:
- 232 PDF objects out of 1000 (max. 8388607)
- 167 compressed objects within 2 object streams
+ 323 PDF objects out of 1000 (max. 8388607)
+ 230 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 91 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 126 words of extra memory for PDF output out of 10000 (max. 10000000)
 
