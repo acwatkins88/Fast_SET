@@ -1,5 +1,5 @@
-This is BibTeX, Version 0.99d (TeX Live 2016/W32TeX)
-Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+This is BibTeX, Version 0.99d (TeX Live 2015/W32TeX)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Latch_Main.aux
 The style file: IEEEtran.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
@@ -15,15 +15,15 @@ Database file #1: references.bib
 Done.
 You've used 19 entries,
             4087 wiz_defined-function locations,
-            962 strings with 10879 characters,
-and the built_in function-call counts, 17182 in all, are:
-= -- 1384
+            961 strings with 10815 characters,
+and the built_in function-call counts, 17143 in all, are:
+= -- 1378
 > -- 399
 < -- 165
 + -- 236
 - -- 64
-* -- 852
-:= -- 2445
+* -- 847
+:= -- 2431
 add.period$ -- 38
 call.type$ -- 19
 change.case$ -- 19
@@ -32,20 +32,20 @@ cite$ -- 19
 duplicate$ -- 1212
 empty$ -- 1346
 format.name$ -- 82
-if$ -- 4077
+if$ -- 4071
 int.to.chr$ -- 0
 int.to.str$ -- 19
 missing$ -- 204
-newline$ -- 84
+newline$ -- 82
 num.names$ -- 19
-pop$ -- 439
+pop$ -- 440
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1328
+skip$ -- 1325
 stack$ -- 0
 substring$ -- 908
-swap$ -- 1070
+swap$ -- 1069
 text.length$ -- 40
 text.prefix$ -- 0
 top$ -- 5
@@ -53,4 +53,4 @@ type$ -- 19
 warning$ -- 0
 while$ -- 71
 width$ -- 21
-write$ -- 220
+write$ -- 217

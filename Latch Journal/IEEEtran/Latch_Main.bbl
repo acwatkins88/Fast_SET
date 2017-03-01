@@ -62,13 +62,10 @@ P.~Hazucha, T.~Karnik, S.~Walstra, B.~Bloechel, J.~Tschanz, J.~Maiz,
   2003}, Sept 2003, pp. 617--620.
 
 \bibitem{SEMULatch}
-\BIBentryALTinterwordspacing
 R.~Rajaei, M.~Tabandeh, and M.~Fazeli, ``Single event multiple upset (semu)
   tolerant latch designs in presence of process and temperature variations,''
   \emph{Journal of Circuits, Systems and Computers}, vol.~24, no.~01, p.
-  1550007, 2015. [Online]. Available:
-  \url{http://www.worldscientific.com/doi/abs/10.1142/S0218126615500073}
-\BIBentrySTDinterwordspacing
+  1550007, 2015.
 
 \bibitem{Multivdd}
 S.~Lin, H.~Yang, and R.~Luo, ``types o,'' in \emph{IEEE Computer Society Annual
@@ -115,15 +112,15 @@ A.~Watkins and S.~Tragouodas, ``A highly robust double node upset tolerant
   latch,'' in \emph{2016 IEEE International Symposium on Defect and Fault
   Tolerance in VLSI and Nanotechnology Systems (DFT)}, Sept 2016, pp. 15--20.
 
+\bibitem{injeq}
+J.~F. Ziegler, ``Terrestrial cosmic rays,'' \emph{IBM Journal of Research and
+  Development}, vol.~40, no.~1, pp. 19--39, Jan 1996.
+
 \bibitem{PTM}
 \BIBentryALTinterwordspacing
 W.~Zhao and Y.~Cao, ``Predictive technology model for nano-cmos design
   exploration,'' \emph{J. Emerg. Technol. Comput. Syst.}, vol.~3, no.~1, Apr.
   2007. [Online]. Available: \url{http://doi.acm.org/10.1145/1229175.1229176}
 \BIBentrySTDinterwordspacing
-
-\bibitem{injeq}
-J.~F. Ziegler, ``Terrestrial cosmic rays,'' \emph{IBM Journal of Research and
-  Development}, vol.~40, no.~1, pp. 19--39, Jan 1996.
 
 \end{thebibliography}
