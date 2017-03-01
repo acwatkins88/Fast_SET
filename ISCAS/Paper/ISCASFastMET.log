@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.16)  28 FEB 2017 20:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.16)  28 FEB 2017 21:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -17,89 +17,7 @@ istensen
 \@IEEEtrantmpcountA=\count79
 \@IEEEtrantmpcountB=\count80
 \@IEEEtrantmptoksA=\toks14
-
-! LaTeX Error: Missing \begin{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.344 <
-       <<<<<< HEAD
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Missing character: There is no < in font nullfont!
-Missing character: There is no < in font nullfont!
-Missing character: There is no < in font nullfont!
-Missing character: There is no < in font nullfont!
-Missing character: There is no < in font nullfont!
-Missing character: There is no < in font nullfont!
-Missing character: There is no < in font nullfont!
-Missing character: There is no H in font nullfont!
-Missing character: There is no E in font nullfont!
-Missing character: There is no A in font nullfont!
-Missing character: There is no D in font nullfont!
-Missing character: There is no = in font nullfont!
-Missing character: There is no = in font nullfont!
-Missing character: There is no = in font nullfont!
-Missing character: There is no = in font nullfont!
-Missing character: There is no = in font nullfont!
-Missing character: There is no = in font nullfont!
-Missing character: There is no = in font nullfont!
-Missing character: There is no > in font nullfont!
-Missing character: There is no > in font nullfont!
-Missing character: There is no > in font nullfont!
-Missing character: There is no > in font nullfont!
-Missing character: There is no > in font nullfont!
-Missing character: There is no > in font nullfont!
-Missing character: There is no > in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no 1 in font nullfont!
-Missing character: There is no 7 in font nullfont!
-Missing character: There is no 8 in font nullfont!
-Missing character: There is no 2 in font nullfont!
-Missing character: There is no 6 in font nullfont!
-Missing character: There is no 7 in font nullfont!
-Missing character: There is no b in font nullfont!
-Missing character: There is no c in font nullfont!
-Missing character: There is no 2 in font nullfont!
-Missing character: There is no 6 in font nullfont!
-Missing character: There is no f in font nullfont!
-Missing character: There is no f in font nullfont!
-Missing character: There is no c in font nullfont!
-Missing character: There is no d in font nullfont!
-Missing character: There is no f in font nullfont!
-Missing character: There is no b in font nullfont!
-Missing character: There is no 6 in font nullfont!
-Missing character: There is no 1 in font nullfont!
-Missing character: There is no 4 in font nullfont!
-Missing character: There is no d in font nullfont!
-Missing character: There is no 0 in font nullfont!
-Missing character: There is no f in font nullfont!
-Missing character: There is no 4 in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no 6 in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no 4 in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no 4 in font nullfont!
-Missing character: There is no 7 in font nullfont!
-Missing character: There is no 1 in font nullfont!
-Missing character: There is no 3 in font nullfont!
-Missing character: There is no b in font nullfont!
-Missing character: There is no b in font nullfont!
-Missing character: There is no 5 in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no 8 in font nullfont!
-Missing character: There is no 6 in font nullfont!
-Missing character: There is no 1 in font nullfont!
-
-Overfull \hbox (20.0pt too wide) in paragraph at lines 344--351
-[]
- []
-
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 377.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 373.
 
 (e:/texlive/2015/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
@@ -112,45 +30,45 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 \CLASSINFOnormalsizeunitybaselineskip=\dimen106
 \IEEEnormaljot=\dimen107
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 735.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 731.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 735.
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 731.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 735.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 731.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 735.
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 731.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 735.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 731.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 735.
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 731.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 735.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 731.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 735.
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 731.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 735.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 731.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 735.
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 731.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <11> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 735.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 731.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <11> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 735.
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 731.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 735.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 731.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 735.
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 731.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 735.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 731.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <17> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 735.
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 731.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 735.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 731.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <20> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 735.
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 731.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 735.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 731.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 735.
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 731.
 \IEEEilabelindentA=\dimen108
 \IEEEilabelindentB=\dimen109
 \IEEEilabelindent=\dimen110
@@ -172,10 +90,11 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
 \@IEEEeqnnumcols=\count88
 \@IEEEeqncolcnt=\count89
 \@IEEEtmpitemindent=\dimen116
-[1]
 \c@IEEEbiography=\count90
 \@IEEEtranrubishbin=\box26
-) (e:/texlive/2015/texmf-dist/tex/latex/graphics/graphicx.sty
+)
+** ATTENTION: Overriding command lockouts (line 68).
+(e:/texlive/2015/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
 (e:/texlive/2015/texmf-dist/tex/latex/graphics/keyval.sty
@@ -302,50 +221,22 @@ Package: setspace 2011/12/19 v6.7a set line spacing
 )
 (e:/texlive/2015/texmf-dist/tex/latex/natbib/bibentry.sty
 Package: bibentry 2007/10/30 1.5 (PWD)
-) (./ISCASFastMET.aux
-
-LaTeX Warning: Label `probfunc' multiply defined.
-
-
-LaTeX Warning: Label `pul_gen' multiply defined.
-
-
-LaTeX Warning: Label `prop_eq' multiply defined.
-
-
-LaTeX Warning: Label `prop_num' multiply defined.
-
-
-LaTeX Warning: Label `temp_eq' multiply defined.
-
-
-LaTeX Warning: Label `event_eq' multiply defined.
-
-
-LaTeX Warning: Label `MES' multiply defined.
-
-
-LaTeX Warning: Label `SER' multiply defined.
-
-
-LaTeX Warning: Label `desc' multiply defined.
-
-)
+) (./ISCASFastMET.aux)
 \openout1 = `ISCASFastMET.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 83.
-LaTeX Font Info:    ... okay on input line 83.
- (e:/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+(e:/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count98
 \scratchdimen=\dimen121
@@ -359,686 +250,35 @@ LaTeX Font Info:    ... okay on input line 83.
 \makeMPintoPDFobject=\count103
 \everyMPtoPDFconversion=\toks21
 )
-Underfull \hbox (badness 10000) in paragraph at lines 87--110
-[]\OT1/ptm/m/n/10 <<<<<<< HEAD  =======  >>>>>>>
- []
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 118.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <11> on input line 118.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7.69997> on input line 118.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5.5> on input line 118.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 118.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 118.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 118.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 118.
+ [1{e:/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
-[2
-
-{e:/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 110.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <11> on input line 110.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7.69997> on input line 110.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5.5> on input line 110.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 110.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 110.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 110.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 110.
-
-
-LaTeX Warning: Reference `results' on page 3 undefined on input line 188.
-
-
-LaTeX Warning: Reference `conc' on page 3 undefined on input line 188.
-
-[3
-
-]
-
-LaTeX Warning: Reference `results' on page 4 undefined on input line 209.
-
-
-LaTeX Warning: Reference `conc' on page 4 undefined on input line 209.
-
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 219.
-[4] [5]
-
-LaTeX Warning: Reference `PART_PROP' on page 6 undefined on input line 284.
-
-[6]
-
-LaTeX Warning: Reference `PART_PROP' on page 7 undefined on input line 358.
-
-<Figures/PartProp.pdf, id=36, 715.17188pt x 554.82281pt>
+(Font)              <9> on input line 197.
+ [2]
+<Figures/PartProp.pdf, id=24, 715.17188pt x 554.82281pt>
 File: Figures/PartProp.pdf Graphic file (type pdf)
 
 <use Figures/PartProp.pdf>
-Package pdftex.def Info: Figures/PartProp.pdf used on input line 367.
+Package pdftex.def Info: Figures/PartProp.pdf used on input line 286.
 (pdftex.def)             Requested size: 253.04987pt x 196.31583pt.
-
-
-LaTeX Warning: Reference `alg:fastmet' on page 7 undefined on input line 376.
-
-
-LaTeX Warning: Reference `alg:fastmet' on page 7 undefined on input line 385.
-
-
-! LaTeX Error: Not in outer par mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.388 	\caption
-               {METS} \label{alg:fastmet}
-You've lost some text.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 389--390
-[]\OT1/ptm/m/n/10 >>>>>>> e178267bc26ffcdfb614d0f4e6e4e4713bb5e861
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 389--390
-
- []
-
-
-LaTeX Warning: Reference `table:MCvFAST' on page 7 undefined on input line 418.
-
-
-
-! LaTeX Error: Not in outer par mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.420 \begin{table}[ht]
-                       
-You've lost some text.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: Reference `table:MCv' on page 7 undefined on input line 427.
-
-
-! LaTeX Error: Not in outer par mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.429 \begin{table}[ht]
-                       
-You've lost some text.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-! Misplaced \noalign.
-\hline ->\noalign 
-                  {\ifnum 0=`}\fi \hrule \@height \arrayrulewidth \futurelet...
-l.451 			\hline
-               
-I expect to see \noalign only after the \cr of
-an alignment. Proceed, and I'll ignore this case.
-
-! You can't use `\hrule' here except with leaders.
-\hline ->\noalign {\ifnum 0=`}\fi \hrule 
-                                         \@height \arrayrulewidth \futurelet...
-l.451 			\hline
-               
-To put a horizontal rule in an hbox or an alignment,
-you should use \leaders or \hrulefill (see The TeXbook).
-
-! Missing number, treated as zero.
-<to be read again> 
-                   \futurelet 
-l.451 			\hline
-               
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-! Illegal unit of measure (pt inserted).
-<to be read again> 
-                   \futurelet 
-l.451 			\hline
-               
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-
-Overfull \hbox (186.16743pt too wide) in paragraph at lines 433--453
- [] 
- []
-
-
-LaTeX Warning: Reference `table:restable' on page 7 undefined on input line 457
-.
-
-
-LaTeX Warning: Reference `table:restable' on page 7 undefined on input line 459
-.
-
-
-! LaTeX Error: Not in outer par mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.461 \begin{table}[ht]
-                       
-You've lost some text.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: Reference `table:restable' on page 7 undefined on input line 465
-.
-
-
-LaTeX Warning: Reference `table:restable' on page 7 undefined on input line 467
-.
-
-
-! LaTeX Error: Not in outer par mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.469 \begin{table}[ht]
-                       
-You've lost some text.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-(./ISCASFastMET.bbl
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.4 \bibitem{Fazeli2011}
-                        
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.4 \bibitem{Fazeli2011}
-                        
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.4 \bibitem{Fazeli2011}
-                        
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.13 \bibitem{Fiduccia1982}
-                           
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.13 \bibitem{Fiduccia1982}
-                           
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.13 \bibitem{Fiduccia1982}
-                           
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.21 \bibitem{Gangadhar2011}
-                            
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.21 \bibitem{Gangadhar2011}
-                            
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.21 \bibitem{Gangadhar2011}
-                            
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.27 \bibitem{MARS_C}
-                     
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.27 \bibitem{MARS_C}
-                     
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.27 \bibitem{MARS_C}
-                     
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.34 \bibitem{METSys}
-                     
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.34 \bibitem{METSys}
-                     
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.34 \bibitem{METSys}
-                     
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.41 \bibitem{Nunes2013}
-                        
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.41 \bibitem{Nunes2013}
-                        
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.41 \bibitem{Nunes2013}
-                        
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.47 \bibitem{Omana_Trap}
-                         
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.47 \bibitem{Omana_Trap}
-                         
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.47 \bibitem{Omana_Trap}
-                         
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.53 \bibitem{Accurate_Masking}
-                               
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.53 \bibitem{Accurate_Masking}
-                               
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.53 \bibitem{Accurate_Masking}
-                               
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.60 \bibitem{Watkins2016}
-                          
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.60 \bibitem{Watkins2016}
-                          
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.60 \bibitem{Watkins2016}
-                          
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.68 \bibitem{FASER}
-                    
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.68 \bibitem{FASER}
-                    
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.68 \bibitem{FASER}
-                    
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.75 \bibitem{SERA}
-                   
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.75 \bibitem{SERA}
-                   
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.75 \bibitem{SERA}
-                   
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.83 \bibitem{PTM}
-                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.83 \bibitem{PTM}
-                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.83 \bibitem{PTM}
-                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.88 \bibitem{Ziegler1996}
-                          
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.88 \bibitem{Ziegler1996}
-                          
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.88 \bibitem{Ziegler1996}
-                          
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.94 \end{thebibliography}
-                          
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-)
+ [3 <./Figures/PartProp.pdf>] (./ISCASFastMET.bbl)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -1050,62 +290,36 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-
-! LaTeX Error: \begin{center} on input line 462 ended by \end{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.513 \end{document}
-                    
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-(./ISCASFastMET.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
-! You can't use `\end' in internal vertical mode.
-\enddocument ... \endgroup \deadcycles \z@ \@@end 
-                                                  
-l.513 \end{document}
-                    
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-
-! LaTeX Error: \begin{center} on input line 462 ended by \end{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.513 \end{document}
-                    
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-)
-! Emergency stop.
-<*> ./ISCASFastMET.tex
-                      
-*** (job aborted, no legal \end found)
-
- 
+[4] (./ISCASFastMET.aux) ) 
 Here is how much of TeX's memory you used:
- 2643 strings out of 493027
- 40683 string characters out of 6137684
- 131370 words of memory out of 5000000
- 6146 multiletter control sequences out of 15000+600000
- 38860 words of font info for 77 fonts, out of 8000000 for 9000
+ 2644 strings out of 493027
+ 40665 string characters out of 6137684
+ 112536 words of memory out of 5000000
+ 6145 multiletter control sequences out of 15000+600000
+ 41074 words of font info for 79 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 42i,22n,24p,1295b,608s stack positions out of 5000i,500n,10000p,200000b,80000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ 42i,22n,24p,1295b,523s stack positions out of 5000i,500n,10000p,200000b,80000s
+{e:/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.e
+nc}<e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><e:/te
+xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><e:/texlive/201
+5/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><e:/texlive/2015/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi7.pfb><e:/texlive/2015/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmmi9.pfb><e:/texlive/2015/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr10.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr6.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pf
+b><e:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><e:/texli
+ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><e:/texlive/2015/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><e:/texlive/2015/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy7.pfb><e:/texlive/2015/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy8.pfb><e:/texlive/2015/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmsy9.pfb><e:/texlive/2015/texmf-dist/fonts/type1/urw/times/utmb8a.p
+fb><e:/texlive/2015/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><e:/texlive/20
+15/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><e:/texlive/2015/texmf-dist/font
+s/type1/urw/times/utmri8a.pfb>
+Output written on ISCASFastMET.pdf (4 pages, 371806 bytes).
+PDF statistics:
+ 113 PDF objects out of 1000 (max. 8388607)
+ 83 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+
