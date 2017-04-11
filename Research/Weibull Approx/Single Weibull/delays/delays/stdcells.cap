@@ -1,8 +1,0 @@
-# Capacitance Values
-# type inputs intermediate(if any) output
-AND: .4344e-15, .3978e-15 .3234e-15 .345e-15
-NAND: .3294e-15, .3468e-15, .3654e-15
-OR: .2784e-15, .3042e-15, .3714e-15, .3576e-15
-NOR: .2046e-15, .2598e-15, .4062f
-INV: .2304f, .3456f
-BUF: .3822f, .3098f, .3491f
