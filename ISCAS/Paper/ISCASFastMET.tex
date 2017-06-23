@@ -89,7 +89,6 @@
 % can use linebreaks \\ within to get better formatting as desired
 
 \title{METS: A Multiple Event Transient Simulator}
-
 \author{
 	\IEEEauthorblockN{
 		Adam Watkins\IEEEauthorrefmark{1}\IEEEauthorrefmark{2} and 
@@ -193,7 +192,6 @@ When a high energy particle strikes a transistor, the magnitude and polarity of 
 Given the Boolean functions for each gate input, the function for pulse generation can be determined by applying the respective gate function (eg. apply the AND operation for a AND or NAND gate) and inverting the output if the gate is inverting. The resulting function will represent the input patterns that allow for the output to be a ``1". If the resulting pulse is a falling value, the function is not changed. However, if the pulse is rising, it is inverted such that a ``1" value represents the case where a pulse is generated. Equations \ref{OR_RISING} and \ref{OR_FALLING} provide the functions, $F(G)$, for the generation of a rising and falling pulse, respectively, on an OR gate where $F(I_i)$ represents the function for the $i$-th input and the gate has $N$ inputs.
 
 \small
-
 \begin{equation} \label{OR_RISING}
 F(G) = \lnot (F(I_1) \lor F(I_2) \lor ... F(I_N))
 \end{equation}
@@ -201,7 +199,6 @@ F(G) = \lnot (F(I_1) \lor F(I_2) \lor ... F(I_N))
 \begin{equation} \label{OR_FALLING}
 F(G) = F(I_1) \lor F(I_2) \lor ... F(I_N)
 \end{equation}
-
 \normalsize
 
 For the generation of METs, the above equations must be modified such that the joint probability of the error occurring is considered. In the case of pulse generation, it is assumed that a single radiation particle will strike two or more gates causing transient pulses. In order for a pulse with a specific polarity to be generated, the output of the gate must have a specific value. Based on this, the function $F_{gen}$ for pulse generation assuming $S$ gates are struck with sufficient energy is given in Equation \ref{pul_gen}, where $F(G_{i,p})$ is the function representing all input patterns that allow gate $G_i$ to generate a pulse of polarity $p$. Specifically if the pulse generated is rising, $F(G_{i,p})$ pertains to the function that represents the patterns that force the output of $G_{i,p}$ to "0". If the pulse is falling, $F(G_{i,p})$ is the probability of the output being "1".
@@ -277,6 +274,7 @@ To avoid the BDD blowup problem, METS uses partitioning to reduce the simulation
 When the circuit is partitioned, the proposed simulator will extract each partition and simulate them individually. For each node on the output edge, the logic and pulse sensitization BDDs are evaluated. The resulting pulse sensitization probability is stored with the pulse which is propagated between the partitions. Additionally, the logic probabilities from the logic BDDs are stored on the inputs of the next partition. Since a partition may be separated from the primary inputs that drive it, virtual inputs are created which store the logic and pulse sensitization probabilities. Using these values, the probabilities are multiplied by the evaluated probability of the function to determine the overall probability. This is shown in Fig. \ref{PART_PROP}.
 
 \squeezeup
+
 \setlength{\abovecaptionskip}{-12pt}
 
 \setlength{\belowcaptionskip}{-12pt}
