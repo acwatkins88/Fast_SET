@@ -1,0 +1,8 @@
+# Capacitance Values
+# type inputs intermediate(if any) output
+AND2: .4344e-15 .3978e-15 M: .3234e-15 O: .345e-15
+NAND2: .3294e-15 .3468e-15 O: .3654e-15
+OR2: .2784e-15 .3042e-15 M: .3714e-15 O: .3576e-15
+NOR2: .2046e-15 .2598e-15 O: .4062e-15
+INV1: .2304e-15 O:.3456e-15
+BUF1: .3822e-15 M: .3098e-15 O: .3491e-15
