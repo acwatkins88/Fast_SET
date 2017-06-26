@@ -77,15 +77,20 @@ M.~Zhang, S.~Mitra, T.~M. Mak, N.~Seifert, N.~J. Wang, Q.~Shi, K.~S. Kim, N.~R.
   error resilience,'' \emph{IEEE Transactions on Very Large Scale Integration
   (VLSI) Systems}, vol.~14, no.~12, pp. 1368--1378, Dec 2006.
 
+\bibitem{Watkins2016}
+A.~Watkins and S.~Tragouodas, ``A highly robust double node upset tolerant
+  latch,'' in \emph{2016 IEEE International Symposium on Defect and Fault
+  Tolerance in VLSI and Nanotechnology Systems (DFT)}, Sept 2016, pp. 15--20.
+
 \bibitem{DONUT}
 N.~Eftaxiopoulos, N.~Axelos, and K.~Pekmestzi, ``Donut: A double node upset
   tolerant latch,'' in \emph{2015 IEEE Computer Society Annual Symposium on
   VLSI}, July 2015, pp. 509--514.
 
 \bibitem{DNCS}
-K.~Katsarou and Y.~Tsiatouhas, ``Soft error interception latch: double node
-  charge sharing seu tolerant design,'' \emph{Electronics Letters}, vol.~51,
-  no.~4, pp. 330--332, 2015.
+K.~Katsarou and Y.~Tsiatouhas, ``Double node charge sharing seu tolerant latch
+  design,'' in \emph{2014 IEEE 20th International On-Line Testing Symposium
+  (IOLTS)}, July 2014, pp. 122--127.
 
 \bibitem{Inter}
 ------, ``Soft error immune latch under seu related double-node charge
@@ -106,11 +111,6 @@ D.~R. Blum and J.~G. Delgado-Frias, ``Schemes for eliminating transient-width
 ------, ``Hardened by design techniques for implementing multiple-bit upset
   tolerant static memories,'' in \emph{2007 IEEE International Symposium on
   Circuits and Systems}, May 2007, pp. 2786--2789.
-
-\bibitem{Watkins2016}
-A.~Watkins and S.~Tragouodas, ``A highly robust double node upset tolerant
-  latch,'' in \emph{2016 IEEE International Symposium on Defect and Fault
-  Tolerance in VLSI and Nanotechnology Systems (DFT)}, Sept 2016, pp. 15--20.
 
 \bibitem{injeq}
 J.~F. Ziegler, ``Terrestrial cosmic rays,'' \emph{IBM Journal of Research and
