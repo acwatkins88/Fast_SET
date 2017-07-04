@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.16)  4 JUL 2017 12:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.16)  4 JUL 2017 17:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -310,105 +310,56 @@ Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
 \NC@list=\toks21
 \extratabsurround=\skip47
 \backup@length=\skip48
-)
-(e:/texlive/2015/texmf-dist/tex/latex/tools/multicol.sty
-Package: multicol 2016/02/08 v1.8o multicolumn formatting (FMi)
-\c@tracingmulticols=\count110
-\mult@box=\box30
-\multicol@leftmargin=\dimen146
-\c@unbalance=\count111
-\c@collectmore=\count112
-\doublecol@number=\count113
-\multicoltolerance=\count114
-\multicolpretolerance=\count115
-\full@width=\dimen147
-\page@free=\dimen148
-\premulticols=\dimen149
-\postmulticols=\dimen150
-\multicolsep=\skip49
-\multicolbaselineskip=\skip50
-\partial@page=\box31
-\last@line=\box32
-\maxbalancingoverflow=\dimen151
-\mult@rightbox=\box33
-\mult@grightbox=\box34
-\mult@gfirstbox=\box35
-\mult@firstbox=\box36
-\@tempa=\box37
-\@tempa=\box38
-\@tempa=\box39
-\@tempa=\box40
-\@tempa=\box41
-\@tempa=\box42
-\@tempa=\box43
-\@tempa=\box44
-\@tempa=\box45
-\@tempa=\box46
-\@tempa=\box47
-\@tempa=\box48
-\@tempa=\box49
-\@tempa=\box50
-\@tempa=\box51
-\@tempa=\box52
-\@tempa=\box53
-\c@columnbadness=\count116
-\c@finalcolumnbadness=\count117
-\last@try=\dimen152
-\multicolovershoot=\dimen153
-\multicolundershoot=\dimen154
-\mult@nat@firstbox=\box54
-\colbreak@box=\box55
-\mc@col@check@num=\count118
 ) (./Latch_Main.aux)
 \openout1 = `Latch_Main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 367.
-LaTeX Font Info:    ... okay on input line 367.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 367.
-LaTeX Font Info:    ... okay on input line 367.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 367.
-LaTeX Font Info:    ... okay on input line 367.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 367.
-LaTeX Font Info:    ... okay on input line 367.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 367.
-LaTeX Font Info:    ... okay on input line 367.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 367.
-LaTeX Font Info:    ... okay on input line 367.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 365.
+LaTeX Font Info:    ... okay on input line 365.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 365.
+LaTeX Font Info:    ... okay on input line 365.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 365.
+LaTeX Font Info:    ... okay on input line 365.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 365.
+LaTeX Font Info:    ... okay on input line 365.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 365.
+LaTeX Font Info:    ... okay on input line 365.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 365.
+LaTeX Font Info:    ... okay on input line 365.
 
 -- Lines per column: 61 (exact).
 (e:/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count119
-\scratchdimen=\dimen155
-\scratchbox=\box56
-\nofMPsegments=\count120
-\nofMParguments=\count121
+\scratchcounter=\count110
+\scratchdimen=\dimen146
+\scratchbox=\box30
+\nofMPsegments=\count111
+\nofMParguments=\count112
 \everyMPshowfont=\toks22
-\MPscratchCnt=\count122
-\MPscratchDim=\dimen156
-\MPnumerator=\count123
-\makeMPintoPDFobject=\count124
+\MPscratchCnt=\count113
+\MPscratchDim=\dimen147
+\MPnumerator=\count114
+\makeMPintoPDFobject=\count115
 \everyMPtoPDFconversion=\toks23
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 482.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 480.
 
  (e:/texlive/2015/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <11.04124> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 482.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 480.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <8.03> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 482.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 480.
 LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 48
-2.
-LaTeX Font Info:    Try loading font information for U+pzd on input line 482.
+0.
+LaTeX Font Info:    Try loading font information for U+pzd on input line 480.
 
 (e:/texlive/2015/texmf-dist/tex/latex/psnfss/upzd.fd
 File: upzd.fd 2001/06/04 font definitions for U/pzd.
 )
-LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 482.
+LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 480.
  (./Introduction.tex
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <11.04124> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 1.
@@ -974,24 +925,68 @@ Overfull \hbox (2.00749pt too wide) in paragraph at lines 33--33
  []
 
 LaTeX Font Info:    Font shape `OML/ppl/m/n' in size <9.53561> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 39.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 40.
 [8 <./Figures/TNUPlots/case1-eps-converted-to.pdf> <./Figures/TNUPlots/case2-ep
 s-converted-to.pdf> <./Figures/TNUPlots/case3-eps-converted-to.pdf> <./Figures/
 TNUPlots/case4-eps-converted-to.pdf> <./Figures/TNUPlots/case5-eps-converted-to
-.pdf> <./Figures/TNUPlots/case6-eps-converted-to.pdf>]) (./Conclusion.tex)
-(./Latch_Main.bbl [9])
-<Bio/Professional_photo_Tragoudas.jpg, id=281, 361.35pt x 505.89pt>
+.pdf> <./Figures/TNUPlots/case6-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <Figures/DNULargeCharge.eps>
+(epstopdf)                    date: 2017-07-04 17:12:45
+(epstopdf)                    size: 170075 bytes
+(epstopdf)             Output file: <Figures/DNULargeCharge-eps-converted-to.pd
+f>
+(epstopdf)                    date: 2017-07-04 17:16:02
+(epstopdf)                    size: 24595 bytes
+(epstopdf)             Command: <repstopdf --outfile=Figures/DNULargeCharge-eps
+-converted-to.pdf Figures/DNULargeCharge.eps>
+(epstopdf)             \includegraphics on input line 44.
+Package epstopdf Info: Output file is already uptodate.
+
+<Figures/DNULargeCharge-eps-converted-to.pdf, id=277, 423.5825pt x 496.85625pt>
+File: Figures/DNULargeCharge-eps-converted-to.pdf Graphic file (type pdf)
+<use Figures/DNULargeCharge-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/DNULargeCharge-eps-converted-to.pdf used on in
+put line 44.
+(pdftex.def)             Requested size: 139.12051pt x 163.18217pt.
+Package epstopdf Info: Source file: <Figures/largechargetnu.eps>
+(epstopdf)                    date: 2017-07-04 17:19:03
+(epstopdf)                    size: 202588 bytes
+(epstopdf)             Output file: <Figures/largechargetnu-eps-converted-to.pd
+f>
+(epstopdf)                    date: 2017-07-04 17:16:04
+(epstopdf)                    size: 35597 bytes
+(epstopdf)             Command: <repstopdf --outfile=Figures/largechargetnu-eps
+-converted-to.pdf Figures/largechargetnu.eps>
+(epstopdf)             \includegraphics on input line 54.
+runsystem(repstopdf --outfile=Figures/largechargetnu-eps-converted-to.pdf Figur
+es/largechargetnu.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <Figures/largechargetnu-eps-converted-to.pd
+f>
+(epstopdf)                    date: 2017-07-04 17:19:08
+(epstopdf)                    size: 35583 bytes.
+
+<Figures/largechargetnu-eps-converted-to.pdf, id=278, 553.06625pt x 666.49pt>
+File: Figures/largechargetnu-eps-converted-to.pdf Graphic file (type pdf)
+
+<use Figures/largechargetnu-eps-converted-to.pdf>
+Package pdftex.def Info: Figures/largechargetnu-eps-converted-to.pdf used on in
+put line 54.
+(pdftex.def)             Requested size: 189.70874pt x 228.60706pt.
+) (./Conclusion.tex [9 <./Figures/DNULargeCharge-eps-converted-to.pdf> <./Figur
+es/largechargetnu-eps-converted-to.pdf>]) (./Latch_Main.bbl)
+<Bio/Professional_photo_Tragoudas.jpg, id=304, 361.35pt x 505.89pt>
 File: Bio/Professional_photo_Tragoudas.jpg Graphic file (type jpg)
 
 <use Bio/Professional_photo_Tragoudas.jpg>
 Package pdftex.def Info: Bio/Professional_photo_Tragoudas.jpg used on input lin
-e 694.
+e 692.
 (pdftex.def)             Requested size: 64.5274pt x 90.33838pt.
 File: Bio/Professional_photo_Tragoudas.jpg Graphic file (type jpg)
 
 <use Bio/Professional_photo_Tragoudas.jpg>
 Package pdftex.def Info: Bio/Professional_photo_Tragoudas.jpg used on input lin
-e 694.
+e 692.
 (pdftex.def)             Requested size: 64.5274pt x 90.33838pt.
 Missing character: There is no â in font phvr7t!
 Missing character: There is no € in font phvr7t!
@@ -1000,20 +995,20 @@ Missing character: There is no â in font phvr7t!
 Missing character: There is no € in font phvr7t!
 Missing character: There is no ™ in font phvr7t!
 
-Underfull \hbox (badness 1389) in paragraph at lines 694--699
+Underfull \hbox (badness 1389) in paragraph at lines 692--697
 []\OT1/phv/b/n/8.03 Spyros Tragoudas \OT1/phv/m/n/8.03 re-ceived his Diploma in
 
  []
 
 [10 <./Bio/Professional_photo_Tragoudas.jpg>] (./Latch_Main.aux) ) 
 Here is how much of TeX's memory you used:
- 4663 strings out of 493027
- 76377 string characters out of 6137684
- 156820 words of memory out of 5000000
- 8090 multiletter control sequences out of 15000+600000
+ 4571 strings out of 493027
+ 75169 string characters out of 6137684
+ 152429 words of memory out of 5000000
+ 7989 multiletter control sequences out of 15000+600000
  46578 words of font info for 102 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 42i,11n,46p,1494b,331s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,11n,46p,1344b,331s stack positions out of 5000i,500n,10000p,200000b,80000s
 {e:/texlive/2
 015/texmf-dist/fonts/enc/dvips/base/8r.enc}<e:/texlive/2015/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmex10.pfb><e:/texlive/2015/texmf-dist/fonts/type1/publi
@@ -1031,10 +1026,10 @@ e:/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><e:/texlive/2015
 nts/type1/urw/palatino/uplr8a.pfb><e:/texlive/2015/texmf-dist/fonts/type1/urw/p
 alatino/uplri8a.pfb><e:/texlive/2015/texmf-dist/fonts/type1/urw/zapfding/uzdr.p
 fb>
-Output written on Latch_Main.pdf (10 pages, 3587270 bytes).
+Output written on Latch_Main.pdf (10 pages, 3640107 bytes).
 PDF statistics:
- 344 PDF objects out of 1000 (max. 8388607)
- 243 compressed objects within 3 object streams
+ 367 PDF objects out of 1000 (max. 8388607)
+ 259 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 153 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 163 words of extra memory for PDF output out of 10000 (max. 10000000)
 

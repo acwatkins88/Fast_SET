@@ -16,7 +16,7 @@ subplot1 = subplot(4,1,1,'Parent',figure1);
 hold(subplot1,'on');
 
 % Create plot
-plot(X1,Y1,'Parent',subplot1,'LineWidth',3);
+plot(X1,Y1, 'k', 'Parent',subplot1,'LineWidth',3);
 
 % Create title
 title('N1');
@@ -36,7 +36,7 @@ subplot2 = subplot(4,1,2,'Parent',figure1);
 hold(subplot2,'on');
 
 % Create plot
-plot(X1,Y2,'Parent',subplot2,'LineWidth',3);
+plot(X1,Y2, 'k', 'Parent',subplot2,'LineWidth',3);
 
 % Create title
 title('N2');
@@ -56,7 +56,7 @@ subplot3 = subplot(4,1,3,'Parent',figure1);
 hold(subplot3,'on');
 
 % Create plot
-plot(X1,Y3,'Parent',subplot3,'LineWidth',3);
+plot(X1,Y3, 'k', 'Parent',subplot3,'LineWidth',3);
 
 % Create title
 title('N6');
@@ -76,7 +76,7 @@ subplot4 = subplot(4,1,4,'Parent',figure1);
 hold(subplot4,'on');
 
 % Create plot
-plot(X1,Y4,'Parent',subplot4,'LineWidth',3);
+plot(X1,Y4, 'k', 'Parent',subplot4,'LineWidth',3);
 
 % Create title
 title('OUT');

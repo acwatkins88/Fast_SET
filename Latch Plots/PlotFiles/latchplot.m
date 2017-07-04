@@ -1,9 +1,9 @@
 % File to plot latch waveforms
 clc; clear all; close all;
 
-addpath('C:\Users\Adam\Fast_SET\Latch Plots\HspiceToolbox');
+addpath('C:\Users\bokya\Fast_SET\Latch Plots\HspiceToolbox');
 
-x = loadsig('case6.tr0');
+x = loadsig('LargeCharge.tr0');
 
 for i = 1:length(x)
     
@@ -43,8 +43,8 @@ set(0, 'DefaultAxesFontSize', 18);
 set(0, 'DefaultAxesFontName', 'Times');
 set(0, 'DefaultAxesFontWeight', 'Bold');
 
-% TNUFig(t, n1, n2, n6, out)
-TNUOut(t, n6, n7, out)
+TNUFig(t, n1, n2, n3, out)
+% TNUOut(t, n6, n7, out)
 
 % figure('Position', [680 216 687 762]);
 % 

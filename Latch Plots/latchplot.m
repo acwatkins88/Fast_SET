@@ -1,9 +1,9 @@
 % File to plot latch waveforms
 clc; clear all; close all;
 
-addpath('/home/ugrad/watkins/Desktop/Research/Weibull Approx/HspiceToolbox');
+addpath('C:\Users\bokya\Fast_SET\Latch Plots\HspiceToolbox');
 
-x = loadsig('/home/ugrad/watkins/Desktop/Research/Weibull Approx/Single Weibull/Latchtest.tr0');
+x = loadsig('C:\Users\bokya\Fast_SET\Latch Plots\Latchtest.tr0');
 
 for i = 1:length(x)
     
@@ -13,11 +13,11 @@ for i = 1:length(x)
         d = x(i).data;
     elseif strcmp(x(i).name, 'out');
         out = x(i).data;
-    elseif strcmp(x(i).name, 'co1');
+    elseif strcmp(x(i).name, 'cn1');
         co1 = x(i).data;
-    elseif strcmp(x(i).name, 'co2');
+    elseif strcmp(x(i).name, 'cn2');
         co2 = x(i).data;
-    elseif strcmp(x(i).name, 'co3');
+    elseif strcmp(x(i).name, 'cn3');
         co3 = x(i).data;
     elseif strcmp(x(i).name, 'n2');
         n2 = x(i).data;
@@ -37,12 +37,32 @@ t = linspace(0, 3.2e-9, length(x(i).data));
 
 % g = figure('Position', [50 50 936 893]);
 
-set(0, 'DefaultAxesFontSize', 22);
+set(0, 'DefaultAxesFontSize', 18);
 set(0, 'DefaultAxesFontName', 'Times');
 set(0, 'DefaultAxesFontWeight', 'Bold');
 
-g = DNUFig(t, n4, out);
-saveas(g, 'Latch Plots/NewPlots/n5out.eps')
+% g = DNUFig(t, co1, co2);
+subplot(3,1,1)
+plot(t, co1, 'k', 'LineWidth', 4)
+title('N1')
+axis([0 3e-9 -0.75 2]);
+ylabel('Voltage')
+grid on
+
+subplot(3,1,2)
+plot(t, co2, 'k', 'LineWidth', 4)
+title('N2')
+axis([0 3e-9 -0.75 2]);
+ylabel('Voltage')
+grid on
+
+subplot(3,1,3)
+plot(t, out, 'k', 'LineWidth', 4)
+title('OUT')
+axis([0 3e-9 -0.75 2]);
+ylabel('Voltage')
+grid on
+% saveas(g, 'Latch Plots/NewPlots/DNULargeCharge.eps')
 
 % CLK D
 % subplot(3, 1, 1)

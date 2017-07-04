@@ -36,7 +36,28 @@ The proposed latch designs were implemented using the 1.05V 32nm PTM library \ci
 	\end{center}
 \end{table*}
 \raggedbottom
-We measured the propagation delay, average power consumption, critical charge and area of all designs. We then categorized the designs based on the number of errors they can tolerate and if they are DNU-robust. The delay for each design was calculated based on the difference between the time that input \textit{D} is at $0.5*V_{DD}$ and the output at the same point (D-\textgreater Q delay). The average power was calculated over a 200 ns duration when the latch is error-free. All latches tested do not have a critical charge in a conventional sense. Specifically, it is the number of injected pulses rather than the magnitude that greatly contributes to the SEU, DNU or TNU tolerance of the design. We attempted to find the charge value for this to occur through HSPICE simulation of injected charges up to 500 pC and found that the latches did not flip. Waveforms for the HRDNUT and TNU-Latch are given in Fig. [cite figures]. For the calculation of the area, the unit size transistor (UST) metric as adopted in \cite{DNCS} was used. This metric quantifies the expected area based the total transistor area divided by the unit size. For this case, the unit size was set to be 40 nm. Table \ref{table:rtable} gives the results of the simulation.
+
+We measured the propagation delay, average power consumption, critical charge and area of all designs. We then categorized the designs based on the number of errors they can tolerate and if they are DNU-robust. The delay for each design was calculated based on the difference between the time that input \textit{D} is at $0.5*V_{DD}$ and the output at the same point (D-\textgreater Q delay). The average power was calculated over a 200 ns duration when the latch is error-free. All latches tested do not have a critical charge in a conventional sense. Specifically, it is the number of injected pulses rather than the magnitude that greatly contributes to the SEU, DNU or TNU tolerance of the design. We attempted to find the charge value for this to occur through HSPICE simulation of injected charges up to 1 pC and found that the latches did not flip. Waveforms for the HRDNUT and TNU-Latch are given in Fig. [cite figures]. For the calculation of the area, the unit size transistor (UST) metric as adopted in \cite{DNCS} was used. This metric quantifies the expected area based the total transistor area divided by the unit size. For this case, the unit size was set to be 40 nm. Table \ref{table:rtable} gives the results of the simulation.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.55\linewidth]{Figures/DNULargeCharge}
+	%where an .eps filename suffix will be assumed under latex, 
+	%and a .pdf suffix will be assumed for pdflatex; or what has been declared
+	%via \DeclareGraphicsExtensions.
+	\caption{Simulation of the HRDNUT for a charge of 1 pC.}
+	\label{DNULarge_fig}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.75\linewidth]{Figures/largechargetnu}
+	%where an .eps filename suffix will be assumed under latex, 
+	%and a .pdf suffix will be assumed for pdflatex; or what has been declared
+	%via \DeclareGraphicsExtensions.
+	\caption{Simulation of the TNU-Latch for a charge of 1 pC.}
+	\label{TNULarge_fig}
+\end{figure}
 
 According to Table \ref{table:rtable}, the DNU robust designs tested were the two DONUT latches and the HRDNUT. In comparison to the improved DONUT-M latch, the HRDNUT had similar robustness with 11.3\% lower power consumption, 8.33\% fewer transistors and a 72.5\% lower propagation delay. Furthermore, when the HRDNUT was compared to the HSMUF with a keeper, it consumed substantially less power with a lower area and delay. Considering the compared latches, it can be observed that the HRDNUT is the best option for clock gating applications due to DNU robustness and lower power, delay and area overheads.
 
