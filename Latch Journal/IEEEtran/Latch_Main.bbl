@@ -33,6 +33,12 @@ J.~R. Schwank, M.~R. Shaneyfelt, and P.~E. Dodd, ``Radiation hardness assurance
   \emph{IEEE Transactions on Nuclear Science}, vol.~60, no.~3, pp. 2074--2100,
   June 2013.
 
+\bibitem{Clark2015}
+S.~Shambhulingaiah, C.~Lieb, and L.~T. Clark, ``Circuit simulation based
+  validation of flip-flop robustness to multiple node charge collection,''
+  \emph{IEEE Transactions on Nuclear Science}, vol.~62, no.~4, pp. 1577--1588,
+  Aug 2015.
+
 \bibitem{DICE}
 T.~Calin, M.~Nicolaidis, and R.~Velazco, ``Upset hardened memory design for
   submicron cmos technology,'' \emph{IEEE Transactions on Nuclear Science},

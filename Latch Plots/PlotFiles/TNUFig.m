@@ -27,7 +27,7 @@ ylabel('Voltage','FontWeight','bold','FontName','Times');
 % Uncomment the following line to preserve the X-limits of the axes
 xlim(subplot1,[0 3e-09]);
 % Uncomment the following line to preserve the Y-limits of the axes
-ylim(subplot1,[-1.5 2]);
+ylim(subplot1,[-1.5 3]);
 
 box(subplot1,'on');
 grid(subplot1,'on');
@@ -47,7 +47,7 @@ ylabel('Voltage','FontWeight','bold','FontName','Times');
 % Uncomment the following line to preserve the X-limits of the axes
 xlim(subplot2,[0 3e-09]);
 % Uncomment the following line to preserve the Y-limits of the axes
-ylim(subplot2,[-1.5 2]);
+ylim(subplot2,[-1.5 3]);
 
 box(subplot2,'on');
 grid(subplot2,'on');
@@ -59,7 +59,7 @@ hold(subplot3,'on');
 plot(X1,Y3, 'k', 'Parent',subplot3,'LineWidth',3);
 
 % Create title
-title('N6');
+title('N3');
 
 % Create ylabel
 ylabel('Voltage','FontWeight','bold','FontName','Times');
@@ -67,7 +67,7 @@ ylabel('Voltage','FontWeight','bold','FontName','Times');
 % Uncomment the following line to preserve the X-limits of the axes
 xlim(subplot3,[0 3e-09]);
 % Uncomment the following line to preserve the Y-limits of the axes
-ylim(subplot3,[-1.5 2]);
+ylim(subplot3,[-1.5 3]);
 
 box(subplot3,'on');
 grid(subplot3,'on');
