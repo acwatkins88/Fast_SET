@@ -1,10 +1,11 @@
 \section{Discussion of HRDNUT Latch} \label{Proposed}
 
-This section discusses the HRDNUT latch. The HRDNUT latch is based on a basic storage block given in Fig. \ref{Block} which contains a 3-input C-element connected to an inverter. This design is derived from a standard keeper element. In addition, the C-element contains two transistors driven by CLK and CLKB. The purpose of the transistors are to set the output to high impedance during the transparent mode. As demonstrated by the DONUT-M, the addition of these transistors drastically reduces the power and delay at a cost of area. Once in the transparent mode, the output is loaded using a pass-gate which allows $D$ to be set directly.     
+This section discusses the HRDNUT latch. The HRDNUT latch is based on a basic storage block given in Fig. \ref{Block} which contains a 3-input C-element connected to an inverter. The input to the block in Fig. \ref{Block} is used to load a state to the block. This design is derived from a standard keeper element. In addition, the C-element contains two transistors driven by CLK and CLKB. The purpose of the transistors are to set the output to high impedance during the transparent mode. As demonstrated by the DONUT-M, the addition of these transistors drastically reduces the power and delay at a cost of area. Once in the transparent mode, the output is loaded using a pass-gate which allows $D$ to be set directly.     
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.5\linewidth]{Figures/Block}
+	%\includegraphics[width=0.5\linewidth]{Figures/Block}
+	\includegraphics[trim = 0mm 5mm 0mm 5mm, clip, width=0.5\linewidth]{Figures/Block}
 	%where an .eps filename suffix will be assumed under latex, 
 	%and a .pdf suffix will be assumed for pdflatex; or what has been declared
 	%via \DeclareGraphicsExtensions.
@@ -12,7 +13,7 @@ This section discusses the HRDNUT latch. The HRDNUT latch is based on a basic st
 	\label{Block}
 \end{figure} 
 
-The basic block is then inter-connected to form the block based latch in Fig. \ref{BLatch}. To ensure that the nodes recover after an error, each C-element in the data loop is driven by the other two nodes. This type of configuration ensures that an error on a C-element output is not held. The latch in Fig. \ref{BLatch} is SEU tolerant and DNU tolerant when one error strikes the output C-element. While this latch is not DNU tolerant, it forms the basis for the DNU robust design. To demonstrate the functionality of the latch, we will first describe its operation during normal operation.
+The basic block is then inter-connected to form the block based latch in Fig. \ref{BLatch}. To ensure that the nodes recover after an error, each C-element in the data loop is driven by the other two nodes. This type of configuration ensures that an error on a C-element output is not held. The latch in Fig. \ref{BLatch} is SEU tolerant and DNU tolerant when at least one error strikes the output C-element. The latch is not DNU tolerant for all other DNU strike combinations. While this latch is not DNU tolerant or robust, it forms the basis for the DNU robust design. To demonstrate the functionality of the latch, we will first describe its operation during normal operation.
 
 In normal operation, the latch data is loaded during the transparent mode. In this mode the input clock \textit{CLK} is high and the inverted clock, \textit{CLKB}, is low. At this stage, nodes \textit{n1}, \textit{n2} and \textit{n3} are set to high impedance and each pass gate is activated to allow the value at \textit{D} to be loaded to the corresponding node. Once loaded, the data will propagate to the inputs of the output C-element. During the hold mode, \textit{CLK} is set to a low value and \textit{CLKB} is set high. The held data is reinforced by C-elements \textit{C1}, \textit{C2} and \textit{C3}. The output is then set since the inputs of the output C-element are unanimously held to a single value.
 
@@ -30,11 +31,12 @@ In the case of an SEU in an internal node on the block based latch, the error wi
 
 The HRDNUT latch is realized by modifying the block latch such that no C-element drives itself. More specifically, we first add additional resiliency to the latch by transforming the inverter on node \textit{n2} to a two-input C-element. The second input on this element is driven by the output. This allows for an error on \textit{n2} to be blocked by C-element \textit{C4}. Next, to add resiliency to nodes \textit{n1} and \textit{n3}, elements \textit{C5} and \textit{C6} are added. In addition to DNU tolerance, the C-elements allow for robustness of the latch by ensuring that \textit{C1}, \textit{C2} and \textit{C3} do not drive themselves. Note that on \textit{C5} and \textit{C6}, one NMOS and one PMOS transistor is driven by \textit{OUT} and \textit{n2}. This ensures that the latch will recover all nodes since the node \textit{n5} drives the PMOS on \textit{C7} while the output of \textit{C7} drives the PMOS  on \textit{C5}. The idea behind this is that \textit{n5} only affects C-element \textit{C7} if \textit{n5} is a low value. However, an error on \textit{OUT} does not prevent recovery since \textit{C7} is only affected if \textit{n5} is 0. \textit{C6} operates similarly but node \textit{OUT} drives a NMOS. A schematic of the HRDNUT is given in Fig. \ref{HRDNUT}.
 
-Now that we have explained the design process, we will evaluate the HRDNUT latch during normal operation as in \cite{Watkins2016}. When the positive clock signal (CLK) has a high value and the negative clock signal (CLKB) has a low value, the latch is in transparent mode. At this stage, the transistors connected to the clock signal in C-element \textit{C1} deactivates the PMOS and NMOS stacks thus causing the node \textit{n1} to be in a high impedance state. This, in effect, reduces data contention thus reducing delay and dynamic power consumption. Next, the data is loaded through the pass gates connected to nodes \textit{n1}, \textit{n22} and \textit{out}. Since the output node \textit{out} is loaded directly, the data to output delay is minimized and all nodes are set to their respective error free values. When CLK changes to a low value and CLKB to a high value, the latch moves into the hold mode. In this stage, the pass gates are deactivated and the state of the latch is held since each node is driven to the correct value using a C-element. Fig. \ref{NormOp} provides the waveforms of the CLK, D and OUT nodes for both the transparent and hold modes of operation.
+The error-free operation of the HRDNUT latch has been evaluated as in \cite{Watkins2016} and is given by the following. When the positive clock signal (CLK) has a high value and the negative clock signal (CLKB) has a low value, the latch is in transparent mode. At this stage, the transistors connected to the clock signal in C-element \textit{C1} deactivates the PMOS and NMOS stacks thus causing the node \textit{n1} to be in a high impedance state. This, in effect, reduces data contention thus reducing delay and dynamic power consumption. Next, the data is loaded through the pass gates connected to nodes \textit{n1}, \textit{n2} and \textit{out}. Since the output node \textit{out} is loaded directly, the data to output (D-\textgreater Q) delay is minimized and all nodes are set to their respective error free values. When CLK changes to a low value and CLKB to a high value, the latch moves into the hold mode. In this stage, the pass gates are deactivated and the state of the latch is held since each node is driven to the correct value using a C-element. Fig. \ref{NormOp} provides the waveforms of the CLK, D and OUT nodes for both the transparent and hold modes of operation.
 
 \begin{figure}[!htbp]
 	\centering
-	\includegraphics[width=0.80\linewidth]{Figures/defaultoperation.eps}
+	%\includegraphics[width=0.80\linewidth]{Figures/defaultoperation.eps}
+	\includegraphics[trim = 0mm 5mm 0mm 15mm, clip, width=0.80\linewidth]{Figures/defaultoperation.eps}
 	%where an .eps filename suffix will be assumed under latex, 
 	%and a .pdf suffix will be assumed for pdflatex; or what has been declared
 	%via \DeclareGraphicsExtensions.
@@ -46,7 +48,8 @@ In the case of an SEU, the HRDNUT retains the SEU resiliency of the block based 
 
 \begin{figure}[!tbp]
 	\centering
-	\includegraphics[width=\linewidth]{Figures/HRDNUT}
+	%\includegraphics[width=\linewidth]{Figures/HRDNUT}
+	\includegraphics[trim = 0mm 6mm 0mm 5mm, clip, width=\linewidth]{Figures/HRDNUT}
 	%where an .eps filename suffix will be assumed under latex, 
 	%and a .pdf suffix will be assumed for pdflatex; or what has been declared
 	%via \DeclareGraphicsExtensions.
@@ -61,7 +64,7 @@ Lastly, we will evaluate the latch in the case of a DNU. Note that unless otherw
 	
 	\item In the case of a DNU upsetting nodes \textit{n2} and \textit{out}, the error at \textit{n2} will propagate through C-element \textit{C4}. However, C-elements \textit{C1} and \textit{C3} will block the error and nodes \textit{n1}, \textit{n3}, \textit{n5} and \textit{n6} will hold their values thus driving node \textit{out} to the correct state. 
 
-	\item Consider when a DNU strikes nodes \textit{n1} and \textit{n5}. In this case, the error at \textit{n1} hits the output of C-element \textit{C1} which is propagated to \textit{C7}. The error on \textit{n5} is also propagated to C-element \textit{C7}. Since node \textit{n3} and the inputs of C-elements \textit{C1} and \textit{C5} are unaffected by an error, the output retains the error-free value and the latch fully recovers the previous state. The above analysis also applies to the node combination (\textit{n3}, \textit{n6}).
+	\item Consider when a DNU strikes nodes \textit{n1} and \textit{n5}. In this case, the error at \textit{n1} hits the output of C-element \textit{C1} which is propagated to \textit{C7}. The error on \textit{n5} is also propagated to C-element \textit{C7}. Since none of the inputs to C-element \textit{C1} are affected by the error, node \textit{n1} is driven to the error-free value which, in turn, drives \textit{C5} and \textit{n5} to the correct state. The above analysis also applies to the node combination (\textit{n3}, \textit{n6}).
 
 	\item In the case of a DNU hitting nodes \textit{n3} and \textit{n4}, the error at \textit{n4} is propagated to C-element \textit{C3} and the error at \textit{n3} is propagated to \textit{C7} and \textit{C6}. After the error on \textit{n3} subsides, \textit{C4} will drive node \textit{n4} and, due to the connection at \textit{C3}, node \textit{n3} back to the error-free value. The node combination (\textit{n1}, \textit{n1}) can be analyzed similarly. For the node combinations of (\textit{n4}, \textit{n5}) and (\textit{n4}, \textit{n6}), the latch will also recover the previous result since the inputs to \textit{C4} are unchanged. This implies that after the error occurs at \textit{n4}, the node will be driven back to the correct value thus also driving the nodes \textit{n5} or \textit{n6} back to the correct value.
 	
@@ -85,8 +88,8 @@ To evaluate the design, pulses were injected using the equation given in \cite{i
 \begin{figure}[!htbp]
 	\centering
 	\parbox{4cm}{
-		\includegraphics[width=1.15\linewidth]{Figures/WavePlots/CLKD.eps}
-		\caption{Waveforms for CLK and D.}
+		%\includegraphics[width=1.15\linewidth]{Figures/WavePlots/CLKD.eps}
+		\includegraphics[trim = 0mm 15mm 0mm 13mm, clip, width=0.70\linewidth]{Figures/WavePlots/CLKD.eps}		\caption{Waveforms for CLK and D.}
 		\label{fig:CLK}}
 	\qquad
 	\begin{minipage}{4cm}

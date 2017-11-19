@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.16)  1 OCT 2017 18:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2016.4.16)  25 OCT 2017 19:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -375,74 +375,65 @@ LaTeX Font Info:    Font shape `OT1/phv/bx/sc' in size <11.04124> not available
 File: Figures/C_ele.pdf Graphic file (type pdf)
 
 <use Figures/C_ele.pdf>
-Package pdftex.def Info: Figures/C_ele.pdf used on input line 7.
-(pdftex.def)             Requested size: 139.12051pt x 133.82813pt.
- <Figures/DICE.pdf, id=14, 246.9225pt x 197.23688pt>
+Package pdftex.def Info: Figures/C_ele.pdf used on input line 8.
+(pdftex.def)             Requested size: 139.12051pt x 118.5363pt.
+ <Figures/DICE.pdf, id=15, 246.9225pt x 197.23688pt>
 File: Figures/DICE.pdf Graphic file (type pdf)
 
 <use Figures/DICE.pdf>
-Package pdftex.def Info: Figures/DICE.pdf used on input line 17.
-(pdftex.def)             Requested size: 202.35675pt x 161.63594pt.
- <Figures/DNCS.pdf, id=15, 231.86626pt x 164.11313pt>
+Package pdftex.def Info: Figures/DICE.pdf used on input line 19.
+(pdftex.def)             Requested size: 202.35675pt x 133.65549pt.
+ <Figures/DNCS.pdf, id=17, 231.86626pt x 164.11313pt>
 File: Figures/DNCS.pdf Graphic file (type pdf)
 
 <use Figures/DNCS.pdf>
-Package pdftex.def Info: Figures/DNCS.pdf used on input line 27.
-(pdftex.def)             Requested size: 202.35675pt x 143.228pt.
- [2 <./Figures/C_ele.pdf> <./Figures/DICE.pdf
-
-pdfTeX warning: pdflatex.exe (file ./Figures/DICE.pdf): PDF inclusion: multiple
- pdfs with page group included in a single page
-> <./Figures/DNCS.pdf
-
-pdfTeX warning: pdflatex.exe (file ./Figures/DNCS.pdf): PDF inclusion: multiple
- pdfs with page group included in a single page
->] <Figures/HSMUF.pdf, id=37, 450.9347pt x 250.68657pt>
+Package pdftex.def Info: Figures/DNCS.pdf used on input line 30.
+(pdftex.def)             Requested size: 202.35675pt x 110.94666pt.
+ [2 <./Figures/C_ele.pdf> <./Figures/DICE.pdf> <./Figures/DNCS.pdf>] <Figures/H
+SMUF.pdf, id=45, 450.9347pt x 250.68657pt>
 File: Figures/HSMUF.pdf Graphic file (type pdf)
 
 <use Figures/HSMUF.pdf>
-Package pdftex.def Info: Figures/HSMUF.pdf used on input line 41.
-(pdftex.def)             Requested size: 252.94499pt x 140.62067pt.
- <Figures/DONUT.pdf, id=38, 333.49594pt x 262.73157pt>
+Package pdftex.def Info: Figures/HSMUF.pdf used on input line 45.
+(pdftex.def)             Requested size: 252.94499pt x 124.66034pt.
+ <Figures/DONUT.pdf, id=47, 333.49594pt x 262.73157pt>
 File: Figures/DONUT.pdf Graphic file (type pdf)
 
 <use Figures/DONUT.pdf>
-Package pdftex.def Info: Figures/DONUT.pdf used on input line 55.
-(pdftex.def)             Requested size: 252.94499pt x 199.27716pt.
+Package pdftex.def Info: Figures/DONUT.pdf used on input line 60.
+(pdftex.def)             Requested size: 252.94499pt x 158.27348pt.
 
-<Figures/ModDONUT.pdf, id=39, 340.27126pt x 286.82156pt>
+<Figures/ModDONUT.pdf, id=49, 340.27126pt x 286.82156pt>
 File: Figures/ModDONUT.pdf Graphic file (type pdf)
 
 <use Figures/ModDONUT.pdf>
-Package pdftex.def Info: Figures/ModDONUT.pdf used on input line 65.
-(pdftex.def)             Requested size: 252.94499pt x 213.21184pt.
-) (./DNURobust.tex [3 <./Figures/HSMUF.pdf> <./Figures/DONUT.pdf
-
-pdfTeX warning: pdflatex.exe (file ./Figures/DONUT.pdf): PDF inclusion: multipl
-e pdfs with page group included in a single page
-> <./Figures/ModDONUT.pdf
-
-pdfTeX warning: pdflatex.exe (file ./Figures/ModDONUT.pdf): PDF inclusion: mult
-iple pdfs with page group included in a single page
->]
+Package pdftex.def Info: Figures/ModDONUT.pdf used on input line 71.
+(pdftex.def)             Requested size: 252.94499pt x 187.83109pt.
+) (./DNURobust.tex
 LaTeX Font Info:    Calculating math sizes for size <9.53561> on input line 3.
- <Figures/Block.pdf, id=63, 242.40562pt x 222.8325pt>
+
+<Figures/Block.pdf, id=51, 242.40562pt x 222.8325pt>
 File: Figures/Block.pdf Graphic file (type pdf)
+ <use Figures/Block.pdf>
+Package pdftex.def Info: Figures/Block.pdf used on input line 8.
+(pdftex.def)             Requested size: 126.47249pt x 101.4162pt.
 
-<use Figures/Block.pdf>
-Package pdftex.def Info: Figures/Block.pdf used on input line 7.
-(pdftex.def)             Requested size: 126.47249pt x 116.26118pt.
- <Figures/BLatch.pdf, id=64, 269.50688pt x 615.0478pt>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[3 <./Figures/HSMUF.pdf> <./Figures/DONUT.pdf> <./Figures/ModDONUT.pdf>]
+<Figures/BLatch.pdf, id=82, 269.50688pt x 615.0478pt>
 File: Figures/BLatch.pdf Graphic file (type pdf)
-
-<use Figures/BLatch.pdf>
-Package pdftex.def Info: Figures/BLatch.pdf used on input line 23.
+ <use Figures/BLatch.pdf>
+Package pdftex.def Info: Figures/BLatch.pdf used on input line 24.
 (pdftex.def)             Requested size: 139.12051pt x 317.48987pt.
- [4 <./Figures/Block.pdf> <./Figures/BLatch.pdf
+LaTeX Font Info:    Try loading font information for OML+ppl on input line 34.
 
-pdfTeX warning: pdflatex.exe (file ./Figures/BLatch.pdf): PDF inclusion: multip
-le pdfs with page group included in a single page
->]
+(e:/texlive/2015/texmf-dist/tex/latex/psnfss/omlppl.fd
+File: omlppl.fd 
+)
+LaTeX Font Info:    Font shape `OML/ppl/m/n' in size <9.53561> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 34.
 Package epstopdf Info: Source file: <Figures/defaultoperation.eps>
 (epstopdf)                    date: 2017-02-20 12:06:01
 (epstopdf)                    size: 47893 bytes
@@ -452,27 +443,28 @@ pdf>
 (epstopdf)                    size: 10623 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/defaultoperation-e
 ps-converted-to.pdf Figures/defaultoperation.eps>
-(epstopdf)             \includegraphics on input line 37.
+(epstopdf)             \includegraphics on input line 39.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/defaultoperation-eps-converted-to.pdf, id=82, 903.375pt x 861.2175pt>
+<Figures/defaultoperation-eps-converted-to.pdf, id=83, 903.375pt x 861.2175pt>
 File: Figures/defaultoperation-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/defaultoperation-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/defaultoperation-eps-converted-to.pdf used on 
-input line 37.
-(pdftex.def)             Requested size: 202.35675pt x 192.91139pt.
+input line 39.
+(pdftex.def)             Requested size: 202.35675pt x 180.16466pt.
 
-<Figures/HRDNUT.pdf, id=83, 449.88077pt x 614.89723pt>
+<Figures/HRDNUT.pdf, id=85, 449.88077pt x 614.89723pt>
 File: Figures/HRDNUT.pdf Graphic file (type pdf)
 
 <use Figures/HRDNUT.pdf>
-Package pdftex.def Info: Figures/HRDNUT.pdf used on input line 49.
-(pdftex.def)             Requested size: 252.94499pt x 345.72873pt.
+Package pdftex.def Info: Figures/HRDNUT.pdf used on input line 52.
+(pdftex.def)             Requested size: 252.94499pt x 328.1313pt.
+ [4 <./Figures/Block.pdf> <./Figures/BLatch.pdf
 
-Underfull \vbox (badness 2103) has occurred while \output is active []
-
- [5 <./Figures/defaultoperation-eps-converted-to.pdf> <./Figures/HRDNUT.pdf>]
+pdfTeX warning: pdflatex.exe (file ./Figures/BLatch.pdf): PDF inclusion: multip
+le pdfs with page group included in a single page
+>] [5 <./Figures/defaultoperation-eps-converted-to.pdf> <./Figures/HRDNUT.pdf>]
 Package epstopdf Info: Source file: <Figures/WavePlots/CLKD.eps>
 (epstopdf)                    date: 2017-02-20 12:06:01
 (epstopdf)                    size: 30988 bytes
@@ -482,23 +474,17 @@ f>
 (epstopdf)                    size: 7292 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/CLKD-eps
 -converted-to.pdf Figures/WavePlots/CLKD.eps>
-(epstopdf)             \includegraphics on input line 90.
+(epstopdf)             \includegraphics on input line 93.
 Package epstopdf Info: Output file is already uptodate.
-
-<Figures/WavePlots/CLKD-eps-converted-to.pdf, id=101, 540.0175pt x 405.515pt>
+<Figures/WavePlots/CLKD-eps-converted-to.pdf, id=124, 540.0175pt x 405.515pt>
 File: Figures/WavePlots/CLKD-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/CLKD-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/WavePlots/CLKD-eps-converted-to.pdf used on in
-put line 90.
-(pdftex.def)             Requested size: 130.88197pt x 98.27847pt.
+put line 93.
+(pdftex.def)             Requested size: 79.66736pt x 48.06952pt.
 
-Overfull \hbox (17.07095pt too wide) in paragraph at lines 90--90
-[][] 
- []
-
-
-Underfull \hbox (badness 3612) in paragraph at lines 90--90
+Underfull \hbox (badness 3612) in paragraph at lines 93--93
 []\OT1/ppl/m/n/9.53561 Fig. 11: |Wave-forms for
  []
 
@@ -511,14 +497,14 @@ f>
 (epstopdf)                    size: 15275 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n1n2-eps
 -converted-to.pdf Figures/WavePlots/n1n2.eps>
-(epstopdf)             \includegraphics on input line 93.
+(epstopdf)             \includegraphics on input line 96.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/WavePlots/n1n2-eps-converted-to.pdf, id=102, 516.93124pt x 417.56pt>
+<Figures/WavePlots/n1n2-eps-converted-to.pdf, id=126, 516.93124pt x 417.56pt>
 File: Figures/WavePlots/n1n2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n1n2-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/WavePlots/n1n2-eps-converted-to.pdf used on in
-put line 93.
+put line 96.
 (pdftex.def)             Requested size: 113.81102pt x 91.92719pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n2out.eps>
 (epstopdf)                    date: 2017-02-20 12:06:01
@@ -529,15 +515,15 @@ df>
 (epstopdf)                    size: 15678 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n2out-ep
 s-converted-to.pdf Figures/WavePlots/n2out.eps>
-(epstopdf)             \includegraphics on input line 104.
+(epstopdf)             \includegraphics on input line 107.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n2out-eps-converted-to.pdf, id=103, 516.93124pt x 417.56pt>
+<Figures/WavePlots/n2out-eps-converted-to.pdf, id=127, 516.93124pt x 417.56pt>
 File: Figures/WavePlots/n2out-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n2out-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/WavePlots/n2out-eps-converted-to.pdf used on i
-nput line 104.
+nput line 107.
 (pdftex.def)             Requested size: 113.81102pt x 91.92719pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n1n5.eps>
 (epstopdf)                    date: 2017-02-20 12:06:01
@@ -548,15 +534,15 @@ f>
 (epstopdf)                    size: 15035 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n1n5-eps
 -converted-to.pdf Figures/WavePlots/n1n5.eps>
-(epstopdf)             \includegraphics on input line 107.
+(epstopdf)             \includegraphics on input line 110.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n1n5-eps-converted-to.pdf, id=104, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n1n5-eps-converted-to.pdf, id=128, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n1n5-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n1n5-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/WavePlots/n1n5-eps-converted-to.pdf used on in
-put line 107.
+put line 110.
 (pdftex.def)             Requested size: 113.81102pt x 92.11195pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n3n4.eps>
 (epstopdf)                    date: 2017-02-20 12:06:01
@@ -567,15 +553,15 @@ f>
 (epstopdf)                    size: 15345 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n3n4-eps
 -converted-to.pdf Figures/WavePlots/n3n4.eps>
-(epstopdf)             \includegraphics on input line 118.
+(epstopdf)             \includegraphics on input line 121.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n3n4-eps-converted-to.pdf, id=105, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n3n4-eps-converted-to.pdf, id=129, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n3n4-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n3n4-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/WavePlots/n3n4-eps-converted-to.pdf used on in
-put line 118.
+put line 121.
 (pdftex.def)             Requested size: 113.81102pt x 92.11195pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n4out.eps>
 (epstopdf)                    date: 2017-02-20 12:06:01
@@ -586,15 +572,15 @@ df>
 (epstopdf)                    size: 15279 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n4out-ep
 s-converted-to.pdf Figures/WavePlots/n4out.eps>
-(epstopdf)             \includegraphics on input line 121.
+(epstopdf)             \includegraphics on input line 124.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n4out-eps-converted-to.pdf, id=106, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n4out-eps-converted-to.pdf, id=130, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n4out-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n4out-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/WavePlots/n4out-eps-converted-to.pdf used on i
-nput line 121.
+nput line 124.
 (pdftex.def)             Requested size: 113.81102pt x 92.11195pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n1n3.eps>
 (epstopdf)                    date: 2017-02-20 12:06:01
@@ -605,15 +591,15 @@ f>
 (epstopdf)                    size: 15501 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n1n3-eps
 -converted-to.pdf Figures/WavePlots/n1n3.eps>
-(epstopdf)             \includegraphics on input line 132.
+(epstopdf)             \includegraphics on input line 135.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n1n3-eps-converted-to.pdf, id=107, 516.93124pt x 417.56pt>
+<Figures/WavePlots/n1n3-eps-converted-to.pdf, id=131, 516.93124pt x 417.56pt>
 File: Figures/WavePlots/n1n3-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n1n3-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/WavePlots/n1n3-eps-converted-to.pdf used on in
-put line 132.
+put line 135.
 (pdftex.def)             Requested size: 113.81102pt x 91.92719pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n1n6.eps>
 (epstopdf)                    date: 2017-02-20 12:06:01
@@ -624,15 +610,15 @@ f>
 (epstopdf)                    size: 15522 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n1n6-eps
 -converted-to.pdf Figures/WavePlots/n1n6.eps>
-(epstopdf)             \includegraphics on input line 135.
+(epstopdf)             \includegraphics on input line 138.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n1n6-eps-converted-to.pdf, id=108, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n1n6-eps-converted-to.pdf, id=132, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n1n6-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n1n6-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/WavePlots/n1n6-eps-converted-to.pdf used on in
-put line 135.
+put line 138.
 (pdftex.def)             Requested size: 113.81102pt x 92.11195pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n5out.eps>
 (epstopdf)                    date: 2017-02-20 12:06:01
@@ -643,15 +629,15 @@ df>
 (epstopdf)                    size: 15305 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n5out-ep
 s-converted-to.pdf Figures/WavePlots/n5out.eps>
-(epstopdf)             \includegraphics on input line 146.
+(epstopdf)             \includegraphics on input line 149.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n5out-eps-converted-to.pdf, id=109, 515.9275pt x 417.56pt>
+<Figures/WavePlots/n5out-eps-converted-to.pdf, id=133, 515.9275pt x 417.56pt>
 File: Figures/WavePlots/n5out-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n5out-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/WavePlots/n5out-eps-converted-to.pdf used on i
-nput line 146.
+nput line 149.
 (pdftex.def)             Requested size: 113.81102pt x 92.11195pt.
 Package epstopdf Info: Source file: <Figures/WavePlots/n3out.eps>
 (epstopdf)                    date: 2017-02-20 12:06:01
@@ -662,15 +648,15 @@ df>
 (epstopdf)                    size: 15296 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/WavePlots/n3out-ep
 s-converted-to.pdf Figures/WavePlots/n3out.eps>
-(epstopdf)             \includegraphics on input line 149.
+(epstopdf)             \includegraphics on input line 152.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/WavePlots/n3out-eps-converted-to.pdf, id=110, 516.93124pt x 417.56pt>
+<Figures/WavePlots/n3out-eps-converted-to.pdf, id=134, 516.93124pt x 417.56pt>
 File: Figures/WavePlots/n3out-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/WavePlots/n3out-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/WavePlots/n3out-eps-converted-to.pdf used on i
-nput line 149.
+nput line 152.
 (pdftex.def)             Requested size: 113.81102pt x 91.92719pt.
 ) (./TNULatch.tex [6 <./Figures/WavePlots/CLKD-eps-converted-to.pdf> <./Figures
 /WavePlots/n1n2-eps-converted-to.pdf> <./Figures/WavePlots/n2out-eps-converted-
@@ -678,7 +664,7 @@ to.pdf> <./Figures/WavePlots/n1n5-eps-converted-to.pdf> <./Figures/WavePlots/n3
 n4-eps-converted-to.pdf> <./Figures/WavePlots/n4out-eps-converted-to.pdf> <./Fi
 gures/WavePlots/n1n3-eps-converted-to.pdf> <./Figures/WavePlots/n1n6-eps-conver
 ted-to.pdf> <./Figures/WavePlots/n5out-eps-converted-to.pdf> <./Figures/WavePlo
-ts/n3out-eps-converted-to.pdf>] <Figures/TNULatch.pdf, id=183, 584.93532pt x 12
+ts/n3out-eps-converted-to.pdf>] <Figures/TNULatch.pdf, id=208, 584.93532pt x 12
 22.5675pt>
 File: Figures/TNULatch.pdf Graphic file (type pdf)
 
@@ -686,7 +672,7 @@ File: Figures/TNULatch.pdf Graphic file (type pdf)
 Package pdftex.def Info: Figures/TNULatch.pdf used on input line 9.
 (pdftex.def)             Requested size: 252.94499pt x 528.67856pt.
 
-Underfull \vbox (badness 5446) has occurred while \output is active []
+Underfull \vbox (badness 2042) has occurred while \output is active []
 
  [7 <./Figures/TNULatch.pdf>]
 Package epstopdf Info: Source file: <Figures/TNUPlots/case1.eps>
@@ -701,7 +687,7 @@ f>
 (epstopdf)             \includegraphics on input line 43.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/TNUPlots/case1-eps-converted-to.pdf, id=196, 476.78125pt x 575.14874pt
+<Figures/TNUPlots/case1-eps-converted-to.pdf, id=221, 476.78125pt x 575.14874pt
 >
 File: Figures/TNUPlots/case1-eps-converted-to.pdf Graphic file (type pdf)
  <use Figures/TNUPlots/case1-eps-converted-to.pdf>
@@ -724,7 +710,7 @@ f>
 -converted-to.pdf Figures/TNUPlots/case2.eps>
 (epstopdf)             \includegraphics on input line 46.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/TNUPlots/case2-eps-converted-to.pdf, id=197, 449.68pt x 507.8975pt>
+<Figures/TNUPlots/case2-eps-converted-to.pdf, id=222, 449.68pt x 507.8975pt>
 File: Figures/TNUPlots/case2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/TNUPlots/case2-eps-converted-to.pdf>
@@ -743,7 +729,7 @@ f>
 (epstopdf)             \includegraphics on input line 57.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/TNUPlots/case3-eps-converted-to.pdf, id=198, 476.78125pt x 575.14874pt
+<Figures/TNUPlots/case3-eps-converted-to.pdf, id=223, 476.78125pt x 575.14874pt
 >
 File: Figures/TNUPlots/case3-eps-converted-to.pdf Graphic file (type pdf)
  <use Figures/TNUPlots/case3-eps-converted-to.pdf>
@@ -762,7 +748,7 @@ f>
 (epstopdf)             \includegraphics on input line 60.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/TNUPlots/case4-eps-converted-to.pdf, id=199, 476.78125pt x 575.14874pt
+<Figures/TNUPlots/case4-eps-converted-to.pdf, id=224, 476.78125pt x 575.14874pt
 >
 File: Figures/TNUPlots/case4-eps-converted-to.pdf Graphic file (type pdf)
  <use Figures/TNUPlots/case4-eps-converted-to.pdf>
@@ -781,7 +767,7 @@ f>
 (epstopdf)             \includegraphics on input line 71.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/TNUPlots/case5-eps-converted-to.pdf, id=200, 449.68pt x 507.8975pt>
+<Figures/TNUPlots/case5-eps-converted-to.pdf, id=225, 449.68pt x 507.8975pt>
 File: Figures/TNUPlots/case5-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/TNUPlots/case5-eps-converted-to.pdf>
@@ -800,7 +786,7 @@ f>
 (epstopdf)             \includegraphics on input line 74.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/TNUPlots/case6-eps-converted-to.pdf, id=201, 449.68pt x 507.8975pt>
+<Figures/TNUPlots/case6-eps-converted-to.pdf, id=226, 449.68pt x 507.8975pt>
 File: Figures/TNUPlots/case6-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/TNUPlots/case6-eps-converted-to.pdf>
@@ -827,10 +813,6 @@ Overfull \hbox (2.87448pt too wide) in paragraph at lines 11--11
 []|\OT1/ppl/m/n/8.03 Power
  []
 
-LaTeX Font Info:    Try loading font information for OML+ppl on input line 11.
-(e:/texlive/2015/texmf-dist/tex/latex/psnfss/omlppl.fd
-File: omlppl.fd 
-)
 LaTeX Font Info:    Font shape `OML/ppl/m/n' in size <8.03> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 11.
 
@@ -878,8 +860,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--25
 []|\OT1/ppl/m/n/8.03 HSMUF
  []
 
-LaTeX Font Info:    Font shape `OML/ppl/m/n' in size <9.53561> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 40.
 [8 <./Figures/TNUPlots/case1-eps-converted-to.pdf> <./Figures/TNUPlots/case2-ep
 s-converted-to.pdf> <./Figures/TNUPlots/case3-eps-converted-to.pdf> <./Figures/
 TNUPlots/case4-eps-converted-to.pdf> <./Figures/TNUPlots/case5-eps-converted-to
@@ -893,15 +873,15 @@ f>
 (epstopdf)                    size: 24595 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/DNULargeCharge-eps
 -converted-to.pdf Figures/DNULargeCharge.eps>
-(epstopdf)             \includegraphics on input line 44.
+(epstopdf)             \includegraphics on input line 45.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/DNULargeCharge-eps-converted-to.pdf, id=277, 423.5825pt x 496.85625pt>
+<Figures/DNULargeCharge-eps-converted-to.pdf, id=302, 423.5825pt x 496.85625pt>
 File: Figures/DNULargeCharge-eps-converted-to.pdf Graphic file (type pdf)
 <use Figures/DNULargeCharge-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/DNULargeCharge-eps-converted-to.pdf used on in
-put line 44.
-(pdftex.def)             Requested size: 139.12051pt x 163.18217pt.
+put line 45.
+(pdftex.def)             Requested size: 139.12051pt x 145.42722pt.
 Package epstopdf Info: Source file: <Figures/largechargetnu.eps>
 (epstopdf)                    date: 2017-07-05 18:49:34
 (epstopdf)                    size: 206426 bytes
@@ -911,19 +891,19 @@ f>
 (epstopdf)                    size: 35828 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figures/largechargetnu-eps
 -converted-to.pdf Figures/largechargetnu.eps>
-(epstopdf)             \includegraphics on input line 54.
+(epstopdf)             \includegraphics on input line 56.
 Package epstopdf Info: Output file is already uptodate.
 
-<Figures/largechargetnu-eps-converted-to.pdf, id=278, 553.06625pt x 666.49pt>
+<Figures/largechargetnu-eps-converted-to.pdf, id=304, 553.06625pt x 666.49pt>
 File: Figures/largechargetnu-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Figures/largechargetnu-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/largechargetnu-eps-converted-to.pdf used on in
-put line 54.
-(pdftex.def)             Requested size: 189.70874pt x 228.60706pt.
+put line 56.
+(pdftex.def)             Requested size: 177.06071pt x 186.95667pt.
 ) (./Conclusion.tex [9 <./Figures/DNULargeCharge-eps-converted-to.pdf> <./Figur
 es/largechargetnu-eps-converted-to.pdf>]) (./Latch_Main.bbl)
-<Bio/AdamPhoto.jpg, id=304, 1016.79875pt x 1355.0625pt>
+<Bio/AdamPhoto.jpg, id=334, 1016.79875pt x 1355.0625pt>
 File: Bio/AdamPhoto.jpg Graphic file (type jpg)
 
 <use Bio/AdamPhoto.jpg>
@@ -934,7 +914,7 @@ File: Bio/AdamPhoto.jpg Graphic file (type jpg)
 Package pdftex.def Info: Bio/AdamPhoto.jpg used on input line 685.
 (pdftex.def)             Requested size: 67.78537pt x 90.33589pt.
 
-<Bio/Professional_photo_Tragoudas.jpg, id=307, 361.35pt x 505.89pt>
+<Bio/Professional_photo_Tragoudas.jpg, id=337, 361.35pt x 505.89pt>
 File: Bio/Professional_photo_Tragoudas.jpg Graphic file (type jpg)
 
 <use Bio/Professional_photo_Tragoudas.jpg>
@@ -968,7 +948,7 @@ Here is how much of TeX's memory you used:
  7994 multiletter control sequences out of 15000+600000
  46578 words of font info for 102 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 42i,11n,46p,1432b,331s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,11n,46p,1848b,317s stack positions out of 5000i,500n,10000p,200000b,80000s
 {e:/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}<e:
 /texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><e:/texlive/
 2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><e:/texlive/2015/texm
@@ -985,10 +965,10 @@ vetic/uhvr8a.pfb><e:/texlive/2015/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.p
 fb><e:/texlive/2015/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb><e:/texlive/
 2015/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb><e:/texlive/2015/texmf-dis
 t/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on Latch_Main.pdf (10 pages, 5020816 bytes).
+Output written on Latch_Main.pdf (10 pages, 5024824 bytes).
 PDF statistics:
- 371 PDF objects out of 1000 (max. 8388607)
- 260 compressed objects within 3 object streams
+ 400 PDF objects out of 1000 (max. 8388607)
+ 276 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 180 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 252 words of extra memory for PDF output out of 10000 (max. 10000000)
 
